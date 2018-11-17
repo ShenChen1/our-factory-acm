@@ -9,6 +9,7 @@
 
 #define infof(fmt, arg...) //printf(fmt, ##arg)
 #define debugf(fmt, arg...) //printf(fmt, ##arg)
+#define errorf(fmt, arg...) //printf(fmt, ##arg)
 
 typedef enum
 {
@@ -40,12 +41,7 @@ typedef struct
 
 } map_t;
 
-
 static map_t s_map = {0};
-
-static void do_cleanup()
-{
-}
 
 static int get_m_and_n(char *str)
 {
@@ -54,7 +50,7 @@ static int get_m_and_n(char *str)
 	ret = sscanf(str, "%d, %d", &s_map.m, &s_map.n);
 	if (ret < 0)
 	{
-		printf("sscanf err\n");
+		errorf("sscanf err\n");
 		return -1;
 	}
 	
@@ -85,13 +81,13 @@ static int get_nline_point(int n, char *str)
 static int prase_file(char *path)
 {
 	int i = 0;
-	FILE *file;
-	char buff[512];
+	FILE *file = NULL;
+	char buff[512] = {0};
 
 	file = fopen(path , "r");
 	if (file == NULL)
 	{
-		printf("fopen err\n");
+		errorf("fopen err\n");
 		return -1;
 	}
 
@@ -103,8 +99,10 @@ static int prase_file(char *path)
 
 	while (NULL != fgets(buff, sizeof(buff), file))
 	{
-		//info("read:%s", buff);
-		get_nline_point(i++, buff);
+		infof("read:%s", buff);
+		get_nline_point(i, buff);
+
+		i++;
 	}
 	assert(i == s_map.n);
 
@@ -116,7 +114,8 @@ static int prase_file(char *path)
 
 static int generate_map()
 {
-	int i, j;
+	int i;
+	int j;
 
 	for (j = 0; j < s_map.n; j++)
 	{
@@ -207,7 +206,7 @@ static void do_process()
 {
 	generate_map();
 
-	printf("%d\n", do_calc(0, s_map.point[0]));
+	errorf("%d\n", do_calc(0, s_map.point[0]));
 }
 
 int main(int argc, char **argv)
@@ -220,7 +219,6 @@ int main(int argc, char **argv)
 	prase_file(argv[1]);
 
 	do_process();
-	do_cleanup();
 
 	return 0;
 }

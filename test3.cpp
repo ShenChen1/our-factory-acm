@@ -5,40 +5,29 @@
 
 #define infof(fmt, arg...) //printf(fmt, ##arg)
 #define debugf(fmt, arg...) //printf(fmt, ##arg)
+#define errorf(fmt, arg...) //printf(fmt, ##arg)
 
-#define NoEdge -1
+#define NoEdge 		(-1)
+#define MAX_USER	(10)
+#define MAX_LINE	(20)
 
 typedef struct
 {
 	int num;
-	int *list;
+	int list[MAX_LINE];
 } user_t;
-
 
 typedef struct
 {
 	int user_num;
-	user_t *usrs;
+	user_t usrs[MAX_USER];
 
 	int line_num;
-	int *lines;
+	int lines[MAX_LINE];
 
 } testline_t;
 
-
 static testline_t s_testline = {0};
-
-static void do_cleanup()
-{
-	int i = 0;
-	
-	free(s_testline.lines);
-	
-	for (i = 0; i < s_testline.user_num; i++)
-	{
-		free(s_testline.usrs[i].list);
-	}
-}
 
 static int get_users_and_lines(char *str)
 {
@@ -50,28 +39,20 @@ static int get_users_and_lines(char *str)
 	ret = sscanf(str, "%d, %d", &s_testline.line_num, &s_testline.user_num);
 	if (ret < 0)
 	{
-		printf("sscanf err\n");
+		errorf("sscanf err\n");
 		return -1;
 	}
 	
 	infof("lines:%d users:%d\n", s_testline.line_num, s_testline.user_num);
-	
-	s_testline.lines = (int *)malloc(s_testline.line_num * sizeof(int));
-	assert(s_testline.lines);
 	
 	for (i = 0; i < s_testline.line_num; i++)
 	{
 		s_testline.lines[i] = i + 1;
 	}
 	
-	s_testline.usrs = (user_t *)malloc(s_testline.user_num * sizeof(user_t));
-	assert(s_testline.usrs);
-	
 	for (i = 0; i < s_testline.user_num; i++)
 	{
 		s_testline.usrs[i].num = 0;
-		s_testline.usrs[i].list = (int *)malloc(20 * sizeof(int));
-		assert(s_testline.usrs[i].list);
 	}
 
 	return 0;
@@ -114,7 +95,7 @@ static int prase_file(char *path)
 	file = fopen(path , "r");
 	if (file == NULL)
 	{
-		printf("fopen err\n");
+		errorf("fopen err\n");
 		return -1;
 	}
 
@@ -126,8 +107,10 @@ static int prase_file(char *path)
 
 	while (NULL != fgets(buff, sizeof(buff), file))
 	{
-		//debugf("read:%s", buff);
-		get_oneuser_list(i++, buff);
+		infof("read:%s", buff);
+		get_oneuser_list(i, buff);
+		
+		i++;
 	}
 	assert(i == s_testline.user_num);
 
@@ -187,13 +170,9 @@ static int do_extract(int user, int *map)
 
 static void do_process()
 {
-	int *map = (int *)malloc(s_testline.line_num * sizeof(int));
-	assert(map);
-	memset(map, 0, s_testline.line_num * sizeof(int));
-	
+	int map[MAX_LINE] = {0};
+
 	printf("%d\n", do_extract(0, map));
-	
-	free(map);
 
 }
 
@@ -207,7 +186,6 @@ int main(int argc, char **argv)
 	prase_file(argv[1]);
 
 	do_process();
-	do_cleanup();
 
 	return 0;
 }

@@ -5,45 +5,36 @@
 
 #define infof(fmt, arg...) //printf(fmt, ##arg)
 #define debugf(fmt, arg...) //printf(fmt, ##arg)
+#define errorf(fmt, arg...) //printf(fmt, ##arg)
+
+#define MAX		(32)
 
 typedef struct
 {
 	int num;
-	int *letters;
+	int letters[MAX];
 } number_t;
 
 typedef struct
 {
+	char opt;
 	number_t x;
 	number_t y;
 	number_t z;
-	char opt;
 
 } equation_t;
 
 typedef struct
 {
 	int num;
-	char *letters;
-	int *number;
-	int *notzero;
+	char letters[MAX];
+	int number[MAX];
+	int notzero[MAX];
 
 } letters_t;
 
 static letters_t s_letters = {0};
-static equation_t s_equation = {};
-
-static int do_cleanup()
-{
-	free(s_letters.letters);
-	free(s_letters.number);
-	free(s_letters.notzero);
-	free(s_equation.x.letters);
-	free(s_equation.y.letters);
-	free(s_equation.z.letters);
-	
-	return 0;
-}
+static equation_t s_equation = {0};
 
 //get number char from string
 static int get_number(number_t *number, char *buf, int len)
@@ -51,11 +42,9 @@ static int get_number(number_t *number, char *buf, int len)
 	int i = 0;
 	
 	number->num = len;
-	number->letters = (int *)malloc(len*sizeof(int));
-	assert(number->letters);
 	for (i = 0; i < number->num; i++)
 	{
-		number->letters[i] = strchr(s_letters.letters, buf[-i-1]) - s_letters.letters;
+		number->letters[i] = strchr(s_letters.letters, buf[len-i-1]) - s_letters.letters;
 		infof("%d:%c\n", i, s_letters.letters[number->letters[i]]);
 		//the highest positon is not zero
 		if (i == number->num-1)
@@ -76,15 +65,9 @@ static int get_equation(char *buf, int len)
 
 	//init data
 	s_letters.num = 0;
-	s_letters.letters = (char *)malloc(len*sizeof(char));
-	assert(s_letters.letters);
-	s_letters.number = (int *)malloc(len*sizeof(int));
-	assert(s_letters.number);
-	s_letters.notzero = (int *)malloc(len*sizeof(int));
-	assert(s_letters.notzero);
-	memset(s_letters.letters, 0, len*sizeof(char));
-	memset(s_letters.number, 0, len*sizeof(char));
-	memset(s_letters.notzero, 0, len*sizeof(char));
+	memset(s_letters.letters, 0, sizeof(s_letters.letters));
+	memset(s_letters.number, 0, sizeof(s_letters.number));
+	memset(s_letters.notzero, 0, sizeof(s_letters.notzero));
 
 	//find all useful letters
 	for (i = 0; i < len; i++)
@@ -105,7 +88,7 @@ static int get_equation(char *buf, int len)
 
 	//get x 
 	ptr = strchr(buf, ' ');
-	get_number(&s_equation.x, ptr, ptr - buf);
+	get_number(&s_equation.x, buf, ptr - buf);
 
 	//get opt
 	s_equation.opt = ptr[1];
@@ -113,7 +96,7 @@ static int get_equation(char *buf, int len)
 	//get y
 	buf = ptr + 3;
 	ptr = strchr(buf, ' ');
-	get_number(&s_equation.y, ptr, ptr - buf);
+	get_number(&s_equation.y, buf, ptr - buf);
 	
 	//get z
 	buf = strchr(buf, '=') + 2;
@@ -122,7 +105,7 @@ static int get_equation(char *buf, int len)
 	{
 		ptr--;
 	}
-	get_number(&s_equation.z, ptr+1, ptr+1 - buf);
+	get_number(&s_equation.z, buf, ptr+1 - buf);
  
 #if 0
 	infof("notzero:");
@@ -147,7 +130,7 @@ static int prase_file(char *path)
 	fp = fopen(path, "r");
 	if (fp == NULL)
 	{
-		printf("fopen err\n");
+		errorf("fopen err\n");
 		return -1;
 	}
 	
@@ -162,7 +145,7 @@ static int prase_file(char *path)
 	if (ret != nread)
 	{
 		ret = -1;
-		printf("fread err\n");
+		errorf("fread err\n");
 		goto end;
 	}
 
@@ -170,7 +153,7 @@ static int prase_file(char *path)
 	ret = get_equation(buff, nread);
 	if (ret < 0)
 	{
-		printf("get_equation err\n");
+		errorf("get_equation err\n");
 		goto end;
 	}
 
@@ -203,7 +186,7 @@ static void do_show(long x, long y, long z, char opt)
 }
 
 //calc x opt y == z
-static int do_process()
+static int do_calc()
 {
 	int x = 0, y = 0, z = 0;
 
@@ -278,7 +261,7 @@ static void do_permutation(int *a, int k, int m)
 		
 		if (i == s_letters.num)
 		{
-			do_process();
+			do_calc();
 		}
 	}
 	else
@@ -309,9 +292,7 @@ static int place(int *x, int k, int total)
 static void do_extract(int *a, int total)
 {
 	int k = 0;
-	int *x = (int *)malloc(total*sizeof(int));
-	assert(x);
-	memset(x, 0, total*sizeof(int));
+	int x[MAX] = {0};
 
 	x[k] = -1;
 	while (k >= 0)
@@ -343,22 +324,25 @@ static void do_extract(int *a, int total)
 			k--;
 		}
 	}
-	
-	free(x);
+}
+
+static void do_process()
+{
+	int a[] = {0,1,2,3,4,5,6,7,8,9};
+
+	do_extract(a, sizeof(a)/sizeof(a[0]));
 }
 
 int main(int argc, char **argv)
 {
-	int a[] = {0,1,2,3,4,5,6,7,8,9};
-
 	if (argc != 2 || argv[1] == NULL)
 	{
 		return -1;
 	}
 
 	prase_file(argv[1]);
-	do_extract(a, sizeof(a)/sizeof(a[0]));
-	do_cleanup();
+	
+	do_process();
 
 	return 0;
 }
