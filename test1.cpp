@@ -1,4 +1,7 @@
-﻿#include <stdio.h>
+﻿#include <fstream>
+#include <sstream>
+#include <vector>
+#include <algorithm>
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,7 +39,6 @@ typedef struct
 static letters_t s_letters = {0};
 static equation_t s_equation = {0};
 
-//get number char from string
 static int get_number(number_t *number, char *buf, int len)
 {
 	int i = 0;
@@ -46,7 +48,7 @@ static int get_number(number_t *number, char *buf, int len)
 	{
 		number->letters[i] = strchr(s_letters.letters, buf[len-i-1]) - s_letters.letters;
 		infof("%d:%c\n", i, s_letters.letters[number->letters[i]]);
-		//the highest positon is not zero
+
 		if (i == number->num-1)
 		{
 			s_letters.notzero[number->letters[i]] = 1;
@@ -57,19 +59,11 @@ static int get_number(number_t *number, char *buf, int len)
 	return 0;
 }
 
-//get equation from string
 static int get_equation(char *buf, int len)
 {
 	int i = 0;
 	char *ptr = NULL;
 
-	//init data
-	s_letters.num = 0;
-	memset(s_letters.letters, 0, sizeof(s_letters.letters));
-	memset(s_letters.number, 0, sizeof(s_letters.number));
-	memset(s_letters.notzero, 0, sizeof(s_letters.notzero));
-
-	//find all useful letters
 	for (i = 0; i < len; i++)
 	{
 		if (buf[i] < 'A' || buf[i] > 'Z')
@@ -86,19 +80,15 @@ static int get_equation(char *buf, int len)
 	
 	infof("letters:%s\n", s_letters.letters);
 
-	//get x 
 	ptr = strchr(buf, ' ');
 	get_number(&s_equation.x, buf, ptr - buf);
 
-	//get opt
 	s_equation.opt = ptr[1];
 
-	//get y
 	buf = ptr + 3;
 	ptr = strchr(buf, ' ');
 	get_number(&s_equation.y, buf, ptr - buf);
-	
-	//get z
+
 	buf = strchr(buf, '=') + 2;
 	ptr = buf + strlen(buf);
 	while (*ptr < 'A' || *ptr > 'Z')
@@ -106,25 +96,15 @@ static int get_equation(char *buf, int len)
 		ptr--;
 	}
 	get_number(&s_equation.z, buf, ptr+1 - buf);
- 
-#if 0
-	infof("notzero:");
-	for (i = 0; i < s_letters.num; i++)
-	{
-		infof("%d", s_letters.notzero[i]);
-	}
-	infof("\n");
-#endif
-	
+
 	return 0;
 }
 
-//read and prase file
 static int prase_file(char *path)
 {
 	int ret = 0;
 	FILE *fp = NULL;
-	char *buff = NULL; 
+	char buff[512] = {0}; 
 	int nread = 0;
 
 	fp = fopen(path, "r");
@@ -137,9 +117,6 @@ static int prase_file(char *path)
 	fseek(fp, 0, SEEK_END);
 	nread = ftell(fp);
 	fseek(fp, 0, SEEK_SET);
-	
-	buff = (char *)malloc(nread);
-	assert(buff);
 
 	ret = fread(buff, 1, nread, fp);
 	if (ret != nread)
@@ -159,12 +136,10 @@ static int prase_file(char *path)
 
 end:
 	fclose(fp);
-	free(buff);
 
 	return ret;
 }
 
-//char to integer
 static int generate_number(number_t *number)
 {
 	int i = 0;
@@ -179,58 +154,29 @@ static int generate_number(number_t *number)
 	return num/10;
 }
 
-//print the result
 static void do_show(long x, long y, long z, char opt)
 {
 	printf("%ld %c %ld = %ld\n", x, opt, y, z);
 }
 
-//calc x opt y == z
 static int do_calc()
 {
-	int x = 0, y = 0, z = 0;
+	int x = 0;
+	int y = 0;
+	int z = 0;
 
 	x = generate_number(&s_equation.x);
 	y = generate_number(&s_equation.y);
 	z = generate_number(&s_equation.z);
 
-	//infof("%d %c %d = %d\n", x,s_equation.opt,y,z);
-	switch (s_equation.opt)
+	if ((s_equation.opt == '+' && x + y == z) ||
+		(s_equation.opt == '-' && x - y == z) ||
+		(s_equation.opt == '*' && x * y == z) ||
+		(s_equation.opt == '/' && x / y == z))
 	{
-		case '+':
-		{
-			if (x + y == z)
-			{
-				do_show(x,y,z,s_equation.opt);
-			}
-			break;
-		}
-		case '-':
-		{
-			if (x - y == z)
-			{
-				do_show(x,y,z,s_equation.opt);
-			}
-			break;
-		}
-		case '*':
-		{
-			if (x * y == z)
-			{
-				do_show(x,y,z,s_equation.opt);
-			}
-			break;
-		}
-		case '/':
-		{
-			if (x / y == z)
-			{
-				do_show(x,y,z,s_equation.opt);
-			}
-			break;
-		}
+		do_show(x,y,z,s_equation.opt);
 	}
-	
+
 	return 0;
 }
 
@@ -243,7 +189,6 @@ static void swap(int *a, int *b)
 	*b = tmp;
 }
 
-//全排列
 static void do_permutation(int *a, int k, int m)
 {
 	int i = 0;
@@ -252,7 +197,6 @@ static void do_permutation(int *a, int k, int m)
 	{
 		for (i = 0; i < s_letters.num; i++)
 		{
-			//skip the positon limit
 			if (s_letters.notzero[i] == 1 && s_letters.number[i] == 0)
 			{
 				break;
@@ -288,35 +232,35 @@ static int place(int *x, int k, int total)
 	return sum < total;
 }
 
-//从a中选取num个elem
-static void do_extract(int *a, int total)
+static void do_extract(int *array, int total, int select)
 {
 	int k = 0;
-	int x[MAX] = {0};
+	int i = 0;
+	int t = 0;
+	int map[MAX] = {0};
 
-	x[k] = -1;
+	map[k] = -1;
 	while (k >= 0)
 	{
-		x[k]++;
+		map[k]++;
 
-		if (place(x, k, total))
+		if (place(map, k, total))
 		{
-			if (k == s_letters.num-1)
+			if (k == select-1)
 			{
-				int i, t = 0;
-				for (i = 0;i < s_letters.num;i++)
+				t = 0; 
+				for (i = 0; i < select; i++)
 				{
-					t += x[i];
-					s_letters.number[i] = a[t];
-					debugf("%d ", s_letters.number[i]);
+					t += map[i];
+					s_letters.number[i] = array[t];
 				}
-				debugf("\n");
-				do_permutation(s_letters.number, 0, s_letters.num-1);
+
+				do_permutation(s_letters.number, 0, select-1);
 			}
 			else
 			{
 				k++;
-				x[k] = 0;
+				map[k] = 0;
 			}
 		}
 		else
@@ -330,7 +274,7 @@ static void do_process()
 {
 	int a[] = {0,1,2,3,4,5,6,7,8,9};
 
-	do_extract(a, sizeof(a)/sizeof(a[0]));
+	do_extract(a, sizeof(a)/sizeof(a[0]), s_letters.num);
 }
 
 int main(int argc, char **argv)

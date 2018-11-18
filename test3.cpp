@@ -1,4 +1,7 @@
-﻿#include <stdio.h>
+﻿#include <fstream>
+#include <sstream>
+#include <vector>
+#include <algorithm>
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
@@ -33,8 +36,6 @@ static int get_users_and_lines(char *str)
 {
 	int i = 0;
 	int ret = 0;
-	
-	memset(&s_testline, 0, sizeof(s_testline));
 
 	ret = sscanf(str, "%d, %d", &s_testline.line_num, &s_testline.user_num);
 	if (ret < 0)
@@ -58,30 +59,33 @@ static int get_users_and_lines(char *str)
 	return 0;
 }
 
-static int get_oneuser_list(int user, char *str)
+static int get_oneuser_list(int user, char *str, int len)
 {
 	int i = 0;
-	char *token = NULL;
-	char *ptr = NULL;
-
-	token = strtok_r(str, " ,", &ptr);
-	while (token != NULL)
-	{
-		s_testline.usrs[user].list[i] = atoi(token);
-		token = strtok_r(NULL, " ,", &ptr);
-		i++;
-	}
-
-	s_testline.usrs[user].num = i;
+	int j = 0;
+	int tmp = 0;
 	
-#if 0
-	debugf("user:%d  ", user);
-	for (i = 0; i < s_testline.usrs[user].num; i++)
+	for (i = 0; i < len; i++)
 	{
-		debugf("%4d ", s_testline.usrs[user].list[i]);
+		if (str[i] == ',')
+		{
+			s_testline.usrs[user].list[j] = tmp;
+			j++;
+
+			tmp = 0;
+		}
+		
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			tmp *= 10;
+			tmp += (str[i] - '0');
+		}
 	}
-	debugf("\n");
-#endif
+
+	s_testline.usrs[user].list[j] = tmp;
+	j++;
+	
+	s_testline.usrs[user].num = j;
 
 	return 0;
 }
@@ -89,6 +93,7 @@ static int get_oneuser_list(int user, char *str)
 static int prase_file(char *path)
 {
 	int i = 0;
+	int len = 0;
 	FILE *file = NULL;
 	char buff[512];
 
@@ -108,7 +113,8 @@ static int prase_file(char *path)
 	while (NULL != fgets(buff, sizeof(buff), file))
 	{
 		infof("read:%s", buff);
-		get_oneuser_list(i, buff);
+		len = strnlen(buff, sizeof(buff));
+		get_oneuser_list(i, buff, len);
 		
 		i++;
 	}
@@ -122,7 +128,8 @@ static int prase_file(char *path)
 
 static int do_extract(int user, int *map)
 {
-	int i, j;
+	int i = 0;
+	int j = 0;
 	int sum = 0;
 
 	if (user == s_testline.user_num)
@@ -173,7 +180,6 @@ static void do_process()
 	int map[MAX_LINE] = {0};
 
 	printf("%d\n", do_extract(0, map));
-
 }
 
 int main(int argc, char **argv)

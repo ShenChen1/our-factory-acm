@@ -1,4 +1,7 @@
-﻿#include <stdio.h>
+﻿#include <fstream>
+#include <sstream>
+#include <vector>
+#include <algorithm>
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
@@ -59,21 +62,33 @@ static int get_m_and_n(char *str)
 	return 0;
 }
 
-static int get_nline_point(int n, char *str)
+static int get_nline_point(int n, char *str, int len)
 {
 	int i = 0;
-	char *token = NULL;
-	char *ptr = NULL;
+	int j = 0;
+	int tmp = 0;
 	
-	token = strtok_r(str, " ,", &ptr);
-	while (token != NULL)
+	for (i = 0; i < len; i++)
 	{
-		s_map.point[n*s_map.m + i] = atoi(token);
-		token = strtok_r(NULL, " ,", &ptr);
-		i++;
+		if (str[i] == ',')
+		{
+			s_map.point[n*s_map.m + j] = tmp;
+			j++;
+
+			tmp = 0;
+		}
+		
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			tmp *= 10;
+			tmp += (str[i] - '0');
+		}
 	}
-	
-	assert(i == s_map.m);
+
+	s_map.point[n*s_map.m + j] = tmp;
+	j++;
+
+	assert(j == s_map.m);
 
 	return 0;
 }
@@ -81,6 +96,7 @@ static int get_nline_point(int n, char *str)
 static int prase_file(char *path)
 {
 	int i = 0;
+	int len = 0;
 	FILE *file = NULL;
 	char buff[512] = {0};
 
@@ -100,7 +116,8 @@ static int prase_file(char *path)
 	while (NULL != fgets(buff, sizeof(buff), file))
 	{
 		infof("read:%s", buff);
-		get_nline_point(i, buff);
+		len = strnlen(buff, sizeof(buff));
+		get_nline_point(i, buff, len);
 
 		i++;
 	}
@@ -114,8 +131,8 @@ static int prase_file(char *path)
 
 static int generate_map()
 {
-	int i;
-	int j;
+	int i = 0;
+	int j = 0;
 
 	for (j = 0; j < s_map.n; j++)
 	{
@@ -152,24 +169,12 @@ static int generate_map()
 		}
 	}
 
-#if 0
-	for (i = 0; i < s_map.m * s_map.n; i++)
-	{
-		debugf("%4d: ", i);
-		for (j = 0; j < MV_MAX; j++)
-		{
-			debugf("%4d:%4d ", s_map.map[i].node[j].index, s_map.map[i].node[j].value);
-		}
-		debugf("\n");
-	}
-#endif
-
 	return 0;
 }
 
 static int do_calc(int node, int sum)
 {
-	int i;
+	int i = 0;
 	int tmp = sum;
 	int max = sum;
 
@@ -206,7 +211,7 @@ static void do_process()
 {
 	generate_map();
 
-	errorf("%d\n", do_calc(0, s_map.point[0]));
+	printf("%d\n", do_calc(0, s_map.point[0]));
 }
 
 int main(int argc, char **argv)
