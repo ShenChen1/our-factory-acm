@@ -1,4 +1,6 @@
-﻿#include <fstream>
+﻿#pragma GCC push_options
+#pragma GCC optimize ("-O2")
+#include <fstream>
 #include <cstring>
 #include <string>
 #include <stdlib.h>
@@ -45,7 +47,7 @@ static int get_users_and_lines(char *str)
 	
 	for (i = 0; i < s_testline.line_num; i++)
 	{
-		s_testline.lines[i] = i + 1;
+		s_testline.lines[i] = i;
 	}
 	
 	for (i = 0; i < s_testline.user_num; i++)
@@ -79,7 +81,7 @@ static int get_oneuser_list(int user, char *str, int len)
 		}
 	}
 
-	s_testline.usrs[user].list[j] = tmp;
+	s_testline.usrs[user].list[j] = tmp - 1;
 	j++;
 	
 	s_testline.usrs[user].num = j;
@@ -134,7 +136,7 @@ static int do_extract(int user, int *map)
 	
 	for (i = 0; i < s_testline.usrs[user].num; i++)
 	{
-		tmp = s_testline.usrs[user].list[i] - 1;
+		tmp = s_testline.usrs[user].list[i];
 		if (map[tmp] == 0)
 		{
 			map[tmp] = 1;

@@ -69,7 +69,8 @@ static int get_equation(char *buf, int len)
 	{
 		if ((buf[i] >= 'A') && (buf[i] <= 'Z'))
 		{
-			if (strchr(s_letters.letters, buf[i]) == NULL)
+			ptr = strchr(s_letters.letters, buf[i]);
+			if (ptr == NULL)
 			{
 				s_letters.letters[s_letters.num] = buf[i];
 				s_letters.num++;
