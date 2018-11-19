@@ -1,10 +1,7 @@
 ﻿#include <fstream>
-#include <sstream>
-#include <vector>
-#include <algorithm>
-#include <assert.h>
+#include <cstring>
+#include <string>
 #include <stdlib.h>
-#include <string.h>
 
 #define infof(fmt, arg...) //printf(fmt, ##arg)
 #define debugf(fmt, arg...) //printf(fmt, ##arg)
@@ -42,19 +39,23 @@ static equation_t s_equation = {0};
 static int get_number(number_t *number, char *buf, int len)
 {
 	int i = 0;
-	
-	number->num = len;
-	for (i = 0; i < number->num; i++)
-	{
-		number->letters[i] = strchr(s_letters.letters, buf[len-i-1]) - s_letters.letters;
-		infof("%d:%c\n", i, s_letters.letters[number->letters[i]]);
+	int tmp = 0;
 
-		if (i == number->num-1)
+	for (i = 0; i < len; i++)
+	{
+		tmp = strchr(s_letters.letters, buf[len - i - 1]) - s_letters.letters;
+
+		infof("%d:%c\n", i, s_letters.letters[tmp]);
+
+		if (i == (len - 1))
 		{
-			s_letters.notzero[number->letters[i]] = 1;
-			infof("H:%c\n", s_letters.letters[number->letters[i]]);
+			s_letters.notzero[tmp] = 1;
+			infof("H:%c\n", s_letters.letters[tmp]);
 		}
+
+		number->letters[i] = tmp;
 	}
+	number->num = len;
 	
 	return 0;
 }
@@ -66,15 +67,13 @@ static int get_equation(char *buf, int len)
 
 	for (i = 0; i < len; i++)
 	{
-		if (buf[i] < 'A' || buf[i] > 'Z')
+		if ((buf[i] >= 'A') && (buf[i] <= 'Z'))
 		{
-			continue;
-		}
-		
-		if (strchr(s_letters.letters, buf[i]) == NULL)
-		{
-			s_letters.letters[s_letters.num] = buf[i];
-			s_letters.num++;
+			if (strchr(s_letters.letters, buf[i]) == NULL)
+			{
+				s_letters.letters[s_letters.num] = buf[i];
+				s_letters.num++;
+			}
 		}
 	}
 	
@@ -91,11 +90,11 @@ static int get_equation(char *buf, int len)
 
 	buf = strchr(buf, '=') + 2;
 	ptr = buf + strlen(buf);
-	while (*ptr < 'A' || *ptr > 'Z')
+	while (ptr && (*ptr < 'A' || *ptr > 'Z'))
 	{
 		ptr--;
 	}
-	get_number(&s_equation.z, buf, ptr+1 - buf);
+	get_number(&s_equation.z, buf, ptr + 1 - buf);
 
 	return 0;
 }
@@ -144,19 +143,21 @@ static int generate_number(number_t *number)
 {
 	int i = 0;
 	int num = 0;
+	int tmp = 0;
 	
 	for (i = 0; i < number->num; i++)
 	{
-		num += s_letters.number[number->letters[number->num-1-i]];
+		tmp = number->letters[number->num - 1 - i];
+		num += s_letters.number[tmp];
 		num *= 10;
 	}
 	
-	return num/10;
+	return (num/10);
 }
 
-static void do_show(long x, long y, long z, char opt)
+static void do_show(int x, int y, int z, char opt)
 {
-	printf("%ld %c %ld = %ld\n", x, opt, y, z);
+	printf("%d %c %d = %d\n", x, opt, y, z);
 }
 
 static int do_calc()
@@ -169,10 +170,7 @@ static int do_calc()
 	y = generate_number(&s_equation.y);
 	z = generate_number(&s_equation.z);
 
-	if ((s_equation.opt == '+' && x + y == z) ||
-		(s_equation.opt == '-' && x - y == z) ||
-		(s_equation.opt == '*' && x * y == z) ||
-		(s_equation.opt == '/' && x / y == z))
+	if ((s_equation.opt == '*') && ((x * y) == z))
 	{
 		do_show(x,y,z,s_equation.opt);
 	}
@@ -197,7 +195,8 @@ static void do_permutation(int *a, int k, int m)
 	{
 		for (i = 0; i < s_letters.num; i++)
 		{
-			if (s_letters.notzero[i] == 1 && s_letters.number[i] == 0)
+			if ((s_letters.notzero[i] == 1) && 
+				(s_letters.number[i] == 0))
 			{
 				break;
 			}
@@ -213,7 +212,7 @@ static void do_permutation(int *a, int k, int m)
 		for (i = k; i <= m; i++)
 		{
 			swap(&a[i], &a[k]);
-			do_permutation(a, k+1, m);
+			do_permutation(a, k + 1, m);
 			swap(&a[i], &a[k]);
 		}
 	}
@@ -246,7 +245,7 @@ static void do_extract(int *array, int total, int select)
 
 		if (place(map, k, total))
 		{
-			if (k == select-1)
+			if (k == (select - 1))
 			{
 				t = 0; 
 				for (i = 0; i < select; i++)
@@ -274,12 +273,12 @@ static void do_process()
 {
 	int a[] = {0,1,2,3,4,5,6,7,8,9};
 
-	do_extract(a, sizeof(a)/sizeof(a[0]), s_letters.num);
+	do_extract(a, 10, s_letters.num);
 }
 
 int main(int argc, char **argv)
 {
-	if (argc != 2 || argv[1] == NULL)
+	if ((argc != 2) || (argv[1] == NULL))
 	{
 		return -1;
 	}

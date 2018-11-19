@@ -1,10 +1,7 @@
 ﻿#include <fstream>
-#include <sstream>
-#include <vector>
-#include <algorithm>
-#include <assert.h>
+#include <cstring>
+#include <string>
 #include <stdlib.h>
-#include <string.h>
 #include <limits.h>
 
 #define infof(fmt, arg...) //printf(fmt, ##arg)
@@ -57,7 +54,7 @@ static int get_oneitem_list(int item, char *str, int len)
 	{
 		if (str[i] == ' ')
 		{
-			tmp = flag ? -tmp : tmp;
+			tmp = (flag) ? (-tmp) : (tmp);
 			s_safe.items[item].depend[j] = tmp;
 			j++;
 
@@ -70,25 +67,18 @@ static int get_oneitem_list(int item, char *str, int len)
 			flag = 1;
 		}
 		
-		if (str[i] >= '0' && str[i] <= '9')
+		if ((str[i] >= '0') && (str[i] <= '9'))
 		{
 			tmp *= 10;
 			tmp += (str[i] - '0');
 		}
 	}
 
-	tmp = flag ? -tmp : tmp;
+	tmp = (flag) ? (-tmp) : (tmp);
 	s_safe.items[item].depend[j] = tmp;
 	j++;
 	
 	s_safe.items[item].num = j;
-
-	debugf("item:%4d total:%4d v:%4d d:", item, s_safe.items[item].num, s_safe.items[item].depend[0]);
-	for (i = 1; i < s_safe.items[item].num; i++)
-	{
-		debugf("%4d ", s_safe.items[item].depend[i]);
-	}
-	debugf("\n");
 
 	return 0;
 }
@@ -115,13 +105,10 @@ static int prase_file(char *path)
 
 	while (NULL != fgets(buff, sizeof(buff), file))
 	{
-		infof("read:%s", buff);
 		len = strnlen(buff, sizeof(buff));
 		get_oneitem_list(i, buff, len);
-
 		i++;
 	}
-	assert(i == s_safe.item_num);
 
 	fclose(file);
 
@@ -134,7 +121,7 @@ static int do_select(int item, int *map, int *len)
 	int i = 0;
 	int tmp = 0;
 	
-	*len++;
+	*len = *len + 1;
 	
 	if (map[item] == 1)
 	{
@@ -143,22 +130,21 @@ static int do_select(int item, int *map, int *len)
 
 	if (s_safe.items[item].total)
 	{
-		debugf("***item:%d v:%d\n", item+1, s_safe.items[item].total);
+		debugf("***item:%d v:%d\n", item + 1, s_safe.items[item].total);
 		return s_safe.items[item].total;
 	}
 
 	for (i = 1; i < s_safe.items[item].num; i++)
 	{
-		debugf("item:%d d:%d\n", item+1, 
-			s_safe.items[item].depend[i]);
+		debugf("item:%d d:%d\n", item + 1, s_safe.items[item].depend[i]);
 		
 		map[item] = 1;
-		tmp += do_select(s_safe.items[item].depend[i]-1, map, len);
+		tmp += do_select(s_safe.items[item].depend[i] - 1, map, len);
 		map[item] = 0;
 	}
 	
 	tmp += s_safe.items[item].depend[0];
-	debugf("+++item:%d v:%d\n", item+1, tmp);
+	debugf("+++item:%d v:%d\n", item + 1, tmp);
 
 	map[item] = 1;
 	s_safe.items[item].total = tmp;
@@ -192,12 +178,11 @@ static void do_process()
 			printf("%d\n", i+1);
 		}
 	}
-
 }
 
 int main(int argc, char **argv)
 {
-	if (argc != 2 || argv[1] == NULL)
+	if ((argc != 2) || (argv[1] == NULL))
 	{
 		return -1;
 	}

@@ -1,10 +1,7 @@
 ﻿#include <fstream>
-#include <sstream>
-#include <vector>
-#include <algorithm>
-#include <assert.h>
+#include <cstring>
+#include <string>
 #include <stdlib.h>
-#include <string.h>
 
 #define NoEdge	(-1)
 #define MAX_M	(100)
@@ -72,23 +69,21 @@ static int get_nline_point(int n, char *str, int len)
 	{
 		if (str[i] == ',')
 		{
-			s_map.point[n*s_map.m + j] = tmp;
+			s_map.point[n * s_map.m + j] = tmp;
 			j++;
 
 			tmp = 0;
 		}
 		
-		if (str[i] >= '0' && str[i] <= '9')
+		if ((str[i] >= '0') && (str[i] <= '9'))
 		{
 			tmp *= 10;
 			tmp += (str[i] - '0');
 		}
 	}
 
-	s_map.point[n*s_map.m + j] = tmp;
+	s_map.point[n * s_map.m + j] = tmp;
 	j++;
-
-	assert(j == s_map.m);
 
 	return 0;
 }
@@ -98,7 +93,7 @@ static int prase_file(char *path)
 	int i = 0;
 	int len = 0;
 	FILE *file = NULL;
-	char buff[512] = {0};
+	char buff[512];
 
 	file = fopen(path , "r");
 	if (file == NULL)
@@ -115,13 +110,10 @@ static int prase_file(char *path)
 
 	while (NULL != fgets(buff, sizeof(buff), file))
 	{
-		infof("read:%s", buff);
 		len = strnlen(buff, sizeof(buff));
 		get_nline_point(i, buff, len);
-
 		i++;
 	}
-	assert(i == s_map.n);
 
 	fclose(file);
 
@@ -138,33 +130,32 @@ static int generate_map()
 	{
 		for (i = 0; i < s_map.m; i++)
 		{
-			s_map.map[j*s_map.m + i].node[MV_RIGHT].value = NoEdge;
-			s_map.map[j*s_map.m + i].node[MV_DOWN].value = NoEdge;
-			s_map.map[j*s_map.m + i].total = 0;
+			s_map.map[j * s_map.m + i].node[MV_RIGHT].value = NoEdge;
+			s_map.map[j * s_map.m + i].node[MV_DOWN].value = NoEdge;
+			s_map.map[j * s_map.m + i].total = 0;
 
-			if (i == s_map.m-1 && j == s_map.n-1)
+			if ((i == (s_map.m - 1)) && (j == (s_map.n - 1)))
 			{
-				//nothing to do
+				s_map.map[j * s_map.m + i].total = 0;
 			}
-			else if (i == s_map.m-1)
+			else if (i == (s_map.m - 1))
 			{
-				s_map.map[j*s_map.m + i].node[MV_DOWN].index = (j+1)*s_map.m + i;
-				s_map.map[j*s_map.m + i].node[MV_DOWN].value = s_map.point[(j+1)*s_map.m + i];
+				s_map.map[j * s_map.m + i].node[MV_DOWN].index = (j + 1) * s_map.m + i;
+				s_map.map[j * s_map.m + i].node[MV_DOWN].value = s_map.point[(j + 1) * s_map.m + i];
 				
 			}
-			else if (j == s_map.n-1)
+			else if (j == (s_map.n - 1))
 			{
-				
-				s_map.map[j*s_map.m + i].node[MV_RIGHT].index = j*s_map.m + (i+1);
-				s_map.map[j*s_map.m + i].node[MV_RIGHT].value = s_map.point[j*s_map.m + (i+1)];
+				s_map.map[j * s_map.m + i].node[MV_RIGHT].index = j * s_map.m + (i + 1);
+				s_map.map[j * s_map.m + i].node[MV_RIGHT].value = s_map.point[j * s_map.m + (i + 1)];
 			}
 			else
 			{
-				s_map.map[j*s_map.m + i].node[MV_DOWN].index = (j+1)*s_map.m + i;
-				s_map.map[j*s_map.m + i].node[MV_DOWN].value = s_map.point[(j+1)*s_map.m + i];
+				s_map.map[j * s_map.m + i].node[MV_DOWN].index = (j + 1) * s_map.m + i;
+				s_map.map[j * s_map.m + i].node[MV_DOWN].value = s_map.point[(j + 1) * s_map.m + i];
 
-				s_map.map[j*s_map.m + i].node[MV_RIGHT].index = j*s_map.m + (i+1);
-				s_map.map[j*s_map.m + i].node[MV_RIGHT].value = s_map.point[j*s_map.m + (i+1)];
+				s_map.map[j * s_map.m + i].node[MV_RIGHT].index = j * s_map.m + (i + 1);
+				s_map.map[j * s_map.m + i].node[MV_RIGHT].value = s_map.point[j * s_map.m + (i + 1)];
 			}
 		}
 	}
@@ -174,7 +165,7 @@ static int generate_map()
 
 static int do_calc(int node, int sum)
 {
-	int i = 0;
+	int i;
 	int tmp = sum;
 	int max = sum;
 
@@ -186,20 +177,18 @@ static int do_calc(int node, int sum)
 	
 	if (s_map.map[node].total)
 	{
-		return s_map.map[node].total + sum;
+		return (s_map.map[node].total + sum);
 	}
 
 	for (i = 0; i < MV_MAX; i++)
 	{
-		if (s_map.map[node].node[i].value == NoEdge)
+		if (s_map.map[node].node[i].value != NoEdge)
 		{
-			continue;
+			debugf("node:%d index:%d v:%d \n", node, s_map.map[node].node[i].index, s_map.map[node].node[i].value);
+			tmp = do_calc(s_map.map[node].node[i].index, sum + s_map.map[node].node[i].value);
+
+			max = (tmp > max) ? (tmp) : (max);
 		}
-
-		debugf("node:%d index:%d v:%d \n", node, s_map.map[node].node[i].index, s_map.map[node].node[i].value);
-		tmp = do_calc(s_map.map[node].node[i].index, sum + s_map.map[node].node[i].value);
-
-		max = tmp > max ? tmp : max;
 	}
 	
 	s_map.map[node].total = max - sum;
@@ -209,18 +198,21 @@ static int do_calc(int node, int sum)
 
 static void do_process()
 {
+	int tmp = 0;
+	
 	generate_map();
 
-	printf("%d\n", do_calc(0, s_map.point[0]));
+	tmp = do_calc(0, s_map.point[0]);
+	printf("%d\n", tmp);
 }
 
 int main(int argc, char **argv)
 {
-	if (argc != 2 || argv[1] == NULL)
+	if ((argc != 2) || (argv[1] == NULL))
 	{
 		return -1;
 	}
-	
+
 	prase_file(argv[1]);
 
 	do_process();

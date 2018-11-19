@@ -1,10 +1,7 @@
 ﻿#include <fstream>
-#include <sstream>
-#include <vector>
-#include <algorithm>
-#include <assert.h>
+#include <cstring>
+#include <string>
 #include <stdlib.h>
-#include <string.h>
 
 #define infof(fmt, arg...) //printf(fmt, ##arg)
 #define debugf(fmt, arg...) //printf(fmt, ##arg)
@@ -75,7 +72,7 @@ static int get_oneuser_list(int user, char *str, int len)
 			tmp = 0;
 		}
 		
-		if (str[i] >= '0' && str[i] <= '9')
+		if ((str[i] >= '0') && (str[i] <= '9'))
 		{
 			tmp *= 10;
 			tmp += (str[i] - '0');
@@ -112,13 +109,10 @@ static int prase_file(char *path)
 
 	while (NULL != fgets(buff, sizeof(buff), file))
 	{
-		infof("read:%s", buff);
 		len = strnlen(buff, sizeof(buff));
 		get_oneuser_list(i, buff, len);
-		
 		i++;
 	}
-	assert(i == s_testline.user_num);
 
 	fclose(file);
 
@@ -129,7 +123,7 @@ static int prase_file(char *path)
 static int do_extract(int user, int *map)
 {
 	int i = 0;
-	int j = 0;
+	int tmp = 0;
 	int sum = 0;
 
 	if (user == s_testline.user_num)
@@ -138,53 +132,34 @@ static int do_extract(int user, int *map)
 		return 1;
 	}
 	
-	for (i = 0; i < s_testline.line_num; i++)
+	for (i = 0; i < s_testline.usrs[user].num; i++)
 	{
-		debugf("user:%d line:%d map:%d\n", user, s_testline.lines[i], map[i]);
-		
-		if (map[i] == 1)
+		tmp = s_testline.usrs[user].list[i] - 1;
+		if (map[tmp] == 0)
 		{
-			//be used
-			continue;
+			map[tmp] = 1;
+			sum += do_extract(user + 1, map);
+			map[tmp] = 0;
 		}
-			
-		for (j = 0; j < s_testline.usrs[user].num; j++)
-		{
-			debugf("user:%d line:%d list:%d\n", user, s_testline.lines[i], s_testline.usrs[user].list[j]);
-			if (s_testline.usrs[user].list[j] == s_testline.lines[i])
-			{
-				//find line can be used
-				break;
-			}
-		}
-		
-		if (j == s_testline.usrs[user].num)
-		{
-			//not invalid
-			continue;
-		}
-		
-		debugf("user:%d find line:%d\n", user, s_testline.lines[i]);
 
-		map[i] = 1;
-		sum += do_extract(user+1, map);
-		map[i] = 0;
 	}
 	
 	return sum;
 }
 
-
 static void do_process()
 {
+	int tmp = 0;
+
 	int map[MAX_LINE] = {0};
 
-	printf("%d\n", do_extract(0, map));
+	tmp = do_extract(0, map);
+	printf("%d\n", tmp);
 }
 
 int main(int argc, char **argv)
 {
-	if (argc != 2 || argv[1] == NULL)
+	if ((argc != 2) || (argv[1] == NULL))
 	{
 		return -1;
 	}
