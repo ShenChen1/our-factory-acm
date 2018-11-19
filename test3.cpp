@@ -1,5 +1,5 @@
 ﻿#pragma GCC push_options
-#pragma GCC optimize ("-O2")
+#pragma GCC optimize ("-O3")
 #include <fstream>
 #include <cstring>
 #include <string>
