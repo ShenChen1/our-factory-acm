@@ -1,7 +1,7 @@
-﻿#include <stdio.h>
-#include <assert.h>
+#include <fstream>
+#include <cstring>
+#include <string>
 #include <stdlib.h>
-#include <string.h>
 #include <limits.h>
 
 #define infof(fmt, arg...) //printf(fmt, ##arg)
@@ -7084,18 +7084,19 @@ static data_t s_data[] = {
 static void do_process(char *str, int len)
 {
 	unsigned int i;
+	
+	str[len - 1] = '\0';
 
 	for (i = 0; i < sizeof(s_data)/sizeof(s_data[0]); i++)
 	{
-		if (strncmp(s_data[i].name, str, len - 1))
+		if (strncmp(s_data[i].name, str, len - 1) == 0)
 		{
 			printf("%s,%s\n", s_data[i].name, s_data[i].gender ? "female" : "male");
-		}
-		else
-		{
-			printf("%s,%s\n", s_data[i].name, "female");
+			return;
 		}
 	}
+
+	printf("%s,%s\n", str, "female");
 }
 
 static int prase_file(char *path)
