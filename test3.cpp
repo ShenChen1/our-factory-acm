@@ -68,7 +68,7 @@ static int get_oneuser_list(int user, char *str, int len)
 	{
 		if (str[i] == ',')
 		{
-			s_testline.usrs[user].list[j] = tmp;
+			s_testline.usrs[user].list[j] = tmp - 1;
 			j++;
 
 			tmp = 0;
