@@ -1,195 +1,211 @@
-﻿#include <fstream>
+#pragma GCC push_options
+#pragma GCC optimize ("-O3")
+#include <fstream>
+#include <iostream>
 #include <cstring>
 #include <string>
+#include <stdarg.h>
 #include <stdlib.h>
-#include <limits.h>
 
-#define infof(fmt, arg...) //printf(fmt, ##arg)
-#define debugf(fmt, arg...) //printf(fmt, ##arg)
-#define errorf(fmt, arg...) //printf(fmt, ##arg)
+#define MAXITEM    (1000)
 
-#define MAX_ITEM	(1000)
+typedef enum
+{
+    ZERO = 0,
+    ONE,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX,
+    SEVEN,
+    EIGHT,
+    NINE,
+    TEN,
+} number_e;
 
 typedef struct
 {
-	int num;
-	int depend[MAX_ITEM];
+    int num;
+    int depend[MAXITEM];
 
-	int total;
+    int total;
 } item_t;
 
 typedef struct
 {
-	int item_num;
-	item_t items[MAX_ITEM];
+    int item_num;
+    item_t items[MAXITEM];
 
 } safe_t;
 
 static safe_t s_safe = {0};
 
-static int get_item_num(char *str)
+static void myprintf(int level, const char *fmt, ...)
 {
-	int ret = 0;
-
-	ret = sscanf(str, "%d", &s_safe.item_num);
-	if (ret < 0)
-	{
-		errorf("sscanf err\n");
-		return -1;
-	}
-	
-	infof("item:%d\n", s_safe.item_num);
-
-	return 0;
+    va_list ap;
+    
+    if (level)
+    {
+        va_start(ap, fmt);
+        vprintf(fmt, ap);
+        va_end(ap);
+    }
 }
 
-static int get_oneitem_list(int item, char *str, int len)
+static int getItemNum(char *str)
 {
-	int i = 0;
-	int j = 0;
-	int tmp = 0;
-	int flag = 0;
-	
-	for (i = 0; i < len; i++)
-	{
-		if (str[i] == ' ')
-		{
-			tmp = (flag) ? (-tmp) : (tmp);
-			s_safe.items[item].depend[j] = tmp;
-			j++;
+    int ret = 0;
 
-			tmp = 0;
-			flag = 0;
-		}
-		
-		if (str[i] == '-')
-		{
-			flag = 1;
-		}
-		
-		if ((str[i] >= '0') && (str[i] <= '9'))
-		{
-			tmp *= 10;
-			tmp += (str[i] - '0');
-		}
-	}
+    ret = sscanf(str, "%d", &s_safe.item_num);
+    if (ret < 0)
+    {
+        return -1;
+    }
 
-	tmp = (flag) ? (-tmp) : (tmp);
-	s_safe.items[item].depend[j] = tmp;
-	j++;
-	
-	s_safe.items[item].num = j;
-
-	return 0;
+    return 0;
 }
 
-static int prase_file(char *path)
+static int getOneitemList(int item, char *str, int len)
 {
-	int i = 0;
-	int len = 0;
-	FILE *file = NULL;
-	char buff[512];
+    int i = 0;
+    int j = 0;
+    int tmp = 0;
+    int flag = 0;
+    
+    for (i = 0; i < len; i++)
+    {
+        if (str[i] == ' ')
+        {
+            tmp = (flag) ? (-tmp) : (tmp);
+            s_safe.items[item].depend[j] = tmp;
+            j++;
 
-	file = fopen(path , "r");
-	if (file == NULL)
-	{
-		errorf("fopen err\n");
-		return -1;
-	}
+            tmp = 0;
+            flag = 0;
+        }
+        
+        if (str[i] == '-')
+        {
+            flag = 1;
+        }
+        
+        if ((str[i] >= '0') && (str[i] <= '9'))
+        {
+            tmp *= 10;
+            tmp += (str[i] - '0');
+        }
+    }
 
-	//item num
-	if (NULL != fgets(buff, sizeof(buff), file))
-	{
-		get_item_num(buff);
-	}
+    tmp = (flag) ? (-tmp) : (tmp);
+    s_safe.items[item].depend[j] = tmp;
+    j++;
+    
+    s_safe.items[item].num = j;
 
-	while (NULL != fgets(buff, sizeof(buff), file))
-	{
-		len = strnlen(buff, sizeof(buff));
-		get_oneitem_list(i, buff, len);
-		i++;
-	}
-
-	fclose(file);
-
-	return 0;
+    return 0;
 }
 
-
-static int do_select(int item, int *map, int *len)
+static int praseFile(char *path)
 {
-	int i = 0;
-	int tmp = 0;
-	
-	*len = *len + 1;
-	
-	if (map[item] == 1)
-	{
-		return 0;
-	}
+    int i = 0;
+    FILE *file = NULL;
+    char buff[512];
 
-	if (s_safe.items[item].total)
-	{
-		debugf("***item:%d v:%d\n", item + 1, s_safe.items[item].total);
-		return s_safe.items[item].total;
-	}
+    file = fopen(path , "r");
+    if (file == NULL)
+    {
+        return -1;
+    }
 
-	for (i = 1; i < s_safe.items[item].num; i++)
-	{
-		debugf("item:%d d:%d\n", item + 1, s_safe.items[item].depend[i]);
-		
-		map[item] = 1;
-		tmp += do_select(s_safe.items[item].depend[i] - 1, map, len);
-		map[item] = 0;
-	}
-	
-	tmp += s_safe.items[item].depend[0];
-	debugf("+++item:%d v:%d\n", item + 1, tmp);
+    //item num
+    if (NULL != fgets(buff, sizeof(buff), file))
+    {
+        getItemNum(buff);
+    }
 
-	map[item] = 1;
-	s_safe.items[item].total = tmp;
+    while (NULL != fgets(buff, sizeof(buff), file))
+    {
+        getOneitemList(i, buff, strnlen(buff, sizeof(buff)));
+        i++;
+    }
 
-	return tmp;
+    fclose(file);
+
+    return 0;
 }
 
 
-static void do_process()
+static int doSelect(int item, int *map, int *len)
 {
-	int i = 0;
-	int sum = 0;
-	int len[MAX_ITEM] = {0};
-	int map[MAX_ITEM] = {0};
+    int i = 0;
+    int tmp = 0;
+    
+    *len = *len + 1;
+    
+    if (map[item] == 1)
+    {
+        return 0;
+    }
 
-	for (i = 0; i < s_safe.item_num; i++)
-	{
-		if (s_safe.items[i].depend[0] <= 0)
-		{
-			continue;
-		}
+    if (s_safe.items[item].total)
+    {
+        return s_safe.items[item].total;
+    }
 
-		sum += do_select(i, map, &len[i]);
-	}
+    for (i = 1; i < s_safe.items[item].num; i++)
+    {
+        map[item] = 1;
+        tmp += doSelect(s_safe.items[item].depend[i] - 1, map, len);
+        map[item] = 0;
+    }
+    
+    tmp += s_safe.items[item].depend[0];
 
-	printf("%d\n", sum);
-	for (i = 0; i < s_safe.item_num; i++)
-	{
-		if (map[i])
-		{
-			printf("%d\n", i+1);
-		}
-	}
+    map[item] = 1;
+    s_safe.items[item].total = tmp;
+
+    return tmp;
+}
+
+
+static void doProcess()
+{
+    int i = 0;
+    int sum = 0;
+    int len[MAXITEM] = {0};
+    int map[MAXITEM] = {0};
+
+    for (i = 0; i < s_safe.item_num; i++)
+    {
+        if (s_safe.items[i].depend[0] <= 0)
+        {
+            continue;
+        }
+
+        sum += doSelect(i, map, &len[i]);
+    }
+
+    myprintf(ONE, "%d\n", sum);
+    for (i = 0; i < s_safe.item_num; i++)
+    {
+        if (map[i])
+        {
+            myprintf(ONE, "%d\n", i+1);
+        }
+    }
 }
 
 int main(int argc, char **argv)
 {
-	if ((argc != 2) || (argv[1] == NULL))
-	{
-		return -1;
-	}
+    if ((argc != TWO) || (argv[1] == NULL))
+    {
+        return -1;
+    }
 
-	prase_file(argv[1]);
+    praseFile(argv[1]);
 
-	do_process();
+    doProcess();
 
-	return 0;
+    return 0;
 }
