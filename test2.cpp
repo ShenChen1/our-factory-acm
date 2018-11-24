@@ -205,7 +205,7 @@ static void doProcess()
 {
     generateMap();
 
-    printf("%d\n", doCalc(0, s_map.point[0]));
+    fprintf(stdout, "%d\n", doCalc(0, s_map.point[0]));
 }
 
 int main(int argc, char **argv)
