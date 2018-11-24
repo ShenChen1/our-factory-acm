@@ -43,18 +43,6 @@ typedef struct
 
 static testline_t s_testline = {0};
 
-static void myprintf(int level, const char *fmt, ...)
-{
-    va_list ap;
-    
-    if (level)
-    {
-        va_start(ap, fmt);
-        vprintf(fmt, ap);
-        va_end(ap);
-    }
-}
-
 static int getUsersAndLines(char *str)
 {
     int i = 0;
@@ -169,7 +157,7 @@ static void doProcess()
 {
     int map[MAXLINE] = {0};
 
-    myprintf(ONE, "%d\n", doExtract(0, map));
+    fprintf(stdout, "%d\n", doExtract(0, map));
 }
 
 int main(int argc, char **argv)
