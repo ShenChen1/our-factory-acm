@@ -74,19 +74,6 @@ static const char *s_female_end[] =
 
 static rule_t s_rule = {0};
 
-static void myprintf(int level, const char *fmt, ...)
-{
-    va_list ap;
-    
-    if (level)
-    {
-        va_start(ap, fmt);
-        vprintf(fmt, ap);
-        va_end(ap);
-    }
-}
-
-
 static int doMaleRule1(char *str, int len)
 {
     int i;
@@ -112,7 +99,7 @@ static int doMaleRule1(char *str, int len)
     {
         ptr = ptr-1;
 
-        for (i = 0; i < (int)sizeof(s_vowel); i++)
+        for (i = 0; i < static_cast<int>(sizeof(s_vowel)); i++)
         {
             if (*ptr == s_vowel[i])
             {
@@ -155,7 +142,7 @@ static int doMaleRule2(char *str, int len)
     {
         ptr = ptr-1;
 
-        for (i = 0; i < (int)sizeof(s_vowel); i++)
+        for (i = 0; i < static_cast<int>(sizeof(s_vowel)); i++)
         {
             if (*ptr == s_vowel[i])
             {
@@ -229,7 +216,6 @@ static int doMaleProcess(char *str, int len)
     return -1;
 }
 
-
 static void doProcess(char *str, int len)
 {
     int ret;
@@ -241,13 +227,13 @@ static void doProcess(char *str, int len)
     }
 
     ret = doMaleProcess(str, len);
-    if (ret == 0)
+    if (ret)
     {
-        myprintf(ONE, "%s,%s\n", str, "male");
+        fprintf(stdout, "%s,%s\n", str, "male");
     }
     else
     {
-        myprintf(ONE, "%s,%s\n", str, "female");
+        fprintf(stdout, "%s,%s\n", str, "female");
     }
 }
 
