@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Package imports
 import numpy as np
 import csv
@@ -21,6 +22,7 @@ class LogisticRegression:
     def __loss(self, h, y):
         return (-y * np.log(h) - (1 - y) * np.log(1 - h)).mean()
 
+    @staticmethod
     def fit(self, X, y):
         if self.fit_intercept:
             X = self.__add_intercept(X)
@@ -41,12 +43,14 @@ class LogisticRegression:
             if (self.verbose == True and i % 10000 == 0):
                 print('loss: {loss} \t')
 
+    @staticmethod
     def predict_prob(self, X):
         if self.fit_intercept:
             X = self.__add_intercept(X)
 
         return self.__sigmoid(np.dot(X, self.theta))
 
+    @staticmethod
     def predict(self, X):
         return self.predict_prob(X).round()
 
@@ -90,7 +94,7 @@ def predict(model, x):
 # - nn_hdim: Number of nodes in the hidden layer
 # - num_passes: Number of passes through the training data for gradient descent
 # - print_loss: If True, print the loss every 1000 iterations
-def build_model(nn_hdim, num_passes=20000, print_loss=False):
+def build_model(nn_hdim, X, y, num_passes=20000, print_loss=False):
     # Initialize the parameters to random values. We need to learn these.
     np.random.seed(0)
     W1 = np.random.randn(nn_input_dim, nn_hdim) / np.sqrt(nn_input_dim)
@@ -142,7 +146,6 @@ def build_model(nn_hdim, num_passes=20000, print_loss=False):
 
 
 def features(name):
-
     v1 = ['a', 'e', 'i', 'o', 'u']
     v2 = ['b', 'c', 'd', 'g', 'k', 'p', 'q', 't']
     n1 = 0
@@ -157,15 +160,13 @@ def features(name):
 
     return [n1/len(name), n2/len(name)]
 
-
-
 if __name__ == '__main__':
 
     name = []
     feature = []
     gender = []
 
-    with open("training_dataset.txt", 'r') as f:
+    with open("/var/www/html/training_dataset.txt", 'r') as f:
         data = f.readlines()
         for line in data:
             odom = line.split(',')
@@ -178,18 +179,16 @@ if __name__ == '__main__':
     for i in range(len(name)):
         feature.append(features(name[i]))
 
-    X = np.array(feature)
-    y = np.array(gender)
-    print(X)
-    print(y)
-    num_examples = len(X)
+    xarray = np.array(feature)
+    yarray = np.array(gender)
+    num_examples = len(xarray)
 
     # Train the logistic rgeression classifier
     clf = LogisticRegression()
-    clf.fit(X, y)
+    clf.fit(xarray, yarray)
 
     # Build a model with a 3-dimensional hidden layer
-    model = build_model(3, num_passes=100)
+    model = build_model(3, xarray, yarray, num_passes=100)
 
     newName = []
     newFeature = []
@@ -207,7 +206,6 @@ if __name__ == '__main__':
 
     # Predict the function value for the whole gid
     Z = predict(model, N)
-    print(Z)
 
     for i in range(len(Z)):
         if Z[i] == 1:
