@@ -32,13 +32,13 @@ typedef enum
 
 typedef struct
 {
-    LL num;
-    LL depend[MAXITEM];
+    int num;
+    int depend[MAXITEM];
 } item_t;
 
 typedef struct
 {
-    LL item_num;
+    int item_num;
     item_t items[MAXITEM];
 
     LL total;
@@ -47,23 +47,11 @@ typedef struct
 
 static safe_t s_safe = {0};
 
-static void myprintf(LL level, const char *fmt, ...)
+static int getItemNum(char *str)
 {
-    va_list ap;
-    
-    if (level)
-    {
-        va_start(ap, fmt);
-        vprintf(fmt, ap);
-        va_end(ap);
-    }
-}
+    int ret = 0;
 
-static LL getItemNum(char *str)
-{
-    LL ret = 0;
-
-    ret = sscanf(str, "%lld", &s_safe.item_num);
+    ret = sscanf(str, "%d", &s_safe.item_num);
     if (ret < 0)
     {
         return -1;
@@ -72,12 +60,12 @@ static LL getItemNum(char *str)
     return 0;
 }
 
-static LL getOneitemList(LL item, char *str, LL len)
+static int getOneitemList(int item, char *str, int len)
 {
-    LL i = 0;
-    LL j = 0;
-    LL tmp = 0;
-    LL flag = 0;
+    int i = 0;
+    int j = 0;
+    int tmp = 0;
+    int flag = 0;
     
     for (i = 0; i < len; i++)
     {
@@ -112,9 +100,9 @@ static LL getOneitemList(LL item, char *str, LL len)
     return 0;
 }
 
-static LL praseFile(char *path)
+static int praseFile(char *path)
 {
-    LL i = 0;
+    int i = 0;
     FILE *file = NULL;
     char buff[512];
 
@@ -145,38 +133,38 @@ static LL praseFile(char *path)
 class edge
 {
 public:
-    LL to;
+    int to;
     LL cap;
-    LL rev;
-    edge(LL to, LL cap, LL rev) :to(to), cap(cap), rev(rev){}
+    int rev;
+    edge(int to, LL cap, int rev) :to(to), cap(cap), rev(rev){}
 };
 
  
 static vector<edge> G[MAXITEM];  // 图的邻接表表示
-static LL level[MAXITEM];       // 顶点到源点的距离标号
-static LL iter[MAXITEM];        // 当前弧，在其之前的边已经没有用了
+static int level[MAXITEM];       // 顶点到源点的距离标号
+static int iter[MAXITEM];        // 当前弧，在其之前的边已经没有用了
  
 // 向图中加入一条从from到to的容量为cap的边
-static void addEdge(LL from, LL to, LL cap)
+static void addEdge(int from, int to, LL cap)
 {
     G[from].push_back(edge(to, cap, G[to].size() ));
     G[to].push_back(edge(from, 0, G[from].size() - 1));
 }
  
 // 通过BFS计算从源点出发的距离标号
-static void bfs(LL s)
+static void bfs(int s)
 {
-    LL i;
+    int i;
 
     memset(level, -1, sizeof(level));
-    queue<LL> que;
+    queue<int> que;
     level[s] = 0;
     que.push(s);
     while (!que.empty())
     {
-        LL v = que.front(); 
+        int v = que.front(); 
         que.pop();
-        for (i = 0; i < static_cast<LL>(G[v].size()); ++i)
+        for (i = 0; i < static_cast<int>(G[v].size()); ++i)
         {
             edge& e = G[v][i];
             if (e.cap > 0 && level[e.to] < 0)
@@ -189,14 +177,14 @@ static void bfs(LL s)
 }
  
 // 通过DFS寻找增广路
-static LL dfs(LL v, LL t, LL f)
+static LL dfs(int v, int t, LL f)
 {
     if (v == t)
     {
         return f;
     }
 
-    for (LL& i = iter[v]; i < static_cast<LL>(G[v].size()); ++i)
+    for (int& i = iter[v]; i < static_cast<int>(G[v].size()); ++i)
     {
         edge& e = G[v][i];
         if (e.cap > 0 && level[v] < level[e.to])
@@ -215,7 +203,7 @@ static LL dfs(LL v, LL t, LL f)
 }
  
 // 求解从s到t的最大流
-static LL maxFlow(LL s, LL t)
+static LL maxFlow(int s, int t)
 {
     LL flow = 0;
     for (;;)
@@ -234,14 +222,14 @@ static LL maxFlow(LL s, LL t)
     }
 }
  
-static LL visited[MAXITEM];
+static int visited[MAXITEM];
 // 遍历残余网络
-static void solve(LL v)
+static void solve(int v)
 {
-    LL i;
+    int i;
 
     visited[v] = true;
-    for (i = 0; i < static_cast<LL>(G[v].size()); ++i) 
+    for (i = 0; i < static_cast<int>(G[v].size()); ++i) 
     {
         const edge &e = G[v][i];
         if (e.cap > 0 && !visited[e.to]) 
@@ -254,14 +242,14 @@ static void solve(LL v)
 
 static void doProcess()
 {
-    LL i;
-    LL j;
-    const LL s = 0;
-    const LL t = s_safe.item_num + 1;
+    int i;
+    int j;
+    const int s = 0;
+    const int t = s_safe.item_num + 1;
 
     for (i = 0; i < s_safe.item_num; i++)
     {
-        LL w = s_safe.items[i].depend[0];
+        int w = s_safe.items[i].depend[0];
         if (w > 0)
         {
             s_safe.total += w;
@@ -285,12 +273,12 @@ static void doProcess()
     LL maxProfit = s_safe.total - maxFlow(s, t);
     solve(s);
 
-    myprintf(ONE, "%lld\n", maxProfit);
+    fprintf(stdout, "%lld\n", maxProfit);
     for (i = 1; i <= s_safe.item_num; i++)
     {
         if (visited[i])
         {
-            myprintf(ONE, "%lld\n", i);
+            fprintf(stdout, "%d\n", i);
         }
     }
 }
