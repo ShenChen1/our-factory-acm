@@ -149,7 +149,7 @@ static int generateNumber(number_t *number)
 
 static void doShow(int x, int y, int z, char opt)
 {
-    printf("%d %c %d = %d\n", x, opt, y, z);
+    fprintf(stdout, "%d %c %d = %d\n", x, opt, y, z);
 }
 
 static int doCalc()
