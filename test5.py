@@ -12,9 +12,9 @@ class LogisticRegression:
         self.fit_intercept = fit_intercept
         self.verbose = verbose
 
-    def __add_intercept(self, X):
-        intercept = np.ones((X.shape[0], 1))
-        return np.concatenate((intercept, X), axis=1)
+    def __add_intercept(self, x):
+        intercept = np.ones((x.shape[0], 1))
+        return np.concatenate((intercept, x), axis=1)
 
     def __sigmoid(self, z):
         return 1 / (1 + np.exp(-z))
@@ -22,37 +22,33 @@ class LogisticRegression:
     def __loss(self, h, y):
         return (-y * np.log(h) - (1 - y) * np.log(1 - h)).mean()
 
-    @staticmethod
-    def fit(self, X, y):
+    def fit(self, x, y):
         if self.fit_intercept:
-            X = self.__add_intercept(X)
+            x = self.__add_intercept(x)
 
         # weights initialization
-        self.theta = np.zeros(X.shape[1])
+        self.theta = np.zeros(x.shape[1])
 
         for i in range(self.num_iter):
-            z = np.dot(X, self.theta)
+            z = np.dot(x, self.theta)
             h = self.__sigmoid(z)
-            gradient = np.dot(X.T, (h - y)) / y.size
+            gradient = np.dot(x.T, (h - y)) / y.size
             self.theta -= self.lr * gradient
 
-            z = np.dot(X, self.theta)
+            z = np.dot(x, self.theta)
             h = self.__sigmoid(z)
             loss = self.__loss(h, y)
 
             if (self.verbose == True and i % 10000 == 0):
                 print('loss: {loss} \t')
 
-    @staticmethod
-    def predict_prob(self, X):
+    def predict_prob(self, x):
         if self.fit_intercept:
-            X = self.__add_intercept(X)
+            x = self.__add_intercept(x)
+        return self.__sigmoid(np.dot(x, self.theta))
 
-        return self.__sigmoid(np.dot(X, self.theta))
-
-    @staticmethod
-    def predict(self, X):
-        return self.predict_prob(X).round()
+    def predict(self, x):
+        return self.predict_prob(x).round()
 
 
 num_examples = 0    # training set size
@@ -64,10 +60,10 @@ epsilon = 0.01  # learning rate for gradient descent
 reg_lambda = 0.01  # regularization strength
 
 # Helper function to evaluate the total loss on the dataset
-def calculate_loss(model): 
-    W1, b1, W2, b2 = model['W1'], model['b1'], model['W2'], model['b2']
+def calculate_loss(model, x):
+    w1, b1, w2, b2 = model['w1'], model['b1'], model['w2'], model['b2']
     # Forward propagation to calculate our predictions
-    z1 = X.dot(W1) + b1
+    z1 = x.dot(W1) + b1
     a1 = np.tanh(z1)
     z2 = a1.dot(W2) + b2
     exp_scores = np.exp(z2)
@@ -76,16 +72,16 @@ def calculate_loss(model):
     corect_logprobs = -np.log(probs[range(num_examples), y])
     data_loss = np.sum(corect_logprobs)
     # Add regulatization term to loss (optional)
-    data_loss += reg_lambda / 2 * (np.sum(np.square(W1)) + np.sum(np.square(W2)))
-    return 1. / num_examples * data_loss
+    data_loss += reg_lambda/2 * (np.sum(np.square(w1)) + np.sum(np.square(w2)))
+    return 1./num_examples * data_loss
 
 # Helper function to predict an output (0 or 1)
 def predict(model, x):
-    W1, b1, W2, b2 = model['W1'], model['b1'], model['W2'], model['b2']
+    w1, b1, w2, b2 = model['w1'], model['b1'], model['w2'], model['b2']
     # Forward propagation
-    z1 = x.dot(W1) + b1
+    z1 = x.dot(w1) + b1
     a1 = np.tanh(z1)
-    z2 = a1.dot(W2) + b2
+    z2 = a1.dot(w2) + b2
     exp_scores = np.exp(z2)
     probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
     return np.argmax(probs, axis=1)
@@ -94,12 +90,12 @@ def predict(model, x):
 # - nn_hdim: Number of nodes in the hidden layer
 # - num_passes: Number of passes through the training data for gradient descent
 # - print_loss: If True, print the loss every 1000 iterations
-def build_model(nn_hdim, X, y, num_passes=20000, print_loss=False):
+def build_model(nn_hdim, x, y, num_passes=20000, print_loss=False):
     # Initialize the parameters to random values. We need to learn these.
     np.random.seed(0)
-    W1 = np.random.randn(nn_input_dim, nn_hdim) / np.sqrt(nn_input_dim)
+    w1 = np.random.randn(nn_input_dim, nn_hdim) / np.sqrt(nn_input_dim)
     b1 = np.zeros((1, nn_hdim))
-    W2 = np.random.randn(nn_hdim, nn_output_dim) / np.sqrt(nn_hdim)
+    w2 = np.random.randn(nn_hdim, nn_output_dim) / np.sqrt(nn_hdim)
     b2 = np.zeros((1, nn_output_dim))
 
     # This is what we return at the end
@@ -109,38 +105,33 @@ def build_model(nn_hdim, X, y, num_passes=20000, print_loss=False):
     for i in range(0, num_passes):
 
         # Forward propagation
-        z1 = X.dot(W1) + b1
+        z1 = x.dot(w1) + b1
         a1 = np.tanh(z1)
-        z2 = a1.dot(W2) + b2
+        z2 = a1.dot(w2) + b2
         exp_scores = np.exp(z2)
         probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
 
         # Backpropagation
         delta3 = probs
         delta3[range(num_examples), y] -= 1
-        dW2 = (a1.T).dot(delta3)
+        dw2 = (a1.T).dot(delta3)
         db2 = np.sum(delta3, axis=0, keepdims=True)
-        delta2 = delta3.dot(W2.T) * (1 - np.power(a1, 2))
-        dW1 = np.dot(X.T, delta2)
+        delta2 = delta3.dot(w2.T) * (1 - np.power(a1, 2))
+        dw1 = np.dot(x.T, delta2)
         db1 = np.sum(delta2, axis=0)
 
         # Add regularization terms (b1 and b2 don't have regularization terms)
-        dW2 += reg_lambda * W2
-        dW1 += reg_lambda * W1
+        dw2 += reg_lambda * w2
+        dw1 += reg_lambda * w1
 
         # Gradient descent parameter update
-        W1 += -epsilon * dW1
+        w1 += -epsilon * dw1
         b1 += -epsilon * db1
-        W2 += -epsilon * dW2
+        w2 += -epsilon * dw2
         b2 += -epsilon * db2
 
         # Assign new parameters to the model
-        model = {'W1': W1, 'b1': b1, 'W2': W2, 'b2': b2}
-
-        # Optionally print the loss.
-        # This is expensive because it uses the whole dataset, so we don't want to do it too often.
-        if print_loss and i % 1000 == 0:
-            print("Loss after iteration %i: %f" % (i, calculate_loss(model)))
+        model = {'w1': w1, 'b1': b1, 'w2': w2, 'b2': b2}
 
     return model
 
@@ -188,7 +179,7 @@ if __name__ == '__main__':
     clf.fit(xarray, yarray)
 
     # Build a model with a 3-dimensional hidden layer
-    model = build_model(3, xarray, yarray, num_passes=100)
+    model = build_model(3, xarray, yarray, num_passes=10000)
 
     newName = []
     newFeature = []
@@ -196,7 +187,7 @@ if __name__ == '__main__':
     with open(sys.argv[1], 'r') as f:
         data = f.readlines()
         for line in data:
-            odom = line.split(',')
+            odom = line.split()
             newName.append(odom[0])
 
     for i in range(len(newName)):
@@ -207,7 +198,7 @@ if __name__ == '__main__':
     # Predict the function value for the whole gid
     Z = predict(model, N)
 
-    for i in range(len(Z)):
+    for i in range(len(newName)):
         if Z[i] == 1:
             print("%s,female" % (newName[i]))
         else:
