@@ -22,6 +22,7 @@ class LogisticRegression:
     def __loss(self, h, y):
         return (-y * np.log(h) - (1 - y) * np.log(1 - h)).mean()
 
+    @staticmethod
     def fit(self, x, y):
         if self.fit_intercept:
             x = self.__add_intercept(x)
@@ -42,11 +43,13 @@ class LogisticRegression:
             if (self.verbose == True and i % 10000 == 0):
                 print('loss: {loss} \t')
 
+    @staticmethod
     def predict_prob(self, x):
         if self.fit_intercept:
             x = self.__add_intercept(x)
         return self.__sigmoid(np.dot(x, self.theta))
 
+    @staticmethod
     def predict(self, x):
         return self.predict_prob(x).round()
 
@@ -90,7 +93,7 @@ def predict(model, x):
 # - nn_hdim: Number of nodes in the hidden layer
 # - num_passes: Number of passes through the training data for gradient descent
 # - print_loss: If True, print the loss every 1000 iterations
-def build_model(nn_hdim, x, y, num_passes=20000, print_loss=False):
+def build_model(nn_hdim, x, y, num_passes=10000, print_loss=False):
     # Initialize the parameters to random values. We need to learn these.
     np.random.seed(0)
     w1 = np.random.randn(nn_input_dim, nn_hdim) / np.sqrt(nn_input_dim)
@@ -190,17 +193,14 @@ if __name__ == '__main__':
 
     xarray = np.array(feature)
     yarray = np.array(gender)
-
-    print(xarray)
-    print(yarray)
     num_examples = len(xarray)
 
     # Train the logistic rgeression classifier
     clf = LogisticRegression()
-    clf.fit(xarray, yarray)
+    clf.fit(clf, xarray, yarray)
 
     # Build a model with a 3-dimensional hidden layer
-    model = build_model(5, xarray, yarray)
+    model = build_model(8, xarray, yarray)
 
     newName = []
     newFeature = []
@@ -208,18 +208,15 @@ if __name__ == '__main__':
     with open(sys.argv[1], 'r') as f:
         data = f.readlines()
         for line in data:
-            odom = line.split()
+            odom = line.split(',')
             newName.append(odom[0])
 
     for i in range(len(newName)):
         newFeature.append(features(newName[i]))
-
     newxarray = np.array(newFeature)
-    print(newxarray)
 
     # Predict the function value for the whole gid
     newyarray = predict(model, newxarray)
-    print(newyarray)
 
     for i in range(len(newName)):
         if newyarray[i] == 1:
