@@ -52,20 +52,20 @@ class LogisticRegression:
 
 
 num_examples = 0    # training set size
-nn_input_dim = 2 # input layer dimensionality 
-nn_output_dim = 2   # output layer dimensionality
+nn_input_dim = 4 # input layer dimensionality
+nn_output_dim = 4   # output layer dimensionality
 
 # Gradient descent parameters (I picked these by hand)
 epsilon = 0.01  # learning rate for gradient descent
 reg_lambda = 0.01  # regularization strength
 
 # Helper function to evaluate the total loss on the dataset
-def calculate_loss(model, x):
+def calculate_loss(model, x, y):
     w1, b1, w2, b2 = model['w1'], model['b1'], model['w2'], model['b2']
     # Forward propagation to calculate our predictions
-    z1 = x.dot(W1) + b1
+    z1 = x.dot(w1) + b1
     a1 = np.tanh(z1)
-    z2 = a1.dot(W2) + b2
+    z2 = a1.dot(w2) + b2
     exp_scores = np.exp(z2)
     probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
     # Calculating the loss
@@ -133,23 +133,41 @@ def build_model(nn_hdim, x, y, num_passes=20000, print_loss=False):
         # Assign new parameters to the model
         model = {'w1': w1, 'b1': b1, 'w2': w2, 'b2': b2}
 
+        # Optionally print the loss.
+        # This is expensive because it uses the whole dataset, so we don't want to do it too often.
+        if print_loss and i % 1000 == 0:
+            print("Loss after iteration %i: %f" % (i, calculate_loss(model, x, y)))
+
     return model
 
 
 def features(name):
     v1 = ['a', 'e', 'i', 'o', 'u']
-    v2 = ['b', 'c', 'd', 'g', 'k', 'p', 'q', 't']
+    v2 = ["an","ian","in","on","r","ah","as","o","os","us"]
+    v3 = ["a","ia","ie","ine","e","es","is","x","z"]
+    v4 = ['b','c','d','g','k','p','q','t']
     n1 = 0
     n2 = 0
+    n3 = 0
+    n4 = 0
+
+    for i in range(len(v2)):
+        if v2[i] == name[-len(v2[i]):]:
+            n2 = 1
+
+    for i in range(len(v3)):
+        if v3[i] == name[-len(v3[i]):]:
+            n3 = 1
 
     name = name.lower()
-    for i in range(len(name)):
+    namelen = len(name)
+    for i in range(namelen):
         if name[i] in v1:
             n1 += 1
-        if name[i] in v2:
-            n2 += 1
+        if name[i] in v4:
+            n4 += 1
 
-    return [n1/len(name), n2/len(name)]
+    return [n1/namelen,n2,n3,n4/namelen]
 
 if __name__ == '__main__':
 
@@ -172,6 +190,9 @@ if __name__ == '__main__':
 
     xarray = np.array(feature)
     yarray = np.array(gender)
+
+    print(xarray)
+    print(yarray)
     num_examples = len(xarray)
 
     # Train the logistic rgeression classifier
@@ -179,7 +200,7 @@ if __name__ == '__main__':
     clf.fit(xarray, yarray)
 
     # Build a model with a 3-dimensional hidden layer
-    model = build_model(3, xarray, yarray, num_passes=10000)
+    model = build_model(5, xarray, yarray)
 
     newName = []
     newFeature = []
@@ -193,13 +214,15 @@ if __name__ == '__main__':
     for i in range(len(newName)):
         newFeature.append(features(newName[i]))
 
-    N = np.array(newFeature)
+    newxarray = np.array(newFeature)
+    print(newxarray)
 
     # Predict the function value for the whole gid
-    Z = predict(model, N)
+    newyarray = predict(model, newxarray)
+    print(newyarray)
 
     for i in range(len(newName)):
-        if Z[i] == 1:
+        if newyarray[i] == 1:
             print("%s,female" % (newName[i]))
         else:
             print("%s,male" % (newName[i]))
