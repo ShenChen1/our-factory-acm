@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Online Coding Competition</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+	<link rel="stylesheet" type="text/css" href="Online%20Coding%20Competition_files/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="Online%20Coding%20Competition_files/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="Online%20Coding%20Competition_files/Competition.css">
+	<link rel="stylesheet" type="text/css" href="Online%20Coding%20Competition_files/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="Online%20Coding%20Competition_files/show-hint.css">
+	<link rel="stylesheet" type="text/css" href="Online%20Coding%20Competition_files/fullscreen.css">
+	<link rel="stylesheet" type="text/css" href="Online%20Coding%20Competition_files/neat.css">
+	<script src="Online%20Coding%20Competition_files/jquery-3.js"></script>
+	<script src="Online%20Coding%20Competition_files/bootstrap.js"></script>
+	<script src="Online%20Coding%20Competition_files/codemirror.js"></script>
+	<script src="Online%20Coding%20Competition_files/matchbrackets.js"></script>
+	<script src="Online%20Coding%20Competition_files/javascript.js"></script>
+	<script src="Online%20Coding%20Competition_files/python.js"></script>
+	<script src="Online%20Coding%20Competition_files/show-hint.js"></script>
+	<script src="Online%20Coding%20Competition_files/javascript-hint.js"></script>
+	<script src="Online%20Coding%20Competition_files/clike.js"></script>
+	<script src="Online%20Coding%20Competition_files/lint.js"></script>
+	<script src="Online%20Coding%20Competition_files/json-lint.js"></script>
+	<script src="Online%20Coding%20Competition_files/javascript-lint.js"></script>
+	<script src="Online%20Coding%20Competition_files/css-lint.js"></script>
+	<script src="Online%20Coding%20Competition_files/fullscreen.js"></script>
+	<script src="Online%20Coding%20Competition_files/GlobalData.js"></script>
+	<script src="Online%20Coding%20Competition_files/TeledataAjax.js"></script>
+	<script src="Online%20Coding%20Competition_files/Time.js"></script>
+	<script src="Online%20Coding%20Competition_files/Competition.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div id="main-header" class="row">
+			<div id="compe-name" class="col-md-5">Hangzhou_Coding_Contest_2018</div>
+
+			<div class="col-md-7">
+				<div class="row">
+					<div id="" class="col-md-4">select your dev language</div>
+					<div id="nav-main" class="col-md-4">
+						<div class="dropdown">
+							<nav id="compe-nav">
+								<select id="compe-sel" onclick="changeCodeLanguage(this)">
+									<option value="C">C++14(G++5.4.0)</option>
+									<option value="Python" selected="selected">Python 3.5</option>
+									<option value="Java">Java 1.8</option>
+								</select>
+							</nav>
+						</div>
+					</div>
+					<div id="ShowRemainTime" class="col-md-4"><font size="3" color="green">End in 12d 11h 53m 02s</font></div>
+				</div>
+			</div>
+		</div>
+		<div id="compe_container" class="row">
+			<div id="com-problem" class="col-md-5">
+				<div id="com-problem-textarea" class="col-md-12">
+					<textarea id="showProblem" class="form-control" rows="25" readonly="readonly">﻿NOKIA will apply SAFe step by step from now on, all features and enablers together on each ART(Agile Release Train) are going to be planned on PI meeting together.
+
+Let's assume that:
+- All the factors, like the user business value, time criticality and risk deduction/opportunity enablement, are already unified as a single value, which represents profit or cost.
+- All features are required by customers, who will pay for them, and they will bring profits to company.
+- All enablers are not required by customers, and they will only cost money. But some features may depend on them, so they have to be done sometimes.
+- All features and enablers could depend on each others
+
+As the RTE/PO, you have to pick some features and enablers to guarantee NOKIA have the possible maximum profits.
+
+Input: The 1st line is the total number of features and enablers (0&lt;= n &lt;=1000), and then each line represents a feature or enabler, in which the 1st number is the costs (negetive) or profits (positive) value (-1,000,000&lt;= n &lt;=1,000,000), and after it, the numbers are the indices of all the features and enablers on which this one depends. They are separated by spaces.
+
+Output: The 1st line is the company's maximum profits, and then the list of all selected features/enablers, each line has a index of a feature/enabler. If there are multiple solutions for the maximum profits, then choose the one with the least number of items.
+
+The input of your program is 1 argument, the path of a text file, with the content as follow:
+item_num
+item1_dependence_list
+item2_dependence_list
+...
+
+e.g.
+6
+-4
+1
+2 2
+-1 1 2
+-3 3
+5 3 4
+
+The output of your program is a stdout print
+Maximum_profits
+selected_item_index1
+selected_item_index2
+...
+
+e.g.
+6
+2
+3
+4
+
+
+////////////////////中文分割线////////////////////
+
+
+诺基亚将从现在开始逐步应用SAFe，每个ART（敏捷发布列车）上的所有功能和启用程序将在PI会议上一起计划。
+
+我们假设：
+- 所有的价值因素，如用户业务价值，时间紧迫性和风险降低/机会增加，已被统一为一个数字价值，表示利润或亏损。
+- 客户会为他们需要的feature付款，所以feature将为公司带来利润。
+- 客户不需要所有enabler，所以这些enabler只会消耗成本，即亏损。但是某些feature可能依赖于它们，因此有时必须完成它们。
+- 所有feature和enabler可能相互依赖
+
+作为RTE/PO，您必须选择一些功能和促成因素，以确保NOKIA获得最大利润。
+
+输入：第1行是feature和enabler的总数（0 &lt;= n &lt;= 1000），然后每行代表一个feature或enabler，其中第一个数字是成本（负值）或利润（正值）值（-1,000,000 &lt;= n &lt;= 1,000,000），在此之后，数字是这个所依赖的所有feature和enabler的索引。它们由空格分隔。
+
+输出：第一行是公司的最大利润，然后是所有选定feature/enabler的列表，每行都是一个feature/enabler的索引。如果有多种解决方案可以获得最大利润，那么选择项目数最少的解决方案。
+
+你的程序输入只有一个参数，一个文本文件的路径，包含如下内容:
+item_num
+item1_dependence_list
+item2_dependence_list
+...
+
+例如：
+6
+-4
+1
+2 2
+-1 1 2
+-3 3
+5 3 4
+
+
+你的程序的输出是stdout标准打印输出，包含如下内容：
+Maximum_profits
+selected_item_index1
+selected_item_index2
+...
+
+例如:
+6
+2
+3
+4
+
+</textarea>
+				</div>
+			</div>
+			<div id="com-editor-answer" class="col-md-7">
+				<div id="com-editor-main" class="row">
+					<div id="com-editor" class="col-md-12">
+						<textarea id="showCodeMirror" rows="50" style="display: none;"></textarea><div class="CodeMirror cm-s-neat CodeMirror-wrap CodeMirror-focused" style="width: auto; height: 482px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 124.8px; left: 106.133px;"><textarea style="position: absolute; bottom: -1em; padding: 0px; width: 1px; height: 1em; outline: medium none currentcolor;" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" wrap="off"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div class="CodeMirror-sizer" style="margin-left: 30px; margin-bottom: -16px; border-right-width: 14px; min-height: 228px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div style="position: relative; outline: medium none currentcolor;" role="presentation"><div class="CodeMirror-measure"><span><span>​</span>x</span><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>11</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 75.3333px; top: 120px; height: 20px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-comment"># -*- coding: utf-8 -*-</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-keyword">import</span> <span class="cm-variable">sys</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-keyword">import</span> <span class="cm-variable">os</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-keyword">def</span> <span class="cm-def">main</span>():</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">  <span class="cm-builtin">print</span><span class=" CodeMirror-matchingbracket">(</span><span class="cm-number">0</span><span class=" CodeMirror-matchingbracket">)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-keyword">if</span> <span class="cm-variable">__name__</span> <span class="cm-operator">==</span> <span class="cm-string">'__main__'</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation">  <span class="cm-variable">main</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 14px; width: 1px; border-bottom: 0px solid transparent; top: 228px;"></div><div class="CodeMirror-gutters" style="height: 242px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+					</div>
+				</div>
+
+				<div id="com-answer-main" class="row">
+					<div id="com-answer" class="row">
+						<div class="col-md-8">F11:Full Screen(Focus code needed) ESC:Quit</div>
+						<div class="col-md-4">
+
+							<input id="compeSubmitCode" class="btn btn-default pull-right" value="Submit" onclick="subCode()" type="button">
+							<input id="compeRunTest" class="btn btn-default pull-right" value="Run" onclick="runCode()" type="button">
+							<input id="compeSaveCode" class="btn btn-default pull-right" value="Save" onclick="saveCode()" type="button">
+							<input id="compeResetCode" class="btn btn-default pull-right" value="Reset" onclick="resetCode()" disabled="true" type="button">
+
+						</div>
+					</div>
+					<div id="com-result" class="row">
+						<div id="com-result-area" class="col-md-12">
+							<textarea id="showRunResult" class="form-control" rows="4" readonly="readonly"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="main-footer" class="row">
+			<div class="col-md-12">Powered by NOKIA 2018 all rights reserved.</div>
+		</div>
+		<div id="back" style="display:none; POSITION:absolute; left:0; top:0; width:100%; height:100%; background-color:#000; filter:alpha(opacity=60)"></div>
+		<div id="win" style="display:none;POSITION:absolute;left:50%; top:50%; width:300px; height:200px; margin-left:-300px; margin-top:-200px; border:1px solid #888; text-align:center">
+			<section>
+				<form method="POST" action="&lt;%= response.encodeURL(&quot;j_security_check&quot;) %&gt;">
+					<div class="login-box">
+						<div class="login-head">
+							<p>SINGLE SIGN ON</p>
+						</div>
+
+						<div class="user-box">
+							<label for="text">Username</label>
+
+							<input data-val="true" data-val-required="The 用户名 field is required." id="UserName" name="j_username" placeholder="AD4" value="clxia" type="text">
+						</div>
+						<div class="password-box">
+							<label for="pass-word">Password</label>
+							<input data-val="true" data-val-required="The 密码 field is required." id="Password" name="j_password" placeholder="Password" type="password">
+
+						</div>
+						<div class="check-box">
+
+							<div class="user-hint">
+
+								<span id="allmessage"></span>
+							</div>
+
+						</div>
+						<div>
+
+
+							<input id="btnSubmit" value="Log In" type="submit">
+							<div class="spinner-box4" id="main_s" style="display: none;">
+								<div class="spinner4">
+									<div class="spinner-container container1">
+										<div class="circle1"></div>
+										<div class="circle2"></div>
+										<div class="circle3"></div>
+										<div class="circle4"></div>
+									</div>
+									<div class="spinner-container container2">
+										<div class="circle1"></div>
+										<div class="circle2"></div>
+										<div class="circle3"></div>
+										<div class="circle4"></div>
+									</div>
+									<div class="spinner-container container3">
+										<div class="circle1"></div>
+										<div class="circle2"></div>
+										<div class="circle3"></div>
+										<div class="circle4"></div>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+				</form>
+			</section>
+		</div>
+		<script type="text/javascript">
+			initSystem();
+		</script>
+	</div>
+
+
+</body></html>

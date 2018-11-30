@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+import sys
+import os
+import re
+import itertools
+
+
+def main():
+  print(sys.argv)
+  lsdir = os.listdir("/opt/OLCC/Competition/Hangzhou_Coding_Contest_2018/problem2-20181112000000-20181125235959/result/.././cases/")
+  #print(lsdir)
+  
+  for item in lsdir:
+      with open("/opt/OLCC/Competition/Hangzhou_Coding_Contest_2018/problem2-20181112000000-20181125235959/result/.././cases/"+item,"r") as f:
+          str = f.read() 
+          print("*******")
+          print(item,">>> \n", str)
+          print("*******")
+    
+  exit(0)
+  
+if __name__ == '__main__':
+  
+  main()
+

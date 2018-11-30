@@ -1,0 +1,126 @@
+
+Input:
+GA * HG = HEAG
+ 
+
+Output:
+['/opt/OLCC/Competition/Hangzhou_Coding_Contest_2018/problem1-20181112000000-20181125235959/result/clxia/Solution.py', '/opt/OLCC/Competition/Hangzhou_Coding_Contest_2018/problem1-20181112000000-20181125235959/result/.././cases/case0']
+*******
+result0 >>>
+86 * 38 = 3268
+*******
+*******
+case9 >>>
+BEB * JGHD = DCFIBC
+*******
+*******
+result9 >>>
+404 * 1937 = 782548
+*******
+*******
+case3 >>>
+ABE * FEF = IICAIF
+*******
+*******
+case1 >>>
+A * B = C
+*******
+*******
+result3 >>>
+841 * 919 = 772879
+*******
+*******
+case4 >>>
+IIF * DH = JIIC
+*******
+*******
+result7 >>>
+244 * 578 = 141032
+*******
+*******
+case8 >>>
+CGIH * AHCH = DJJCGJE
+*******
+*******
+result5 >>>
+484 * 459 = 222156
+*******
+*******
+result6 >>>
+2792 * 2072 = 5785024
+*******
+*******
+case5 >>>
+BAB * BGF = CCCEGH
+*******
+*******
+case2 >>>
+CCD * JC  = FJDHD
+*******
+*******
+result8 >>>
+2804 * 1424 = 3992896
+*******
+*******
+result4 >>>
+119 * 43 = 5117
+*******
+*******
+result1 >>>
+2 * 3 = 6
+3 * 2 = 6
+2 * 4 = 8
+4 * 2 = 8
+*******
+*******
+case6 >>>
+CBJC * CIBC = FBGFICH
+*******
+*******
+inputs >>>
+GA * HG = HEAG       
+{'A': 6, 'H': 3, 'E': 2, 'G': 8}
+CCD * JC  = FJDHD    
+{'H': 4, 'C': 2, 'J': 8, 'D': 0, 'F': 1}
+ABE * FEF = IICAIF   
+{'A': 8, 'C': 2, 'B': 4, 'E': 1, 'F': 9, 'I': 7}
+IIF * DH = JIIC      
+{'C': 7, 'D': 4, 'F': 9, 'I': 1, 'H': 3, 'J': 5}
+BAB * BGF = CCCEGH   
+{'A': 8, 'C': 2, 'B': 4, 'E': 1, 'G': 5, 'F': 9, 'H': 6}
+CBJC * CIBC = FBGFICH
+{'C': 2, 'B': 7, 'G': 8, 'F': 5, 'I': 0, 'H': 4, 'J': 9}
+CHH * GBJ = FHFDEC   
+{'C': 2, 'B': 7, 'E': 3, 'D': 0, 'G': 5, 'F': 1, 'H': 4, 'J': 8}
+CGIH * AHCH = DJJCGJE
+{'A': 1, 'C': 2, 'E': 6, 'D': 3, 'G': 8, 'I': 0, 'H': 4, 'J': 9}
+BEB * JGHD = DCFIBC  
+{'C': 8, 'B': 4, 'E': 0, 'D': 7, 'G': 9, 'F': 2, 'I': 5, 'H': 3, 'J': 1}
+FDC * GIJ = GEHABH   
+{'A': 8, 'C': 2, 'B': 4, 'E': 1, 'D': 0, 'G': 5, 'F': 9, 'I': 7, 'H': 6, 'J': 3}
+*******
+*******
+case7 >>>
+CHH * GBJ = FHFDEC
+*******
+*******
+case10 >>>
+FDC * GIJ = GEHABH
+*******
+*******
+case0 >>>
+GA * HG = HEAG
+*******
+*******
+result2 >>>
+220 * 82 = 18040
+*******
+*******
+result10 >>>
+902 * 573 = 516846
+*******
+
+The result is NOK
+
+
+
