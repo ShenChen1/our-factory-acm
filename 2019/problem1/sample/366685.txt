@@ -1,0 +1,11 @@
+Line 50: Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from MANO_HZH_MZOM to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: Correction is available already by Jouni Kemppainen.
+	Line 56: Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from MANO_HZH_MZOM to MANO_HZH_MZOM. Reason for Transfer: Support batch #2: MANO HZH support 5G18A
+	Line 58: Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to MANO_HZH_MZOM. Reason for Transfer: Support batch #2: MANO HZH support 5G18A
+	Line 68: Babu P, Sudheer (Nokia - IN/Bangalore) The group in charge changed from ECE_DEV_IBA_CP_RT to ECE_DEV_FOU_OAM_MZ. Reason for Transfer: Needs to be attached to PR365378. RC is same. OAM to investigate. CP analysis from shared logs: In Delta ...
+Search "The group in charge changed from" (6 hits in 1 file)
+
+ECE_DEV_IBA_CP_RT
+ECE_DEV_FOU_OAM_MZ
+MANO_HZH_MZOM
+MANO_HZH_MZOM
+ECE_DEV_FOU_OAM_MZ_EXT

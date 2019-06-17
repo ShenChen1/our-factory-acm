@@ -1,0 +1,118 @@
+Verma, Awrit (Nokia - IN/Bangalore) The group in charge changed from TRS_5G_ASIK_GENERAL to TRS_PINNACLE. Reason for Transfer: Pinnacle Experts to Investigate the analysis shared by LFS in the "Reason For Transfer".
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) The group in charge changed from BB_PSW1_PS_LFS to TRS_5G_ASIK_GENERAL. Reason for Transfer: TRS team to further check why sp and dp are invalid and mirroring ddal API is not called.
+Nsn, Lfs-Prescreening (Nokia - Global) The group in charge changed from BB_PSW_LFS to BB_PSW1_PS_LFS. Reason for Transfer: moving to proper LFS team,.
+Zheng, Hao 1. (NSB - CN/Hangzhou) The group in charge changed from BB_PSW_LFS to TRS_5G_ASIK_GENERAL. Reason for Transfer: Please refer to the email attachment for details and TRS is required to check
+Verma, Awrit (Nokia - IN/Bangalore) The group in charge changed from TRS_PINNACLE to BB_PSW_LFS. Reason for Transfer: Ddal API: ddal_eth_switch_set_mirroring_port has returned success, There are no issues from from TRS pov. LFS team to ...
+Verma, Awrit (Nokia - IN/Bangalore) The group in charge changed from TRS_5G_ASIK_GENERAL to TRS_PINNACLE. Reason for Transfer: Pinnacle team to investigate this Issue from 541 feature POV
+
+
+BB_PSW1_PS_LFS
+TRS_5G_ASIK_GENERAL
+TRS_PINNACLE
+BB_PSW_LFS
+
+Transfer Path=|[
+'BB_PSW_LFS', 
+'TRS_5G_ASIK_GENERAL', 
+'TRS_PINNACLE', 
+'BB_PSW_LFS', 
+'BB_PSW1_PS_LFS']|
+
+["BB_PSW_LFS", 
+"TRS_5G_ASIK_GENERAL", 
+"TRS_PINNACLE", 
+"BB_PSW_LFS", 
+"BB_PSW1_PS_LFS", 
+"TRS_5G_ASIK_GENERAL", 
+"TRS_PINNACLE"]
+
+2019-03-15 12:10 EET
+Kamyczek, Jerzy (Nokia - PL/Wroclaw) The state of the problem changed from First Correction Complete to Closed
+2019-03-14 12:35 EET
+Verma, Awrit (Nokia - IN/Bangalore) The state of the problem changed from First Correction Ready For Testing to First Correction Complete
+2019-03-14 12:00 EET
+Verma, Awrit (Nokia - IN/Bangalore) New Correction document Correction for 5G00 5G_0.835.757 ; 5G_0.135.730 has been created.
+2019-03-14 11:59 EET
+Verma, Awrit (Nokia - IN/Bangalore) Solution Description: Correction for 5G00 5G_0.835.757 ; 5G_0.135.730 has been deleted.
+2019-03-13 13:03 EET
+Verma, Awrit (Nokia - IN/Bangalore) The state of the problem changed from Investigating to First Correction Ready For Testing
+2019-03-12 19:41 EET
+Verma, Awrit (Nokia - IN/Bangalore) New Correction document Correction for TRS_INTERNAL RCA_EDA has been created.
+2019-03-12 19:39 EET
+Verma, Awrit (Nokia - IN/Bangalore) The state of the problem changed from First Correction Ready For Testing to Investigating
+2019-03-12 19:39 EET
+Verma, Awrit (Nokia - IN/Bangalore) Solution Description: Correction for TRS_INTERNAL RCA_EDA has been deleted.
+2019-03-12 19:37 EET
+Verma, Awrit (Nokia - IN/Bangalore) The state of the problem changed from Investigating to First Correction Ready For Testing
+2019-03-12 07:31 EET
+Verma, Awrit (Nokia - IN/Bangalore) The state of the problem changed from First Correction Ready For Testing to Investigating
+2019-03-12 07:31 EET
+Verma, Awrit (Nokia - IN/Bangalore) Solution Description: Correction for 5G00 5G_0.master.xxxx has been deleted.
+2019-03-11 16:39 EET
+Shivraj, Sanjay (Nokia - IN/Bangalore) The state of the problem changed from Investigating to First Correction Ready For Testing
+2019-03-11 13:58 EET
+Boubakri, Anas (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-11 06:45 EET
+Shivraj, Sanjay (Nokia - IN/Bangalore) The state of the problem changed from New to Investigating.
+2019-03-08 16:52 EET
+Pronto, Repportal (Nokia - Global) New Correction document Correction for 5G19 5G19_5.b3.xxxx has been created.
+2019-03-08 14:22 EET
+Verma, Awrit (Nokia - IN/Bangalore) The group in charge changed from TRS_5G_ASIK_GENERAL to TRS_PINNACLE. Reason for Transfer: Pinnacle Experts to Investigate the analysis shared by LFS in the "Reason For Transfer".
+2019-03-08 13:16 EET
+trs, tools (Nokia - Global) New Correction document Correction for TRS_INTERNAL RCA_EDA has been created.
+2019-03-08 12:49 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) The state of the problem changed from Investigating to New
+2019-03-08 12:49 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) The group in charge changed from BB_PSW1_PS_LFS to TRS_5G_ASIK_GENERAL. Reason for Transfer: TRS team to further check why sp and dp are invalid and mirroring ddal API is not called.
+2019-03-08 12:40 EET
+Boubakri, Anas (Nokia - FR/Paris-Saclay) Attachment LFS_Analysis.txt added.
+2019-03-07 18:11 EET
+Natarajan, Rajesh Babu (Nokia - IN/Bangalore) Information request for problem PR418496 responded.
+2019-03-07 17:16 EET
+Boubakri, Anas (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-07 16:59 EET
+Boubakri, Anas (Nokia - FR/Paris-Saclay) Attachment linux.zip added.
+2019-03-07 16:57 EET
+Boubakri, Anas (Nokia - FR/Paris-Saclay) Info Request for problem PR418496 resent.
+2019-03-06 15:08 EET
+Boubakri, Anas (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-06 15:06 EET
+Boubakri, Anas (Nokia - FR/Paris-Saclay) Info Request for problem PR418496 sent.
+2019-03-06 15:06 EET
+Boubakri, Anas (Nokia - FR/Paris-Saclay) New Information Request for PR PR418496 has been created.
+2019-03-05 17:57 EET
+Boubakri, Anas (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-05 15:34 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-05 12:48 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-04 13:08 EET
+Pronto, Repportal (Nokia - Global) edited. Changed field(s): Development Fault Coordinator
+2019-03-04 12:11 EET
+Nsn, Lfs-Prescreening (Nokia - Global) The group in charge changed from BB_PSW_LFS to BB_PSW1_PS_LFS. Reason for Transfer: moving to proper LFS team,.
+2019-03-04 11:15 EET
+Verma, Awrit (Nokia - IN/Bangalore) Problem attached to PR418153.
+2019-03-04 11:13 EET
+Zheng, Hao 1. (NSB - CN/Hangzhou) The group in charge changed from BB_PSW_LFS to TRS_5G_ASIK_GENERAL. Reason for Transfer: Please refer to the email attachment for details and TRS is required to check
+2019-03-04 11:02 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-04 09:43 EET
+Nsn, Lfs-Prescreening (Nokia - Global) edited. Changed field(s): R&D Information
+2019-03-04 09:33 EET
+Nsn, Lfs-Prescreening (Nokia - Global) The state of the problem changed from New to Investigating.
+2019-03-04 08:50 EET
+Verma, Awrit (Nokia - IN/Bangalore) Solution Description: Correction for TRS_INTERNAL RCA_EDA has been deleted.
+2019-03-04 08:50 EET
+Verma, Awrit (Nokia - IN/Bangalore) The group in charge changed from TRS_PINNACLE to BB_PSW_LFS. Reason for Transfer: Ddal API: ddal_eth_switch_set_mirroring_port has returned success, There are no issues from from TRS pov. LFS team to ...
+2019-03-04 08:48 EET
+Verma, Awrit (Nokia - IN/Bangalore) Attachment PR418496_ with Port mirroring configuration_ not observing EIF1 traffic mirrored on EIF2 .msg added.
+2019-03-04 08:08 EET
+Shivraj, Sanjay (Nokia - IN/Bangalore) Attachment TRS_Analysis.txt added.
+2019-03-02 15:07 EET
+Pronto, Repportal (Nokia - Global) New Correction document Correction for 5G00 5G_0.master.xxxx has been created.
+2019-03-01 13:46 EET
+trs, tools (Nokia - Global) New Correction document Correction for TRS_INTERNAL RCA_EDA has been created.
+2019-03-01 13:42 EET
+Verma, Awrit (Nokia - IN/Bangalore) The group in charge changed from TRS_5G_ASIK_GENERAL to TRS_PINNACLE. Reason for Transfer: Pinnacle team to investigate this Issue from 541 feature POV
+2019-03-01 13:33 EET
+Natarajan, Rajesh Babu (Nokia - IN/Bangalore) Problem Report created

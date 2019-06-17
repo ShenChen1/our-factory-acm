@@ -1,0 +1,81 @@
+{
+  "records": [
+    {
+      "PR ID": "PR349542",
+      "Group In Charge": "NIESSCBTSMZOAM",
+      "Reported Date": "06.06.2018",
+      "Author": "Chen, Jackie 2. (NSB - CN/Hangzhou)",
+      "Author Group": "NIHZSIV2",
+      "State": "Closed",
+      "Transfer Path": [
+        "NIESSCBTSMZOAM"
+      ],
+      "Transfer times": 1,
+      "Solving Path": [
+        "NIESSCBTSMZOAM"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR352628",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR350126",
+      "Group In Charge": "5GRAN_Airphone",
+      "Reported Date": "07.06.2018",
+      "Author": "Fan, Kongshuai (NSB - CN/Hangzhou)",
+      "Author Group": "5GRAN_Productization_QT",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "5GRAN_Airphone"
+      ],
+      "Transfer times": 1,
+      "Solving Path": [
+        "5GRAN_Airphone"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR351881",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR351881",
+      "Group In Charge": "5GRAN_Airphone",
+      "Reported Date": "14.06.2018",
+      "Author": "Fan, Kongshuai (NSB - CN/Hangzhou)",
+      "Author Group": "5GRAN_Productization_QT",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "5GRAN_Airphone"
+      ],
+      "Transfer times": 1,
+      "Solving Path": [
+        "5GRAN_Airphone"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR350126",
+      "Attached": "yes",
+      "Attached To": "PR350126"
+    },
+    {
+      "PR ID": "PR352628",
+      "Group In Charge": "NIESSCBTSMZOAM",
+      "Reported Date": "16.06.2018",
+      "Author": "Li, Yuanfa (NSB - CN/Hangzhou)",
+      "Author Group": "SRANIVHZ_NEVE",
+      "State": "Closed",
+      "Transfer Path": [
+        "NIESSCBTSMZOAM"
+      ],
+      "Transfer times": 1,
+      "Solving Path": [
+        "NIESSCBTSMZOAM"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR349542",
+      "Attached": "yes",
+      "Attached To": "PR349542"
+    }
+  ],
+  "total": 4
+}

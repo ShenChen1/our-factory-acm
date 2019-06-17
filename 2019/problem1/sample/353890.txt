@@ -1,0 +1,170 @@
+Bladek, Dawid (Nokia - PL/Wroclaw) The group in charge changed from 5G_SPEC to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: NIDD 5G18A_1809_020 has been released
+He, Zhenfen (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to 5G_SPEC. Reason for Transfer: need NIDD modify
+He, Zhenfen (NSB - CN/Hangzhou) The group in charge changed from 5G_SPEC to MANO_HZH_MZOM. Reason for Transfer: sorry for transfer mistake
+He, Zhenfen (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to 5G_SPEC. Reason for Transfer: there is no official specification for this requirement, as Fatnassi, Lassad (Nokia - FR/Paris-Saclay) confirm this requ ...
+Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to MANO_HZH_MZOM. Reason for Transfer: Support batch #2: MANO HZH support 5G18A
+Hautala, Mika (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: Internal transfer for Bittium TEAM
+
+
+
+===PR353890=== important fields are incorrect: Transfer Path=|[
+'ECE_DEV_FOU_OAM_MZ', 
+'5G_SPEC', 
+'MANO_HZH_MZOM', 
+'5G_SPEC', 
+'ECE_DEV_FOU_OAM_MZ_EXT'
+
+]|, Solving Path=|['ECE_DEV_FOU_OAM_MZ', '5G_SPEC', 'ECE_DEV_FOU_OAM_MZ_EXT']|, Pingpong times=|1|, 
+
+
+
+
+ECE_DEV_FOU_OAM_MZ
+ECE_DEV_FOU_OAM_MZ_EXT
+MANO_HZH_MZOM
+5G_SPEC
+MANO_HZH_MZOM
+5G_SPEC
+ECE_DEV_FOU_OAM_MZ_EXT
+
+
+2018-10-29 13:24 EET
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-09-18 08:01 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed
+2018-09-18 06:31 EEST
+Hautala, Mika (Nokia - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted.
+2018-09-17 19:02 EEST
+Pronto, Auto (Nokia - Global) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created.
+2018-09-16 14:22 EEST
+Hautala, Mika (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-09-15 14:51 EEST
+Hautala, Mika (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-09-13 15:11 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) Problem detached. The problem report was detached from PR361030, PR366377, PR368856, PR369279
+2018-09-13 14:42 EEST
+Saapunki, Katja (Nokia - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been deleted.
+2018-09-13 01:00 EEST
+Automatic Reactivated
+2018-09-07 14:25 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) Postponed. Reason: NIDD prontos to be openes once Release Note is available
+2018-09-07 14:19 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) Problem attached to PR368856.
+2018-09-07 14:19 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) The fault id FA408962 associated with this PR before attach has been deleted - data is restorable by Pronto Support
+2018-09-07 12:58 EEST
+Bladek, Dawid (Nokia - PL/Wroclaw) The group in charge changed from 5G_SPEC to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: NIDD 5G18A_1809_020 has been released
+2018-09-07 11:27 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete
+2018-09-07 11:26 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) edited. Changed field(s): Title
+2018-09-07 09:28 EEST
+Zhu, Jing-Constance (NSB - CN/Hangzhou) The state of the problem changed from Investigating to First Correction Ready For Testing
+2018-09-07 09:16 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to Investigating
+2018-09-06 11:09 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) edited. Changed field(s): Description
+2018-09-06 11:07 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) edited. Changed field(s): Status Log, Title, Description
+2018-09-06 11:00 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) Attachment DeltaNetworkPlanFile2.xml.txt added.
+2018-09-06 10:59 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) Attachment DeltaNetworkPlanFile1.xml.txt added.
+2018-09-06 10:59 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) Attachment RE 5G18A 5GC000481 PR353890 WebUI does not show F1-C link status- need your greenlight for NIDD fix submission.msg removed.
+2018-09-06 10:59 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) Attachment 4.2111.742.tar removed.
+2018-08-28 17:23 EEST
+Bladek, Dawid (Nokia - PL/Wroclaw) The state of the problem changed from Investigating to First Correction Ready For Testing
+2018-08-28 17:20 EEST
+Bladek, Dawid (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2018-08-28 17:19 EEST
+Bladek, Dawid (Nokia - PL/Wroclaw) New Correction document Correction for 5GBTS_18A has been created.
+2018-08-28 14:56 EEST
+He, Zhenfen (NSB - CN/Hangzhou) Attachment RE 5G18A 5GC000481 PR353890 WebUI does not show F1-C link status- need your greenlight for NIDD fix submission.msg added.
+2018-08-28 14:55 EEST
+He, Zhenfen (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to 5G_SPEC. Reason for Transfer: need NIDD modify
+2018-08-28 11:53 EEST
+He, Zhenfen (NSB - CN/Hangzhou) The group in charge changed from 5G_SPEC to MANO_HZH_MZOM. Reason for Transfer: sorry for transfer mistake
+2018-08-28 05:58 EEST
+He, Zhenfen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-27 06:30 EEST
+He, Zhenfen (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to 5G_SPEC. Reason for Transfer: there is no official specification for this requirement, as Fatnassi, Lassad (Nokia - FR/Paris-Saclay) confirm this requ ...
+2018-08-27 04:42 EEST
+He, Zhenfen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-23 15:07 EEST
+He, Zhenfen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-22 08:07 EEST
+He, Zhenfen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-21 12:13 EEST
+He, Zhenfen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-20 09:54 EEST
+Toivonen, Mika (EXT - FI/Espoo) edited. Changed field(s): R&D Information
+2018-08-17 16:16 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) edited. Changed field(s): Description
+2018-08-17 16:14 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) edited. Changed field(s): Status Log
+2018-08-17 16:12 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) Information request for problem PR353890 responded.
+2018-08-17 08:19 EEST
+He, Zhenfen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-16 08:06 EEST
+He, Zhenfen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-15 07:30 EEST
+He, Zhenfen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-15 07:29 EEST
+He, Zhenfen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-15 04:39 EEST
+He, Zhenfen (NSB - CN/Hangzhou) Info Request for problem PR353890 sent.
+2018-08-15 04:39 EEST
+He, Zhenfen (NSB - CN/Hangzhou) New Information Request for PR PR353890 has been created.
+2018-08-13 16:22 EEST
+Toivonen, Mika (EXT - FI/Espoo) edited. Changed field(s): R&D Information
+2018-08-13 10:18 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) edited. Changed field(s): Description
+2018-08-13 10:06 EEST
+Toivonen, Mika (EXT - FI/Espoo) edited. Changed field(s): R&D Information
+2018-08-11 06:54 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to MANO_HZH_MZOM. Reason for Transfer: Support batch #2: MANO HZH support 5G18A
+2018-08-07 11:03 EEST
+Toivonen, Mika (EXT - FI/Espoo) edited. Changed field(s): R&D Information
+2018-08-06 15:07 EEST
+Paakkari, Panu (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-06 13:29 EEST
+Paakkari, Panu (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-06 05:36 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) Information request for problem PR353890 responded.
+2018-08-03 08:52 EEST
+Lastuvirta, Tuomo (EXT - FI/Oulu) Info Request for problem PR353890 sent.
+2018-08-03 08:52 EEST
+Lastuvirta, Tuomo (EXT - FI/Oulu) New Information Request for PR PR353890 has been created.
+2018-07-24 04:49 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) edited. Changed field(s): Status Log, Feature
+2018-07-24 04:48 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) Information request for problem PR353890 responded.
+2018-07-16 09:49 EEST
+Hautala, Mika (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: Internal transfer for Bittium TEAM
+2018-07-12 14:21 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-07-12 14:20 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Info Request for problem PR353890 sent.
+2018-07-12 14:20 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) New Information Request for PR PR353890 has been created.
+2018-07-11 15:15 EEST
+Kennila, Jyrki (EXT - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been deleted.
+2018-07-10 15:17 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-07-10 15:16 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-07-10 15:16 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The state of the problem changed from New to Investigating
+2018-06-28 12:10 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) Attachment 4.2111.742.tar added.
+2018-06-25 08:54 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created.
+2018-06-25 08:54 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created.
+2018-06-25 08:54 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created.
+2018-06-21 10:59 EEST
+Xu, Xiaowen (NSB - CN/Hangzhou) Problem Report created

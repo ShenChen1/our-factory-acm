@@ -1,0 +1,97 @@
+Luo, Xin (NSB - CN/Hangzhou) The group in charge changed from NIHZSCBTSSWI to RABLTESPEC_PDDB. Reason for Transfer: correction integrated and verified, move to correction ower
+Lis, Michal (Nokia - PL/Wroclaw) The group in charge changed from RABLTESPEC_PDDB to NIHZSCBTSSWI. Reason for Transfer: as it is stated in the mail discussion, pronto was delivered to the CPLANE that was used by CBTS. Please take car ...
+Kubicki, Sylwester (Nokia - PL/Wroclaw) The group in charge changed from RABLTESWPWR1CP to RABLTESPEC_PDDB. Reason for Transfer: Changes in NIDD are required
+Pura, Martyna (Nokia - PL/Wroclaw) The group in charge changed from RABLTESWRROM to RABLTESWPWR1CP. Reason for Transfer: L4 transfer (5Giw)
+Uusnakki, Jari (Nokia - FI/Espoo) The group in charge changed from E2E_CS_AS_RRM_TELECOM to RABLTESWRROM. Reason for Transfer: I got the info from Bolin-Austin Chu that right PR group for this would be RROM, so based on this I’ll tran ...
+Chu, Bolin-Austin (NSB - CN/Hangzhou) The group in charge changed from E2E_MZ_OM_HZH to E2E_CS_AS_RRM_TELECOM. Reason for Transfer: Reject the transfer, no info, no mail discussion received. the attach mail is also related to timisoara
+Uusnakki, Jari (Nokia - FI/Espoo) The group in charge changed from E2E_CS_AS_RRM_TELECOM to E2E_MZ_OM_HZH. Reason for Transfer: Based on email clarification done this is not RRM/Telecom system specification issue and therefore transf ...
+Qu, Linjun (NSB - CN/Hangzhou) The group in charge changed from NIHZSIV5 to E2E_CS_AS_RRM_TELECOM. Reason for Transfer: Parameter actCAggrLteNrDualConnectivity is Mandatory in NIDD xL18A_1808_001, but optional in NIDD FL18A_RADIO_1 ...
+Wronka, Marta (Nokia - PL/Wroclaw) The group in charge changed from MANO_GENERAL to NIHZSIV5. Reason for Transfer: Dear Tester, this is a cloud PR - not MANO preinv - please transfer it to proper PR group (cloud preinv)
+Jackowski, Lukasz (Nokia - PL/Wroclaw) The group in charge changed from MANO_ARCHSPEC to MANO_GENERAL. Reason for Transfer: Pronto opened without any preinvestigation to ARCHSPEC group. Transfer for preinvestigation.
+
+MANO_ARCHSPEC
+MANO_GENERAL
+NIHZSIV5
+E2E_CS_AS_RRM_TELECOM
+E2E_MZ_OM_HZH
+E2E_CS_AS_RRM_TELECOM
+RABLTESWRROM
+RABLTESWPWR1CP
+RABLTESPEC_PDDB
+NIHZSCBTSSWI
+RABLTESPEC_PDDB
+
+
+===PR373621=== important fields are incorrect: Transfer Path=|[
+'NIHZSCBTSSWI', 
+'MANO_ARCHSPEC', 
+'MANO_GENERAL', 
+'NIHZSIV5', 
+'E2E_CS_AS_RRM_TELECOM', 
+'E2E_MZ_OM_HZH', 
+'E2E_CS_AS_RRM_TELECOM', 
+'RABLTESWRROM', 
+'RABLTESWPWR1CP', 
+'RABLTESPEC_PDDB', 
+'RABLTESPEC_PDDB'
+
+2018-11-20 07:17 EET
+Luo, Xin (NSB - CN/Hangzhou) The group in charge changed from NIHZSCBTSSWI to RABLTESPEC_PDDB. Reason for Transfer: correction integrated and verified, move to correction ower
+2018-11-20 07:16 EET
+Luo, Xin (NSB - CN/Hangzhou) Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy state changed to Needless.
+2018-11-20 07:16 EET
+Luo, Xin (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed
+2018-11-15 11:16 EET
+Luo, Xin (NSB - CN/Hangzhou) The state of the problem changed from Investigating to First Correction Complete
+2018-11-06 03:37 EET
+Luo, Xin (NSB - CN/Hangzhou) The state of the problem changed from Investigating to Investigating
+2018-11-05 09:19 EET
+Luo, Xin (NSB - CN/Hangzhou) New Correction document Correction for FL00 FL00_ENB_9999_xxx_yy has been created.
+2018-11-02 15:28 EET
+Lis, Michal (Nokia - PL/Wroclaw) The group in charge changed from RABLTESPEC_PDDB to NIHZSCBTSSWI. Reason for Transfer: as it is stated in the mail discussion, pronto was delivered to the CPLANE that was used by CBTS. Please take car ...
+2018-10-26 15:37 EEST
+Kubicki, Sylwester (Nokia - PL/Wroclaw) The group in charge changed from RABLTESWPWR1CP to RABLTESPEC_PDDB. Reason for Transfer: Changes in NIDD are required
+2018-10-26 15:19 EEST
+Mails, CPronto (Nokia - Global) edited. Changed field(s): Development Fault Coordinator
+2018-10-26 10:55 EEST
+Pura, Martyna (Nokia - PL/Wroclaw) The group in charge changed from RABLTESWRROM to RABLTESWPWR1CP. Reason for Transfer: L4 transfer (5Giw)
+2018-10-25 13:20 EEST
+Pawlowski, Kacper (Nokia - PL/Wroclaw) The state of the problem changed from Investigating to New
+2018-10-25 13:15 EEST
+Pawlowski, Kacper (Nokia - PL/Wroclaw) The state of the problem changed from New to Investigating.
+2018-10-25 13:14 EEST
+Uusnakki, Jari (Nokia - FI/Espoo) The group in charge changed from E2E_CS_AS_RRM_TELECOM to RABLTESWRROM. Reason for Transfer: I got the info from Bolin-Austin Chu that right PR group for this would be RROM, so based on this I’ll tran ...
+2018-10-25 12:04 EEST
+Chu, Bolin-Austin (NSB - CN/Hangzhou) The group in charge changed from E2E_MZ_OM_HZH to E2E_CS_AS_RRM_TELECOM. Reason for Transfer: Reject the transfer, no info, no mail discussion received. the attach mail is also related to timisoara
+2018-10-25 10:02 EEST
+Uusnakki, Jari (Nokia - FI/Espoo) The group in charge changed from E2E_CS_AS_RRM_TELECOM to E2E_MZ_OM_HZH. Reason for Transfer: Based on email clarification done this is not RRM/Telecom system specification issue and therefore transf ...
+2018-10-22 09:01 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created.
+2018-10-22 09:01 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created.
+2018-10-22 08:34 EEST
+Qu, Linjun (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-10-22 08:31 EEST
+Qu, Linjun (NSB - CN/Hangzhou) Reopened
+2018-09-24 13:04 EEST
+Uusnakki, Jari (Nokia - FI/Espoo) State changed from New to Correction Not Needed
+2018-09-10 10:35 EEST
+Qu, Linjun (NSB - CN/Hangzhou) The group in charge changed from NIHZSIV5 to E2E_CS_AS_RRM_TELECOM. Reason for Transfer: Parameter actCAggrLteNrDualConnectivity is Mandatory in NIDD xL18A_1808_001, but optional in NIDD FL18A_RADIO_1 ...
+2018-09-10 09:36 EEST
+Qu, Linjun (NSB - CN/Hangzhou) edited. Changed field(s): Description
+2018-09-07 14:41 EEST
+Wronka, Marta (Nokia - PL/Wroclaw) The group in charge changed from MANO_GENERAL to NIHZSIV5. Reason for Transfer: Dear Tester, this is a cloud PR - not MANO preinv - please transfer it to proper PR group (cloud preinv)
+2018-09-07 13:20 EEST
+Support, prontojiraagent (Nokia - Global) edited. Changed field(s): Development Fault Coordinator
+2018-09-07 13:16 EEST
+Jackowski, Lukasz (Nokia - PL/Wroclaw) The group in charge changed from MANO_ARCHSPEC to MANO_GENERAL. Reason for Transfer: Pronto opened without any preinvestigation to ARCHSPEC group. Transfer for preinvestigation.
+2018-09-07 13:07 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created.
+2018-09-07 13:07 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created.
+2018-09-07 13:04 EEST
+Qu, Linjun (NSB - CN/Hangzhou) edited. Changed field(s): Description
+2018-09-07 12:55 EEST
+Qu, Linjun (NSB - CN/Hangzhou) Attachment RE RE pre-checkCBTS18A AirScaleS1 link is red in WebUI.msg added.
+2018-09-07 12:55 EEST
+Qu, Linjun (NSB - CN/Hangzhou) Problem Report created

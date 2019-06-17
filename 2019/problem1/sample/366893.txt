@@ -1,0 +1,105 @@
+	Line 22: Leivonen, Timo (EXT - FI/Oulu) The group in charge changed from 5G_L1_Leka to 5G_SPEC. Reason for Transfer: As agreed by mail.
+	Line 24: Leivonen, Timo (EXT - FI/Oulu) The group in charge changed from 5G_L1_Leka to 5G_SPEC. Reason for Transfer: CFAM change agreed by mail.
+	Line 30: Tiermas, Eliina (Nokia - FI/Oulu) The group in charge changed from 5G_SPEC to 5G_L1_Leka
+	Line 52: Tommiska, Vesa (Nokia - FI/Tampere) The group in charge changed from 5G_L1_FPGA to 5G_L1_Leka. Reason for Transfer: LEKA PRACH/5GMax analysis is required
+	Line 58: Leivonen, Timo (EXT - FI/Oulu) The group in charge changed from 5G_L1 to 5G_L1_FPGA. Reason for Transfer: Transfer suggested by Pekko Sipilä.
+Search "The group in charge changed from" (5 hits in 1 file)
+
+
+
+2018-10-29 12:40 EET
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-10-10 14:58 EEST
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-08-29 12:05 EEST
+Parello, Rosalia (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Ready For Testing to Closed
+2018-08-28 14:23 EEST
+Bladek, Dawid (Nokia - PL/Wroclaw) The state of the problem changed from Investigating to First Correction Ready For Testing
+2018-08-28 14:16 EEST
+Bladek, Dawid (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2018-08-28 14:11 EEST
+Bladek, Dawid (Nokia - PL/Wroclaw) Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx state changed to Needless.
+2018-08-28 14:10 EEST
+Bladek, Dawid (Nokia - PL/Wroclaw) edited. Changed field(s): Problem Type
+2018-08-28 14:10 EEST
+Bladek, Dawid (Nokia - PL/Wroclaw) New Correction document Correction for 5GBTS_18A 5GBTS_18A has been created.
+2018-08-28 13:56 EEST
+Leivonen, Timo (EXT - FI/Oulu) The group in charge changed from 5G_L1_Leka to 5G_SPEC. Reason for Transfer: As agreed by mail.
+2018-08-28 13:53 EEST
+Leivonen, Timo (EXT - FI/Oulu) The group in charge changed from 5G_L1_Leka to 5G_SPEC. Reason for Transfer: CFAM change agreed by mail.
+2018-08-28 13:52 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) Correction for 5GBTS_18A 5GBTS_18A_4.B4.xxxx_CNA state changed to Needless.
+2018-08-28 13:52 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information, Development Fault Coordinator, Group in Charge
+2018-08-28 13:52 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) The group in charge changed from 5G_SPEC to 5G_L1_Leka
+2018-08-28 13:52 EEST
+Leivonen, Timo (EXT - FI/Oulu) Top Importance Value(s) Removed :TOP_5GBTS_18A_PT2_L3_blocker
+2018-08-28 13:52 EEST
+Leivonen, Timo (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-28 13:49 EEST
+Leivonen, Timo (EXT - FI/Oulu) attached RE Moving to specification - RE PR366893 5G18AL3 camp ABIL LONER L1 does not attempt to decode RACH A2 well received in DDR4 IQ RX and with Correct TDD switching activation.msg
+2018-08-28 07:16 EEST
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-08-28 07:15 EEST
+Pronto, Auto (Nokia - Global) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.B4.xxxx has been created.
+2018-08-25 23:46 EEST
+Sipila, Pekko (Nokia - FI/Tampere) edited. Changed field(s): R&D Information
+2018-08-24 15:20 EEST
+Sipila, Pekko (Nokia - FI/Tampere) edited. Changed field(s): R&D Information
+2018-08-24 15:14 EEST
+Sipila, Pekko (Nokia - FI/Tampere) edited. Changed field(s): R&D Information
+2018-08-24 15:07 EEST
+Sipila, Pekko (Nokia - FI/Tampere) edited. Changed field(s): R&D Information
+2018-08-24 15:06 EEST
+Sipila, Pekko (Nokia - FI/Tampere) edited. Changed field(s): R&D Information
+2018-08-23 15:24 EEST
+Tommiska, Vesa (Nokia - FI/Tampere) The group in charge changed from 5G_L1_FPGA to 5G_L1_Leka. Reason for Transfer: LEKA PRACH/5GMax analysis is required
+2018-08-22 10:42 EEST
+Sipila, Pekko (Nokia - FI/Tampere) edited. Changed field(s): R&D Information
+2018-08-22 09:00 EEST
+Sipila, Pekko (Nokia - FI/Tampere) edited. Changed field(s): R&D Information
+2018-08-21 10:54 EEST
+Leivonen, Timo (EXT - FI/Oulu) The group in charge changed from 5G_L1 to 5G_L1_FPGA. Reason for Transfer: Transfer suggested by Pekko Sipilä.
+2018-08-21 10:48 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-20 16:51 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-20 12:45 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-20 08:55 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-17 11:50 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-17 08:24 EEST
+Nurminen, Jarno (Nokia - FI/Tampere) has subscribed to comments
+2018-08-16 16:09 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) Top Importance Value(s) Added :TOP_5GBTS_18A_PT2_L3_blocker and Removed : TOP_5GBTS_18A_PT2_L3_blocker
+2018-08-16 16:09 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-16 15:54 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-16 14:06 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been deleted.
+2018-08-16 14:06 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created.
+2018-08-16 14:06 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created.
+2018-08-15 16:54 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-15 15:02 EEST
+Sipila, Pekko (Nokia - FI/Tampere) The state of the problem changed from New to Investigating.
+2018-08-15 08:50 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-14 15:10 EEST
+Buczkowski, Damian (Nokia - PL/Wroclaw) Optional Value is modified from PT2 and PT3 to PT2
+2018-08-12 18:31 EEST
+Sawer, Tomasz (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Priority, Severity
+2018-08-12 18:24 EEST
+Sawer, Tomasz (Nokia - PL/Wroclaw) Top Importance Value(s) Added : TOP_5GBTS_18A_PT2_L3_blocker
+2018-08-12 18:10 EEST
+Parello, Rosalia (Nokia - FR/Paris-Saclay) edited. Changed field(s): Description
+2018-08-12 18:01 EEST
+Parello, Rosalia (Nokia - FR/Paris-Saclay) Attachment 5G18A_Oulu_TDD_Switch_RACH_on_L1.pptx added.
+2018-08-12 17:59 EEST
+Parello, Rosalia (Nokia - FR/Paris-Saclay) Problem Report created

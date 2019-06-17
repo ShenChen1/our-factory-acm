@@ -1,0 +1,120 @@
+Problem ID,Title,Description,Reported Date,Group in Charge,Feature,State,Severity,Top Importance,Release,R&D Information,Author,Author Group,Attached PRs,Responsible Person,Revision History,Target Build
+PR349552,[CBTS18FP1][FSM4] Special value need define in VNF WebUI as NIDD,"1. Test-Line Reference/used HW/configuration/tools/SW version:
+CBTS configuration: 1*OAMVM +1*CCPVM + 2*UEVM + 1*CELLVM + 1ASIA+2ABIA + 1FRMF+1FXED+1FRHF
+Cell configuration: 9 cells; 3 CELL:10MHZ, 3 CELL:20MHZ 3CELL:15MHZ
+CBTS package version: CBTS18_FSM4_MZ_0700_000288_000000
+RCP version: RCP2.0_18.22.0
+CBAM version: 18
+NetAct version: 18
+NDCS/NCIR version: R_NDCS_16_27/NCIR17A
+2. Test Case name:
+PM collect
+3. Used Flags:
+NA
+4. Detail Test Steps:
+1). Set nrLimitIntraFreq and nrLimitInterFreq with special value 0 successfully as NIDD.
+5. Expected Result:
+The prompt information in VNF WebUI show the special value 0. 
+6. Actual Result:
+The prompt information in VNF WebUI hasn't shown the special value 0 and isn't in the range. It's hard to understand in user side. 
+7. Fault Occurrence Rate:
+permanent
+8. Change since Last Success:
+NA
+9. Known Condition:
+NA
+10. Log(s) file name containing a fault:
+NA
+
+11. Customer impact analysis.
+In simply, in NIDD, there is special value like “0”, but in VNF WebUI, it just show the normal range. It’s hard to understand in user side. 
+NetAct has defined them as special, why VNF WebUI won’t that still will be used to user. 
+
+- Workaround and recovery: NA
+12. Tester analysis:
+Need to update the serial issue that need show all the special value in VNF WebUI.",06.06.2018,NIESSCBTSMZOAM,RC0889 Operability Feature for Cloud BTS 18,Correction Not Needed,B - Major,< empty >,CBTS18 FSM4,"13.6.2018 Tommi  R. There seems two CNIs open for this same problem CNI-34473 and CNI-34622. Another can be removed.
+12.6.2018 Tommi R. CNI-34622 has been created for this Pronto. Pre-check ongoing.","Shentu, Junda (NSB - CN/Hangzhou)",SRANIVHZ_NEVE,< empty >,"Raisanen, Tommi (Nokia - FI/Espoo)","2018-06-14 08:21 Raisanen, Tommi (Nokia - FI/Espoo) State changed from New to Correction Not Needed, 2018-06-14 08:19 Raisanen, Tommi (Nokia - FI/Espoo) Reopened, 2018-06-14 08:14 Raisanen, Tommi (Nokia - FI/Espoo) State changed from Investigating to Correction Not Needed, 2018-06-13 08:47 Raisanen, Tommi (Nokia - FI/Espoo) edited. Changed field(s): Status Log, R&D Information, 2018-06-13 08:16 Lehto, Marja Liisa (Nokia - FI/Espoo) edited. Changed field(s): Status Log, R&D Information, 2018-06-12 15:20 Raisanen, Tommi (Nokia - FI/Espoo) edited. Changed field(s): Status Log, 2018-06-11 08:56 Lehto, Marja Liisa (Nokia - FI/Espoo)  The state of the problem changed from New to Investigating., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-06 07:53 Shentu, Junda (NSB - CN/Hangzhou) edited. Changed field(s): Title, 2018-06-06 07:45 Shentu, Junda (NSB - CN/Hangzhou) Problem Report created, 2018-06-06 07:45 Shentu, Junda (NSB - CN/Hangzhou) Attachment RE Discussion special value define in NIDD and VNF WebUI.msg added.",< empty >
+PR349690,"[ABIL X21] CPRI: Sync issues, LCV and Test Payload errors","[1. Detail Test Steps:]
+Setup of all CPRI subsystems according to CPRICORE_001 documentation and then polling for sync status, LCV and Test Payload errors.
+
+[2. Expected Result:]
+All CPRI links achieve HFNSYNC state, no LCV errors, no Test Payload errors, CRX FIFO is stable.
+
+[3. Actual Result:]
+Not all of CPRI links are able to achieve HFNSYNC, and some of those that did, reports LCV and Test Payload errors.
+
+[4. Tester analysis:]
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+WRO_abil_cpri_2018-06-05-15-25-29-854 - Contains log of the test case execution on setup 1 (setup described below)
+VLX_abil_cpri_2018-06-05-15-24-35-098 - Contains log of the test case execution on setup 2 (setup described below)
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+Setup 1:
+Asik X22 + 3x Abil X21, MB_PS_REL_2018_04_007, Loner: PL0.3.
+QSFPs used:
+Slot 1: two FTL410QD4C twice
+Slot 2:  FTL410QD3C and FTL410QD4C
+Slot 3: two FTL410QD3C
+
+Setup 2:
+Asik X31 + 3x Abil X21, MB_PS_LFS_OS_2018_04_0080, Loner: PL0.3.
+QSFPs used:
+Slot 1: two RTXM320-450-C39 twice
+Slot 2:  RTXM320-450-C39 and FTL4C1QL1C-NN
+Slot 3: two RTXM320-450-C39
+
+
+[7. Used Flags: (list here used R&D flags)]
+NA
+
+[8. Fault Occurrence Rate:]
+Permament, but not always the same links reports errors. It varies between runs of the test case and between setups.
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+   Was Test Scenario passing before?
+It was passing when run on previous releases of Loner images ( regular ones, not the PowerLoad ). It never worked when run on the image that supports both QSFPs.
+   What was the last SW version Test Scenario was passing?
+W17
+   Were there any differences between test-lines since last time Test Scenario was passing?
+Yes, but not relevant
+   Were there any changes in Test Scenario since last run it passed?
+No
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+TC_0421",06.06.2018,5G_L1,5GC000008,Closed,B - Major,< empty >,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]","Kurylak, Adrian (Nokia - PL/Wroclaw)",5G_HW_ABIL,< empty >,"Leivonen, Timo (EXT - FI/Oulu)","2018-10-29 13:32 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-07-26 13:34 Kurylak, Adrian (Nokia - PL/Wroclaw) The state of the problem changed from First Correction Complete to Closed, 2018-07-26 13:34 Kurylak, Adrian (Nokia - PL/Wroclaw) Info Request for problem PR349690 cancelled., 2018-06-29 10:23 Kurylak, Adrian (Nokia - PL/Wroclaw) Info Request for problem PR349690 sent., 2018-06-29 10:21 Kurylak, Adrian (Nokia - PL/Wroclaw) New Information Request for PR PR349690 has been created., 2018-06-25 14:34 Leivonen, Timo (EXT - FI/Oulu) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-25 14:34 Leivonen, Timo (EXT - FI/Oulu) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-25 14:33 Leivonen, Timo (EXT - FI/Oulu) New Correction document Correction for 5GBTS_18A Loner_R1_2018_w24_03 has been created., 2018-06-20 13:50 Leivonen, Timo (EXT - FI/Oulu) New Correction document Correction for 5GBTS_18A 21_0_2_014_powerload_1 has been created., 2018-06-20 11:35 Leivonen, Timo (EXT - FI/Oulu) attached RE MoM ATF deliverables for ABIL HW testability daily meeting - w24.3.msg, 2018-06-13 13:06 Leivonen, Timo (EXT - FI/Oulu) The state of the problem changed from New to Investigating, 2018-06-11 13:19 Wrzesien, Lukasz (Nokia - PL/Wroclaw) edited. Changed field(s): Other Interested, 2018-06-06 12:01 Kurylak, Adrian (Nokia - PL/Wroclaw) edited. Changed field(s): HW Serial Number, 2018-06-06 11:59 Kurylak, Adrian (Nokia - PL/Wroclaw) edited. Changed field(s): Title, 2018-06-06 11:58 Kurylak, Adrian (Nokia - PL/Wroclaw) edited. Changed field(s): Build, Platform Release, 2018-06-06 11:57 Kurylak, Adrian (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Priority, 2018-06-06 11:56 Kurylak, Adrian (Nokia - PL/Wroclaw) Attachment VLX_abil_cpri_2018-06-05-15-24-35-098.zip added., 2018-06-06 11:56 Kurylak, Adrian (Nokia - PL/Wroclaw) Attachment WRO_abil_cpri_2018-06-05-15-25-29-854.zip added., 2018-06-06 11:56 Kurylak, Adrian (Nokia - PL/Wroclaw) Problem Report created","21_0_2_014_powerload_1, Loner_R1_2018_w24_03"
+PR349819,[5G18A]425-H: Airphone L2 doesn't forward RRCcon_complete to APL1,"*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – PLEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+we activated 425 H feature wuth ASIA/ABIK HW on gNB and AP. We started the attach command on AP egate and on BB2 of gNB. We than expect attach complete message on ePCSIM finally.
+
+[2. Expected Result:] Attach complete
+
+[3. Actual Result:] Attach scenario is not successfull. RRC Connection complete message is sent from AP L3 to AP L2. But this meaasge is not inclided in any ULDataUe_PuschPayloadTbSendReq. Instead of the message there are just paddings successfully transmitted to the gNB side. So no issue of missing grants...
+
+[4. Tester analysis:]
+          Analysis of Logs
+           SWBOT information
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+not needed in documentation and specification made fault reports
+
+[7. Used Flags: (list here used R&D flags)]
+
+[8. Fault Occurrence Rate:]
+   How many times Test Scenario was run? 5
+   How many times fault was reproduced?5
+   How many sites in the same live operation was run in case of customer fault?  
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+   Was Test Scenario passing before?
+   What was the last SW version Test Scenario was passing? 4.900012.586
+   Were there any differences between test-lines since last time Test Scenario was passing?
+   Were there any changes in Test Scenario since last run it passed?
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+not needed in documentation, specification made fault reports and customer made tickets
+*** END OF DEFAULT TEMPLATE ***",06.06.2018,5GRAN_Airphone,5GC000425-H,Closed,B - Major,< empty >,5GBTS_18A,"[#RC: Known, LE: Unknown]
+[June 8, 2018][jonbauti] default value of 0x7000F=3 # ERadParam_569DFeature was incorrectly set in swconfig","May, Harald (Nokia - DE/Ulm)",ECE_DEV_GUL,< empty >,"Cleofe, Kyle (Nokia - PH/Quezon City)","2018-10-29 13:32 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-13 09:42 May, Harald (Nokia - DE/Ulm) The state of the problem changed from First Correction Ready For Testing to Closed, 2018-06-13 09:17 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-11 14:07 May, Harald (Nokia - DE/Ulm) The state of the problem changed from First Correction Ready For Testing to Investigating, 2018-06-08 14:57 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-08 14:56 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx state changed to Needless., 2018-06-08 09:38 Cecchini, Luca (Nokia - DE/Ulm) Top Importance Value(s) Removed :TOP_5GBTS_18A_425_blocker, 2018-06-08 09:36 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information,Recovery Action, 2018-06-08 08:49 May, Harald (Nokia - DE/Ulm) edited. Changed field(s): R&D Priority, Severity, 2018-06-07 05:31 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been deleted., 2018-06-07 05:30 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-07 05:30 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-07 05:30 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-07 05:30 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information, 2018-06-07 05:30 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City)  The state of the problem changed from New to Investigating., 2018-06-06 16:34 Cecchini, Luca (Nokia - DE/Ulm) edited. Changed field(s): Other Interested, 2018-06-06 16:34 Cecchini, Luca (Nokia - DE/Ulm) Top Importance Value(s) Added :TOP_5GBTS_18A_425_blocker, 2018-06-06 16:23 May, Harald (Nokia - DE/Ulm) Problem Report created, 2018-06-06 16:23 May, Harald (Nokia - DE/Ulm) Attachment trial_2.zip added.","5GBTS_18A_4.master.900012.682_FNR, 5GBTS_18A_4.b3.xxxx"

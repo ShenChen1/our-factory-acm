@@ -1,0 +1,107 @@
+{
+  "records": [
+    {
+      "PR ID": "PR351097",
+      "Group In Charge": "RCPASM_CCS",
+      "Reported Date": "12.06.2018",
+      "Author": "Xu, Hongli (NSB - CN/Hangzhou)",
+      "Author Group": "NIHZSIV5",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "RABLTESWPWRMACPS",
+        "NIHZSIV5",
+        "NIULSD1",
+        "LTE_DEVCAHZ_CHZ_UPMACPS",
+        "LTE_DEVLN1_FRLN_L2",
+        "RCPDEV",
+        "RCPMSG",
+        "NIULSD1",
+        "EXT_LTE_ASB_CSH_CP",
+        "NIULSD1",
+        "EXT_LTE_ASB_CSH_UPMACPS",
+        "RCPDEV",
+        "RCPMSG",
+        "RCPTNS",
+        "RCPDPM",
+        "RCPASM_CCS",
+        "RCPDPM",
+        "RCPASM_CCS"
+      ],
+      "Transfer times": 18,
+      "Solving Path": [
+        "RABLTESWPWRMACPS",
+        "NIHZSIV5",
+        "NIULSD1",
+        "RCPDEV",
+        "RCPMSG",
+        "RCPTNS",
+        "RCPDPM",
+        "RCPASM_CCS"
+      ],
+      "Pingpong times": 6,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR351948",
+      "Group In Charge": "NIHZPDSCI",
+      "Reported Date": "14.06.2018",
+      "Author": "Xian, Xue (NSB - CN/Hangzhou)",
+      "Author Group": "NIHZPDSCI",
+      "State": "Closed",
+      "Transfer Path": [
+        "RABLTESWPWRULPHY",
+        "NIHZPDSCI",
+        "RABLTESWPWRULPHY",
+        "NIHZPDSCI",
+        "NIULSD1",
+        "NIHZPDSCI",
+        "RABLTESWL2",
+        "RABLTESWFOUL2",
+        "NIHZPDSCI"
+      ],
+      "Transfer times": 9,
+      "Solving Path": [
+        "RABLTESWPWRULPHY",
+        "NIHZPDSCI"
+      ],
+      "Pingpong times": 4,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR353109",
+      "Group In Charge": "NIHZPDSCI",
+      "Reported Date": "19.06.2018",
+      "Author": "Shen, Andy 1. (NSB - CN/Hangzhou)",
+      "Author Group": "NIHZPDSCI",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "NIOSDK",
+        "NIOSHCR4",
+        "NIOSDK",
+        "MANO_HZH_MZOM",
+        "NIOSDK",
+        "MANO_HZH_MZOM",
+        "NIHZPDSCI",
+        "NIESSCBTSMZOAM",
+        "RCPTRH",
+        "RCPMSG",
+        "NIHZPDSCI"
+      ],
+      "Transfer times": 11,
+      "Solving Path": [
+        "NIOSDK",
+        "MANO_HZH_MZOM",
+        "NIHZPDSCI"
+      ],
+      "Pingpong times": 4,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    }
+  ],
+  "total": 3
+}

@@ -1,0 +1,86 @@
+  new 1 (7 hits)
+	Line 2: Yuan, Zebin (NSB - CN/Hangzhou) The group in charge changed from 5G_SPEC to 5G_SPEC. Reason for Transfer: cause by 5G_SPEC
+	Line 4: Yuan, Zebin (NSB - CN/Hangzhou) The group in charge changed from 5G_SPEC to 5G_SPEC. Reason for Transfer: cause by 5G_SPEC
+	Line 6: Yuan, Zebin (NSB - CN/Hangzhou) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to 5G_SPEC. Reason for Transfer: cause by 5G_SPEC
+	Line 26: Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: to Kajaani
+	Line 36: Pietras, Tomasz (Nokia - PL/Wroclaw) The group in charge changed from 5G_SPEC to ECE_DEV_FOU_OAM_MZ. Reason for Transfer: PDL rule updated in 5G18A_NIDD_1810_010_00 delivery_01c. Please provide build with delivery
+	Line 40: Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from 5G_SPEC to ECE_DEV_FPS_UP_L2_PS. Reason for Transfer: Change of algorithm in L2-PS to reduce amount of memory requested is identified. Touting to L2-PS.
+	Line 42: Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from ECE_DEV_FPS_CP_RT To 5G_SPEC
+
+ECE_DEV_FPS_CP_RT
+5G_SPEC
+ECE_DEV_FOU_OAM_MZ
+ECE_DEV_FOU_OAM_MZ_EXT
+5G_SPEC
+
+
+2019-01-08 11:39 EET
+Yuan, Zebin (NSB - CN/Hangzhou) The group in charge changed from 5G_SPEC to 5G_SPEC. Reason for Transfer: cause by 5G_SPEC
+2019-01-08 11:39 EET
+Yuan, Zebin (NSB - CN/Hangzhou) The group in charge changed from 5G_SPEC to 5G_SPEC. Reason for Transfer: cause by 5G_SPEC
+2019-01-08 11:38 EET
+Yuan, Zebin (NSB - CN/Hangzhou) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to 5G_SPEC. Reason for Transfer: cause by 5G_SPEC
+2018-10-30 14:59 EET
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted.
+2018-10-30 14:59 EET
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The state of the problem changed from First Correction Complete to Closed
+2018-10-30 10:26 EET
+Yang, Lisa (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete
+2018-10-29 10:25 EET
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-10-27 13:17 EEST
+Kynsijarvi, Jukka Pekka (Nokia - FI/Oulu) The state of the problem changed from Investigating to First Correction Ready For Testing
+2018-10-27 10:18 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-10-26 16:08 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-10-26 15:55 EEST
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-10-26 15:32 EEST
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-10-25 10:34 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: to Kajaani
+2018-10-25 10:28 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-10-24 09:37 EEST
+Pronto, Auto (Nokia - Global) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b6.xxxx has been created.
+2018-10-23 10:14 EEST
+Hautala, Mika (Nokia - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted.
+2018-10-22 17:13 EEST
+Berger, Claudia (Nokia - DE/Ulm) edited. Changed field(s): Other Interested
+2018-10-22 16:30 EEST
+Pietras, Tomasz (Nokia - PL/Wroclaw) The group in charge changed from 5G_SPEC to ECE_DEV_FOU_OAM_MZ. Reason for Transfer: PDL rule updated in 5G18A_NIDD_1810_010_00 delivery_01c. Please provide build with delivery
+2018-10-22 11:38 EEST
+Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from New to Investigating.
+2018-10-22 11:38 EEST
+Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from 5G_SPEC to ECE_DEV_FPS_UP_L2_PS. Reason for Transfer: Change of algorithm in L2-PS to reduce amount of memory requested is identified. Touting to L2-PS.
+2018-10-22 11:25 EEST
+Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from ECE_DEV_FPS_CP_RT To 5G_SPEC
+2018-10-22 11:25 EEST
+Lanneau, Stephane (Nokia - FR/Paris-Saclay) Problem attached to PR385001.
+2018-10-22 11:25 EEST
+Lanneau, Stephane (Nokia - FR/Paris-Saclay) The fault id FA443087 associated with this PR before attach has been deleted - data is restorable by Pronto Support
+2018-10-22 09:33 EEST
+Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information
+2018-10-22 07:56 EEST
+Bertolini, Michele (Nokia - DE/Ulm) edited. Changed field(s): Other Interested
+2018-10-20 19:37 EEST
+Pronto, Auto (Nokia - Global) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created.
+2018-10-20 11:04 EEST
+Hipp, Matthias (Nokia - DE/Ulm) Top Importance Value(s) Added :TOP_5GBTS_18A_FRT_blocker
+2018-10-20 11:04 EEST
+Hipp, Matthias (Nokia - DE/Ulm) edited. Changed field(s): R&D Information
+2018-10-20 01:29 EEST
+Makkinejad, Masiar (Nokia - DE/Ulm) edited. Changed field(s): Description
+2018-10-20 01:02 EEST
+Makkinejad, Masiar (Nokia - DE/Ulm) edited. Changed field(s): Title
+2018-10-20 01:01 EEST
+Makkinejad, Masiar (Nokia - DE/Ulm) Attachment 4.3113.645-ECE+181019.261_20181019_194229234349.zip added.
+2018-10-20 01:00 EEST
+Makkinejad, Masiar (Nokia - DE/Ulm) Attachment SBTS5G18A_5g_pid11.xml added.
+2018-10-20 00:51 EEST
+Makkinejad, Masiar (Nokia - DE/Ulm) Attachment Snapshot_4.3113.645-ECE+181019.261_20181019201600.zip added.
+2018-10-20 00:50 EEST
+Makkinejad, Masiar (Nokia - DE/Ulm) edited. Changed field(s): Platform Build, Build, Platform Release
+2018-10-20 00:48 EEST
+Makkinejad, Masiar (Nokia - DE/Ulm) Problem Report created

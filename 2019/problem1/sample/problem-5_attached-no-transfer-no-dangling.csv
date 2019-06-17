@@ -1,0 +1,524 @@
+Problem ID,Title,Description,Reported Date,Group in Charge,Feature,State,Severity,Top Importance,Release,R&D Information,Author,Author Group,Attached PRs,Responsible Person,Revision History,Target Build
+PR349542,[CBTS18]][RC0893][Airscale]ipsec policies modified  on VM template can’t be synchronized to VM instance,"Problem Description
+1. CBTS configuration:
+1OAM VM + 1CCP VM + 1UES VM +1 CES VM+ 1 airscale+ 1 FXFC
+
+2. Cell configuration:
+1 cells, 20W, 20MHZ
+
+3. CBTS package version:
+RAP version: CBTS18_FSM4_MZ_0700_000288_000000
+
+4. RCP version:
+RCP	RCP2.0_PS1_18.22.0
+RCP_BASE	RCP2.0_18.22.0
+
+
+5. CAM version:
+None.
+
+6. NetAct version:
+None.
+
+7. NDCS/NCIR version:
+NCIR 17 (Tis 16.10 + patch19)
+
+8. Test Case name:
+NA
+
+9. Used Flags:
+NA
+
+10. Test Steps:
+Step1:restore SCF and make BTS on air 
+Step2:Add 2 more(SECPOL-20,SECPOL-30) and modify one(SECPOL-10) ipsec security policy on CCP VM template TNL-2
+Step3: Check ipsec settings on CCP VM instance TNL-7
+
+11. Expected result:
+the ipsec settings on VM template should can be synchronized to VM instance,that means CCP VM instance should have the same configuration as CCP VM template
+
+12. Actual result:
+CCP instance ipsec related settings are not modified as template change
+
+13. Fault Occurrence Rate:
+2/2
+
+14. Changes since last success:
+NA
+
+15. Known conditions:
+NA
+
+16. Log(s) file name containing a fault:
+\\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\Jackie\ipsec policies modified  on VM template can’t be synchronized to VM instance
+
+17. Customer impact analysis:
+- Impact to customer:None
+- Workaround and recovery:None
+
+18. Tester analysis:",06.06.2018,NIESSCBTSMZOAM,RC0893 cBTS 18 MZ Object Model,Closed,B - Major,< empty >,CBTS18 FSM4,"13.6.2018 STi: correction merged, waiting for build. LE: 13.6.
+12.6.2018 STi: root cause identified, correction under work. LE: 12.6.
+8.6.2018 STi: probably same as PR344652, LE: 11.6","Chen, Jackie 2. (NSB - CN/Hangzhou)",NIHZSIV2,PR352628,"Tilander, Sami (Nokia - FI/Espoo)","2018-06-19 04:22 Li, Yuanfa (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been deleted., 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) Problem attached to PR352628., 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from Closed to First Correction Complete, 2018-06-14 12:49 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from First Correction Complete to Closed, 2018-06-14 12:49 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy state changed to Needless., 2018-06-14 12:49 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy state changed to Needless., 2018-06-14 09:56 Chen, Jackie 2. (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-13 12:11 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-13 09:22 Tilander, Sami (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-12 08:20 Tilander, Sami (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-08 14:52 Tilander, Sami (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-08 12:57 Lehto, Marja Liisa (Nokia - FI/Espoo)  The state of the problem changed from New to Investigating., 2018-06-07 10:08 Luo, Xin (NSB - CN/Hangzhou) edited. Changed field(s): R&D Priority, 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Problem Report created, 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment IPSECC in CCP instance .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment IPSECC in CCP template .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment SECPOL-10 on CCP instance.PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment SECPOL-30 on CCP template .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment SECPOL-20 on CCP template .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment SECPOL-10 on CCP template .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment Commissioning_CBTS3201_Airscale_20180524.xml added.","CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_xxxxxx_yyyyyy, CBTS18_FSM3_MZ_0700_000307_000000, CBTS18_FSM4_MZ_0700_000323_000000"
+PR350126,[5G18A][QT][Airphone]BB2 CCS service crashed during the ue attach process， RRC Connection Reconfiguration timeout,"*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – PLEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+1)AP build 4.900012.663 upgraded success. the AP BB1 and BB2 is green on the web ui.
+2)Do ue attach which contains following steps:
+a) start edaemon process on the AP BB2
+b) start l3 process on the AP BB2
+c) start ap egate process on the epc
+d) In the ap egate, load basic.lua and send ue attach command
+
+[2. Expected Result:]
+1) ue attach success
+2) the ccs service is ok
+[3. Actual Result:]
+1) the ccs service is crashed
+2) ue attach failed
+[4. Tester analysis:]
+In uecp-0_sysinfo:
+there is a timeout event after the ue attach flow msg ""Sending RRC Connection Reconfiguration""
+Jun 07 17:22:23 dxtl3-1-uecp-0 cplane_ue[1903]: [17:22:23.874751][1903][1903][debug] (eNB UE ID: 1PoolId: 8 MME UE ID: 50000) Sending RRC Connection Reconfiguration
+Jun 07 17:22:23 dxtl3-1-uecp-0 cplane_ue[1903]: [17:22:23.875303][1903][1903][debug] UeContextSetup (without radio capabilities) - (eNB UE ID: 1PoolId: 8 MME UE ID: 50000): entering WaitForRRCConnectReconfComplete state
+Jun 07 17:22:25 dxtl3-1-uecp-0 cplane_ue[1903]: [17:22:25.874792][1903][1903][debug] Timeout event received
+Jun 07 17:22:25 dxtl3-1-uecp-0 cplane_ue[1903]: [17:22:25.874808][1903][1903][debug] QueuedTimerService: Timer (id=9) elapsed
+Jun 07 17:22:25 dxtl3-1-uecp-0 cplane_ue[1903]: [17:22:25.874820][1903][1903][debug] Response of type messages::RRC::RRCConnectionReconfigurationComplete has not been received in time
+Jun 07 17:22:25 dxtl3-1-uecp-0 cplane_ue[1903]: [17:22:25.874828][1903][1903][debug] UeContextSetup (without radio capabilities): leaving Working state
+Jun 07 17:22:25 dxtl3-1-uecp-0 cplane_ue[1903]: [17:22:25.874841][1903][1903][warning] (eNB UE ID: 1PoolId: 8 MME UE ID: 50000) Initial Context Setup failed
+
+From the log above, the ue attach failed as Response of type messages::RRC::RRCConnectionReconfigurationComplete has not been received in time which is caused by timeout event
+
+The msg flow of ue attach is
+UE-L2 send  RRC Connection Reconfiguration to UE-L3
+UE-L3 send  RRCConnectionReconfigurationComplete to UE-L2.
+
+So, there shoud be something wrong when the UE-L3 response to the UE-L2.
+
+I doubt the CCS crashed may caused the  timeout event.
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+
+
+[7. Used Flags: (list here used R&D flags)]
+
+[8. Fault Occurrence Rate:]
+   How many times Test Scenario was run? two
+   How many times fault was reproduced? two
+   How many sites in the same live operation was run in case of customer fault?  no
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+   Was Test Scenario passing before? no
+   What was the last SW version Test Scenario was passing? no
+   Were there any differences between test-lines since last time Test Scenario was passing? no
+   Were there any changes in Test Scenario since last run it passed? no
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+not needed in documentation, specification made fault reports and customer made tickets
+*** END OF DEFAULT TEMPLATE ***",07.06.2018,5GRAN_Airphone,5GC000008,Correction Not Needed,B - Major,< empty >,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]
+[19.06][mgalido] Webex live session done. Needed logs already complete. RC should be known by 6/20. To be agreed with QT if can be attached to PR351881 
+[18.06][mgalido] Proceed to MSG2 issue, to ask L1POV
+[14.06][mgalido] Check what EO and core crashed.
+[13.06][mgalido] To be checked by Brian. Might be related to xx569
+[12.06][jonbauti] As agreed offline, decreased R&D priority as issue is intermittent. Still waiting for debug knife testing with replicated crash.
+[11.06][mgalido] For testing today
+[08.06][mgalido] Debug knife sent. Waiting for test result","Fan, Kongshuai (NSB - CN/Hangzhou)",5GRAN_Productization_QT,PR351881,"Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City)","2018-10-29 13:31 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-21 11:26 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) State changed from Investigating to Correction Not Needed, 2018-06-20 15:46 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) Problem attached to PR351881., 2018-06-20 11:54 Galido, May (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information, 2018-06-12 06:20 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information, Severity, 2018-06-11 11:02 Galido, May (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information, 2018-06-11 10:58 Ramelb, Royce (Nokia - PH/Quezon City) Info Request for problem PR350126 sent., 2018-06-11 10:58 Ramelb, Royce (Nokia - PH/Quezon City) New Information Request for PR PR350126 has been created., 2018-06-08 13:37 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City)  The state of the problem changed from New to Investigating., 2018-06-08 06:35 Fan, Kongshuai (NSB - CN/Hangzhou) edited. Changed field(s): Title, 2018-06-07 15:05 Fan, Kongshuai (NSB - CN/Hangzhou) Attachment ccs_crashed.png added., 2018-06-07 14:45 Fan, Kongshuai (NSB - CN/Hangzhou) edited. Changed field(s): Title, 2018-06-07 14:45 Fan, Kongshuai (NSB - CN/Hangzhou) Problem Report created, 2018-06-07 14:45 Fan, Kongshuai (NSB - CN/Hangzhou) Attachment Snapshot_Nokia_HGZ_AirPhone_TL3-1900_4.900012.663_20180607-1728_0000.zip added., 2018-06-07 14:45 Fan, Kongshuai (NSB - CN/Hangzhou) Attachment coredump.rar added., 2018-06-07 14:45 Fan, Kongshuai (NSB - CN/Hangzhou) Attachment uecp-0_syslog_info added., 2018-06-07 14:45 Fan, Kongshuai (NSB - CN/Hangzhou) Attachment l2_journal.log added.",< empty >
+PR351881,[5G18A] [UeL2LoUlReceiver (core 4)] Airphone L2 Crash on sendToUlHi while performing UE Attach command,"*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – PLEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+1)AP build 4.900012.640 upgraded success. the AP BB1 and BB2 is green on the web ui.
+2)Do ue attach which contains following steps:
+a) start edaemon process on the AP BB2
+b) start l3 process on the AP BB2
+c) start ap egate process on the epc
+d) In the ap egate, load basic.lua and send ue attach command
+e) send msg1 on BB2
+
+[2. Expected Result:]
+1) ue attach success
+2) the ccs service is ok
+[3. Actual Result:]
+1) the ccs service is down
+2) ue attach failed
+[4. Tester analysis:]
+
+In the l2 log, grep ccs_mix, there are the coredumps here and there is ""stoping ccs_mix... ""
+
+JJun 11 10:55:11 distro CCSRT[2251]: bd VM-3120 LINUX- 2018-06-11T10:55:11.997342Z 52 INF/CCS/AaSysTime, stopPsEoTickTimer: Stopped EmTime PsEoTickTimer: timerIndex=2934657422016
+Jun 11 10:55:11 distro CCSRT[2251]: be VM-3120 LINUX- 2018-06-11T10:55:11.997366Z 52 INF/CCS/AaSysTime, EmTimerStopPsEoTickTimer: PS EM Time 1 ms timer stopped
+Jun 11 10:55:11 distro CCSRT[2251]: === letting OS handle the error
+Jun 11 10:55:12 distro 60_core_collect[4960]: Waiting
+Jun 11 10:55:12 distro 60_core_collect[5079]: Retrying
+Jun 11 10:55:12 distro 60_core_collect[5570]: Waiting
+Jun 11 10:55:12 distro systemd-coredump[4247]: Process 2214 (Disp_4) of user 0 dumped core.
+                                               
+                                               Stack trace of thread 2214:
+                                               #0  0x00007fffec764410 __exchange_and_add (libL2.so)
+                                               #1  0x00007fffec81cb55 _ZNSt12__shared_ptrIN7service7ISenderELN9__gnu_cxx12_Lock_policyE2EED4Ev (libL2.so)
+                                               #2  0x00007fffec81c86e _ZN4l2lo2ul11flowcontrol11FlowControl27sendLoDataUeDataPathInfoIndEtj (libL2.so)
+                                               #3  0x00007fffec81c8d9 _ZN4l2lo2ul11flowcontrol11FlowControl27timerUlRlcEvalPeriodExpiresEt (libL2.so)
+                                               #4  0x00007fffec77cea5 _ZN4l2Rt29InterfaceObjectL2LoUlReceiver15handleDataEventEPvS1_jj (libL2.so)
+                                               #5  0x00007ffff660f389 dpm_handle_event (librcp_dpm.so)
+                                               #6  0x00007ffff66102fa dpm_em_handle_scheduler_events (librcp_dpm.so)
+                                               #7  0x00000000004075b8 em_dispatch (CCSEmDispatcherExe)
+                                               #8  0x00007ffff6c1cb12 rte_eal_mp_remote_launch (libintel_dpdk.so)
+                                               #9  0x00007ffff66019a9 dpm_launch_work_loop_on_cores (librcp_dpm.so)
+                                               #10 0x000000000040932c em_launch_work_loop_on_all_cores (CCSEmDispatcherExe)
+                                               #11 0x0000000000409449 ccs_em_dispatcher_children_create (CCSEmDispatcherExe)
+                                               #12 0x00000000004040d4 ccs_em_dispatchers_execute (CCSEmDispatcherExe)
+                                               #13 0x00007ffff5c66270 __libc_start_main (libc.so.6)
+                                               #14 0x000000000040422a _start (CCSEmDispatcherExe)
+                                               
+                                               Stack trace of thread 2222:
+                                               #0  0x00007ffff753111f pthread_cond_wait@@GLIBC_2.3.2 (libpthread.so.0)
+                                               #1  0x00007ffff63f0343 get_entry_from_queue_head (librcplog.so)
+                                               #2  0x00007ffff63f03b6 async_consumer_code (librcplog.so)
+                                               #3  0x00007ffff752b414 start_thread (libpthread.so.0)
+                                               #4  0x00007ffff5d2db9f __clone (libc.so.6)
+                                               
+                                               Stack trace of thread 2232:
+                                               #0  0x00007ffff5c79f2e __GI___sigwaitinfo (libc.so.6)
+                                               #1  0x00007ffff786207d AaTimerMessageSender (libCCS.so)
+                                               #2  0x00007ffff783501a CCS_AAPRO_TASK (libCCS.so)
+                                               #3  0x00007ffff77d1c11 rtos_normal_process (libCCS.so)
+                                               #4  0x00007ffff752b414 start_thread (libpthread.so.0)
+                                               #5  0x00007ffff5d2db9f __clone (libc.so.6)
+Jun 11 10:55:12 distro 60_core_collect[6090]: Retrying
+Jun 11 10:55:12 distro systemd-coredump[4739]: Process 2151 (Disp_0) of user 0 dumped core.
+                                               
+                                               Stack trace of thread 2151:
+                                               #0  0x00007ffff5c792e7 kill (libc.so.6)
+                                               #1  0x00007ffff7535100 __restore_rt (libpthread.so.0)
+                                               #2  0x00007ffff7dec491 n/a (n/a)
+Jun 11 10:55:12 distro 60_core_collect[6385]: Waiting
+Jun 11 10:55:12 distro 60_core_collect[6717]: cp returned 0
+Jun 11 10:55:12 distro 60_core_collect[6718]: cp /var/lib/systemd/coredump/core.*.0.*.2151.1528714511* /tmp/tmp.oAd7IUdjQi/blackbox/ 2 /dev/null 1&2
+Jun 11 10:55:12 distro 60_core_collect[6805]: Retrying
+Jun 11 10:55:12 distro 60_core_collect[6965]: Retrying
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=nat family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=nat family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=nat family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=nat family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=fptun family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=nat family=2 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=filter family=10 entries=0
+Jun 11 10:55:12 distro audit: NETFILTER_CFG table=mangle family=10 entries=0
+Jun 11 10:55:12 distro 60_core_collect[6977]: Waiting
+Jun 11 10:55:12 distro systemd-coredump[6970]: Process 2251 (Disp_12) of user 0 dumped core.
+                                               
+                                               Stack trace of thread 2251:
+                                               #0  0x00007ffff752c66b n/a (n/a)
+Jun 11 10:55:12 distro 60_core_collect[6988]: Waiting
+Jun 11 10:55:12 distro ccs_mix.appstart[2134]: Info/CCS/EM, ccs_em_service_dispatchers_kill: all EM dispatchers terminated
+Jun 11 10:55:12 distro ccs_mix.appstart[2134]: Info/CCS/EM, ccs_em_service_dispatcher_abnormal_exit: sending SIGABRT to CCS daemon pid 2149
+Jun 11 10:55:12 distro ccs_mix.appstart[2134]: AaStartupCeMarkGracefulShutdown: Graceful shutdown, removing shutdown count file '/rpram/.shutdownCount'
+Jun 11 10:55:12 distro ccs_mix.appstart[2134]: setSilentPrintoutDropModeOverrideEnabled: Silent printout drop mode OVERRIDE changed to: 0
+Jun 11 10:55:12 distro 60_core_collect[6989]: Waiting
+Jun 11 10:55:12 distro ccs_mix.appstop[6996]: stoping ccs_mix...
+Jun 11 10:55:12 distro ccs_mix.appstop[6996]: root      6996     1  0 10:55 ?        00:00:00 /bin/sh /opt/nokia/SS_RCPCCSRT/ccs_mix.appstop
+Jun 11 10:55:12 distro ccs_mix.appstop[6996]: root      6997  6996  0 10:55 ?        00:00:00 /bin/sh /opt/nokia/SS_RCPCCSRT/ccs_mix.appstop
+Jun 11 10:55:12 distro 60_core_collect[6991]: Waiting
+Jun 11 10:55:12 distro ccs_mix.appstop[6996]: killall: CCSRTSCTApplicationExe: no process killed
+Jun 11 10:55:12 distro 60_core_collect[6994]: Waiting
+Jun 11 10:55:12 distro ccs_mix.appstop[6996]: killall: CCSRTDaemonExe: no process killed
+Jun 11 10:55:12 distro hello[2149]: AaStartup_Linux : CcsSigHandler() - Got signal:6
+Jun 11 10:55:12 distro ccs_mix.appstop[6996]: killall: CCSSCTDaemonExe: no process killed
+Jun 11 10:55:12 distro hello[2149]: AaStartup_Linux : CcsSigHandler() - Got SIGQUIT:3,SIGABRT:6,SIGKILL:9,SIGSEGV:11, AaStartup_Linux: CCS will cleanup shutdownCount
+Jun 11 10:55:12 distro unknown[2149]: CCSRT AaStartupAtEeExit: exit() called (euId=0x2, systemId=140737353974016, euName=CCSRTDaemonExe, eeId=2149, eeName=CCS).
+Jun 11 10:55:12 distro 60_core_collect[7002]: cp returned 0
+Jun 11 10:55:12 distro 60_core_collect[7003]: cp /var/lib/systemd/coredump/core.*.0.*.2251.1528714512* /tmp/tmp.23ZWLcTMLM/blackbox/ 2 /dev/null 1&2
+Jun 11 10:55:12 distro 60_core_collect[7009]: Waiting
+Jun 11 10:55:12 distro 60_core_collect[7011]: Waiting
+Jun 11 10:55:12 distro 60_core_collect[7013]: Waiting
+Jun 11 10:55:12 distro 60_core_collect[7015]: Waiting
+Jun 11 10:55:12 distro 60_core_collect[7021]: Waiting
+Jun 11 10:55:12 distro 60_core_collect[7023]: Waiting
+Jun 11 10:55:12 distro 60_core_collect[7025]: Waiting
+Jun 11 10:55:12 distro 60_core_collect[7027]: Waiting
+Jun 11 10:55:12 distro systemd-coredump[6961]: Process 2244 (Disp_11) of user 0 dumped core.
+                                               
+                                               Stack trace of thread 2244:
+                                               #0  0x000000000167b220 n/a (n/a)
+Jun 11 10:55:12 distro systemd-coredump[6962]: Process 2241 (Disp_10) of user 0 dumped core.
+                                               
+                                               Stack trace of thread 2241:
+                                               #0  0x00007ffff5fdae48 main_arena (libc.so.6)
+Jun 11 10:55:12 distro 60_core_collect[7038]: cp returned 0
+Jun 11 10:55:12 distro 60_core_collect[7039]: cp /var/lib/systemd/coredump/core.*.0.*.2241.1528714511* /tmp/tmp.dDmFM1z1DL/blackbox/ 2 /dev/null 1&2
+Jun 11 10:55:12 distro 60_core_collect[7041]: cp returned 0
+Jun 11 10:55:12 distro 60_core_collect[7042]: cp /var/lib/systemd/coredump/core.*.0.*.2239.1528714512* /tmp/tmp.jNHuaSlTYa/blackbox/ 2 /dev/null 1&2
+Jun 11 10:55:12 distro 60_core_collect[7044]: Retrying
+Jun 11 10:55:12 distro 60_core_collect[7046]: cp returned 0
+Jun 11 10:55:12 distro 60_core_collect[7047]: cp /var/lib/systemd/coredump/core.*.0.*.2244.1528714511* /tmp/tmp.L9M1Aqdtiu/blackbox/ 2 /dev/null 1&2
+Jun 11 10:55:12 distro 60_core_collect[7049]: Retrying
+Jun 11 10:55:12 distro 60_core_collect[7053]: cp returned 0
+Jun 11 10:55:12 distro 60_core_collect[7054]: cp /var/lib/systemd/coredump/core.*.0.*.2234.1528714512* /tmp/tmp.xmZwhEpG2t/blackbox/ 2 /dev/null 1&2
+Jun 11 10:55:12 distro 60_core_collect[7056]: Retrying
+Jun 11 10:55:13 distro 60_core_collect[7066]: Retrying
+Jun 11 10:55:13 distro 60_core_collect[7071]: Retrying
+Jun 11 10:55:13 distro systemd-coredump[6960]: Process 2234 (Disp_8) of user 0 dumped core.
+                                               
+                                               Stack trace of thread 2234:
+                                               #0  0x00007fffec7ffc8c _ZN9Protocols3Rlc2Ul5UlRlcD2Ev (libL2.so)
+                                               #1  0x00007fffec7ffcb3 _ZN9Protocols3Rlc2Ul5UlRlcD0Ev (libL2.so)
+                                               #2  0x00007ffff5c7b972 __run_exit_handlers (libc.so.6)
+                                               #3  0x00007ffff5c7b9da __GI_exit (libc.so.6)
+                                               #4  0x00007ffff781c2d9 CcsEeSigHandlerCleanupDisabled (libCCS.so)
+                                               #5  0x00007ffff7535100 __restore_rt (libpthread.so.0)
+                                               #6  0x00007ffff65ff5f6 dpm_get_cur_core_num (librcp_dpm.so)
+                                               #7  0x00007ffff6625253 em_core_id (librcp_dpm.so)
+                                               #8  0x00000000004075bd em_dispatch (CCSEmDispatcherExe)
+                                               #9  0x00007ffff6c1cb12 rte_eal_mp_remote_launch (libintel_dpdk.so)
+                                               #10 0x00007ffff66019a9 dpm_launch_work_loop_on_cores (librcp_dpm.so)
+                                               #11 0x000000000040932c em_launch_work_loop_on_all_cores (CCSEmDispatcherExe)
+                                               #12 0x0000000000409449 ccs_em_dispatcher_children_create (CCSEmDispatcherExe)
+                                               #13 0x00000000004040d4 ccs_em_dispatchers_execute (CCSEmDispatcherExe)
+                                               #14 0x00007ffff5c66270 __libc_start_main (libc.so.6)
+                                               #15 0x000000000040422a _start (CCSEmDispatcherExe)
+                                               
+                                               Stack trace of thread 2269:
+                                               #0  0x00007ffff5c79f2e __GI___sigwaitinfo (libc.so.6)
+                                               #1  0x00007ffff786207d AaTimerMessageSender (libCCS.so)
+                                               #2  0x00007ffff783501a CCS_AAPRO_TASK (libCCS.so)
+                                               #3  0x00007ffff77d1c11 rtos_normal_process (libCCS.so)
+                                               #4  0x00007ffff752b414 start_thread (libpthread.so.0)
+                                               #5  0x00007ffff5d2db9f __clone (libc.so.6)
+                                               
+                                               Stack trace of thread 2249:
+                                               #0  0x00007ffff753111f pthread_cond_wait@@GLIBC_2.3.2 (libpthread.so.0)
+                                               #1  0x00007ffff63f0343 get_entry_from_queue_head (librcplog.so)
+                                               #2  0x00007ffff63f03b6 async_consumer_code (librcplog.so)
+                                               #3  0x00007ffff752b414 start_thread (libpthread.so.0)
+                                               #4  0x00007ffff5d2db9f __clone (libc.so.6)
+Jun 11 10:55:13 distro systemd-coredump[6964]: Process 2239 (Disp_9) of user 0 dumped core.
+                                               
+                                               Stack trace of thread 2239:
+                                               #0  0x00007fffec80243e _ZN9Protocols3Rlc2Dl5DlRlcD2Ev (libL2.so)
+                                               #1  0x00007fffec80248d _ZN9Protocols3Rlc2Dl5DlRlcD0Ev (libL2.so)
+                                               #2  0x00007ffff5c7b972 __run_exit_handlers (libc.so.6)
+                                               #3  0x00007ffff5c7b9da __GI_exit (libc.so.6)
+                                               #4  0x00007ffff781c2d9 CcsEeSigHandlerCleanupDisabled (libCCS.so)
+                                               #5  0x00007ffff7535100 __restore_rt (libpthread.so.0)
+                                               #6  0x00007ffff6b9fad5 ixgbe_recv_scattered_pkts (libintel_dpdk.so)
+                                               #7  0x00007ffff6625138 rte_eth_rx_burst (librcp_dpm.so)
+                                               #8  0x00007ffff662530c em_eth_rx_packets_app (librcp_dpm.so)
+                                               #9  0x00000000004075bd em_dispatch (CCSEmDispatcherExe)
+                                               #10 0x00007ffff6c1cb12 rte_eal_mp_remote_launch (libintel_dpdk.so)
+                                               #11 0x00007ffff66019a9 dpm_launch_work_loop_on_cores (librcp_dpm.so)
+                                               #12 0x000000000040932c em_launch_work_loop_on_all_cores (CCSEmDispatcherExe)
+                                               #13 0x0000000000409449 ccs_em_dispatcher_children_create (CCSEmDispatcherExe)
+                                               #14 0x00000000004040d4 ccs_em_dispatchers_execute (CCSEmDispatcherExe)
+                                               #15 0x00007ffff5c66270 __libc_start_main (libc.so.6)
+                                               #16 0x000000000040422a _start (CCSEmDispatcherExe)
+                                               
+                                               Stack trace of thread 2265:
+                                               #0  0x00007ffff5c79f2e __GI___sigwaitinfo (libc.so.6)
+                                               #1  0x00007ffff786207d AaTimerMessageSender (libCCS.so)
+                                               #2  0x00007ffff783501a CCS_AAPRO_TASK (libCCS.so)
+                                               #3  0x00007ffff77d1c11 rtos_normal_process (libCCS.so)
+                                               #4  0x00007ffff752b414 start_thread (libpthread.so.0)
+                                               #5  0x00007ffff5d2db9f __clone (libc.so.6)
+                                               
+                                               Stack trace of thread 2248:
+                                               #0  0x00007ffff753111f pthread_cond_wait@@GLIBC_2.3.2 (libpthread.so.0)
+                                               #1  0x00007ffff63f0343 get_entry_from_queue_head (librcplog.so)
+                                               #2  0x00007ffff63f03b6 async_consumer_code (librcplog.so)
+                                               #3  0x00007ffff752b414 start_thread (libpthread.so.0)
+                                               #4  0x00007ffff5d2db9f __clone (libc.so.6)
+Jun 11 10:55:16 distro ccs_mix.appstop[6996]: root      6996     1  0 10:55 ?        00:00:00 /bin/sh /opt/nokia/SS_RCPCCSRT/ccs_mix.appstop
+Jun 11 10:55:16 distro ccs_mix.appstop[6996]: root      7360  6996  0 10:55 ?        00:00:00 /bin/sh /opt/nokia/SS_RCPCCSRT/ccs_mix.appstop
+Jun 11 10:55:16 distro ccs_mix.appstop[6996]: hooking between trsw and ccsrt stop
+Jun 11 10:55:16 distro hello[2212]: bd VM-3120 LINUX-oamagent 2018-06-11T10:55:16.757031Z 5C INF/CCS/AaStartup, CcsEeSigHandlerCleanupDisabled: Got SIGTERM
+Jun 11 10:55:16 distro oamagentjs /op[2212]: CCSRT CcsEeSigHandler: Got SIGTERM
+Jun 11 10:55:16 distro oamagentjs /op[2212]: CCSRT AaStartupAtEeExit: exit() called (euId=0x5c, systemId=140737354017792, euName=oamagentjs /op, eeId=2212, eeName=oamagentjs).
+
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+ap_bb2.log
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+BB3: NCIR17 with NDCS17
+BB2: NDCS17
+Airscale: ASIA:M04 ABIK:X31 AMIA: A101
+Testline Page:
+https://confluence.int.net.nokia.com/display/5GRANHZ/HGZ+QT+5G18A+AirPhone+Test+Line+Info
+
+[7. Used Flags: (list here used R&D flags)]
+
+[8. Fault Occurrence Rate:]
+How many times Test Scenario was run? 4 times
+How many times fault was reproduced? 1time
+How many sites in the same live operation was run in case of customer fault? no other site
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+Was Test Scenario passing before? yes
+What was the last SW version Test Scenario was passing? no
+Were there any differences between test-lines since last time Test Scenario was passing? no
+Were there any changes in Test Scenario since last run it passed?no
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+not needed in documentation, specification made fault reports and customer made tickets
+*** END OF DEFAULT TEMPLATE ***",14.06.2018,5GRAN_Airphone,5GC000008,Correction Not Needed,B - Major,< empty >,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]
+[19.06][leiang] Obtained the core dump of core 4 during crash. Will continue investigation tomorrow.
+[14.06][leiang] Ongoing investigation.","Fan, Kongshuai (NSB - CN/Hangzhou)",5GRAN_Productization_QT,PR350126,"Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City)","2018-10-29 13:28 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-21 11:26 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) State changed from Investigating to Correction Not Needed, 2018-06-20 15:46 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) The fault id  FA406763 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-06-20 15:46 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) Problem attached to PR350126., 2018-06-19 13:49 Ang, Leif (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information, 2018-06-14 14:28 Ang, Leif (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information, 2018-06-14 12:39 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been deleted., 2018-06-14 12:39 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-14 12:39 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-14 12:39 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-14 12:38 Feliciano-Bautista, Jonalyn (Nokia - PH/Quezon City)  The state of the problem changed from New to Investigating., 2018-06-14 06:22 Fan, Kongshuai (NSB - CN/Hangzhou) Problem Report created, 2018-06-14 06:22 Fan, Kongshuai (NSB - CN/Hangzhou) Attachment coredump.rar added., 2018-06-14 06:22 Fan, Kongshuai (NSB - CN/Hangzhou) Attachment uecp_syslog_info added., 2018-06-14 06:22 Fan, Kongshuai (NSB - CN/Hangzhou) Attachment l2_20180611.log added.",< empty >
+PR352628,[CBTS18FP1][FSM4]Webui can't show TNL template changes update to coresponding TNL instance,"[1. Test Scenario Steps]
+1. modify routes which is under TNL-2
+2. Check routes if can apply to TNL instance and update parameters to TNL instance
+[2. Fault Description]
+The changed parameters didn't update to TNL-9
+
+[3. Tester Analysis]
+
+Routes validatation successful and configured successfully, but those changes never update to coresponding TNL instance
+
+2018-06-15T01:56:18.616Z DBG/SITEOAM/CONFGEN/Transport:TNL MRBTS-2960/TNLSVC-1/TNL-2 is template entry for CCP VMs
+2018-06-15T01:56:18.619Z INF/SITEOAM/CONFGEN/TransportCfg:M-Plane IP-address of current TNL: MRBTS-2960/TNLSVC-1/TNL-2/IPNO-1/IPIF-1/IPADDRESSV4-1
+2018-06-15T01:56:18.619Z INF/SITEOAM/CONFGEN/TransportCfg:interfaceDN: undefined for MRBTS-2960/TNLSVC-1/TNL-2/IPNO-1/IPIF-1
+2018-06-15T01:56:18.620Z INF/SITEOAM/CONFGEN/TransportCfg:extractIpInterface: interfaceDN undefined
+2018-06-15T01:56:18.621Z INF/SITEOAM/CONFGEN/TransportCfg:extractIpsubsystem - tnlDistName: MRBTS-2960/TNLSVC-1/TNL-2
+2018-06-15T01:56:18.626Z INF/SITEOAM/CONFGEN/TransportCfg:multicastapplication: {}
+2018-06-15T01:56:18.627Z DBG/SITEOAM/CONFGEN/Transport:** Transport Confgen completed! **
+2018-06-15T01:56:18.627Z DBG/SITEOAM/CONFGEN/Transport:[
+    {
+        ""uri"": ""/mz/c/v1/cbts/1/vm/2/transport/config"",
+        ""changes"": {
+            ""routingTable"": {
+                ""1"": {
+                    ""staticRoute"": {
+                        ""0"": {
+                            ""destIpAddr"": ""10.97.68.0"",
+                            ""destinationIpPrefixLength"": ""26"",
+                            ""gateway"": ""10.70.60.193"",
+                            ""preference"": ""1""
+                        },
+                        ""1"": {
+                            ""destIpAddr"": ""10.69.207.0"",
+                            ""destinationIpPrefixLength"": ""28"",
+                            ""gateway"": ""10.70.59.225"",
+                            ""preference"": ""1""
+                        },
+                        ""2"": {
+                            ""destIpAddr"": ""0.0.0.0"",
+                            ""destinationIpPrefixLength"": ""0"",
+                            ""gateway"": ""10.70.60.1"",
+                            ""preference"": ""1""
+                        }
+                    },
+                    ""ipv4"": true,
+                    ""ipv6"": false
+                }
+            },
+            ""ipAddress"": {},
+            ""ipInterface"": {},
+            ""ipsubsystem"": {
+                ""addressCacheExpirationTime"": ""30"",
+                ""icmpDscp"": ""10"",
+                ""icmpResponseEnabled"": ""true"",
+                ""ipReassemblyTimeout"": ""1000"",
+                ""ndMldDscp"": ""56"",
+                ""retransTimer"": ""1000""
+            },
+            ""bfd"": {},
+            ""bfdgrp"": {},
+            ""ipsec"": null,
+            ""ipapp"": {
+                ""1"": {
+                    ""twampSenderMessageRate"": ""RATE_10""
+                }
+            },
+            ""icomgw"": {
+                ""1"": {
+                    ""sctpPort"": 29210,
+                    ""sctpDscp"": 46,
+                    ""gtpFUdpPort"": 52152,
+                    ""gtpFDscp"": 46,
+                    ""ipAddressDN"": ""/mz/r/v1/current/mrbts/2960/tnlsvc/1/tnl/2/ipno/1/ipif/1/ipaddressv4/1""
+                }
+            },
+            ""twamp"": {},
+            ""twampreflect"": {},
+            ""ping"": {},
+            ""routingPolicies"": {},
+            ""multicastapplication"": {}
+        }
+    },
+    {
+        ""uri"": ""/mz/c/v1/cbts/1/vm/2/config"",
+        ""changes"": {
+            ""sctpPort"": 29210,
+            ""gtpFUdpPort"": 52152
+        }
+    }
+]
+2018-06-15T01:56:19.164Z INF/SITEOAM/CM/planEventHandler:{
+  ""changeType"": ""U"",
+  ""resourceUri"": ""/mz/r/v1/plans/1/info"",
+  ""changedValues"": {
+    ""mainState"": ""activated"",
+    ""planOperState"": ""activationCompleted"",
+    ""feedbacks"": {
+      ""moList"": {},
+      ""status"": 0,
+      ""results"": [
+        ""Info: Basic validation successful"",
+        ""Info: Consistency checking successful""
+      ]
+    }
+  }
+}
+
+2018-06-15T01:56:22.696Z INF/RACOAM/TPI:addStaticRoutes function, which was called with parameters {""ownerNode"":""cbts2960-2960-ccp-0"",""routeList"":[{""destination"":""0.0.0.0"",""prefixLength"":""0"",""nextHop"":""10.70.60.1"",""metric"":""1""}],""routingTableID"":""254""} has returned: {""exitCode"":""0"",""exitMessage"":""""}
+2018-06-15T01:56:22.697Z DBG/RACOAM/trs-controller:Triggering listener (TwampMsgRateListener)[initializationRunner]: {""path"":""ipapp/1/twampSenderMessageRate"",""config"":""RATE_10"",""transientState"":""RATE_10"",""faultState"":{}}
+2018-06-15T01:56:22.697Z DBG/RACOAM/trs-controller/twamp:Configuring cbts2960-2960-ccp-0's senderMessageRate:RATE_10
+2018-06-15T01:56:22.697Z INF/RACOAM/TPI:Calling interface function setSenderMessageRate with arguments {""ownerNode"":""cbts2960-2960-ccp-0"",""senderMessageRate"":""RATE10""}
+2018-06-15T01:56:23.115Z DBG/RACOAM/REST:received event from https://10.97.68.18:8090: U /mz/p/v1/pbts/1/fsm/1/application/sync/status/ppsSource [""satellitesList""]
+2018-06-15T01:56:23.115Z DBG/RACOAM/EVENTS:emit: /mz/p/v1/pbts/1/fsm/1/application/sync/status/ppsSource satellitesList: object; 
+2018-06-15T01:56:23.115Z DBG/RACOAM/EVENTS:forwarding to websocket: changeType: U, resourceUri: /mz/p/v1/pbts/1/fsm/1/application/sync/status/ppsSource, changes in satellitesList
+2018-06-15T01:56:23.429Z DBG/RACOAM/TPI:Spent 0.732 seconds in function setSenderMessageRate
+2018-06-15T01:56:23.429Z INF/RACOAM/TPI:setSenderMessageRate function, which was called with parameters {""ownerNode"":""cbts2960-2960-ccp-0"",""senderMessageRate"":""RATE10""} has returned: {""exitCode"":""0"",""exitMessage"":""""}
+2018-06-15T01:56:23.430Z DBG/RACOAM/trs-controller:Triggering listener (IcomgwListener)[initializationRunner]: {""path"":""icomgw/1"",""config"":{""sctpPort"":29210,""sctpDscp"":46,""gtpFUdpPort"":52152,""gtpFDscp"":46,""ipAddressDN"":""/mz/r/v1/current/mrbts/2960/tnlsvc/1/tnl/2/ipno/1/ipif/1/ipaddressv4/1""},""transientState"":{},""faultState"":{}}
+2018-06-15T01:56:23.430Z DBG/RACOAM/trs-controller:updateIcomgwIp local IP: /mz/r/v1/current/mrbts/2960/tnlsvc/1/tnl/2/ipno/1/ipif/1/ipaddressv4/1 : undefined
+2018-06-15T01:56:23.430Z DBG/RACOAM/trs-controller:updateIcomgwIp local IP match: /mz/r/v1/current/mrbts/2960/tnlsvc/1/tnl/2/ipno/1/ipif/1/ipaddressv4/1 : undefined
+2018-06-15T01:56:23.431Z DBG/RACOAM/trs-controller:getNodeType ind:ccp
+2018-06-15T01:56:23.431Z INF/RACOAM/trs-controller:Configuration done successfully for: /mz/c/v1/cbts/1/vm/2/transport
+
+p name=""mtCbtsVnfStatistics""30min/p
+[4. Fault Repeatability]
+2/2
+[5. Test Scenario History of Execution]
+
+[6.Test-Line Reference / Info]
+CBTS package version: CBTS18_FSM4_MZ_0700_000319_000000
+[7. Testcase ID (QC or RP link)]
+
+[8. Log File Contents]
+\\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\LiYuanfa\modify parameters under TNL template
+[9. Customer impact analysis]
+Operator can't  judge whether parameters modify success or not",16.06.2018,NIESSCBTSMZOAM,RC0893 cBTS 18 MZ Object Model,Closed,B - Major,< empty >,CBTS18 FSM4,< empty >,"Li, Yuanfa (NSB - CN/Hangzhou)",SRANIVHZ_NEVE,PR349542,"Tilander, Sami (Nokia - FI/Espoo)","2018-06-19 04:22 Li, Yuanfa (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been deleted., 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) The fault id  FA407582 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) Problem attached to PR349542., 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from New to First Correction Complete, 2018-06-17 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-17 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-17 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-17 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-16 13:26 Li, Yuanfa (NSB - CN/Hangzhou) Problem Report created","CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_xxxxxx_yyyyyy, CBTS18_FSM3_MZ_0700_000307_000000, CBTS18_FSM4_MZ_0700_000323_000000"

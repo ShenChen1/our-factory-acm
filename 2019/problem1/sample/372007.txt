@@ -1,0 +1,56 @@
+
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: To Kajaani
+
+
+2018-10-29 12:09 EET
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-10-10 14:43 EEST
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-09-24 06:58 EEST
+Tiermas, Eliina (Nokia - FI/Oulu) Optional Value is updated with Irving e2e systems lab
+2018-09-18 09:02 EEST
+Koskela, Marko J. (Nokia - FI/Oulu) State changed from New to Correction Not Needed
+2018-09-17 21:57 EEST
+Kaur, Manjit 1. (Nokia - US/Irving) Reopened
+2018-09-14 11:32 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Problem attached to PR365871.
+2018-09-14 11:32 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The fault id FA428856 associated with this PR before attach has been deleted - data is restorable by Pronto Support
+2018-09-14 11:32 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The state of the problem changed from Investigating to Correction Not Needed
+2018-09-14 09:25 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-09-13 13:56 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-09-13 09:10 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-09-12 09:25 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-09-12 09:22 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) Info Request for problem PR372007 resent.
+2018-09-11 11:44 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created.
+2018-09-11 11:43 EEST
+Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: To Kajaani
+2018-09-11 08:30 EEST
+Polvinen, Jani (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-09-11 08:28 EEST
+Polvinen, Jani (EXT - FI/Oulu) Info Request for problem PR372007 resent.
+2018-09-10 13:21 EEST
+Polvinen, Jani (EXT - FI/Oulu) edited. Changed field(s): R&D Information
+2018-09-10 11:10 EEST
+Polvinen, Jani (EXT - FI/Oulu) Info Request for problem PR372007 sent.
+2018-09-10 11:10 EEST
+Polvinen, Jani (EXT - FI/Oulu) New Information Request for PR PR372007 has been created.
+2018-09-10 09:20 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) The state of the problem changed from Investigating to Investigating
+2018-09-09 19:34 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-09-07 19:25 EEST
+Ramesh, M (Nokia - US/Irving) Top Importance Value(s) Added :TOP_5GBTS_18A_PT3_blocker
+2018-09-06 20:36 EEST
+Scott, Jeffrey (Nokia - US/Irving) attached js_X2down_when_locking_CellGroup.pcapng
+2018-09-01 01:35 EEST
+Kaur, Manjit 1. (Nokia - US/Irving) Attachment Snapshot_Nokia_Irving_AIO2-3903_4.42113.10_20180831-1709_0000.zip added.
+2018-09-01 01:35 EEST
+Kaur, Manjit 1. (Nokia - US/Irving) Problem Report created

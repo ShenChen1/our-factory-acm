@@ -1,0 +1,69 @@
+
+
+Xu, Lijie (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to EXT_NIESSCBTSMZOAM. Reason for Transfer: Kangas, Jussi (EXT - FI/Oulu) is fixing it
+Xu, Lijie (NSB - CN/Hangzhou) The group in charge changed from NIHZSIV6 to MANO_HZH_MZOM. Reason for Transfer: OAM will fix
+Xu, Lijie (NSB - CN/Hangzhou) The group in charge changed from NIHZSIV6 to MANO_HZH_MZOM. Reason for Transfer: Back to OAM for correction
+Cao, Guorui R. (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to NIHZSIV6
+Cao, Guorui R. (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to NIHZSIV6. Reason for Transfer: tester uses wrong manipulated rap profile, current issue is caused by this incorrect rap file, so transfer to test side ...
+Lehto, Marja Liisa (Nokia - FI/Espoo) The group in charge changed from NIESSCBTSMZOAM to MANO_HZH_MZOM. Reason for Transfer: Agreed with Xu, Lijie (NSB - CN/Hangzhou)
+
+
+
+
+
+2018-07-04 15:40 EEST
+Kangas, Jussi (EXT - FI/Oulu) The state of the problem changed from First Correction Complete to Closed
+2018-06-28 08:18 EEST
+Komulainen, Heikki (EXT - FI/Oulu) has subscribed to comments
+2018-06-26 09:44 EEST
+Fu, Hongye (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete
+2018-06-25 10:03 EEST
+Zhang, Ke-Kevin (NSB - CN/Hangzhou) The state of the problem changed from Investigating to First Correction Ready For Testing
+2018-06-21 12:28 EEST
+Xu, Lijie (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to EXT_NIESSCBTSMZOAM. Reason for Transfer: Kangas, Jussi (EXT - FI/Oulu) is fixing it
+2018-06-20 06:15 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-06-19 11:25 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-06-19 10:51 EEST
+Xu, Lijie (NSB - CN/Hangzhou) The group in charge changed from NIHZSIV6 to MANO_HZH_MZOM. Reason for Transfer: OAM will fix
+2018-06-19 09:56 EEST
+Xu, Lijie (NSB - CN/Hangzhou) The group in charge changed from NIHZSIV6 to MANO_HZH_MZOM. Reason for Transfer: Back to OAM for correction
+2018-06-19 09:55 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, Development Fault Coordinator, Group in Charge
+2018-06-19 09:55 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to NIHZSIV6
+2018-06-19 05:37 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to NIHZSIV6. Reason for Transfer: tester uses wrong manipulated rap profile, current issue is caused by this incorrect rap file, so transfer to test side ...
+2018-06-16 08:14 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-06-15 09:44 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-06-15 05:43 EEST
+Fu, Hongye (NSB - CN/Hangzhou) Information request for problem PR351879 responded.
+2018-06-15 04:32 EEST
+Fu, Hongye (NSB - CN/Hangzhou) edited. Changed field(s): Platform Build, Description, Build
+2018-06-15 00:04 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created.
+2018-06-15 00:04 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created.
+2018-06-15 00:04 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created.
+2018-06-15 00:04 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created.
+2018-06-14 11:26 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) Info Request for problem PR351879 sent.
+2018-06-14 11:26 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) New Information Request for PR PR351879 has been created.
+2018-06-14 11:23 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-06-14 10:18 EEST
+Xu, Lijie (NSB - CN/Hangzhou) The state of the problem changed from New to Investigating.
+2018-06-14 10:14 EEST
+Lehto, Marja Liisa (Nokia - FI/Espoo) The group in charge changed from NIESSCBTSMZOAM to MANO_HZH_MZOM. Reason for Transfer: Agreed with Xu, Lijie (NSB - CN/Hangzhou)
+2018-06-14 09:51 EEST
+Luo, Xin (NSB - CN/Hangzhou) Top Importance Value(s) Added :TOP_CBTS18FP1_Blocker
+2018-06-14 09:51 EEST
+Luo, Xin (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-06-14 04:52 EEST
+Fu, Hongye (NSB - CN/Hangzhou) Problem Report created

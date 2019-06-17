@@ -1,0 +1,23 @@
+Line 42: Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to 5G_SPEC. Reason for Transfer: Agreed, Fu Peijun to check this in details.
+	Line 82: Collin, Nirisoa (Nokia - FR/Paris-Saclay) The group in charge changed from BB_PSW_LFS to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: PT blockers transfers are prohibited
+	Line 88: Hautala, Mika (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to BB_PSW_LFS. Reason for Transfer: 20112018:MHa: LFS investigation needed. Please compress large ASCII (text) files such as syslog. Always ...
+	Line 100: Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: to Bittium
+	Line 104: Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: to Bittium
+	Line 106: Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: to Bittium
+	Line 138: Xu, Lijie (NSB - CN/Hangzhou) The group in charge changed from ECE_DEV_FOU_OAM_MZ to ECE_DEV_FOU_OAM_MZ. Reason for Transfer: Feature missing for 5GC000265, HZ will not support this kind of PR
+	Line 140: Xu, Lijie (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to ECE_DEV_FOU_OAM_MZ. Reason for Transfer: Feature missing for 5GC000265, HZ will not support this kind of PR
+	Line 180: Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from NIESSCBTSMZOAM to MANO_HZH_MZOM. Reason for Transfer: Support batch #3: MANO HZH support 5G18A
+	Line 188: Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to NIESSCBTSMZOAM. Reason for Transfer: Feature 325 implemented in NIESSCBTSMZOAM.
+
+	ECE_DEV_FOU_OAM_MZ
+	NIESSCBTSMZOAM
+	MANO_HZH_MZOM
+	ECE_DEV_FOU_OAM_MZ
+	ECE_DEV_FOU_OAM_MZ
+	ECE_DEV_FOU_OAM_MZ_EXT
+	ECE_DEV_FOU_OAM_MZ_EXT
+	ECE_DEV_FOU_OAM_MZ_EXT
+	BB_PSW_LFS
+	ECE_DEV_FOU_OAM_MZ_EXT
+	5G_SPEC
+

@@ -1,0 +1,157 @@
+Problem ID,Title,Description,Reported Date,Group in Charge,Feature,State,Severity,Top Importance,Release,R&D Information,Author,Author Group,Attached PRs,Responsible Person,Revision History,Target Build
+PR350005,[CBTS18][RC0860][Airscale]PDL validation failed due to modDN when VNF TWAMP reflector was configured,"Problem Description
+1. CBTS configuration:
+1OAM VM + 1CCP VM + 1UES VM +1 CES VM+ 1 airscale+ 1 FHFB
+
+2. Cell configuration:
+1 cells, 20W, 20MHZ
+
+3. CBTS package version:
+RAP version: CBTS18_FSM4_MZ_0700_000297_000000
+
+4. RCP version:
+RCP	RCP2.0_PS1_18.22.0
+RCP_BASE RCP2.0_18.22.0
+
+
+5. CAM version:
+None.
+
+6. NetAct version:
+None.
+
+7. NDCS/NCIR version:
+NCIR 17A (Tis 16.10 + patch19)
+
+8. Test Case name:
+TRS__TWAMP_Configuration_VNF__RC0860_RP000360
+
+9. Used Flags:
+NA
+
+10. Test Steps:
+Step1: enable PDL by manually
+Step2: configure TWAMP reflector on VNF via Web UI
+Step3: PDL validation failed due to modDN
+
+11. Expected result:
+PDL validation passed when VNF TWAMP reflector was configured
+
+12. Actual result:
+PDL validation failed due to modDN when VNF TWAMP reflector was configured
+
+13. Fault Occurrence Rate:
+1/1
+
+14. Changes since last success:
+NA
+
+15. Known conditions:
+NA
+
+16. Log(s) file name containing a fault:
+NA
+
+17. Customer impact analysis:
+- Impact to customer:None
+- Workaround and recovery:None
+
+18. Tester analysis:
+twampReflectorUdpEchoEnabled is not supported on VNF side. Default value is true.
+I think twampReflectorUdpEchoEnabled should be optional.",07.06.2018,E2E_CS_AS_TRS,RC0860 Porting of legacy transport features,Closed,B - Major,< empty >,CBTS18 FSM4,"[#RC: known(2018-06-12), LE:2018-06-30], W4Verification] 2018-06-25 szstefan: NIDD update for CBTS18A MZ NIDD on top of the CBTS18A_NIDD_1806_002_00 delivery.
+2018-06-12, Li Liangxiao: The fault cause is analyzed and the NIDD container is prepared. ","Shi, Zhihao (NSB - CN/Hangzhou)",NIHZSIV2,< empty >,"Branescu, Lucia (Nokia - RO/Timisoara)","2018-06-26 12:13 Wu, Jianping (NSB - CN/Hangzhou) The group in charge changed from NIHZYSCBTS to E2E_CS_AS_TRS. Reason for Transfer: PDL update done, transfer back to E2E_CS_AS_TRS., 2018-06-26 11:25 Jiang, John 2. (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-06-26 10:44 Shi, Zhihao (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-26 09:15 Jiang, John 2. (NSB - CN/Hangzhou) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-26 04:52 Wu, Jianping (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_UI to NIHZYSCBTS. Reason for Transfer: PDL rule update is ongoing. Stefan, Szebastian-Jacint (Nokia - RO/Timisoara), why did you transfer it to PDL core team?, 2018-06-25 18:31 Stefan, Szebastian-Jacint (Nokia - RO/Timisoara) The group in charge changed from NIHZYSCBTS to MANO_HZH_UI. Reason for Transfer: PDL check needed., 2018-06-25 18:23 Stefan, Szebastian-Jacint (Nokia - RO/Timisoara) edited. Changed field(s): R&D Information, 2018-06-23 14:17 Popute, Cristian (Nokia - RO/Timisoara) The group in charge changed from MANO_ARCHSPEC to NIHZYSCBTS. Reason for Transfer: NIDD delivery for cBTS18 done, PDL checks update needed, 2018-06-15 16:40 Stefan, Szebastian-Jacint (Nokia - RO/Timisoara) edited. Changed field(s): R&D Information, 2018-06-12 08:44 Li, Liang Xiao (NSB - CN/Hangzhou) The group in charge changed from E2E_CS_AS_TRS to MANO_ARCHSPEC. Reason for Transfer: Transfer to MANO_ARCHSPEC for NIDD delivery. After NIDD deliver please transfer to OAM team for validation rule update., 2018-06-12 08:36 Li, Liang Xiao (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-06-08 05:02 Zhang, William 1. (NSB - CN/Hangzhou)  The state of the problem changed from New to Investigating., 2018-06-08 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-08 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-08 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-08 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-07 09:48 Shi, Zhihao (NSB - CN/Hangzhou) Problem Report created, 2018-06-07 09:48 Shi, Zhihao (NSB - CN/Hangzhou) Attachment RE RC0893PDL validation will be failed due to modDN.msg added.","CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_xxxxxx_yyyyyy, CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy, CBTS18_FSM4_MZ_0700_000357_000000"
+PR350248,5G18A ASIK : IPSec tunnels are not re-tried by DUT after IPSec restart on SGW,"*** DEFAULT TEMPLATE for 3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.0.0 (19.03.2018)  – PLEASE FILL IT IN BEFORE CREATING A PR ***
+
+1. Test-Line Reference/used HW/configuration/tools/SW version: (SBTS / eNB / gNB package version, SBTS/ eNB / gNB profile ID, other NE’s versions e.g. Netact, RNC, MME, UE name and version)
+
+root@fctl-4a:~ cat /etc/fsmpsl_version 
+MB_PS_LFS_OS_2018_05_0197 (fctl)
+
+
+
+2. Test Case name: (QC or RP link)
+IPsec restart on security GW while IPsec tunnels are established on ASIK
+4. Detail Test Steps:
+1. Establish IPsec tunnels between ASIK and Security GW
+2. Restart IPsec on security GW
+3. Check if IPsec tunnels are re-triggered by DUT (ASIK)
+
+Configuration ON ASIK BOARD
+
+1. IP address on interface FP0 on ASIK
+2. establish IPsec tunnels between ASIK and Security GW
+
+
+5. Expected Result:
+IPsec tunnels are re-triggered by ASIK after re-starting IPsec on Security GW
+6. Actual Result:
+ASIK does not re-trigger IPsec tunnels.
+
+7. Fault Occurrence Rate:
+How many times Test Scenario was run? 3
+How many times fault was reproduced? 3
+What was changed since it was tested successfully for the last time? na
+
+8. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)
+Was Test Scenario passing before? NO
+What was the last SW version Test Scenario was passing? NA
+Were there any differences between test-lines since last time Test Scenario was passing? NA
+Were there any changes in Test Scenario since last run it passed? NA
+
+9. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)
+
+
+*** END OF DEFAULT TEMPLATE ***",07.06.2018,TRS_KAIZEN,5GC000264-A,Closed,C - Minor,< empty >,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]
+2018-06-21/22 [J.Pacheco]: Suspecting issue on TRS side, waiting for Jerome's analysis to be added in PR before transferring to TRS.
+2018-06-07/20 [J.Pacheco]: Assigned to Jerome Maillet who will check for LFS.","Chennu, Sunitha (Nokia - IN/Bangalore)",LTM BLR System Verification,< empty >,"Gupta, Shailendra (Nokia - IN/Bangalore)","2018-10-29 13:31 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-07-09 09:28 Paul K, Richard (Nokia - IN/Bangalore) The state of the problem changed from First Correction Complete to Closed, 2018-07-09 09:28 Paul K, Richard (Nokia - IN/Bangalore) Solution Description: Correction for TRS_INTERNAL RCA_EDA has been deleted., 2018-07-09 09:17 Chennu, Sunitha (Nokia - IN/Bangalore) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-07-09 08:14 Chennu, Sunitha (Nokia - IN/Bangalore) edited. Changed field(s): R&D Priority, Severity, 2018-07-07 16:39 Yadav, Lalmani (Nokia - IN/Bangalore) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-07-07 16:38 Yadav, Lalmani (Nokia - IN/Bangalore) New Correction document Correction for 5GBTS_18A 5G18A_XXX_YYY has been created., 2018-07-03 12:06 Yekkala, Paramesh (Nokia - IN/Bangalore) The group in charge changed from TRS_VIKINGS to TRS_KAIZEN. Reason for Transfer: feature owners, 2018-07-03 07:41 Jain M P, Shreyas (Nokia - IN/Bangalore) The group in charge changed from TRS_5G_ASIK_GENERAL to TRS_VIKINGS. Reason for Transfer: Hi Team,
+Kindly check this issue., 2018-06-29 14:30 Yadav, Lalmani (Nokia - IN/Bangalore) The state of the problem changed from New to Investigating, 2018-06-29 13:05 Nishant, Nishit (Nokia - IN/Bangalore) edited. Changed field(s): Other Interested, 2018-06-29 12:55 Gupta, Shailendra (Nokia - IN/Bangalore) Attachment RE  PR350248  5G18A ASIK   IPSec tunnels are not re-tried by DUT after IPSec restart on SGW.msg added., 2018-06-28 15:06 Maillet, Jerome (Nokia - FR/Paris-Saclay) The group in charge changed from NIULSLFS to TRS_5G_ASIK_GENERAL. Reason for Transfer: IPSEC is implemented at TRS level, 2018-06-28 15:06 Maillet, Jerome (Nokia - FR/Paris-Saclay) The state of the problem changed from Investigating to New, 2018-06-23 00:52 Pacheco, Jose (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information, 2018-06-19 16:35 Puttanagari, Manasa (Nokia - IN/Bangalore) edited. Changed field(s): R&D Priority, 2018-06-15 19:56 Pronto, Auto (Nokia - Global) edited. Changed field(s): Development Fault Coordinator, 2018-06-15 18:11 Chennu, Sunitha (Nokia - IN/Bangalore) The group in charge changed from LTM BLR System Verification to NIULSLFS. Reason for Transfer: Provided the requested logs and responded for IR., 2018-06-15 17:38 Chennu, Sunitha (Nokia - IN/Bangalore) Information request for problem PR350248 responded., 2018-06-15 15:36 Chennu, Sunitha (Nokia - IN/Bangalore) Info Request for problem PR350248 resent., 2018-06-15 15:16 trs, tools (Nokia - Global) New Correction document Correction for TRS_INTERNAL RCA_EDA has been created., 2018-06-15 15:13 Pacheco, Jose (Nokia - FR/Paris-Saclay) The group in charge changed from NIULSLFS to LTM BLR System Verification. Reason for Transfer: Transferred for follow up - IR not responded, 2018-06-11 15:21 Maillet, Jerome (Nokia - FR/Paris-Saclay) Info Request for problem PR350248 sent., 2018-06-11 15:21 Maillet, Jerome (Nokia - FR/Paris-Saclay) New Information Request for PR PR350248 has been created., 2018-06-08 09:47 Pacheco, Jose (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information, 2018-06-08 08:47 Nsn, Lfs-Prescreening (Nokia - Global)  The state of the problem changed from New to Investigating., 2018-06-07 19:53 Pronto, Auto (Nokia - Global) edited. Changed field(s): Development Fault Coordinator, 2018-06-07 16:39 Chennu, Sunitha (Nokia - IN/Bangalore) Problem Report created",5G18A_XXX_YYY
+PR350252,[5GC001145-A] BM has crashed during the startup on classical 5g gNB.,"Problem Description
+1. Test-Line Reference/used HW/configuration/tools/SW version:
+HW:ASIK.x13+ABIK.x32
+SW:SOAM-052518-AirScaleASIK-B3-0.0.4-05152042.zip
+
+2. Test Case name:
+5GC001145-A_004_HW inventory detection (ASIK,ABIK, AEUA) and visualization by WebEM
+
+3. Used Flags:
+N/A
+
+4. Detail Test Steps:
+1. SW upgrade from SOAM-052418-AirScale-5.100001.81.zip to the SOAM-052518-AirScaleASIK-B3-0.0.4-05152042.zip using Yaft. 
+
+both builds contains BM version: /isource/svnroot/BTS_SC_BM/tags/IB012_BM_2018_01_013
+
+
+5. Expected Result:
+BM shall be up and running
+
+
+6. Actual Result:
+FCT-1011-0-bm 2018-02-28T09:06:09.172734Z 2A7D ERR/BM/IM, im_validator: validating ccu_t failed on field resetCount
+FCT-1011-0-bm 2018-02-28T09:06:09.172741Z 2A7D ERR/BM/ADET, ccu: could not create object under adf78ad1-364e-56ce-94a4-3da77d9630c5
+FCT-1011-0-bm 2018-02-28T09:06:09.172747Z 2A7D ERR/BM/STUP, startup_manager: Creating subsystem [EBmService_Adet] failed
+FCT-1011-0-bm 2018-02-28T09:06:09.172844Z 2A64 ERR/BM/STUP, bm_main: =~=~= Failed to perform BM startup =~=~=
+FCT-1011-0-bm 2018-02-28T09:06:09.863637Z 2A64 ERR/BM/GEN, void framework::bm_assert_fail(const char*, const char*, long int, const char*): Assertion ""server.is_valid()"" failed in void info_model::change_request::processor_base::delete_pending_rat_requests() (src /lte/server/request_processor/change_reques
+FCT-1011-0-bm 2018-02-28T09:06:09.863638Z 2A64 ERR/BM/GEN, void framework::bm_assert_fail(const char*, const char*, long int, const char*): t/change_request_processor_base.cpp:246)
+FCT-1011-0-bm 2018-02-28T09:06:09.863801Z 2A64 ERR/CCS/AaError, (pid:10852) EE command     : /opt/bm/bm --ltewmp
+FCT-1011-0-bm 2018-02-28T09:06:09.866569Z 2A64 ERR/CCS/AaError, (pid:10852) #4 0x00447f5a from /opt/bm/bm+0x47f5a
+FCT-1011-0-bm 2018-02-28T09:06:09.866577Z 2A64 ERR/CCS/AaError, (pid:10852) #5 0x00735f38 from /opt/bm/bm+0x335f38
+FCT-1011-0-bm 2018-02-28T09:06:09.866584Z 2A64 ERR/CCS/AaError, (pid:10852) #6 0x0073714e from /opt/bm/bm+0x33714e
+
+7. Fault Occurrence Rate:
+permanent issue
+
+8. Test Scenario History of Execution:
+N/A
+
+9. Log(s) file name containing a fault:
+\\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\kapawlow\5g_logs\bm_crash\fsp_detected.zip
+
+10. Tester analysis:
+N/A",07.06.2018,MANO_WRO_CELLMGMT,5GC001145,Correction Not Needed,B - Major,< empty >,5G00,"[#RC unknown ] [#LE: yyyy-mm-dd ]
+2018-06-14 Szklarz: Chojnacki, Przemyslaw (Nokia - PL/Wroclaw) is backup for Pawlowski, Kamil 1. (Nokia - PL/Wroclaw
+2018-06-13 Szklarz: Waiting for IR 
+2018-06-13 Urszula Dymek: Waiting for assignment, Next: (LE:)
+2018-06-12 Urszula Dymek: Waiting for assignment, Next: (LE:)
+2018-06-07 Patryk Kowalski: Prescreening done, waiting for assignment in PS_BM_ADET subsystem 
+2018-06-07 Patryk Kowalski: Investigation ongoing","Pawlowski, Kamil 1. (Nokia - PL/Wroclaw)",MANO_WRO_HWMGMT,< empty >,"Chojnacki, Przemyslaw (Nokia - PL/Wroclaw)","2019-02-01 13:02 Ranos, Lukasz (Nokia - PL/Wroclaw) edited. Changed field(s): Release, Platform Release, 2018-06-29 09:18 Chojnacki, Przemyslaw (Nokia - PL/Wroclaw) State changed from Investigating to Correction Not Needed, 2018-06-21 14:46 Dolata, Piotr (Nokia - PL/Wroclaw) Author Group changed from NIWRSSOAM to MANO_WRO_HWMGMT, 2018-06-21 14:46 Dolata, Piotr (Nokia - PL/Wroclaw) edited. Changed field(s): Author Group, 2018-06-19 20:39 Pawlowski, Kamil 1. (Nokia - PL/Wroclaw) Information request for problem PR350252 responded., 2018-06-19 20:38 Pawlowski, Kamil 1. (Nokia - PL/Wroclaw) Info Request for problem PR350252 sent., 2018-06-19 20:38 Pawlowski, Kamil 1. (Nokia - PL/Wroclaw) New Information Request for PR PR350252 has been created., 2018-06-19 13:03 Kubicz, Michal (Nokia - PL/Wroclaw) The group in charge changed from MANO_WRO_HWMGMT to MANO_WRO_CELLMGMT. Reason for Transfer: This should be on CELLMGMNT according to Przemyslaw Chojnacki., 2018-06-18 16:25 Pawlowski, Kamil 1. (Nokia - PL/Wroclaw) Information request for problem PR350252 responded., 2018-06-18 15:31 Support, prontojiraagent (Nokia - Global) The group in charge changed from NIWRSSOAM to MANO_WRO_HWMGMT. Reason for Transfer: Pronto Group renewal, 2018-06-18 15:04 Szklarz, Andrzej (Nokia - PL/Wroclaw) The group in charge changed from NIPSSHC5G to NIWRSSOAM. Reason for Transfer: Waiting for IR, 2018-06-14 11:07 Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information, 2018-06-13 17:01 Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information, 2018-06-13 14:59 Lu, Monique (Nokia - FR/Paris-Saclay) Info Request for problem PR350252 sent., 2018-06-13 14:59 Lu, Monique (Nokia - FR/Paris-Saclay) New Information Request for PR PR350252 has been created., 2018-06-13 14:57 Lu, Monique (Nokia - FR/Paris-Saclay)  The state of the problem changed from New to Investigating., 2018-06-13 13:54 Dobroc, Przemyslaw (Nokia - PL/Wroclaw) The group in charge changed from NIWRSBM to NIPSSHC5G. Reason for Transfer: Analysis attached. Monique did not comment BM findings in the mail thread., 2018-06-13 13:54 Dobroc, Przemyslaw (Nokia - PL/Wroclaw) Attachment BM_analysis_1.txt added., 2018-06-13 11:22 Dymek, Urszula (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information, 2018-06-12 10:12 Dymek, Urszula (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information, 2018-06-11 17:16 Kowalski, Patryk (Nokia - PL/Wroclaw) Info Request for problem PR350252 has been deleted., 2018-06-11 16:01 Szklarz, Andrzej (Nokia - PL/Wroclaw) The group in charge changed from NIPSSHC5G to NIWRSBM. Reason for Transfer: LACK of analysis lack of any information. According to Monique Lu RC should not be in MCU HWAPi. , 2018-06-08 14:18 Dobroc, Przemyslaw (Nokia - PL/Wroclaw) The group in charge changed from NIWRSBM to NIPSSHC5G. Reason for Transfer: Monique Lu is checking this from HWAPI pov. Seems that message API_OM_GET_RP_RAM_RESP_MSG either does not contain the reset counter (is empty) or is corrupted., 2018-06-07 18:03 Pawlowski, Kamil 1. (Nokia - PL/Wroclaw) edited. Changed field(s): Description, 2018-06-07 17:21 Kowalski, Patryk (Nokia - PL/Wroclaw) The state of the problem changed from Investigating to New, 2018-06-07 17:20 Kowalski, Patryk (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information, 2018-06-07 17:17 Kowalski, Patryk (Nokia - PL/Wroclaw) New Information Request for PR PR350252 has been created., 2018-06-07 16:53 Kowalski, Patryk (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information, 2018-06-07 16:52 Kowalski, Patryk (Nokia - PL/Wroclaw)  The state of the problem changed from New to Investigating., 2018-06-07 16:43 Pawlowski, Kamil 1. (Nokia - PL/Wroclaw) Problem Report created",< empty >

@@ -1,0 +1,62 @@
+{
+  "records": [
+    {
+      "PR ID": "PR349552",
+      "Group In Charge": "NIESSCBTSMZOAM",
+      "Reported Date": "06.06.2018",
+      "Author": "Shentu, Junda (NSB - CN/Hangzhou)",
+      "Author Group": "SRANIVHZ_NEVE",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "NIESSCBTSMZOAM"
+      ],
+      "Transfer times": 1,
+      "Solving Path": [
+        "NIESSCBTSMZOAM"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR349690",
+      "Group In Charge": "5G_L1",
+      "Reported Date": "06.06.2018",
+      "Author": "Kurylak, Adrian (Nokia - PL/Wroclaw)",
+      "Author Group": "5G_HW_ABIL",
+      "State": "Closed",
+      "Transfer Path": [
+        "5G_L1"
+      ],
+      "Transfer times": 1,
+      "Solving Path": [
+        "5G_L1"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR349819",
+      "Group In Charge": "5GRAN_Airphone",
+      "Reported Date": "06.06.2018",
+      "Author": "May, Harald (Nokia - DE/Ulm)",
+      "Author Group": "ECE_DEV_GUL",
+      "State": "Closed",
+      "Transfer Path": [
+        "5GRAN_Airphone"
+      ],
+      "Transfer times": 1,
+      "Solving Path": [
+        "5GRAN_Airphone"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    }
+  ],
+  "total": 3
+}

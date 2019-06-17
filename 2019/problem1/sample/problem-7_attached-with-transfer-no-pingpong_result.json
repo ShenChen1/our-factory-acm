@@ -1,0 +1,206 @@
+{
+  "records": [
+    {
+      "PR ID": "PR349147",
+      "Group In Charge": "MANO_HZH_MZOM",
+      "Reported Date": "05.06.2018",
+      "Author": "Zhu, Huilan (NSB - CN/Hangzhou)",
+      "Author Group": "NIHZPDSCI",
+      "State": "Closed",
+      "Transfer Path": [
+        "TRS_CLOUD_BTS_GENERAL",
+        "NIESSCBTSMZOAM",
+        "E2E_MZ_OM_HZH",
+        "MANO_HZH_MZOM"
+      ],
+      "Transfer times": 4,
+      "Solving Path": [
+        "TRS_CLOUD_BTS_GENERAL",
+        "NIESSCBTSMZOAM",
+        "E2E_MZ_OM_HZH",
+        "MANO_HZH_MZOM"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR352080",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR352080",
+      "Group In Charge": "MANO_HZH_MZOM",
+      "Reported Date": "14.06.2018",
+      "Author": "S R, Vinesh (Nokia - IN/Bangalore)",
+      "Author Group": "WRANRNCTS",
+      "State": "Closed",
+      "Transfer Path": [
+        "RCPDEV",
+        "NIESSCBTSMZOAM",
+        "E2E_MZ_OM_HZH",
+        "MANO_HZH_MZOM"
+      ],
+      "Transfer times": 4,
+      "Solving Path": [
+        "RCPDEV",
+        "NIESSCBTSMZOAM",
+        "E2E_MZ_OM_HZH",
+        "MANO_HZH_MZOM"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR349147",
+      "Attached": "yes",
+      "Attached To": "PR349147"
+    },
+    {
+      "PR ID": "PR352670",
+      "Group In Charge": "ECE_DEV_FOU_OAM_MZ_EXT",
+      "Reported Date": "18.06.2018",
+      "Author": "Wang, Yifeng 1. (NSB - CN/Hangzhou)",
+      "Author Group": "ECE_DEV_CHZ_ET",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT"
+      ],
+      "Transfer times": 1,
+      "Solving Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR355043, PR358789",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR353081",
+      "Group In Charge": "ECE_DEV_FPS_UP_L2_PS",
+      "Reported Date": "19.06.2018",
+      "Author": "Tarka, Radoslaw (Nokia - PL/Wroclaw)",
+      "Author Group": "5GRAN_Productization_QT",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_PWR_CP_RT",
+        "ECE_DEV_FPS_UP_L2_PS"
+      ],
+      "Transfer times": 2,
+      "Solving Path": [
+        "ECE_DEV_PWR_CP_RT",
+        "ECE_DEV_FPS_UP_L2_PS"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR353147, PR353253, PR353515",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR353147",
+      "Group In Charge": "ECE_DEV_FPS_UP_L2_PS",
+      "Reported Date": "19.06.2018",
+      "Author": "Fang, Chaosi (NSB - CN/Hangzhou)",
+      "Author Group": "5GRAN_Productization_QT",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_FPS_UP_L2_PS",
+        "ECE_DEV_FPS",
+        "ECE_DEV_FPS_UP_L2_PS"
+      ],
+      "Transfer times": 3,
+      "Solving Path": [
+        "ECE_DEV_FPS_UP_L2_PS"
+      ],
+      "Pingpong times": 1,
+      "Attached PRs": "PR353253, PR353081, PR353515",
+      "Attached": "yes",
+      "Attached To": "PR353081"
+    },
+    {
+      "PR ID": "PR353253",
+      "Group In Charge": "ECE_DEV_FPS_UP_L2_PS",
+      "Reported Date": "19.06.2018",
+      "Author": "Leclercq, Thierry (Nokia - FR/Paris-Saclay)",
+      "Author Group": "5GRAN_Productization_QT",
+      "State": "Closed",
+      "Transfer Path": [
+        "MANO_HZH_OSSEMS",
+        "ECE_DEV_FOU_OAM_MZ",
+        "ECE_DEV_FPS_CP_UE",
+        "ECE_DEV_FPS_UP_L2_PS"
+      ],
+      "Transfer times": 4,
+      "Solving Path": [
+        "MANO_HZH_OSSEMS",
+        "ECE_DEV_FOU_OAM_MZ",
+        "ECE_DEV_FPS_CP_UE",
+        "ECE_DEV_FPS_UP_L2_PS"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR353147, PR353081, PR353515",
+      "Attached": "yes",
+      "Attached To": "PR353081"
+    },
+    {
+      "PR ID": "PR353515",
+      "Group In Charge": "ECE_DEV_FPS_UP_L2_PS",
+      "Reported Date": "20.06.2018",
+      "Author": "Wang, Yifeng 1. (NSB - CN/Hangzhou)",
+      "Author Group": "ECE_DEV_CHZ_ET",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_GUL_UP_L2_PS",
+        "ECE_DEV_FPS_UP_L2_PS"
+      ],
+      "Transfer times": 2,
+      "Solving Path": [
+        "ECE_DEV_GUL_UP_L2_PS",
+        "ECE_DEV_FPS_UP_L2_PS"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR353081, PR353147, PR353253",
+      "Attached": "yes",
+      "Attached To": "PR353081"
+    },
+    {
+      "PR ID": "PR355043",
+      "Group In Charge": "ECE_DEV_FOU_OAM_MZ_EXT",
+      "Reported Date": "26.06.2018",
+      "Author": "Wojcik, Adrian (Nokia - PL/Wroclaw)",
+      "Author Group": "5GRAN_Productization_QT",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_FOU",
+        "5G_L1_SW",
+        "5G_L1_Spec",
+        "ECE_DEV_FOU_OAM_MZ_EXT"
+      ],
+      "Transfer times": 4,
+      "Solving Path": [
+        "ECE_DEV_FOU",
+        "5G_L1_SW",
+        "5G_L1_Spec",
+        "ECE_DEV_FOU_OAM_MZ_EXT"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR352670, PR358789",
+      "Attached": "yes",
+      "Attached To": "PR352670"
+    },
+    {
+      "PR ID": "PR358789",
+      "Group In Charge": "ECE_DEV_FOU_OAM_MZ_EXT",
+      "Reported Date": "10.07.2018",
+      "Author": "Juppi, Juha (Nokia - FI/Oulu)",
+      "Author Group": "5G_SPEC",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT"
+      ],
+      "Transfer times": 1,
+      "Solving Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR352670, PR355043",
+      "Attached": "yes",
+      "Attached To": "PR352670"
+    }
+  ],
+  "total": 9
+}

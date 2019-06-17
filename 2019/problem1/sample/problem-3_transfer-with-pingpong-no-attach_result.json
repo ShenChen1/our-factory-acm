@@ -1,0 +1,85 @@
+{
+  "records": [
+    {
+      "PR ID": "PR350005",
+      "Group In Charge": "E2E_CS_AS_TRS",
+      "Reported Date": "07.06.2018",
+      "Author": "Shi, Zhihao (NSB - CN/Hangzhou)",
+      "Author Group": "NIHZSIV2",
+      "State": "Closed",
+      "Transfer Path": [
+        "E2E_CS_AS_TRS",
+        "MANO_ARCHSPEC",
+        "NIHZYSCBTS",
+        "MANO_HZH_UI",
+        "NIHZYSCBTS",
+        "E2E_CS_AS_TRS"
+      ],
+      "Transfer times": 6,
+      "Solving Path": [
+        "E2E_CS_AS_TRS"
+      ],
+      "Pingpong times": 2,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR350248",
+      "Group In Charge": "TRS_KAIZEN",
+      "Reported Date": "07.06.2018",
+      "Author": "Chennu, Sunitha (Nokia - IN/Bangalore)",
+      "Author Group": "LTM BLR System Verification",
+      "State": "Closed",
+      "Transfer Path": [
+        "NIULSLFS",
+        "LTM BLR System Verification",
+        "NIULSLFS",
+        "TRS_5G_ASIK_GENERAL",
+        "TRS_VIKINGS",
+        "TRS_KAIZEN"
+      ],
+      "Transfer times": 6,
+      "Solving Path": [
+        "NIULSLFS",
+        "TRS_5G_ASIK_GENERAL",
+        "TRS_VIKINGS",
+        "TRS_KAIZEN"
+      ],
+      "Pingpong times": 1,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR350252",
+      "Group In Charge": "MANO_WRO_CELLMGMT",
+      "Reported Date": "07.06.2018",
+      "Author": "Pawlowski, Kamil 1. (Nokia - PL/Wroclaw)",
+      "Author Group": "MANO_WRO_HWMGMT",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "NIWRSBM",
+        "NIPSSHC5G",
+        "NIWRSBM",
+        "NIPSSHC5G",
+        "NIWRSSOAM",
+        "MANO_WRO_HWMGMT",
+        "MANO_WRO_CELLMGMT"
+      ],
+      "Transfer times": 7,
+      "Solving Path": [
+        "NIWRSBM",
+        "NIPSSHC5G",
+        "NIWRSSOAM",
+        "MANO_WRO_HWMGMT",
+        "MANO_WRO_CELLMGMT"
+      ],
+      "Pingpong times": 2,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    }
+  ],
+  "total": 3
+}

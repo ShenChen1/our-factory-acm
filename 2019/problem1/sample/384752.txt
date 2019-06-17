@@ -1,0 +1,92 @@
+2018-11-16 09:45 EET
+Xu, Lijie (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed
+2018-11-16 09:45 EET
+Xu, Lijie (NSB - CN/Hangzhou) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.6133.101 5G18A_4.6833.xx has been deleted.
+2018-11-16 09:30 EET
+Tiermas, Eliina (Nokia - FI/Oulu) Top Importance Value(s) Removed :TOP_5GBTS_18A_PT5.1_blocker
+2018-11-16 09:30 EET
+Tiermas, Eliina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-11-16 09:29 EET
+Hautala, Mika (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to MANO_HZH_MZOM. Reason for Transfer: 16112018:MHa: Classical responsible is in HZ MZ OAM team. Tested with newer loud in Classical side and Wo ...
+2018-11-16 09:27 EET
+Hautala, Mika (Nokia - FI/Oulu) Problem detached. The problem report was detached from PR383902
+2018-11-16 08:18 EET
+Hautala, Mika (Nokia - FI/Oulu) edited. Changed field(s): Development Fault Coordinator
+2018-11-15 15:36 EET
+Alaluusua, Juha (Nokia - FI/Espoo) The group in charge changed from SoC_UP_Platform to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: Further correction to be delivered by OAM.
+2018-11-15 11:11 EET
+Alaluusua, Juha (Nokia - FI/Espoo) The group in charge changed from SoC_UP_Platform to ECE_DEV_FOU_OAM_MZ_EXT. Reason for Transfer: Further correction needed from OAM.
+2018-11-15 11:09 EET
+Laasonen, Pekka (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ_EXT to SoC_UP_Platform
+2018-11-13 13:07 EET
+Tiermas, Eliina (Nokia - FI/Oulu) The state of the problem changed from First Correction Ready For Testing to First Correction Complete
+2018-11-13 12:54 EET
+Tiermas, Eliina (Nokia - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.3113.773 has been deleted.
+2018-11-13 12:53 EET
+Tiermas, Eliina (Nokia - FI/Oulu) The state of the problem changed from First Correction Complete to First Correction Ready For Testing
+2018-11-13 08:42 EET
+Alaluusua, Juha (Nokia - FI/Espoo) The state of the problem changed from First Correction Ready For Testing to First Correction Complete
+2018-11-13 08:11 EET
+Alaluusua, Juha (Nokia - FI/Espoo) Problem Report PR384121 was detached from PR383902, PR384752
+2018-11-12 08:49 EET
+Xu, Xiaofang (NSB - CN/Hangzhou) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b6.xxxx has been created.
+2018-11-11 20:51 EET
+Alaluusua, Juha (Nokia - FI/Espoo) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b6.xxxx has been deleted.
+2018-11-11 20:50 EET
+Alaluusua, Juha (Nokia - FI/Espoo) The state of the problem changed from Investigating to First Correction Ready For Testing
+2018-11-09 13:50 EET
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-11-09 13:50 EET
+Pronto, Auto (Nokia - Global) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b6.xxxx has been created.
+2018-11-07 14:39 EET
+Alaluusua, Juha (Nokia - FI/Espoo) edited. Changed field(s): R&D Information
+2018-11-06 13:43 EET
+Tiermas, Eliina (Nokia - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted.
+2018-11-06 13:42 EET
+Pronto, Auto (Nokia - Global) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b6.xxxx has been created.
+2018-11-06 13:42 EET
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-11-06 13:40 EET
+Tiermas, Eliina (Nokia - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted.
+2018-11-06 12:12 EET
+Tan, Tashia (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-11-06 11:57 EET
+Xu, Xiaofang (NSB - CN/Hangzhou) Top Importance Value(s) Added :TOP_5GBTS_18A_PT5.1_blocker
+2018-11-06 11:57 EET
+Xu, Xiaofang (NSB - CN/Hangzhou) Optional Value is updated with PT5
+2018-11-06 11:57 EET
+Xu, Xiaofang (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-10-29 10:26 EET
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-10-26 15:56 EEST
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-10-26 15:33 EEST
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-10-25 17:47 EEST
+Rechul, Krystian (Nokia - PL/Wroclaw) The state of the problem changed from First Correction Ready For Testing to Investigating
+2018-10-25 13:04 EEST
+Hronec, Michal (Nokia - FI/Espoo) The state of the problem changed from Investigating to First Correction Ready For Testing
+2018-10-22 12:16 EEST
+Alaluusua, Juha (Nokia - FI/Espoo) The state of the problem changed from New to Investigating.
+2018-10-22 12:16 EEST
+Alaluusua, Juha (Nokia - FI/Espoo) The group in charge changed from MANO_HZH_MZOM to SoC_UP_Platform. Reason for Transfer: L1 middleware issue.
+2018-10-22 09:05 EEST
+Guan, Weihui (NSB - CN/Hangzhou) The state of the problem changed from Investigating to New
+2018-10-22 09:05 EEST
+Guan, Weihui (NSB - CN/Hangzhou) Problem attached to PR383902.
+2018-10-22 09:05 EEST
+Guan, Weihui (NSB - CN/Hangzhou) The fault id FA442892 associated with this PR before attach has been deleted - data is restorable by Pronto Support
+2018-10-22 08:15 EEST
+Guan, Weihui (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-10-22 05:45 EEST
+Guan, Weihui (NSB - CN/Hangzhou) The state of the problem changed from New to Investigating.
+2018-10-19 19:34 EEST
+Pronto, Auto (Nokia - Global) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created.
+2018-10-19 11:17 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) The state of the problem changed from Investigating to New
+2018-10-19 11:17 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) edited. Changed field(s): Status Log, R&D Information
+2018-10-19 11:14 EEST
+Cao, Guorui R. (NSB - CN/Hangzhou) The state of the problem changed from New to Investigating.
+2018-10-19 11:03 EEST
+Tan, Tashia (NSB - CN/Hangzhou) Problem Report created

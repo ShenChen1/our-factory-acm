@@ -1,0 +1,133 @@
+{
+  "records": [
+    {
+      "PR ID": "PR350064",
+      "Group In Charge": "NIULSLFS",
+      "Reported Date": "07.06.2018",
+      "Author": "Woloszyn, Pawel (Nokia - PL/Wroclaw)",
+      "Author Group": "5GRAN_IV3_SiSo",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT",
+        "NIPSSHC5G",
+        "ECE_DEV_FOU_OAM_MZ",
+        "NIPSSHC5G",
+        "NIULSLFS",
+        "5GRAN_IV3_SiSo",
+        "NIULSLFS",
+        "NIPSSHC5G",
+        "NIHZSFHSID",
+        "NIPSSHC5G",
+        "NIULSLFS"
+      ],
+      "Transfer times": 11,
+      "Solving Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT",
+        "NIPSSHC5G",
+        "NIULSLFS"
+      ],
+      "Pingpong times": 5,
+      "Attached PRs": "PR364850",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR351188",
+      "Group In Charge": "5G_SPEC",
+      "Reported Date": "12.06.2018",
+      "Author": "Natarajan, Rajesh Babu (Nokia - IN/Bangalore)",
+      "Author Group": "ECE_DEV_IBA_ET",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT",
+        "5G_SPEC",
+        "ECE_DEV_FOU_OAM_MZ_EXT",
+        "5G_SPEC"
+      ],
+      "Transfer times": 4,
+      "Solving Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT",
+        "5G_SPEC"
+      ],
+      "Pingpong times": 2,
+      "Attached PRs": "PR352828, PR353446",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR352828",
+      "Group In Charge": "5G_SPEC",
+      "Reported Date": "18.06.2018",
+      "Author": "Kamaraj, Kumaravel (Nokia - IN/Bangalore)",
+      "Author Group": "ECE_DEV_IBA_ET",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "5G_SPEC",
+        "TRS_5G_ASIK_GENERAL",
+        "TRS_PIONEERS",
+        "ECE_DEV_FOU",
+        "5G_SPEC",
+        "ECE_DEV_FOU",
+        "ECE_DEV_IBA_ET",
+        "5G_SPEC",
+        "ECE_DEV_IBA_ET",
+        "5G_SPEC"
+      ],
+      "Transfer times": 10,
+      "Solving Path": [
+        "5G_SPEC"
+      ],
+      "Pingpong times": 5,
+      "Attached PRs": "PR353446, PR351188",
+      "Attached": "yes",
+      "Attached To": "PR351188"
+    },
+    {
+      "PR ID": "PR353446",
+      "Group In Charge": "5G_SPEC",
+      "Reported Date": "20.06.2018",
+      "Author": "Kamaraj, Kumaravel (Nokia - IN/Bangalore)",
+      "Author Group": "ECE_DEV_IBA_ET",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT",
+        "ECE_DEV_IBA_ET",
+        "5G_SPEC",
+        "ECE_DEV_IBA_ET",
+        "5G_SPEC"
+      ],
+      "Transfer times": 5,
+      "Solving Path": [
+        "ECE_DEV_FOU_OAM_MZ_EXT",
+        "ECE_DEV_IBA_ET",
+        "5G_SPEC"
+      ],
+      "Pingpong times": 2,
+      "Attached PRs": "PR352828, PR351188",
+      "Attached": "yes",
+      "Attached To": "PR351188"
+    },
+    {
+      "PR ID": "PR364850",
+      "Group In Charge": "NIULSLFS",
+      "Reported Date": "03.08.2018",
+      "Author": "Wang, Jiajia 3. (NSB - CN/Hangzhou)",
+      "Author Group": "5GRAN_Productization_QT",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_FOU",
+        "NIULSLFS"
+      ],
+      "Transfer times": 2,
+      "Solving Path": [
+        "ECE_DEV_FOU",
+        "NIULSLFS"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "PR350064",
+      "Attached": "yes",
+      "Attached To": "PR350064"
+    }
+  ],
+  "total": 5
+}

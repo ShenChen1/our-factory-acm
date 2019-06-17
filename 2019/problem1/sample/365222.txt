@@ -1,0 +1,169 @@
+	Line 40: Korpela, Tuula (Nokia - FI/Oulu) The group in charge changed from NIOYSE2 to NIULSLFS. Reason for Transfer: For test_mode fix adding.
+	Line 50: Kunaszewski, Michal (Nokia - PL/Wroclaw) The group in charge changed from NIWRYSNE to NIOYSE2. Reason for Transfer: Reason for transfer back is provided by Jean-Luc Leinenweberin in the attached email "We can see different errors in this cas ...
+	Line 60: Jarvinen, Jaana (Nokia - FI/Oulu) The group in charge changed from NIOYSE2 to NIWRYSNE. Reason for Transfer: SW Management changes needed next from Michal Kunaszewski
+	Line 74: Szklarz, Andrzej (Nokia - PL/Wroclaw) The group in charge changed from NIPSSHC5G to NIOYSE2. Reason for Transfer: Clarified with Pentti and Jaana Jarvinen
+	Line 86: Kempas, Mika (Nokia - FI/Oulu) The group in charge changed from NIOSDX to NIPSSHC5G. Reason for Transfer: @MCU HWAPI, please check with with SPEC experts how to proceed. .. According to Janne Perala 1. Platform SPEC update is need ...
+	Line 100: Pacheco, Jose (Nokia - FR/Paris-Saclay) The group in charge changed from NIPSSHC5G to NIOSDX. Reason for Transfer: CCS-RT to check next - see mcuhwapi_analysis.txt for details.
+	Line 108: Yadav, Lalmani (Nokia - IN/Bangalore) The group in charge changed from TRS_5G_ASIK_GENERAL to NIPSSHC5G. Reason for Transfer: Based on mail discussion and attached TRS analysis. HWAPI/CC&S-RT should further look into this.
+	Line 130: Qian, Peggy (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to TRS_5G_ASIK_GENERAL. Reason for Transfer: Oam call tpi function is failed .
+	Line 140: Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU to MANO_HZH_MZOM. Reason for Transfer: cbts classic
+
+	ECE_DEV_FOU
+	MANO_HZH_MZOM
+	TRS_5G_ASIK_GENERAL
+	NIPSSHC5G
+	NIOSDX
+	NIPSSHC5G
+	NIOYSE2
+	NIWRYSNE
+	NIOYSE2
+	NIULSLFS
+
+2018-10-29 12:49 EET
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-09-05 16:16 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Complete to Closed
+2018-09-05 15:54 EEST
+Mihon, Otilia (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Ready For Testing to First Correction Complete
+2018-08-28 23:35 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) The state of the problem changed from Investigating to First Correction Ready For Testing
+2018-08-28 23:34 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2018-08-28 01:23 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been deleted.
+2018-08-28 01:23 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) New Correction document Correction for PS1.0 FB1807_IB5G IB5G_PS_REL_2018_07_014 has been created.
+2018-08-28 01:21 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) New Correction document Correction for PS1.0 MB_PS_REL_2018_07_001 has been created.
+2018-08-25 00:36 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2018-08-22 16:56 EEST
+Korpela, Tuula (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-22 15:43 EEST
+Marchand, Eric EM. (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2018-08-22 15:30 EEST
+Pronto, Auto (Nokia - Global) edited. Changed field(s): Development Fault Coordinator
+2018-08-22 15:29 EEST
+Acbard, Gregory (Nokia - FR/Paris-Saclay) Optional Value is updated with PT3
+2018-08-22 13:50 EEST
+Nsn, Lfs-Prescreening (Nokia - Global) commented via email
+2018-08-22 13:29 EEST
+Korpela, Tuula (Nokia - FI/Oulu) Attachment RE_RE Mail inspection for PR365222 5GBTS_18A A - Critical5G18A ASIK101 Classical OamAgentInitial configuration failed) correction of MD PSSW Start-up 5G ASM model .msg added.
+2018-08-22 13:28 EEST
+Korpela, Tuula (Nokia - FI/Oulu) Attachment 22012749293RE Mail inspection for PR365222 5GBTS_18A A - Critical5G18A ASIK101 Classical OamAgentInitial configuration failed) correction of MD PSSW Start-up 5G ASM model .msg removed.
+2018-08-22 13:27 EEST
+Korpela, Tuula (Nokia - FI/Oulu) Attachment 22012749293RE Mail inspection for PR365222 5GBTS_18A A - Critical5G18A ASIK101 Classical OamAgentInitial configuration failed) correction of MD PSSW Start-up 5G ASM model .msg added.
+2018-08-22 13:26 EEST
+Korpela, Tuula (Nokia - FI/Oulu) Attachment 22012544295RE Mail inspection for PR365222 5GBTS_18A A - Critical5G18A ASIK101 Classical OamAgentInitial configuration failed) correction of MD PSSW Start-up 5G ASM model .msg removed.
+2018-08-22 13:25 EEST
+Korpela, Tuula (Nokia - FI/Oulu) Attachment 22012544295RE Mail inspection for PR365222 5GBTS_18A A - Critical5G18A ASIK101 Classical OamAgentInitial configuration failed) correction of MD PSSW Start-up 5G ASM model .msg added.
+2018-08-22 13:21 EEST
+Korpela, Tuula (Nokia - FI/Oulu) The group in charge changed from NIOYSE2 to NIULSLFS. Reason for Transfer: For test_mode fix adding.
+2018-08-22 12:17 EEST
+Korpela, Tuula (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-21 15:35 EEST
+Korpela, Tuula (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-21 15:32 EEST
+Korpela, Tuula (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-21 09:51 EEST
+Korpela, Tuula (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-20 15:45 EEST
+Kunaszewski, Michal (Nokia - PL/Wroclaw) The group in charge changed from NIWRYSNE to NIOYSE2. Reason for Transfer: Reason for transfer back is provided by Jean-Luc Leinenweberin in the attached email "We can see different errors in this cas ...
+2018-08-20 15:44 EEST
+Kunaszewski, Michal (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2018-08-20 15:38 EEST
+Kunaszewski, Michal (Nokia - PL/Wroclaw) Attachment RE Mail inspection for PR365222 5GBTS_18A A - Critical5G18A ASIK101 Classical OamAgentInitial configuration failed) correction of MD PSSW Start-up 5G ASM model .msg added.
+2018-08-20 10:41 EEST
+Kunaszewski, Michal (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2018-08-20 10:40 EEST
+Kunaszewski, Michal (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2018-08-20 09:52 EEST
+Jarvinen, Jaana (Nokia - FI/Oulu) The group in charge changed from NIOYSE2 to NIWRYSNE. Reason for Transfer: SW Management changes needed next from Michal Kunaszewski
+2018-08-17 19:09 EEST
+Korpela, Tuula (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-17 18:50 EEST
+Korpela, Tuula (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-16 13:16 EEST
+Jarvinen, Jaana (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-16 13:05 EEST
+Jarvinen, Jaana (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created.
+2018-08-16 13:05 EEST
+Jarvinen, Jaana (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created.
+2018-08-16 12:43 EEST
+Jarvinen, Jaana (Nokia - FI/Oulu) The state of the problem changed from New to Investigating.
+2018-08-16 12:13 EEST
+Szklarz, Andrzej (Nokia - PL/Wroclaw) The group in charge changed from NIPSSHC5G to NIOYSE2. Reason for Transfer: Clarified with Pentti and Jaana Jarvinen
+2018-08-16 11:42 EEST
+Tian, Jing (Nokia - FR/Paris-Saclay) Information request for problem PR365222 responded.
+2018-08-13 21:28 EEST
+Liukkonen, Heikki (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-13 21:25 EEST
+Liukkonen, Heikki (Nokia - FI/Oulu) The state of the problem changed from Investigating to New
+2018-08-13 19:10 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) The state of the problem changed from Investigating to Investigating
+2018-08-13 11:45 EEST
+Kempas, Mika (Nokia - FI/Oulu) Attachment RE PR365222 Problem responsibility transferred. (5GBTS_18A A - Critical5G18A ASIK101 Classical OamAgentInitial configuration failed).msg added.
+2018-08-13 11:44 EEST
+Kempas, Mika (Nokia - FI/Oulu) The group in charge changed from NIOSDX to NIPSSHC5G. Reason for Transfer: @MCU HWAPI, please check with with SPEC experts how to proceed. .. According to Janne Perala 1. Platform SPEC update is need ...
+2018-08-13 11:42 EEST
+Kempas, Mika (Nokia - FI/Oulu) Attachment UPHWAPI_analysis_3.txt added.
+2018-08-13 11:42 EEST
+Kempas, Mika (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-10 07:06 EEST
+Kempas, Mika (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2018-08-10 07:05 EEST
+Kempas, Mika (Nokia - FI/Oulu) Solution Description: Correction for TRS_INTERNAL RCA_EDA has been deleted.
+2018-08-10 07:04 EEST
+Kempas, Mika (Nokia - FI/Oulu) Solution Description: Correction for TRS_INTERNAL RCA_EDA has been deleted.
+2018-08-10 00:20 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) The state of the problem changed from Investigating to New
+2018-08-10 00:20 EEST
+Pacheco, Jose (Nokia - FR/Paris-Saclay) The group in charge changed from NIPSSHC5G to NIOSDX. Reason for Transfer: CCS-RT to check next - see mcuhwapi_analysis.txt for details.
+2018-08-09 20:27 EEST
+Giordana, Alain (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2018-08-09 20:25 EEST
+Giordana, Alain (Nokia - FR/Paris-Saclay) Attachment mcuhwapi_analysis.txt added.
+2018-08-09 13:44 EEST
+Szklarz, Andrzej (Nokia - PL/Wroclaw) The state of the problem changed from Investigating to Investigating
+2018-08-09 11:59 EEST
+Yadav, Lalmani (Nokia - IN/Bangalore) The group in charge changed from TRS_5G_ASIK_GENERAL to NIPSSHC5G. Reason for Transfer: Based on mail discussion and attached TRS analysis. HWAPI/CC&S-RT should further look into this.
+2018-08-08 19:12 EEST
+Shyale, Vishu (Nokia - IN/Bangalore) Attachment TRSW_Analysis_08-08-2018.txt added.
+2018-08-08 19:09 EEST
+Shyale, Vishu (Nokia - IN/Bangalore) Attachment TRSW_Analysis_08-08-2018.txt removed.
+2018-08-08 18:50 EEST
+Verma, Awrit (Nokia - IN/Bangalore) Attachment TRSW_Analysis_08-08-2018.txt added.
+2018-08-08 11:12 EEST
+Mihon, Otilia (Nokia - FR/Paris-Saclay) Attachment TA.txt removed.
+2018-08-07 15:42 EEST
+Mihon, Otilia (Nokia - FR/Paris-Saclay) edited. Changed field(s): Severity
+2018-08-07 13:26 EEST
+Verma, Awrit (Nokia - IN/Bangalore) Info Request for problem PR365222 sent.
+2018-08-07 13:25 EEST
+Verma, Awrit (Nokia - IN/Bangalore) New Information Request for PR PR365222 has been created.
+2018-08-07 10:02 EEST
+trs, tools (Nokia - Global) New Correction document Correction for TRS_INTERNAL RCA_EDA has been created.
+2018-08-07 10:02 EEST
+trs, tools (Nokia - Global) New Correction document Correction for TRS_INTERNAL RCA_EDA has been created.
+2018-08-07 09:50 EEST
+Qian, Peggy (NSB - CN/Hangzhou) The state of the problem changed from Investigating to New
+2018-08-07 09:50 EEST
+Qian, Peggy (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to TRS_5G_ASIK_GENERAL. Reason for Transfer: Oam call tpi function is failed .
+2018-08-07 09:40 EEST
+Qian, Peggy (NSB - CN/Hangzhou) Attachment TA.txt removed.
+2018-08-07 09:39 EEST
+Qian, Peggy (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2018-08-07 09:39 EEST
+Qian, Peggy (NSB - CN/Hangzhou) Attachment TA.txt added.
+2018-08-07 05:17 EEST
+Zhang, Jing 1. (NSB - CN/Hangzhou) The state of the problem changed from New to Investigating.
+2018-08-06 21:45 EEST
+Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU to MANO_HZH_MZOM. Reason for Transfer: cbts classic
+2018-08-06 15:15 EEST
+Buczkowski, Damian (Nokia - PL/Wroclaw) Top Importance Value(s) Added :TOP_5GBTS_18A_PT3_blocker
+2018-08-06 12:41 EEST
+Buczkowski, Damian (Nokia - PL/Wroclaw) Top Importance Value(s) Removed :3.1
+2018-08-06 12:14 EEST
+Mihon, Otilia (Nokia - FR/Paris-Saclay) Attachment PR OAM.zip added.
+2018-08-06 12:14 EEST
+Mihon, Otilia (Nokia - FR/Paris-Saclay) Problem Report created

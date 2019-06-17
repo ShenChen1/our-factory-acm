@@ -1,0 +1,84 @@
+{
+  "records": [
+    {
+      "PR ID": "PR349840",
+      "Group In Charge": "NIESSCBTSMZOAM",
+      "Reported Date": "06.06.2018",
+      "Author": "Wojcik, Adrian (Nokia - PL/Wroclaw)",
+      "Author Group": "5GRAN_Productization_QT",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_FOU",
+        "RCPSEC",
+        "ECE_DEV_FOU_OAM_MZ",
+        "NIESSCBTSMZOAM"
+      ],
+      "Transfer times": 4,
+      "Solving Path": [
+        "ECE_DEV_FOU",
+        "RCPSEC",
+        "ECE_DEV_FOU_OAM_MZ",
+        "NIESSCBTSMZOAM"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR349975",
+      "Group In Charge": "TRS_ACHIEVERS",
+      "Reported Date": "07.06.2018",
+      "Author": "Spurtacz, Marcin (Nokia - PL/Wroclaw)",
+      "Author Group": "5GRAN_Productization_QT",
+      "State": "Closed",
+      "Transfer Path": [
+        "ECE_DEV_CHZ_CLOUD",
+        "RCPDEV",
+        "RCPNES",
+        "TRS_5G_ASIK_GENERAL",
+        "TRS_MARINES",
+        "TRS_ACHIEVERS"
+      ],
+      "Transfer times": 6,
+      "Solving Path": [
+        "ECE_DEV_CHZ_CLOUD",
+        "RCPDEV",
+        "RCPNES",
+        "TRS_5G_ASIK_GENERAL",
+        "TRS_MARINES",
+        "TRS_ACHIEVERS"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    },
+    {
+      "PR ID": "PR350335",
+      "Group In Charge": "MANO_HZH_MZOM",
+      "Reported Date": "08.06.2018",
+      "Author": "Shan, Zhijiang (NSB - CN/Hangzhou)",
+      "Author Group": "NIHZSIV3",
+      "State": "Correction Not Needed",
+      "Transfer Path": [
+        "RABLTESWCELLC",
+        "RABLTESWPWR1CP",
+        "NIESSCBTSMZOAM",
+        "MANO_HZH_MZOM"
+      ],
+      "Transfer times": 4,
+      "Solving Path": [
+        "RABLTESWCELLC",
+        "RABLTESWPWR1CP",
+        "NIESSCBTSMZOAM",
+        "MANO_HZH_MZOM"
+      ],
+      "Pingpong times": 0,
+      "Attached PRs": "< empty >",
+      "Attached": "no",
+      "Attached To": ""
+    }
+  ],
+  "total": 3
+}

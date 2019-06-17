@@ -1,0 +1,325 @@
+Baudet, Serge (Nokia - FR/Paris-Saclay) The group in charge changed from 5G_L1_Spec to BB_PSW1_PS_MCU. Reason for Transfer: See 5G_L1_Spec analysis attached to this Pronto.
+Oro, Melwin (Nokia - PH/Quezon City) The group in charge changed from MANO_MNL_RADIOCTRL to 5G_L1_Spec. Reason for Transfer: As discussed with Sami Pulkki, this should be handled by L1 Spec to decide for either new functionality or corre ...
+Kalinowski, Jakub (Nokia - PL/Wroclaw) The group in charge changed from MANO_GENERAL to MANO_MNL_RADIOCTRL. Reason for Transfer: PREINV MA quijano
+Pulkki, Sami (Nokia - FI/Tampere) The group in charge changed from 5G_L1_FPGA to MANO_GENERAL. Reason for Transfer: New requirement/feature for FPGA. Transfer based on Feature 5GC001146. More info on latest email attachment.
+Macioszek, Jakub (Nokia - PL/Wroclaw) The group in charge changed from BB_PSW_MCU to 5G_L1_FPGA. Reason for Transfer: Check MCUHWAPI analysis
+Quijano, Safiro (Nokia - PH/Quezon City) The group in charge changed from MANO_GENERAL to BB_PSW_MCU. Reason for Transfer: fault 4019 is due to timeouterror detected by hwapi on 0x125d
+Li, Yizao (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to MANO_MNL_RADIOCTRL. Reason for Transfer: 5G_0.890.94 is cOAM build
+Qin, Zy (NSB - CN/Hangzhou) The group in charge changed from MANO_MNL_RADIOCTRL to MANO_GENERAL. Reason for Transfer: cOAM case.
+Quijano, Safiro (Nokia - PH/Quezon City) The group in charge changed from MANO_MNL_RADIOCTRL to MANO_HZH_MZOM. Reason for Transfer: MZ OAM case
+Kalinowski, Jakub (Nokia - PL/Wroclaw) The group in charge changed from MANO_GENERAL to MANO_MNL_RADIOCTRL. Reason for Transfer: pls contnue based on BB_PSW_LFS analysis
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) The group in charge changed from BB_PSW_LFS to MANO_GENERAL. Reason for Transfer: This issue should be investigated by cOAM team according to Yuan Jia (Megazone)
+Quijano, Safiro (Nokia - PH/Quezon City) The group in charge changed from MANO_MNL_RADIOCTRL to BB_PSW_LFS. Reason for Transfer: asked LFS to check sync on 0x125 node
+Quijano, Safiro (Nokia - PH/Quezon City) The group in charge changed from MANO_GENERAL to MANO_MNL_RADIOCTRL. Reason for Transfer: Manila Preinv
+
+
+["MANO_GENERAL", "MANO_MNL_RADIOCTRL", "BB_PSW_LFS", "MANO_GENERAL", "MANO_MNL_RADIOCTRL", "MANO_HZH_MZOM", "MANO_MNL_RADIOCTRL", "MANO_GENERAL", "BB_PSW_MCU", "5G_L1_FPGA", "MANO_GENERAL", "MANO_MNL_RADIOCTRL", "5G_L1_Spec", "BB_PSW1_PS_MCU"]
+['MANO_GENERAL', 'MANO_MNL_RADIOCTRL', 'BB_PSW_LFS', 'MANO_GENERAL', 'MANO_MNL_RADIOCTRL', 'MANO_HZH_MZOM', 'MANO_MNL_RADIOCTRL']|, Pingpong times=|3|, 
+["MANO_GENERAL", "MANO_MNL_RADIOCTRL", "BB_PSW_LFS", "MANO_GENERAL", "MANO_MNL_RADIOCTRL", "MANO_HZH_MZOM", "MANO_MNL_RADIOCTRL", "MANO_GENERAL", "BB_PSW_MCU", "5G_L1_FPGA", "MANO_GENERAL", "MANO_MNL_RADIOCTRL", "5G_L1_Spec", "BB_PSW1_PS_MCU"]
+['MANO_GENERAL', 'MANO_MNL_RADIOCTRL', 'BB_PSW_LFS', 'MANO_GENERAL', 'MANO_MNL_RADIOCTRL', 'MANO_HZH_MZOM', 'MANO_MNL_RADIOCTRL', 'MANO_GENERAL', 'BB_PSW_MCU', '5G_L1_FPGA', 'MANO_GENERAL', 'MANO_MNL_RADIOCTRL']|, Pingpong times=|6|,
+
+
+2019-05-16 08:39 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) The state of the problem changed from First Correction Complete to Closed
+2019-05-16 08:39 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) Correction for PS1.0 IB1904015 state changed to Needless.
+2019-05-15 14:11 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) Correction for PS1.0 FB1905 state changed to Needless.
+2019-05-15 09:52 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-05-15 09:48 EEST
+Mieszkowski, Rafal (Nokia - PL/Wroclaw) The state of the problem changed from First Correction Ready For Testing to First Correction Complete
+2019-05-15 07:28 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-05-14 21:46 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for PS1.0 FB_PS_REL_2019_05_xxx has been created.
+2019-05-14 10:33 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-05-14 07:18 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-05-10 08:07 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-05-09 09:41 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-05-09 09:37 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-05-02 10:02 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-04-24 21:46 EEST
+Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for PS1.0 IB015_PS_REL_2019_04_xxx has been created.
+2019-04-19 21:50 EEST
+Moumbe Talla, Stanislas (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-04-17 09:35 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-04-16 09:51 EEST
+Leppisaari, Tiina (Nokia - FI/Oulu) edited. Changed field(s): R&D Information
+2019-04-12 14:40 EEST
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-04-12 08:35 EEST
+Pronto, Repportal (Nokia - Global) edited. Changed field(s): Development Fault Coordinator
+2019-04-11 15:57 EEST
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-04-08 17:39 EEST
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-04-01 14:10 EEST
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-27 18:05 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-27 12:13 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-26 19:04 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-26 17:52 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) New Correction document Correction for PS1.0 FB1812 FB_PS_REL_2018_12_xxx has been created.
+2019-03-26 10:22 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-25 11:21 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-22 11:00 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-21 11:51 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-21 10:30 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) The state of the problem changed from Investigating to First Correction Ready For Testing
+2019-03-21 09:30 EET
+Pacheco, Jose (Nokia - FR/Paris-Saclay) New Correction document Correction for PS1.0 FB1901 has been created.
+2019-03-20 12:02 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) New Correction document Correction for PS1.0 IB1903006 has been created.
+2019-03-20 12:00 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) New Correction document Correction for PS1.0 MAINBRANCH has been created.
+2019-03-20 12:00 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-20 11:42 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-20 11:34 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-20 10:46 EET
+Mieszkowski, Rafal (Nokia - PL/Wroclaw) Information request for problem PR413471 responded.
+2019-03-19 17:18 EET
+Coquille, Herve (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-19 17:14 EET
+Coquille, Herve (Nokia - FR/Paris-Saclay) Info Request for problem PR413471 sent.
+2019-03-19 17:14 EET
+Coquille, Herve (Nokia - FR/Paris-Saclay) New Information Request for PR PR413471 has been created.
+2019-03-19 11:50 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-18 20:33 EET
+Coquille, Herve (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-18 15:02 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-18 12:31 EET
+Mieszkowski, Rafal (Nokia - PL/Wroclaw) Information request for problem PR413471 responded.
+2019-03-18 11:55 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-18 11:45 EET
+Pacheco, Jose (Nokia - FR/Paris-Saclay) Info Request for problem PR413471 has been deleted.
+2019-03-15 15:53 EET
+Coquille, Herve (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-03-15 12:06 EET
+Coquille, Herve (Nokia - FR/Paris-Saclay) Info Request for problem PR413471 sent.
+2019-03-15 12:06 EET
+Coquille, Herve (Nokia - FR/Paris-Saclay) New Information Request for PR PR413471 has been created.
+2019-03-15 12:06 EET
+Coquille, Herve (Nokia - FR/Paris-Saclay) New Information Request for PR PR413471 has been created.
+2019-03-15 10:42 EET
+Szklarz, Andrzej (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Information
+2019-03-15 10:13 EET
+Renaud, Stephane SR. (Nokia - FR/Paris-Saclay) The state of the problem changed from New to Investigating.
+2019-03-15 01:20 EET
+Pronto, Repportal (Nokia - Global) edited. Changed field(s): Development Fault Coordinator
+2019-03-14 14:38 EET
+Baudet, Serge (Nokia - FR/Paris-Saclay) The group in charge changed from 5G_L1_Spec to BB_PSW1_PS_MCU. Reason for Transfer: See 5G_L1_Spec analysis attached to this Pronto.
+2019-03-14 14:26 EET
+Tenkula, Timo (Nokia - FI/Oulu) Attachment 5GL1_sync_spec_analysis_5.txt added.
+2019-03-07 13:21 EET
+Oro, Melwin (Nokia - PH/Quezon City) The state of the problem changed from Investigating to New
+2019-03-07 13:21 EET
+Oro, Melwin (Nokia - PH/Quezon City) The group in charge changed from MANO_MNL_RADIOCTRL to 5G_L1_Spec. Reason for Transfer: As discussed with Sami Pulkki, this should be handled by L1 Spec to decide for either new functionality or corre ...
+2019-03-07 09:15 EET
+Oro, Melwin (Nokia - PH/Quezon City) The state of the problem changed from New to Investigating.
+2019-03-07 09:01 EET
+Pulkki, Sami (Nokia - FI/Tampere) Attachment VS_ PR413471_ _OAM_SCT__5G__TDD__trunk__ASIK__SMOKE_ BTS not OnAir due to Fault 4019 on BBMOD.msg added.
+2019-03-07 07:33 EET
+Oro, Melwin (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information
+2019-03-06 15:00 EET
+Oro, Melwin (Nokia - PH/Quezon City) has subscribed Kukkala, Petri (Nokia - FI/Tampere) to comments
+2019-03-06 15:00 EET
+Oro, Melwin (Nokia - PH/Quezon City) commented via email
+2019-03-06 13:12 EET
+Kalinowski, Jakub (Nokia - PL/Wroclaw) The group in charge changed from MANO_GENERAL to MANO_MNL_RADIOCTRL. Reason for Transfer: PREINV MA quijano
+2019-03-06 08:51 EET
+Oro, Melwin (Nokia - PH/Quezon City) commented via email
+2019-03-06 08:48 EET
+Oro, Melwin (Nokia - PH/Quezon City) has subscribed Pulkki, Sami (Nokia - FI/Tampere) to comments
+2019-03-06 08:48 EET
+Oro, Melwin (Nokia - PH/Quezon City) commented via email
+2019-03-05 15:03 EET
+Support, prontojiraagent 2. (Nokia - Global) edited. Changed field(s): Development Fault Coordinator
+2019-03-05 15:00 EET
+Pulkki, Sami (Nokia - FI/Tampere) The group in charge changed from 5G_L1_FPGA to MANO_GENERAL. Reason for Transfer: New requirement/feature for FPGA. Transfer based on Feature 5GC001146. More info on latest email attachment.
+2019-03-05 14:57 EET
+Pulkki, Sami (Nokia - FI/Tampere) The state of the problem changed from Investigating to New
+2019-03-05 14:57 EET
+Pulkki, Sami (Nokia - FI/Tampere) Attachment VS_ PR413471_ _OAM_SCT__5G__TDD__trunk__ASIK__SMOKE_ BTS not OnAir due to Fault 4019 on BBMOD.msg added.
+2019-03-01 14:39 EET
+Pulkki, Sami (Nokia - FI/Tampere) edited. Changed field(s): R&D Information
+2019-02-28 10:11 EET
+Lou, Luoyang (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information
+2019-02-27 12:01 EET
+Lou, Luoyang (NSB - CN/Hangzhou) has subscribed Siltanen, Timo (Nokia - FI/Espoo) to comments
+2019-02-27 12:01 EET
+Lou, Luoyang (NSB - CN/Hangzhou) commented via email
+2019-02-27 11:17 EET
+Nsn, Mcuhwapi-Prescreening (Nokia - Global) commented via email
+2019-02-27 11:05 EET
+Lou, Luoyang (NSB - CN/Hangzhou) commented via email
+2019-02-27 10:56 EET
+Lou, Luoyang (NSB - CN/Hangzhou) commented via email
+2019-02-27 08:53 EET
+Nsn, Mcuhwapi-Prescreening (Nokia - Global) commented via email
+2019-02-27 07:59 EET
+Pulkki, Sami (Nokia - FI/Tampere) has subscribed Tervonen, Marika (EXT - FI/Oulu) to comments
+2019-02-27 07:59 EET
+Pulkki, Sami (Nokia - FI/Tampere) commented via email
+2019-02-27 07:49 EET
+Lou, Luoyang (NSB - CN/Hangzhou) commented via email
+2019-02-26 12:55 EET
+Pulkki, Sami (Nokia - FI/Tampere) edited. Changed field(s): R&D Information
+2019-02-26 12:52 EET
+Pulkki, Sami (Nokia - FI/Tampere) The state of the problem changed from Investigating to Investigating
+2019-02-26 11:18 EET
+Li, Chongjian (NSB - CN/Hangzhou) has subscribed Deng, Hailin (NSB - CN/Hangzhou) to comments
+2019-02-26 11:18 EET
+Li, Chongjian (NSB - CN/Hangzhou) commented via email
+2019-02-26 09:40 EET
+Pulkki, Sami (Nokia - FI/Tampere) has subscribed Li, Chongjian (NSB - CN/Hangzhou) to comments
+2019-02-26 09:40 EET
+Pulkki, Sami (Nokia - FI/Tampere) commented via email
+2019-02-25 09:51 EET
+Macioszek, Jakub (Nokia - PL/Wroclaw) The group in charge changed from BB_PSW_MCU to 5G_L1_FPGA. Reason for Transfer: Check MCUHWAPI analysis
+2019-02-25 09:50 EET
+Macioszek, Jakub (Nokia - PL/Wroclaw) Attachment MCUHWAPI_C&S_analysis_4.txt added.
+2019-02-25 09:50 EET
+Nsn, Mcuhwapi-Prescreening (Nokia - Global) commented via email
+2019-02-25 06:30 EET
+Quijano, Safiro (Nokia - PH/Quezon City) has subscribed Nsn, Mcuhwapi-Prescreening (Nokia - Global) to comments
+2019-02-25 06:30 EET
+Quijano, Safiro (Nokia - PH/Quezon City) commented via email
+2019-02-25 06:29 EET
+Quijano, Safiro (Nokia - PH/Quezon City) The group in charge changed from MANO_GENERAL to BB_PSW_MCU. Reason for Transfer: fault 4019 is due to timeouterror detected by hwapi on 0x125d
+2019-02-25 06:28 EET
+Quijano, Safiro (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information
+2019-02-25 06:27 EET
+Quijano, Safiro (Nokia - PH/Quezon City) Attachment OAM_analysis_3.txt added.
+2019-02-22 11:12 EET
+Li, Yizao (NSB - CN/Hangzhou) The group in charge changed from MANO_HZH_MZOM to MANO_MNL_RADIOCTRL. Reason for Transfer: 5G_0.890.94 is cOAM build
+2019-02-22 11:09 EET
+Qin, Zy (NSB - CN/Hangzhou) The group in charge changed from MANO_MNL_RADIOCTRL to MANO_GENERAL. Reason for Transfer: cOAM case.
+2019-02-22 11:08 EET
+Quijano, Safiro (Nokia - PH/Quezon City) The group in charge changed from MANO_MNL_RADIOCTRL to MANO_HZH_MZOM. Reason for Transfer: MZ OAM case
+2019-02-22 08:45 EET
+Kalinowski, Jakub (Nokia - PL/Wroclaw) The group in charge changed from MANO_GENERAL to MANO_MNL_RADIOCTRL. Reason for Transfer: pls contnue based on BB_PSW_LFS analysis
+2019-02-21 05:29 EET
+Mao, Minghua 1. (NSB - CN/Hangzhou) Additional Value is modified from PREINV MA quijano to PREINV MA quijano CHECKED
+2019-02-20 19:22 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) The state of the problem changed from Investigating to New
+2019-02-20 19:22 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) The group in charge changed from BB_PSW_LFS to MANO_GENERAL. Reason for Transfer: This issue should be investigated by cOAM team according to Yuan Jia (Megazone)
+2019-02-20 12:24 EET
+Mieszkowski, Rafal (Nokia - PL/Wroclaw) commented via email
+2019-02-20 12:23 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-02-20 12:22 EET
+Mieszkowski, Rafal (Nokia - PL/Wroclaw) Information request for problem PR413471 responded.
+2019-02-20 12:19 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) has subscribed Walerianczyk, Aleksander (Nokia - PL/Wroclaw) to comments
+2019-02-20 12:19 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) commented via email
+2019-02-20 10:17 EET
+Yuan, Jia 1. (NSB - CN/Hangzhou) commented via email
+2019-02-20 09:38 EET
+Yuan, Jia 1. (NSB - CN/Hangzhou) Info Request for problem PR413471 sent.
+2019-02-20 09:38 EET
+Yuan, Jia 1. (NSB - CN/Hangzhou) New Information Request for PR PR413471 has been created.
+2019-02-20 04:59 EET
+Yuan, Jia 1. (NSB - CN/Hangzhou) commented via email
+2019-02-19 17:23 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-02-19 14:42 EET
+Mieszkowski, Rafal (Nokia - PL/Wroclaw) commented via email
+2019-02-19 04:51 EET
+Chen, Zhijiang 1. (NSB - CN/Hangzhou) has subscribed Mieszkowski, Rafal (Nokia - PL/Wroclaw) to comments
+2019-02-19 04:51 EET
+Chen, Zhijiang 1. (NSB - CN/Hangzhou) commented via email
+2019-02-19 04:51 EET
+Yuan, Jia 1. (NSB - CN/Hangzhou) commented via email
+2019-02-19 04:46 EET
+Yuan, Jia 1. (NSB - CN/Hangzhou) commented via email
+2019-02-19 04:37 EET
+Yuan, Jia 1. (NSB - CN/Hangzhou) has subscribed Collin, Nirisoa (Nokia - FR/Paris-Saclay) to comments
+2019-02-18 12:29 EET
+Xu, Lijie (NSB - CN/Hangzhou) has subscribed Chan, Kavin (NSB - CN/Hangzhou) to comments
+2019-02-18 12:29 EET
+Xu, Lijie (NSB - CN/Hangzhou) has subscribed Yuan, Jia 1. (NSB - CN/Hangzhou) to comments
+2019-02-18 12:29 EET
+Xu, Lijie (NSB - CN/Hangzhou) commented via email
+2019-02-18 12:27 EET
+Chen, Zhijiang 1. (NSB - CN/Hangzhou) has subscribed Xu, Lijie (NSB - CN/Hangzhou) to comments
+2019-02-18 12:27 EET
+Chen, Zhijiang 1. (NSB - CN/Hangzhou) commented via email
+2019-02-18 10:48 EET
+Mabrouk, Achref (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-02-15 20:14 EET
+Richard, Laurent (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-02-15 20:13 EET
+Richard, Laurent (Nokia - FR/Paris-Saclay) Attachment 15_02_2019_RE PR413471 OAM_SCT5GTDDtrunkASIKSMOKE BTS not OnAir due to Fault 4019 on BBMOD.msg added.
+2019-02-15 18:41 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) commented via email
+2019-02-15 18:39 EET
+Collin, Nirisoa (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-02-15 18:03 EET
+Giordana, Alain (Nokia - FR/Paris-Saclay) commented via email
+2019-02-15 12:33 EET
+Mabrouk, Achref (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-02-15 12:33 EET
+Mabrouk, Achref (Nokia - FR/Paris-Saclay) Attachment MCUHWAPI_ANALYSIS_2.txt added.
+2019-02-14 20:34 EET
+Richard, Laurent (Nokia - FR/Paris-Saclay) commented via email
+2019-02-14 11:41 EET
+Richard, Laurent (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2019-02-13 08:50 EET
+Pronto, Repportal (Nokia - Global) edited. Changed field(s): Development Fault Coordinator
+2019-02-13 08:28 EET
+Nsn, Lfs-Prescreening (Nokia - Global) commented via email
+2019-02-13 08:17 EET
+Nsn, Lfs-Prescreening (Nokia - Global) The state of the problem changed from New to Investigating.
+2019-02-13 04:08 EET
+Quijano, Safiro (Nokia - PH/Quezon City) has subscribed Nsn, Lfs-Prescreening (Nokia - Global) to comments
+2019-02-13 04:08 EET
+Quijano, Safiro (Nokia - PH/Quezon City) commented via email
+2019-02-13 04:05 EET
+Quijano, Safiro (Nokia - PH/Quezon City) The state of the problem changed from Investigating to New
+2019-02-13 04:05 EET
+Quijano, Safiro (Nokia - PH/Quezon City) The group in charge changed from MANO_MNL_RADIOCTRL to BB_PSW_LFS. Reason for Transfer: asked LFS to check sync on 0x125 node
+2019-02-13 04:05 EET
+Quijano, Safiro (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information
+2019-02-13 04:04 EET
+Quijano, Safiro (Nokia - PH/Quezon City) Attachment OAM_Analysis_1.txt added.
+2019-02-13 03:13 EET
+Quijano, Safiro (Nokia - PH/Quezon City) The group in charge changed from MANO_GENERAL to MANO_MNL_RADIOCTRL. Reason for Transfer: Manila Preinv
+2019-02-13 03:09 EET
+Quijano, Safiro (Nokia - PH/Quezon City) The state of the problem changed from New to Investigating.
+2019-02-13 03:09 EET
+Quijano, Safiro (Nokia - PH/Quezon City) Additional Value is updated with PREINV MA quijano
+2019-02-13 03:09 EET
+Quijano, Safiro (Nokia - PH/Quezon City) edited. Changed field(s): R&D Information
+2019-02-12 23:08 EET
+Pronto, Repportal (Nokia - Global) edited. Changed field(s): R&D Information
+2019-02-12 19:33 EET
+Pronto, Repportal (Nokia - Global) New Correction document Correction for 5G00 5G_0.master.xxxx has been created.
+2019-02-12 16:24 EET
+Support, prontojiraagent (Nokia - Global) edited. Changed field(s): Development Fault Coordinator
+2019-02-12 16:17 EET
+Mieszkowski, Rafal (Nokia - PL/Wroclaw) Attachment BTS not OnAir due to Fault 4019 on BBMOD.zip added.
+2019-02-12 16:17 EET
+Mieszkowski, Rafal (Nokia - PL/Wroclaw) Problem Report created

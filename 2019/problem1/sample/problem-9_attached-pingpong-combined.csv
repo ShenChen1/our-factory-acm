@@ -1,0 +1,397 @@
+Problem ID,Title,Description,Reported Date,Group in Charge,Feature,State,Severity,Top Importance,Release,R&D Information,Author,Author Group,Attached PRs,Responsible Person,Revision History,Target Build
+PR349142,"[CBTS18P7]WebUI always shows ""Startup ongoing, enabling virtual machines..."" even though CBTS was on air","Could you please check this issue? Thanks!
+1. Test-Line Reference/used HW/configuration/tools/SW version: (CBTS package version, CBTS profile ID , other NE’s versions e.g. Netact, RNC, MME) 
+CBTS configuration: 2 controller+2 storage+ 20 compute + 1ASIA+1ABIA+1FHFB 
+Cell configuration: 1 cell 
+CBTS package version: CBTS18_FSM4_MZ_0700_000287_000000
+RCP version:  RCP2.0_18.21.0 
+RCP_BASE RCP2.0_18.21.0
+CBAM version: None 
+NetAct version: None 
+NDCS/NCIR version:NCIR17 
+ 
+2. Test Case name: NA 
+ 
+3. Used Flags: NA 
+ 
+4. Detail Test Steps: 
+step1: deploy VNF with build 287 
+step2: commissioning with SCF
+ 
+5. Expected Result: 
+WebUI shows correct status during upgrade
+ 
+6. Actual Result: 
+WebUI always shows ""Startup ongoing, enabling virtual machines..."" 
+7. Fault Occurrence Rate: 3/3 
+ 
+8. Change since Last Success: NA
+ 
+9. Known Condition: NA  
+ 
+10. Log(s) file name containing a fault: NA 
+ 
+11. Customer impact analysis. 
+ 
+- Impact to customer: NA. 
+ 
+- Workaround and recovery: NA
+ 
+12. Tester analysis: 
+ 
+
+13. Logs locate:  
+
+\\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\BTS\wanglijuan\RC0860_PT3\20180604_admin_webui",05.06.2018,NIESSCBTSMZOAM,RC0860 Porting of legacy transport features,Closed,B - Major,< empty >,CBTS18 FSM4,"6.6.2018 STi: root cause found, correction pending in CI problems. LE: 7.6.","Wang, Lijuan 1. (NSB - CN/Hangzhou)",NIHZSIV2,PR349762,"Tilander, Sami (Nokia - FI/Espoo)","2018-06-08 09:52 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from First Correction Complete to Closed, 2018-06-08 09:52 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy state changed to Needless., 2018-06-08 09:52 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS00 FSM4 CBTS00_FSM4_9999_000684_000000 state changed to Needless., 2018-06-08 09:52 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy state changed to Needless., 2018-06-07 15:13 Dziadura, Michal (Nokia - PL/Wroclaw) New Correction document Correction for 5GBTS_18A 5G18A_4.2111.7111 has been created., 2018-06-07 12:34 Spurtacz, Marcin (Nokia - PL/Wroclaw) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-07 10:12 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been deleted., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been deleted., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-07 10:04 Luo, Xin (NSB - CN/Hangzhou) edited. Changed field(s): R&D Priority, 2018-06-06 18:14 Romppanen, Reijo (Nokia - FI/Oulu) Problem attached to PR349762., 2018-06-06 10:39 Tilander, Sami (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-06 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-06 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-06 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-06 00:03 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-05 11:56 Viitanen, Marko (Nokia - FI/Espoo)  The state of the problem changed from New to Investigating., 2018-06-05 04:32 Wang, Lijuan 1. (NSB - CN/Hangzhou) Problem Report created","CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_000684_000000, CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy, CBTS18_FSM4_MZ_0700_000301_000000, 5G18A_4.1012.721, 5G18A_4.2111.7111"
+PR349542,[CBTS18]][RC0893][Airscale]ipsec policies modified  on VM template can’t be synchronized to VM instance,"Problem Description
+1. CBTS configuration:
+1OAM VM + 1CCP VM + 1UES VM +1 CES VM+ 1 airscale+ 1 FXFC
+
+2. Cell configuration:
+1 cells, 20W, 20MHZ
+
+3. CBTS package version:
+RAP version: CBTS18_FSM4_MZ_0700_000288_000000
+
+4. RCP version:
+RCP	RCP2.0_PS1_18.22.0
+RCP_BASE	RCP2.0_18.22.0
+
+
+5. CAM version:
+None.
+
+6. NetAct version:
+None.
+
+7. NDCS/NCIR version:
+NCIR 17 (Tis 16.10 + patch19)
+
+8. Test Case name:
+NA
+
+9. Used Flags:
+NA
+
+10. Test Steps:
+Step1:restore SCF and make BTS on air 
+Step2:Add 2 more(SECPOL-20,SECPOL-30) and modify one(SECPOL-10) ipsec security policy on CCP VM template TNL-2
+Step3: Check ipsec settings on CCP VM instance TNL-7
+
+11. Expected result:
+the ipsec settings on VM template should can be synchronized to VM instance,that means CCP VM instance should have the same configuration as CCP VM template
+
+12. Actual result:
+CCP instance ipsec related settings are not modified as template change
+
+13. Fault Occurrence Rate:
+2/2
+
+14. Changes since last success:
+NA
+
+15. Known conditions:
+NA
+
+16. Log(s) file name containing a fault:
+\\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\Jackie\ipsec policies modified  on VM template can’t be synchronized to VM instance
+
+17. Customer impact analysis:
+- Impact to customer:None
+- Workaround and recovery:None
+
+18. Tester analysis:",06.06.2018,NIESSCBTSMZOAM,RC0893 cBTS 18 MZ Object Model,Closed,B - Major,< empty >,CBTS18 FSM4,"13.6.2018 STi: correction merged, waiting for build. LE: 13.6.
+12.6.2018 STi: root cause identified, correction under work. LE: 12.6.
+8.6.2018 STi: probably same as PR344652, LE: 11.6","Chen, Jackie 2. (NSB - CN/Hangzhou)",NIHZSIV2,PR352628,"Tilander, Sami (Nokia - FI/Espoo)","2018-06-19 04:22 Li, Yuanfa (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been deleted., 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) Problem attached to PR352628., 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from Closed to First Correction Complete, 2018-06-14 12:49 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from First Correction Complete to Closed, 2018-06-14 12:49 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy state changed to Needless., 2018-06-14 12:49 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy state changed to Needless., 2018-06-14 09:56 Chen, Jackie 2. (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-13 12:11 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-13 09:22 Tilander, Sami (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-12 08:20 Tilander, Sami (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-08 14:52 Tilander, Sami (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-08 12:57 Lehto, Marja Liisa (Nokia - FI/Espoo)  The state of the problem changed from New to Investigating., 2018-06-07 10:08 Luo, Xin (NSB - CN/Hangzhou) edited. Changed field(s): R&D Priority, 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Problem Report created, 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment IPSECC in CCP instance .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment IPSECC in CCP template .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment SECPOL-10 on CCP instance.PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment SECPOL-30 on CCP template .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment SECPOL-20 on CCP template .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment SECPOL-10 on CCP template .PNG added., 2018-06-06 09:06 Chen, Jackie 2. (NSB - CN/Hangzhou) Attachment Commissioning_CBTS3201_Airscale_20180524.xml added.","CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_xxxxxx_yyyyyy, CBTS18_FSM3_MZ_0700_000307_000000, CBTS18_FSM4_MZ_0700_000323_000000"
+PR349759,[CBTS18P7][RC0860]VNF TWAMP counter M51331 don't work ,"Could you please check this issue? Thanks!
+1. Test-Line Reference/used HW/configuration/tools/SW version: (CBTS package version, CBTS profile ID , other NE’s versions e.g. Netact, RNC, MME) 
+CBTS configuration: 2 controller+2 storage+ 20 compute + 1ASIA+1ABIA+1FHFB 
+Cell configuration: 1 cell 
+CBTS package version: CBTS18_FSM4_MZ_0700_000287_000000
+RCP version:  RCP2.0_18.21.0 
+RCP_BASE RCP2.0_18.21.0
+CBAM version: None 
+NetAct version: None 
+NDCS/NCIR version:NCIR17 
+ 
+2. Test Case name: NA 
+ 
+3. Used Flags: NA 
+ 
+4. Detail Test Steps: 
+step1: configure TWAMP session in OAM VM
+step2: validate and activate
+step3: waiting for counter file generate
+ 
+5. Expected Result: 
+TWAMP counter M51331 shows in webui 
+6. Actual Result: 
+TWAMP counter 
+7. Fault Occurrence Rate: 3/3 
+ 
+8. Change since Last Success: NA
+ 
+9. Known Condition: NA  
+ 
+10. Log(s) file name containing a fault: NA 
+ 
+11. Customer impact analysis. 
+ 
+- Impact to customer: NA. 
+ 
+- Workaround and recovery: NA
+ 
+12. Tester analysis: 
+Checked RACOAM logs: it seems M51331 is fetched by RACOAM.
+2018-06-05T08:19:42.770Z DBG/RACOAM/trs-controller/twamp:updateCounters twampId:1, count:40, result:{""exitCode"":""0"",""exitMessage"":""Success"",""Counters"":{""avgRTT"":""411"",""minRTT"":""214"",""maxRTT"":""655"",""txTwampMessages"":""67297"",""lostTwampMessages"":""4""},""rise"":{""M51331C0"":""411"",""M51331C2"":""214"",""M51331C1"":""655"",""M51331C4"":""67297"",""M51331C3"":""4""},""failedMappings"":{}}
+
+13. Logs locate:  
+
+\\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\BTS\wanglijuan\RC0860_PT3\20180605_VNF_TWAMP_counter",06.06.2018,E2E_MZ_OM_HZH,RC0860 Porting of legacy transport features,Closed,B - Major,< empty >,CBTS18 FSM4,"2018-07-11 Guo Yueqiang: MR merged， waiting for build..
+2018-07-11 Guo Yueqiang: CI passed, waiting espoo review.
+2018-07-10 Guo Yueqiang: create MR, running CI.
+2018-07-06 Guo Yueqiang: wait solution from espoo.
+2018-07-05 Guo Yueqiang: find root cause.
+2018-06-08 Wikberg: investigating","Wang, Lijuan 1. (NSB - CN/Hangzhou)",NIHZSIV2,PR350326,"Guo, Yueqiang (NSB - CN/Hangzhou)","2018-07-17 11:42 Guo, Yueqiang (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-07-17 11:42 Guo, Yueqiang (NSB - CN/Hangzhou) Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy state changed to Needless., 2018-07-17 11:41 Guo, Yueqiang (NSB - CN/Hangzhou) Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy state changed to Needless., 2018-07-16 11:37 Shi, Zhihao (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-07-16 05:25 Tao, Qiuhua (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to First Correction Ready For Testing, 2018-07-16 05:24 Guo, Yueqiang (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-07-16 05:20 Guo, Yueqiang (NSB - CN/Hangzhou) Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy state changed to Needless., 2018-07-16 05:19 Guo, Yueqiang (NSB - CN/Hangzhou) Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy state changed to Needless., 2018-07-16 05:18 Guo, Yueqiang (NSB - CN/Hangzhou) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-07-12 12:39 Lehto, Marja Liisa (Nokia - FI/Espoo) Problem attached to PR350326., 2018-07-11 11:49 Guo, Yueqiang (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-07-11 08:14 Guo, Yueqiang (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-07-11 08:13 Guo, Yueqiang (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-07-06 09:39 Guo, Yueqiang (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-07-06 09:13 Guo, Yueqiang (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-06-27 04:03 Luo, Xin (NSB - CN/Hangzhou) Optional Value is removed, 2018-06-26 10:31 Lehto, Marja Liisa (Nokia - FI/Espoo) The group in charge changed from NIESSCBTSMZOAM to E2E_MZ_OM_HZH. Reason for Transfer: agreed with Tao, Qiuhua (NSB - CN/Hangzhou) , 2018-06-12 05:16 Luo, Xin (NSB - CN/Hangzhou) Optional Value is updated with NN:CBTS18_P7(3.3.2) , 2018-06-11 05:54 Luo, Xin (NSB - CN/Hangzhou) Optional Value is removed, 2018-06-08 14:00 Luo, Xin (NSB - CN/Hangzhou) Optional Value is updated with NN:CBTS18_POST_FP1(3.3.2), 2018-06-08 09:54 Wikberg, Lars (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-07 12:05 Wikberg, Lars (Nokia - FI/Espoo)  The state of the problem changed from New to Investigating., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-07 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-06 14:10 Wang, Lijuan 1. (NSB - CN/Hangzhou) Problem Report created","CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_xxxxxx_yyyyyy, CBTS18_FSM3_MZ_0700_000389_000000, CBTS18_FSM4_MZ_0700_000410_000000, CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_xxxxxx_yyyyyy, CBTS18_FSM3_MZ_0700_000332_000000, CBTS18_FSM4_MZ_0700_000410_000000"
+PR349762,[5G18A] [QT] BTS startupPhase stuck on phase 1,"*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – PLEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+- Deploy all stacks on NCIR using heat templates provided to package.
+- Using defaulf commisioning file from O&M ( SBTS5G18A_5g_pid11_abik_1cell.xml ) do a gNB commisioning.
+- Wait untill DU sw is updated
+
+[2. Expected Result:]
+startup phase is aligned to BTS state
+One from folowing:
+* 1 - Startup ongoing, enabling virtual machines...
+* 2 - Startup ongoing, enbaling RAP...
+* 3 - Startup ongoing, enbaling radio...
+* 4 - Startup ongoing, enabling cells...
+* 5 - Name unknown due to lack of documentation regarding OAM REST API
+
+
+[3. Actual Result:]
+BTS startup phase is:
+* 1 - Startup ongoing, enabling virtual machines...
+
+[4. Tester analysis:]
+even DU is Online and Operational we can see taht BTS remains in phase 1
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+snapshot here: \\eseefsn50.emea.nsn-net.net\rotta4internal\5G\QTreports\5G18A\4.1012\WRO\5GBTS_18A_4.1012.712
+
+https://10.44.181.28/mz/c/v1/cbts/1/info
+{""name"":""Nokia Wroclaw TL1300T04"",""id"":1900,""profileVersion"":""5g_pid11_abik_1cell_0.0.104"",""profile"":""5G18A/5g_pid11_abik_1cell"",""location"":""Nokia Oulu"",""operationalState"":""enabled"",""host"":""::"",""port"":8090,""startupPhase"":{""maxPhases"":5,""currentPhase"":1,""currentPhaseName"":""Startup ongoing, enabling virtual machines..."",""error"":""""}}
+Should be at least phase 2
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+Test_Line_1300-4, CV WRO
+BB1:  ASIK X11 ABIK X31
+BB3: AirFrame Broadwell
+NCIR17
+Software Version: 5G18A 4.1012.712
+
+[7. Used Flags: (list here used R&D flags)]
+no additional flags used 
+
+[8. Fault Occurrence Rate:]
+   How many times Test Scenario was run? 2
+   How many times fault was reproduced? 100%
+   How many sites in the same live operation was run in case of customer fault?  N/A
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+   Was Test Scenario passing before? yes
+   What was the last SW version Test Scenario was passing? 4.1012.688
+   Were there any differences between test-lines since last time Test Scenario was passing? no
+   Were there any changes in Test Scenario since last run it passed? no
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+not needed in documentation, specification made fault reports and customer made tickets
+*** END OF DEFAULT TEMPLATE ***",06.06.2018,NIESSCBTSMZOAM,5GC000455-B,Closed,B - Major,TOP_5GBTS_18A_QT_blocker,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]","Spurtacz, Marcin (Nokia - PL/Wroclaw)",5GRAN_Productization_QT,PR349142,"Tilander, Sami (Nokia - FI/Espoo)","2018-10-29 13:32 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-08 09:52 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from First Correction Complete to Closed, 2018-06-08 09:52 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy state changed to Needless., 2018-06-08 09:52 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS00 FSM4 CBTS00_FSM4_9999_000684_000000 state changed to Needless., 2018-06-08 09:52 Tilander, Sami (Nokia - FI/Espoo) Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy state changed to Needless., 2018-06-07 15:13 Dziadura, Michal (Nokia - PL/Wroclaw) New Correction document Correction for 5GBTS_18A 5G18A_4.2111.7111 has been created., 2018-06-07 12:34 Spurtacz, Marcin (Nokia - PL/Wroclaw) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-07 10:12 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been deleted., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been deleted., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-07 10:11 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-06 18:14 Romppanen, Reijo (Nokia - FI/Oulu) The fault id  FA404454 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-06-06 18:14 Romppanen, Reijo (Nokia - FI/Oulu) Problem attached to PR349142., 2018-06-06 18:14 Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU To NIESSCBTSMZOAM, 2018-06-06 18:14 Romppanen, Reijo (Nokia - FI/Oulu) The state of the problem changed from New to Investigating, 2018-06-06 16:17 Spurtacz, Marcin (Nokia - PL/Wroclaw) Problem Report created, 2018-06-06 16:17 Spurtacz, Marcin (Nokia - PL/Wroclaw) Attachment bts.PNG added.","CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_000684_000000, CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy, CBTS18_FSM4_MZ_0700_000301_000000, 5G18A_4.1012.721, 5G18A_4.2111.7111"
+PR350326,[CBTS18P7][RC0860]RAR: Some M51302 not collected when multi-vlan configured,"Could you please check this issue? Thanks!
+1. Test-Line Reference/used HW/configuration/tools/SW version: (CBTS package version, CBTS profile ID , other NE’s versions e.g. Netact, RNC, MME) 
+CBTS configuration: 2 controller+2 storage+ 20 compute + 1ASIA+1ABIA+1FHFB 
+Cell configuration: 1 cell 
+CBTS package version: CBTS18_FSM4_MZ_0700_000287_000000
+RCP version:  RCP2.0_18.21.0 
+RCP_BASE RCP2.0_18.21.0
+CBAM version: None 
+NetAct version: None 
+NDCS/NCIR version:NCIR17 
+ 
+2. Test Case name: NA 
+ 
+3. Used Flags: NA 
+ 
+4. Detail Test Steps: 
+step1: configure multi-vlan in SCF file. VLANIF-1, VLANIF-2, VLANIF-3. VLANIF-1 link to IPIF-2. VLANIF-2 and VLANIF-3 is not linked to IPIF.
+step2: recommission with the SCF configured in step1
+step3: waiting for CBTS on air and counter file generate
+ 
+5. Expected Result: 
+Counters for VLANIF-1 ,VLANIF-2 and VLANIF-3 both collected
+
+6. Actual Result: 
+Only VLANIF-1 collected
+
+7. Fault Occurrence Rate: 3/3 
+ 
+8. Change since Last Success: NA
+ 
+9. Known Condition: NA  
+ 
+10. Log(s) file name containing a fault: NA 
+ 
+11. Customer impact analysis. 
+ 
+- Impact to customer: NA. 
+ 
+- Workaround and recovery: NA
+ 
+12. Tester analysis: 
+ 
+13. Logs locate:  
+
+\\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\BTS\wanglijuan\RC0860_PT3\20180606_RAP_M51302",08.06.2018,E2E_MZ_OM_HZH,RC0860 Porting of legacy transport features,Closed,B - Major,< empty >,CBTS18 FSM4,"2018-07-11 Wikberg: MR done from HZ.
+2018-07-10 Wikberg: same root cause as PR349759, investigating.
+2018-07-02 Wikberg: investigating failed snapshot logs
+26.6.2018 MLL: Erkki Hietala to continue.
+2018-06-26 failed snapshot in \\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\BTS\wanglijuan\RC0860_PT3\20180606_RAP_M51302
+
+2018-06-21 Wikberg: merged, waiting for build
+2018-06-20 WIkberg: fix done MRs coming soon.
+2018-06-12 Wikberg: issue found, should be small fix.","Wang, Lijuan 1. (NSB - CN/Hangzhou)",NIHZSIV2,PR349759,"Guo, Yueqiang (NSB - CN/Hangzhou)","2018-07-17 11:42 Guo, Yueqiang (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-07-17 11:42 Guo, Yueqiang (NSB - CN/Hangzhou) Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy state changed to Needless., 2018-07-17 11:41 Guo, Yueqiang (NSB - CN/Hangzhou) Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy state changed to Needless., 2018-07-16 11:37 Shi, Zhihao (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-07-16 05:25 Tao, Qiuhua (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to First Correction Ready For Testing, 2018-07-16 05:24 Guo, Yueqiang (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-07-16 05:20 Guo, Yueqiang (NSB - CN/Hangzhou) Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy state changed to Needless., 2018-07-16 05:19 Guo, Yueqiang (NSB - CN/Hangzhou) Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy state changed to Needless., 2018-07-16 05:18 Guo, Yueqiang (NSB - CN/Hangzhou) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-07-12 12:39 Lehto, Marja Liisa (Nokia - FI/Espoo) The fault id  FA405050 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-07-12 12:39 Lehto, Marja Liisa (Nokia - FI/Espoo) Problem attached to PR349759., 2018-07-12 12:39 Lehto, Marja Liisa (Nokia - FI/Espoo) The group in charge changed from NIESSCBTSMZOAM To E2E_MZ_OM_HZH, 2018-07-11 10:08 Wikberg, Lars (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-07-10 17:06 Wikberg, Lars (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-07-02 14:47 Wikberg, Lars (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-26 14:43 Lehto, Marja Liisa (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-26 13:40 Wang, Lijuan 1. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-06-26 13:39 Wang, Lijuan 1. (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to Investigating, 2018-06-25 16:08 Carlson, Henry (Nokia - FI/Espoo) Correction for CBTS18 CBTS18_FSM3_MZ_0700_000332_000000 state changed to Needless., 2018-06-25 16:08 Carlson, Henry (Nokia - FI/Espoo) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-21 09:53 Wikberg, Lars (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-20 10:33 Wikberg, Lars (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-12 11:21 Wikberg, Lars (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-11 11:26 Lehto, Marja Liisa (Nokia - FI/Espoo)  The state of the problem changed from New to Investigating., 2018-06-09 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-09 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-09 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-09 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-08 05:01 Wang, Lijuan 1. (NSB - CN/Hangzhou) Problem Report created","CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_xxxxxx_yyyyyy, CBTS18_FSM3_MZ_0700_000389_000000, CBTS18_FSM4_MZ_0700_000410_000000, CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_xxxxxx_yyyyyy, CBTS18_FSM3_MZ_0700_000332_000000, CBTS18_FSM4_MZ_0700_000410_000000"
+PR352628,[CBTS18FP1][FSM4]Webui can't show TNL template changes update to coresponding TNL instance,"[1. Test Scenario Steps]
+1. modify routes which is under TNL-2
+2. Check routes if can apply to TNL instance and update parameters to TNL instance
+[2. Fault Description]
+The changed parameters didn't update to TNL-9
+
+[3. Tester Analysis]
+
+Routes validatation successful and configured successfully, but those changes never update to coresponding TNL instance
+
+2018-06-15T01:56:18.616Z DBG/SITEOAM/CONFGEN/Transport:TNL MRBTS-2960/TNLSVC-1/TNL-2 is template entry for CCP VMs
+2018-06-15T01:56:18.619Z INF/SITEOAM/CONFGEN/TransportCfg:M-Plane IP-address of current TNL: MRBTS-2960/TNLSVC-1/TNL-2/IPNO-1/IPIF-1/IPADDRESSV4-1
+2018-06-15T01:56:18.619Z INF/SITEOAM/CONFGEN/TransportCfg:interfaceDN: undefined for MRBTS-2960/TNLSVC-1/TNL-2/IPNO-1/IPIF-1
+2018-06-15T01:56:18.620Z INF/SITEOAM/CONFGEN/TransportCfg:extractIpInterface: interfaceDN undefined
+2018-06-15T01:56:18.621Z INF/SITEOAM/CONFGEN/TransportCfg:extractIpsubsystem - tnlDistName: MRBTS-2960/TNLSVC-1/TNL-2
+2018-06-15T01:56:18.626Z INF/SITEOAM/CONFGEN/TransportCfg:multicastapplication: {}
+2018-06-15T01:56:18.627Z DBG/SITEOAM/CONFGEN/Transport:** Transport Confgen completed! **
+2018-06-15T01:56:18.627Z DBG/SITEOAM/CONFGEN/Transport:[
+    {
+        ""uri"": ""/mz/c/v1/cbts/1/vm/2/transport/config"",
+        ""changes"": {
+            ""routingTable"": {
+                ""1"": {
+                    ""staticRoute"": {
+                        ""0"": {
+                            ""destIpAddr"": ""10.97.68.0"",
+                            ""destinationIpPrefixLength"": ""26"",
+                            ""gateway"": ""10.70.60.193"",
+                            ""preference"": ""1""
+                        },
+                        ""1"": {
+                            ""destIpAddr"": ""10.69.207.0"",
+                            ""destinationIpPrefixLength"": ""28"",
+                            ""gateway"": ""10.70.59.225"",
+                            ""preference"": ""1""
+                        },
+                        ""2"": {
+                            ""destIpAddr"": ""0.0.0.0"",
+                            ""destinationIpPrefixLength"": ""0"",
+                            ""gateway"": ""10.70.60.1"",
+                            ""preference"": ""1""
+                        }
+                    },
+                    ""ipv4"": true,
+                    ""ipv6"": false
+                }
+            },
+            ""ipAddress"": {},
+            ""ipInterface"": {},
+            ""ipsubsystem"": {
+                ""addressCacheExpirationTime"": ""30"",
+                ""icmpDscp"": ""10"",
+                ""icmpResponseEnabled"": ""true"",
+                ""ipReassemblyTimeout"": ""1000"",
+                ""ndMldDscp"": ""56"",
+                ""retransTimer"": ""1000""
+            },
+            ""bfd"": {},
+            ""bfdgrp"": {},
+            ""ipsec"": null,
+            ""ipapp"": {
+                ""1"": {
+                    ""twampSenderMessageRate"": ""RATE_10""
+                }
+            },
+            ""icomgw"": {
+                ""1"": {
+                    ""sctpPort"": 29210,
+                    ""sctpDscp"": 46,
+                    ""gtpFUdpPort"": 52152,
+                    ""gtpFDscp"": 46,
+                    ""ipAddressDN"": ""/mz/r/v1/current/mrbts/2960/tnlsvc/1/tnl/2/ipno/1/ipif/1/ipaddressv4/1""
+                }
+            },
+            ""twamp"": {},
+            ""twampreflect"": {},
+            ""ping"": {},
+            ""routingPolicies"": {},
+            ""multicastapplication"": {}
+        }
+    },
+    {
+        ""uri"": ""/mz/c/v1/cbts/1/vm/2/config"",
+        ""changes"": {
+            ""sctpPort"": 29210,
+            ""gtpFUdpPort"": 52152
+        }
+    }
+]
+2018-06-15T01:56:19.164Z INF/SITEOAM/CM/planEventHandler:{
+  ""changeType"": ""U"",
+  ""resourceUri"": ""/mz/r/v1/plans/1/info"",
+  ""changedValues"": {
+    ""mainState"": ""activated"",
+    ""planOperState"": ""activationCompleted"",
+    ""feedbacks"": {
+      ""moList"": {},
+      ""status"": 0,
+      ""results"": [
+        ""Info: Basic validation successful"",
+        ""Info: Consistency checking successful""
+      ]
+    }
+  }
+}
+
+2018-06-15T01:56:22.696Z INF/RACOAM/TPI:addStaticRoutes function, which was called with parameters {""ownerNode"":""cbts2960-2960-ccp-0"",""routeList"":[{""destination"":""0.0.0.0"",""prefixLength"":""0"",""nextHop"":""10.70.60.1"",""metric"":""1""}],""routingTableID"":""254""} has returned: {""exitCode"":""0"",""exitMessage"":""""}
+2018-06-15T01:56:22.697Z DBG/RACOAM/trs-controller:Triggering listener (TwampMsgRateListener)[initializationRunner]: {""path"":""ipapp/1/twampSenderMessageRate"",""config"":""RATE_10"",""transientState"":""RATE_10"",""faultState"":{}}
+2018-06-15T01:56:22.697Z DBG/RACOAM/trs-controller/twamp:Configuring cbts2960-2960-ccp-0's senderMessageRate:RATE_10
+2018-06-15T01:56:22.697Z INF/RACOAM/TPI:Calling interface function setSenderMessageRate with arguments {""ownerNode"":""cbts2960-2960-ccp-0"",""senderMessageRate"":""RATE10""}
+2018-06-15T01:56:23.115Z DBG/RACOAM/REST:received event from https://10.97.68.18:8090: U /mz/p/v1/pbts/1/fsm/1/application/sync/status/ppsSource [""satellitesList""]
+2018-06-15T01:56:23.115Z DBG/RACOAM/EVENTS:emit: /mz/p/v1/pbts/1/fsm/1/application/sync/status/ppsSource satellitesList: object; 
+2018-06-15T01:56:23.115Z DBG/RACOAM/EVENTS:forwarding to websocket: changeType: U, resourceUri: /mz/p/v1/pbts/1/fsm/1/application/sync/status/ppsSource, changes in satellitesList
+2018-06-15T01:56:23.429Z DBG/RACOAM/TPI:Spent 0.732 seconds in function setSenderMessageRate
+2018-06-15T01:56:23.429Z INF/RACOAM/TPI:setSenderMessageRate function, which was called with parameters {""ownerNode"":""cbts2960-2960-ccp-0"",""senderMessageRate"":""RATE10""} has returned: {""exitCode"":""0"",""exitMessage"":""""}
+2018-06-15T01:56:23.430Z DBG/RACOAM/trs-controller:Triggering listener (IcomgwListener)[initializationRunner]: {""path"":""icomgw/1"",""config"":{""sctpPort"":29210,""sctpDscp"":46,""gtpFUdpPort"":52152,""gtpFDscp"":46,""ipAddressDN"":""/mz/r/v1/current/mrbts/2960/tnlsvc/1/tnl/2/ipno/1/ipif/1/ipaddressv4/1""},""transientState"":{},""faultState"":{}}
+2018-06-15T01:56:23.430Z DBG/RACOAM/trs-controller:updateIcomgwIp local IP: /mz/r/v1/current/mrbts/2960/tnlsvc/1/tnl/2/ipno/1/ipif/1/ipaddressv4/1 : undefined
+2018-06-15T01:56:23.430Z DBG/RACOAM/trs-controller:updateIcomgwIp local IP match: /mz/r/v1/current/mrbts/2960/tnlsvc/1/tnl/2/ipno/1/ipif/1/ipaddressv4/1 : undefined
+2018-06-15T01:56:23.431Z DBG/RACOAM/trs-controller:getNodeType ind:ccp
+2018-06-15T01:56:23.431Z INF/RACOAM/trs-controller:Configuration done successfully for: /mz/c/v1/cbts/1/vm/2/transport
+
+p name=""mtCbtsVnfStatistics""30min/p
+[4. Fault Repeatability]
+2/2
+[5. Test Scenario History of Execution]
+
+[6.Test-Line Reference / Info]
+CBTS package version: CBTS18_FSM4_MZ_0700_000319_000000
+[7. Testcase ID (QC or RP link)]
+
+[8. Log File Contents]
+\\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\LiYuanfa\modify parameters under TNL template
+[9. Customer impact analysis]
+Operator can't  judge whether parameters modify success or not",16.06.2018,NIESSCBTSMZOAM,RC0893 cBTS 18 MZ Object Model,Closed,B - Major,< empty >,CBTS18 FSM4,< empty >,"Li, Yuanfa (NSB - CN/Hangzhou)",SRANIVHZ_NEVE,PR349542,"Tilander, Sami (Nokia - FI/Espoo)","2018-06-19 04:22 Li, Yuanfa (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been deleted., 2018-06-18 14:20 Tilander, Sami (Nokia - FI/Espoo) Solution Description: Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been deleted., 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) The fault id  FA407582 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) Problem attached to PR349542., 2018-06-18 08:29 Tilander, Sami (Nokia - FI/Espoo) The state of the problem changed from New to First Correction Complete, 2018-06-17 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-17 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-17 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-17 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-16 13:26 Li, Yuanfa (NSB - CN/Hangzhou) Problem Report created","CBTS00_FSM3_9999_xxxxxx_yyyyyy, CBTS00_FSM4_9999_xxxxxx_yyyyyy, CBTS18_FSM3_MZ_0700_000307_000000, CBTS18_FSM4_MZ_0700_000323_000000"

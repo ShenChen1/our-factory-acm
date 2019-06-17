@@ -1,0 +1,627 @@
+Problem ID,Title,Description,Reported Date,Group in Charge,Feature,State,Severity,Top Importance,Release,R&D Information,Author,Author Group,Attached PRs,Responsible Person,Revision History,Target Build
+PR349147,[CBTS18][MZOAM_R4&R3][BAT][P7] alarm 61650 issue,"1. Test-Line Reference/used HW/configuration/tools/SW version:
+Testline: 1AMIA+1ASIA+1ABIA+1FHFB
+CBTS configuration: 1 OAM VM + 1 CCP VM + 1 CES VM + 1 UES VM + 1 RAP
+Cell configuration: 1 cell 20M
+CBTS package version: CBTS18_FSM4_MZ_0700_000279_000000
+RCP version: RCP2.0_18.21.1
+RCP_BASE:	RCP2.0_18.21.1
+CBAM version: Not use
+NetAct version: Not use
+2. Test Case name: None
+3. Used Flags:
+4. Detail Test Steps:
+Deploy and commission.
+5. Expected Result: BTS is onair and can reach T-put
+6. Actual Result: after BTS onair, alarm 61650 raised and UE call failed
+7. Fault Occurrence Rate: 3/3
+8. Change since Last Success:
+9. Known Condition: None
+10. Log(s) file name containing a fault:
+ftp://10.68.138.175/CLOUD_FTP/Logs/CBTS18/CBTS18_FSM4_MZ_0700_000279_000000_BAT_SINGLECELL_R4_TRUNK_FHFB_2731_CBTS_180601_164508.zip
+
+11. Customer impact analysis.
+- Impact to customer:
+- Workaround and recovery:
+12. Tester analysis:
+
+147435 01.06 16:26:13.502  [192.168.255.1]  08 FCT-1011 2018-06-01T08:26:10.786Z INF/NODEOAM/FM/faultHandler Fault activated:  {""id"":61650,""state"":1,""faultUnitStatus"":""degraded"",""filtering"":0,""text"":""ICOM GW connectivity issue"",""source"":""/mz/p/v1/pbts/1/fsm/1/transport/faultState/icomgw/1"",""detectingUnit"":""fsm/1"",""timeStamp"":""2018-06-01T08:26:09.436Z""}
+
+
+From Bm, Bharath (Nokia - IN/Bangalore) bharath.bm@nokia.com:
+Just to add on top of Chethan’s analysis, the VMs which are not responding are OAM VM and CCP VM. Do we really have GTP path supervision running on these two VMs ? If so is it required to have the same since both OAM and Control plane would not have any user plane events (GTP events )being exchanged. If these do not have GTP supervision then we definitely will have the alarm raised from RAP since the GTP echo requests are not responded by these VMs. 
+We now need to check from OAM as to why do we have IWF entries being added for these two VMs where we might not have user plane events being exchanged and hence would not require to have GTP path supervision for the same.
+Excerpts from ICOM lookup table and the trs tpl events which adds IWF entries for these two VMs :
+VM DEVICE ID = 57408, VM UDP PORT = 52152, PEER IP = 10.107.54.14
+VM DEVICE ID = 57424, VM UDP PORT = 52152, PEER IP = 10.107.54.30
+2018-06-04 00:01:46.136 { ""In"" : {'function' : 'TPI_NAMESPACE::icomgw::Proxy::addIwfEntry', 'parameters' : {, 'iwfEntry' : { ""deviceId"" : ""57408"", ""localAddress"" : ""10.56.15.112"", ""remoteAddress"" : ""10.107.54.14"", ""remoteGtpfPort"" : ""52152"" }}}}
+2018-06-04 00:02:04.512 { ""In"" : {'function' : 'TPI_NAMESPACE::icomgw::Proxy::addIwfEntry', 'parameters' : {, 'iwfEntry' : { ""deviceId"" : ""57424"", ""localAddress"" : ""10.56.15.112"", ""remoteAddress"" : ""10.107.54.30"", ""remoteGtpfPort"" : ""52152"" }}}}
+Please check further from OAM on the IWF entries for OAM and CCP VMs.",05.06.2018,MANO_HZH_MZOM,< empty >,Closed,A - Critical,< empty >,CBTS18 FSM4,"2018-06-06 Welly: Alarm raise for two faild fastpath added to profile by Ren liyue
+TRS team is checking for  fully correct route config
+2018-06-04 00:01:46.136 { ""In"" : {'function' : 'TPI_NAMESPACE::icomgw::Proxy::addIwfEntry', 'parameters' : {, 'iwfEntry' : { ""deviceId"" : ""57408"", ""localAddress"" : ""10.56.15.112"", ""remoteAddress"" : ""10.107.54.14"", ""remoteGtpfPort"" : ""52152"" }}}}
+2018-06-04 00:02:04.512 { ""In"" : {'function' : 'TPI_NAMESPACE::icomgw::Proxy::addIwfEntry', 'parameters' : {, 'iwfEntry' : { ""deviceId"" : ""57424"", ""localAddress"" : ""10.56.15.112"", ""remoteAddress"" : ""10.107.54.30"", ""remoteGtpfPort"" : ""52152"" }}}}
+Please check further from OAM on the IWF entries for OAM and CCP VMs.","Zhu, Huilan (NSB - CN/Hangzhou)",NIHZPDSCI,PR352080,"Ren, Liyue (NSB - CN/Hangzhou)","2018-06-21 05:58 S R, Vinesh (Nokia - IN/Bangalore) The state of the problem changed from First Correction Complete to Closed, 2018-06-20 10:45 Liu, Yaoting (NSB - CN/Hangzhou) Solution Description: Correction for RCLOUDPF2 RCP2.0_18.w.n has been deleted., 2018-06-20 08:31 Liu, Yaoting (NSB - CN/Hangzhou) Problem attached to PR352080., 2018-06-20 08:31 Liu, Yaoting (NSB - CN/Hangzhou) The state of the problem changed from Closed to First Correction Complete, 2018-06-12 06:28 Ren, Liyue (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-06-12 06:16 Zhu, Huilan (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-12 06:01 Xu, Lijie (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to First Correction Ready For Testing, 2018-06-12 05:25 Ren, Liyue (NSB - CN/Hangzhou) Solution Description: Correction for TRS_INTERNAL RCA_EDA has been deleted., 2018-06-12 05:25 Ren, Liyue (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-12 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-11 08:26 Ren, Liyue (NSB - CN/Hangzhou) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-11 08:22 Ren, Liyue (NSB - CN/Hangzhou) Solution Description: Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been deleted., 2018-06-07 10:04 Luo, Xin (NSB - CN/Hangzhou) edited. Changed field(s): R&D Priority, 2018-06-07 07:50 Xu, Lijie (NSB - CN/Hangzhou) The group in charge changed from E2E_MZ_OM_HZH to MANO_HZH_MZOM. Reason for Transfer: Fix by Ren Liyue, 2018-06-06 12:29 Wu, Welly (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-06-06 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-06 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-06 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-06 00:03 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-05 11:59 Tao, Qiuhua (NSB - CN/Hangzhou) The state of the problem changed from New to Investigating, 2018-06-05 10:46 Viitanen, Marko (Nokia - FI/Espoo) The group in charge changed from NIESSCBTSMZOAM to E2E_MZ_OM_HZH. Reason for Transfer: GTP-f path supervision is being done by HZ OAM team, so investigation should be started in HZ side first., 2018-06-05 08:57 Kumar Jv, Prashanth (Nokia - IN/Bangalore) The group in charge changed from TRS_CLOUD_BTS_GENERAL to NIESSCBTSMZOAM. Reason for Transfer: Hello Team, 
+Kindly continue PR investigation based on analysis attached in mail., 2018-06-05 08:54 Kumar Jv, Prashanth (Nokia - IN/Bangalore) Attachment TRS_Analysis_1_RE Recreate request for the PR345685 with a debug Knife image.msg added., 2018-06-05 07:58 trs, tools (Nokia - Global) New Correction document Correction for TRS_INTERNAL RCA_EDA has been created., 2018-06-05 05:02 Zhu, Huilan (NSB - CN/Hangzhou) Problem Report created","CBTS00_FSM3_9999_001010_000000, CBTS00_FSM4_9999_000697_000000, CBTS18_FSM4_MZ_0700_000316_000000, CBTS18_FSM3_MZ_0700_000301_000000, CBTS00_FSM3_9999_001010_000000, CBTS00_FSM4_9999_000697_000000, CBTS18_FSM3_MZ_0700_000301_000000, CBTS18_FSM4_MZ_0700_000316_000000"
+PR352080,[CBTS18 FP1 Robustness] 61650 ICOM GW connectivity issue,"*** DEFAULT TEMPLATE for CBTS v1.0 (07.06.2017) - PLEASE FILL IT IN BEFORE CREATING A PR ***
+1. Test-Line Reference/used HW/configuration/tools/SW version:
+    CBTS configuration: lte_pid12_D2
+    Cell configuration:1
+    CBTS package version:CBTS18_FSM4_MZ_0700_000308_000000
+  
+2. Test Case name: Upgrade   to CBTS18 FP1 build
+4. Detail Test Steps:Upgrade done from CT4 build to FP1 build.Alarm seen after that not present before.
+5. Expected Result:No new alarms expected
+6. Actual Result:Some new alarms has come(61650 ICOM GW connectivity issue)
+7. Fault Occurrence Rate:permanent
+12. Tester analysis: Ping to RAP works from all VM's
+Logs placed in following path in rota server:
+
+\\eseefsn50.emea.nsn-net.net\rotta4internal\CS\Bangalore_TS\Vinesh\ICOMGW connectivity issue",14.06.2018,MANO_HZH_MZOM,< empty >,Closed,B - Major,< empty >,CBTS18 FSM4,< empty >,"S R, Vinesh (Nokia - IN/Bangalore)",WRANRNCTS,PR349147,"Ren, Liyue (NSB - CN/Hangzhou)","2018-06-21 05:58 S R, Vinesh (Nokia - IN/Bangalore) The state of the problem changed from First Correction Complete to Closed, 2018-06-20 10:45 Liu, Yaoting (NSB - CN/Hangzhou) Solution Description: Correction for RCLOUDPF2 RCP2.0_18.w.n has been deleted., 2018-06-20 08:31 Liu, Yaoting (NSB - CN/Hangzhou) The fault id  FA406969 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-06-20 08:31 Liu, Yaoting (NSB - CN/Hangzhou) Problem attached to PR349147., 2018-06-20 08:31 Liu, Yaoting (NSB - CN/Hangzhou) The group in charge changed from E2E_MZ_OM_HZH To MANO_HZH_MZOM, 2018-06-20 08:31 Liu, Yaoting (NSB - CN/Hangzhou) The state of the problem changed from Investigating to First Correction Complete, 2018-06-18 07:57 S R, Vinesh (Nokia - IN/Bangalore) edited. Changed field(s): Description, 2018-06-15 09:50 Xu, Lijie (NSB - CN/Hangzhou)  The state of the problem changed from New to Investigating., 2018-06-15 09:40 Lehto, Marja Liisa (Nokia - FI/Espoo) The group in charge changed from NIESSCBTSMZOAM to E2E_MZ_OM_HZH. Reason for Transfer: Agreed with Liu, Xingxing (NSB - CN/Hangzhou) , 2018-06-15 04:52 Song, Zhikang (NSB - CN/Hangzhou) The group in charge changed from RCPDEV to NIESSCBTSMZOAM. Reason for Transfer: from racoam log, author reported PR wrongly to RCP as it's RAP issue. Please OAM make the first analysis.
+2018-06-14T07:49:33.655Z INF/RACOAM/FM/alarmer:Processing fault:  {""id"":61650,""state"":1,""faultUnitStatus"":""degraded"",""filtering"":0,""text"":""ICOM GW connectivity issue"",""source"":""/mz/p/v1/pbts/1/fsm/1"",""detectingUnit"":""fsm/1"",""timeStamp"":""2018-06-14T07:49:32.494Z""}
+, 2018-06-15 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-15 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-15 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-15 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-15 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for RCLOUDPF2 RCP2.0_18.w.n has been created., 2018-06-14 14:12 S R, Vinesh (Nokia - IN/Bangalore) edited. Changed field(s): Title, 2018-06-14 12:57 S R, Vinesh (Nokia - IN/Bangalore) Problem Report created","CBTS00_FSM3_9999_001010_000000, CBTS00_FSM4_9999_000697_000000, CBTS18_FSM4_MZ_0700_000316_000000, CBTS18_FSM3_MZ_0700_000301_000000, CBTS00_FSM3_9999_001010_000000, CBTS00_FSM4_9999_000697_000000, CBTS18_FSM3_MZ_0700_000301_000000, CBTS18_FSM4_MZ_0700_000316_000000"
+PR352670, [5GC000718] The file of 5g_pid12.json can't be used by below 6GHZ,"*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – PLEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+update the new json file(from 5g_pid11 to 5g_pid12) , and check the cell setup procedure.
+
+[2. Expected Result:]
+WEBUI is onair
+
+[3. Actual Result:]
+
+WEBUI doesn't show Onair status.
+
+[4. Tester analysis:]
+08 FCT-1011-0-CCS 2018-06-17T05:10:08.965198Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:  2018-06-17T05:10:08.555Z ERR/NODEOAM/MZ:MescomError: CPRI configure links failed. Response object: {
+09 FCT-1011-0-CCS 2018-06-17T05:10:08.970256Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:    ""msgId"": 2562,
+0a FCT-1011-0-CCS 2018-06-17T05:10:08.975317Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:    ""msgType"": ""CPRI_CONFIGURE_LINKS_RESP"",
+0b FCT-1011-0-CCS 2018-06-17T05:10:08.980376Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:    ""receiver"": {
+0c FCT-1011-0-CCS 2018-06-17T05:10:08.985436Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:      ""boardId"": 16,
+0d FCT-1011-0-CCS 2018-06-17T05:10:08.990469Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:      ""cpuId"": 17,
+0e FCT-1011-0-CCS 2018-06-17T05:10:08.995524Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:      ""cpId"": 1
+0f FCT-1011-0-CCS 2018-06-17T05:10:09.000588Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:    },
+10 FCT-1011-0-CCS 2018-06-17T05:10:09.005652Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:    ""sender"": {
+11 FCT-1011-0-CCS 2018-06-17T05:10:09.010712Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:      ""boardId"": 18,
+12 FCT-1011-0-CCS 2018-06-17T05:10:09.015727Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:      ""cpuId"": 93,
+13 FCT-1011-0-CCS 2018-06-17T05:10:09.020787Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:      ""cpId"": 579
+14 FCT-1011-0-CCS 2018-06-17T05:10:09.025845Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:    },
+15 FCT-1011-0-CCS 2018-06-17T05:10:09.030905Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:    ""length"": 20,
+16 FCT-1011-0-CCS 2018-06-17T05:10:09.035968Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:    ""flags"": [
+17 FCT-1011-0-CCS 2018-06-17T05:10:09.041029Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:      0,
+18 FCT-1011-0-CCS 2018-06-17T05:10:09.046093Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:      12
+19 FCT-1011-0-CCS 2018-06-17T05:10:09.051153Z E3D INF/LFS/LinuxSyslog,      run.sh[11694]:    ],
+......
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+
+Logs are put:
+\\eseefsn50.emea.nsn-net.net\rotta4internal\Rotta4internal_5G\Hangzhou\Unit6\wyf\pid12 can't work
+
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+not needed in documentation and specification made fault reports
+
+cloud BB3 + ASIK +ABIL
+
+[7. Used Flags: (list here used R&D flags)]
+NA
+[8. Fault Occurrence Rate:]
+How many times Test Scenario was run?2
+How many times fault was reproduced?2
+How many sites in the same live operation was run in case of customer fault?  NA
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+Was Test Scenario passing before?NA
+What was the last SW version Test Scenario was passing?
+Were there any differences between test-lines since last time Test Scenario was passing?
+Were there any changes in Test Scenario since last run it passed?
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+not needed in documentation, specification made fault reports and customer made tickets
+*** END OF DEFAULT TEMPLATE ***",18.06.2018,ECE_DEV_FOU_OAM_MZ_EXT,5GC000718-B,Closed,B - Major,TOP_5GBTS_18A_NSA_blocker,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]
+2018-06-26 SG : Missing 5GBTS_18A_4.2113.81   added to CF. As not done so far, also send serval reminders, to unblock, just done it myself.
+2018-06-21 SG:  the correction is in : ""5GBTS_18A_4.2111.800 (5G:nodeoam:4.0.646)""  and so as well in : 5G18A_4.2113.81 .
+2018-06-21 SG: trigger Ulla Riitta to get Build ID for Master L1R3 (as commit was done yesterday morinign time already). Urgent build is needed for NSA Step-1 team.
+190618 URK: MR opened. HW_SCT tests failing. LE:200618","Wang, Yifeng 1. (NSB - CN/Hangzhou)",ECE_DEV_CHZ_ET,"PR355043, PR358789","Harkonen, Johanna 1. (EXT - FI/Oulu)","2018-10-29 13:26 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-07-13 04:36 Wang, Yifeng 1. (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-07-12 03:43 Zhan, Shenglong (NSB - CN/Hangzhou) Top Importance Value(s) Added :TOP_5GBTS_18A_NSA_blocker, 2018-07-10 15:01 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Problem attached to PR358789., 2018-07-02 16:14 Wojcik, Adrian (Nokia - PL/Wroclaw) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-07-02 15:43 Hautala, Mika (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.32113.49 has been created., 2018-07-02 15:39 Hautala, Mika (Nokia - FI/Oulu) Problem attached to PR355043., 2018-06-26 11:38 Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information, 2018-06-21 15:53 Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information, 2018-06-21 13:35 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-21 12:06 Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information, 2018-06-20 12:38 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx state changed to Needless., 2018-06-20 12:38 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx state changed to Needless., 2018-06-20 10:11 Deng, Qi-Stephen (NSB - CN/Hangzhou) edited. Changed field(s): R&D Priority, 2018-06-19 16:17 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information, 2018-06-19 04:21 Zhan, Shenglong (NSB - CN/Hangzhou) edited. Changed field(s): Other Interested, 2018-06-18 12:02 Hautala, Mika (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-18 12:02 Hautala, Mika (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-18 12:02 Hautala, Mika (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-18 10:01 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The state of the problem changed from New to Investigating, 2018-06-18 07:34 Wang, Yifeng 1. (NSB - CN/Hangzhou) Problem Report created","5GBTS_18A_4.2111.800 5GBTS_18A_4.2113.192, 5GBTS_18A_4.sa5gtf.xxxx, 5GBTS_18A_4.31012.162, 5GBTS_18A_4.32113.49"
+PR353081,[QT5G18A]Cell Setup not available,"*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – PLEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+-SW upgrade from 4.31012.145 to 4.31012.146
+Apply following WA:
+	Before SCF commisioninig:
+	On CPIF VM modify file /opt/nokia/SS_CPLANE/etc/enb_conf.ini
+Modify parameter: f1apAddress=CPIF VM fronthaul IP
+After commisioning:
+	put cprt_config.xml to ASIK: /ffs/run with following content:
+sctpconfig
+  sctpserverCPIF VM fronthaul IP/sctpserver
+  sctpserverport38472/sctpserverport
+  sctpclient192.168.2.61/sctpclient
+  sctpclientport38472/sctpclientport
+/sctpconfig
+-	Reset site.
+
+
+
+[2. Expected Result:]
+Reaching Cell Setup 
+
+[3. Actual Result:]
+Cell Setup is not visible in logs and WebUI
+
+[4. Tester analysis:]
+
+Seting up Cell Setup is incomplete:
+
+Jun 19 08:24:37 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:24:37.601388][516][516][info] Welcome to 5G CP-Cell
+Jun 19 08:24:37 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:24:37.605264][516][516][info] Connecting to tcp://cpue.local:50500
+Jun 19 08:24:37 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:24:37.605394][516][516][info] Connecting to tcp://cpif.local:50561
+Jun 19 08:24:37 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:24:37.605502][516][516][info] Connecting to tcp://cpif.local:50558
+Jun 19 08:24:37 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:24:37.605556][516][516][info] Connecting to tcp://cpnb.local:50560
+Jun 19 08:24:37 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:24:37.605632][516][516][info] Connecting to tcp://cpif.local:50700
+Jun 19 08:25:24 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:25:24.873001][516][516][info] Cplane Cell receiver listening on: tcp://192.168.3.5:50555
+Jun 19 08:25:24 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:25:24.873185][516][516][debug] Successfully bound and registered cellSocket
+Jun 19 08:25:24 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:25:24.873189][516][516][info] FsHLAP data endpoint receiver listening on: tcp://192.168.3.5:50703
+Jun 19 08:25:24 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:25:24.873250][516][516][debug] Successfully bound and registered fsHLAPSocket
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.224428][516][516][info] Processing CellRequest
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.313197][516][516][info] Received Network Plan Request with 9 manage objects inside
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.313261][516][516][debug] Adding NGNODEB object with dist name MRBTS-1900/NRBTS-1
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.313555][516][516][debug] Adding CELL object with dist name MRBTS-1900/NRBTS-1/NRCELL-1
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.313681][516][516][debug] Adding MME object with dist name MRBTS-1900/NRBTS-1/NGAMF-1
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.313722][516][516][debug] Adding NRCELLGRP object with dist name MRBTS-1900/NRBTS-1/NRCELLGRP-0
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.313755][516][516][debug] Adding SCTP object with dist name MRBTS-1900/NRBTS-1/SCTP-1
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.313784][516][516][debug] Adding Du object with dist name MRBTS-1900/NRBTS-1/NRDU-1
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.313825][516][516][debug] Adding Cell with Id: 0
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.313913][516][516][/var/fpwork/ca_5gcv/jenkins2_slave/workspace/package-bb+b3_cloudbts_asik_abik_l1rele.airframe-x86_64-rcp.integration-AirFrameVirtualized_ASSEMBLER/src/integration/build/AirFrameVirtualized/tmp/work/cplane-4.3.0-20180614152906-r0/cplane-4.3.0-20180614152906/cplane/cu/cp_cl/src/senders/src/ConcreteCPNBSender.cpp:43] sending to CP-NB
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: {
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:     ""NetworkPlanResponse"": {
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""status"": ""0""
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:     }
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: }
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.924385][516][516][info] Processing CellRequest
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.924477][516][516][/var/fpwork/ca_5gcv/jenkins2_slave/workspace/package-bb+b3_cloudbts_asik_abik_l1rele.airframe-x86_64-rcp.integration-AirFrameVirtualized_ASSEMBLER/src/integration/build/AirFrameVirtualized/tmp/work/cplane-4.3.0-20180614152906-r0/cplane-4.3.0-20180614152906/cplane/cu/cp_cl/src/CplaneCell.cpp:185] Received CpCellNiddDeliveryRequest from CP-NB
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: {
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:     ""CpCellNiddDeliveryRequest"": {
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""transactionId"": ""1"",
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""gnbDusParams"": [
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:             {
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:                 ""gnbDuId"": ""1"",
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:                 ""nrCellParamInDus"": [
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:                     {
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:                         ""nrCellId"": ""0"",
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:                         ""physicalCellId"": ""50"",
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:                         ""maxNumOfUsers"": ""500"",
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:                         ""maxNumOfNonGBRBearers"": ""500""
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:                     }
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:                 ]
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:             }
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ]
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:     }
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: }
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:34:03.924512][516][516][/var/fpwork/ca_5gcv/jenkins2_slave/workspace/package-bb+b3_cloudbts_asik_abik_l1rele.airframe-x86_64-rcp.integration-AirFrameVirtualized_ASSEMBLER/src/integration/build/AirFrameVirtualized/tmp/work/cplane-4.3.0-20180614152906-r0/cplane-4.3.0-20180614152906/cplane/cu/cp_cl/src/senders/src/ConcreteCPNBSender.cpp:57] sending to CP-NB
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: {
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:     ""CpCellNiddDeliveryResponse"": {
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""transactionId"": ""1"",
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""status"": ""0""
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]:     }
+Jun 19 08:34:03 c1306-5gbts-1-cpcl-0 cp_cl[516]: }
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:35:29.058383][516][516][info] Processing CellRequest
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:35:29.058478][516][516][/var/fpwork/ca_5gcv/jenkins2_slave/workspace/package-bb+b3_cloudbts_asik_abik_l1rele.airframe-x86_64-rcp.integration-AirFrameVirtualized_ASSEMBLER/src/integration/build/AirFrameVirtualized/tmp/work/cplane-4.3.0-20180614152906-r0/cplane-4.3.0-20180614152906/cplane/cu/cp_cl/src/CplaneCell.cpp:194] Received CpCellDataDistributionRequest from CP-NB
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]: {
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:     ""CpCellDataDistributionRequest"": {
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""transactionId"": ""4"",
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""cpnbPoolId"": ""6"",
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""cpnbNodeAddress"": ""57424"",
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""cpnbIpVersion"": ""4"",
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""cpnbIpAddress"": ""127.0.0.1"",
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""cpifPoolId"": ""8"",
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""cpifNodeAddress"": ""57425"",
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""cpifIpVersion"": ""4"",
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""cpifIpAddress"": ""127.0.0.1""
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:     }
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]: }
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]: [08:35:29.058499][516][516][/var/fpwork/ca_5gcv/jenkins2_slave/workspace/package-bb+b3_cloudbts_asik_abik_l1rele.airframe-x86_64-rcp.integration-AirFrameVirtualized_ASSEMBLER/src/integration/build/AirFrameVirtualized/tmp/work/cplane-4.3.0-20180614152906-r0/cplane-4.3.0-20180614152906/cplane/cu/cp_cl/src/senders/src/ConcreteCPNBSender.cpp:64] sending to CP-NB
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]: {
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:     ""CpCellDataDistributionResponse"": {
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""transactionId"": ""4"",
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:         ""status"": ""0""
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]:     }
+Jun 19 08:35:29 c1306-5gbts-1-cpcl-0 cp_cl[516]: }
+
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+CPCL journalctl
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+BB3: AirFrame Broadwell 
+BB1: ASIK X22, ABIK X31
+
+[7. Used Flags: (list here used R&D flags)]
+None
+
+[8. Fault Occurrence Rate:]
+2/2
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+There were no changes made. Only sw upgrade.
+Last working sw  5G18A_4.31012.145
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+
+*** END OF DEFAULT TEMPLATE ***",19.06.2018,ECE_DEV_FPS_UP_L2_PS,5GC000455-B,Closed,A - Critical,"TOP_5GBTS_18A_PT1_blocker, TOP_5GBTS_18A_QT_blocker",5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]","Tarka, Radoslaw (Nokia - PL/Wroclaw)",5GRAN_Productization_QT,"PR353147, PR353253, PR353515","Sanfo, Halidou (Nokia - FR/Paris-Saclay)","2018-10-29 13:25 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-21 12:51 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Complete to Closed, 2018-06-21 10:40 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The fault id  FA408073 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-06-21 10:40 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Problem attached to PR353253., 2018-06-21 10:40 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from ECE_DEV_PWR_CP_RT To ECE_DEV_FPS_UP_L2_PS, 2018-06-21 10:40 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from New to First Correction Complete, 2018-06-21 10:12 Jarmal, Piotr (Nokia - PL/Wroclaw) Info Request for problem PR353081 cancelled., 2018-06-20 11:34 Dac, Pawel (Nokia - PL/Wroclaw) Info Request for problem PR353081 sent., 2018-06-20 11:34 Dac, Pawel (Nokia - PL/Wroclaw) New Information Request for PR PR353081 has been created., 2018-06-19 18:55 Buczkowski, Damian (Nokia - PL/Wroclaw) Top Importance Value(s) Added :TOP_5GBTS_18A_PT1_blocker, 2018-06-19 15:37 Acbard, Gregory (Nokia - FR/Paris-Saclay) Top Importance Value(s) Added :TOP_5GBTS_18A_QT_blocker, 2018-06-19 11:31 Tarka, Radoslaw (Nokia - PL/Wroclaw) Problem Report created, 2018-06-19 11:31 Tarka, Radoslaw (Nokia - PL/Wroclaw) Attachment CPCLjournal.txt added., 2018-06-19 11:31 Tarka, Radoslaw (Nokia - PL/Wroclaw) Attachment Snapshot_Nokia_Wroclaw_TL1300T06-1900_4.31012.146_20180619-0857_0000.zip added.","5G18A_4.2111.792  5G18A_4.2113.75, 5G18A_4.22111.277 5G18A4.20012.276, 5G18A_4.32111.149 5G18A_4.31012.150 5G18A_4.32113.38"
+PR353147,Cell setup fail with no PsCell_CellSetupResp,"Problem Description
+[1. Detail Test Steps:]
+- SW download and stack creation for 4.32111.144 package.
+- gNB commissioning
+- startup X2 link
+
+[2. Expected Result:]
+Cell setup succeffully
+
+[3. Actual Result:]
+Cell setup fail
+
+[4. Tester analysis:]
+ASIK:/tmp/startup_DEFAULT.log
+INF/COMMON/SyscomPort.hpp#96 L1-UL-CELL-PORT(0x1011178d): Sending message with msgId= 0x21a to sicad: 0x125d0255
+INF/COMMON/SyscomPort.hpp#96 L1-DL-CELL-PORT(0x1011178e): Sending message with msgId= 0x110 to sicad: 0x125d0244
+INF/COMMON/SyscomPort.hpp#108 L1-UL-CELL-PORT(0x1011178d): Receiving message with msgId= 0x201 from sicad: 0x125d0255
+INF/COMMON/SyscomPort.hpp#108 L1-DL-CELL-PORT(0x1011178e): Receiving message with msgId= 0x101 from sicad: 0x125d0244
+INF/COMMON/SyscomPort.hpp#96 L2-LO-CELL-PORT(0x10111786): Sending message with msgId= 0x820 to sicad: 0x102a2503
+INF/COMMON/SyscomPort.hpp#108 L2-LO-CELL-PORT(0x10111786): Receiving message with msgId= 0x821 from sicad: 0x102a2503
+INF/COMMON/SyscomPort.hpp#96 L2-PS-CELL-PORT(0x10111789): Sending message with msgId= 0x920 to sicad: 0x102a2501
+INF/LFS/LinuxSyslog,      gpsd-ext[27760]:  PPS clk event arrived (ddal_event_fd_event_wait for #14)
+INF/LFS/LinuxSyslog,      gpsd-ext[27760]:  121342921700 PPS pps-detect on /dev/ddal/uart/sync-in
+INF/LFS/LinuxSyslog,      gpsd-ext[27760]:  PPS ntpshm_put 1529393999.000000000 at os_time: 1529393998.997127596 from device /dev/ddal/uart/sync-in
+INF/LFS/LinuxSyslog,      trs-routeconfig-d:  triggerEventListerner unable to connect to :Connection refused
+INF/LFS/LinuxSyslog,      gpsd-ext[27760]:  got packet data, size: 18
+INF/LFS/LinuxSyslog,      gpsd-ext[27760]:  (TSIP_0x8F_0xAB) Primary timing packet 200417 2006 18 0x02 (GPS TIME, TIME IS SET, UTC SET) 1213429217/1529393999/18 17 40 7 19 6 2018
+INF/LFS/LinuxSyslog,      gpsd-ext[27760]:  Changed mask: {ONLINE|TIME|PACKET}
+INF/LFS/LinuxSyslog,      gpsd-ext[27760]:  got packet data, size: 69
+INF/LFS/LinuxSyslog,      gpsd-ext[27760]:  TSIP_0x8F-AC: 7 100% MinorAlarms:0000 0 -0.04033010 -3.06025815 30.17991401 120.14049328 30.32815000 -4.14228964 (PPS_GENERATED)
+INF/LFS/LinuxSyslog,      gpsd-ext[27760]:  Changed mask: {ONLINE|LATLON|ALTITUDE|MODE|PACKET|REPORT}
+
+
+
+no PsCell_CellSetupResp
+message:Receiving message with msgId= 0x921 from sicad: 0x102a2501
+
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+ASIK:/tmp/startup_DEFAULT.log
+Sending message with msgId= 0x920 to sicad: 0x102a2501
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+TL: I&V-HGZ-106
+SW: 4.32111.144
+BB3: AirFrame Broadwell 
+BB1: ASIK X24, ABIL X12
+
+
+[7. Fault Occurrence Rate:]
+How many times Test Scenario was run? 3
+How many times fault was reproduced? 3/3
+How many sites in the same live operation was run in case of customer fault?  n/a",19.06.2018,ECE_DEV_FPS_UP_L2_PS,5GC000008-A,Closed,A - Critical,"TOP_5GBTS_18A_QT_blocker, TOP_5GBTS_18A_PT1_blocker",5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]","Fang, Chaosi (NSB - CN/Hangzhou)",5GRAN_Productization_QT,"PR353253, PR353081, PR353515","Sanfo, Halidou (Nokia - FR/Paris-Saclay)","2018-10-29 13:25 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-22 12:16 Gaelle, Siegfried (Nokia - DE/Ulm) Problem attached to PR353515., 2018-06-21 12:51 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Complete to Closed, 2018-06-21 10:18 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from Closed to First Correction Complete, 2018-06-21 10:18 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Complete to Closed, 2018-06-21 10:17 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from Closed to First Correction Complete, 2018-06-21 09:58 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Complete to Closed, 2018-06-21 08:12 Yin, Jie 1. (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-20 17:41 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been deleted., 2018-06-20 17:41 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been deleted., 2018-06-20 17:41 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted., 2018-06-20 17:37 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The fault id  FA408149 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-06-20 17:37 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Problem attached to PR353253., 2018-06-20 17:37 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from ECE_DEV_FPS To ECE_DEV_FPS_UP_L2_PS, 2018-06-20 17:37 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from New to First Correction Ready For Testing, 2018-06-20 16:48 Lanneau, Stephane (Nokia - FR/Paris-Saclay) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-20 16:48 Lanneau, Stephane (Nokia - FR/Paris-Saclay) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-20 16:48 Lanneau, Stephane (Nokia - FR/Paris-Saclay) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-20 16:44 Brassac, Robin (Nokia - FR/Paris-Saclay) Top Importance Value(s) Added :TOP_5GBTS_18A_PT1_blocker, TOP_5GBTS_18A_QT_blocker and Removed :TOP_5GBTS_18A_PT1_blockerTOP_5GBTS_18A_QT_blocker, 2018-06-20 10:20 Acbard, Gregory (Nokia - FR/Paris-Saclay) Top Importance Value(s) Added :TOP_5GBTS_18A_PT1_blockerTOP_5GBTS_18A_QT_blocker and Removed :TOP_5GBTS_18A_PT1_blocker, 2018-06-19 19:01 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from ECE_DEV_FPS_UP_L2_PS to ECE_DEV_FPS. Reason for Transfer: Analysis on going. L2-PS issue not confirmed., 2018-06-19 18:56 Buczkowski, Damian (Nokia - PL/Wroclaw) Top Importance Value(s) Added :TOP_5GBTS_18A_PT1_blocker, 2018-06-19 12:58 Fang, Chaosi (NSB - CN/Hangzhou) edited. Changed field(s): Title, 2018-06-19 12:58 Fang, Chaosi (NSB - CN/Hangzhou) Problem Report created, 2018-06-19 12:58 Fang, Chaosi (NSB - CN/Hangzhou) Attachment webUI screencut.docx added., 2018-06-19 12:58 Fang, Chaosi (NSB - CN/Hangzhou) Attachment startup_DEFAULT.log added., 2018-06-19 12:58 Fang, Chaosi (NSB - CN/Hangzhou) Attachment Snapshot_Nokia_Oulu_Kaapelitie_4-1900_4.32111.144_20180619-1625_0000.zip added.","5G18A_4.2111.792  5G18A_4.2113.75, 5G18A_4.22111.277 5G18A4.20012.276, 5G18A_4.32111.149 5G18A_4.31012.150 5G18A_4.32113.38"
+PR353253,[QT][5G18A][ASIK+ABIL]  CPCM subcell group setup request failed,"*** DEFAULT TEMPLATE for 5G v1.1 (2017-06-07)
+[1. TEST SCENARIO]
+install load 4.22111.274
+Create VM from gNB
+Flash ASIK/ABIL with Yaft
+Do commissioning
+
+[2. FAULT DESCRIPTION]
+After full installation & commissioning, under Element Manager, All components are green except Subcell group 0 is still gray. Cellsetup is not UP
+
+
+[3. TESTER ANALYSIS]
+Load install ok. Do not run any TC because Cell is down
+[4. Fault Repeatability]
+ALWAYS
+[5. Test Scenario History of Execution]
+Load 5G18A 4.22111.273 was OK without this issue.
+Issue appear since Load 5G18A 4.22111.274
+[6. Test-Line Reference / Info] - more useful for tester
+ASIK/ABIL boards",19.06.2018,ECE_DEV_FPS_UP_L2_PS,5GC000555-A,Closed,A - Critical,TOP_5GBTS_18A_QT_blocker,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]
+[rc found, le 200618]
+200618 S.Lanneau: L2-PS does not process any more the cell setup request despit is is sent by CP-RT. Root cause found. The behavior is caused by a side effect of 373f861e27d083661c292457d9298613ea0bd7c8 PR349416. Correction is in progress.
+200618 URK: L2-PS check this next.
+200618 URK: Cplane, please check next.
+In BB3_startup_RACOAM.log:
+
+2018-06-19T11:10:59.813Z ERR/RACOAM/5G:CPCM subcell group setup request failed: . Response object: {
+  ""msgId"": 24590,
+  ""msgType"": ""CPCM_SUBCELL_GROUP_SETUP_RESP"",
+  ""receiver"": {
+    ""boardId"": 224,
+    ""cpuId"": 64,
+    ""cpId"": 2
+  },
+  ""sender"": {
+    ""boardId"": 17,
+    ""cpuId"": 80,
+    ""cpId"": 4112
+  },
+  ""length"": 20,
+  ""flags"": [
+    0,
+    12
+  ],
+  ""data"": {
+    ""payload"": {
+      ""subcellGroupId"": 0,
+      ""status"": 1,
+      ""status_padding"": [
+        0,
+        0
+      ]
+    }
+  }
+}
+2018-06-19T11:10:59.813Z ERR/RACOAM/5G:CPCM subcell group setup request failed (. Response object: {
+  ""msgId"": 24590,
+  ""msgType"": ""CPCM_SUBCELL_GROUP_SETUP_RESP"",
+  ""receiver"": {
+    ""boardId"": 224,
+    ""cpuId"": 64,
+    ""cpId"": 2
+  },
+  ""sender"": {
+    ""boardId"": 17,
+    ""cpuId"": 80,
+    ""cpId"": 4112
+  },
+  ""length"": 20,
+  ""flags"": [
+    0,
+    12
+  ],
+  ""data"": {
+    ""payload"": {
+      ""subcellGroupId"": 0,
+      ""status"": 1,
+      ""status_padding"": [
+        0,
+        0
+      ]
+    }
+  }
+})","Leclercq, Thierry (Nokia - FR/Paris-Saclay)",5GRAN_Productization_QT,"PR353147, PR353081, PR353515","Sanfo, Halidou (Nokia - FR/Paris-Saclay)","2018-10-29 13:25 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-21 12:51 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Complete to Closed, 2018-06-21 10:40 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Problem attached to PR353081., 2018-06-21 10:18 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from Closed to First Correction Complete, 2018-06-21 10:18 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Complete to Closed, 2018-06-21 10:17 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from Closed to First Correction Complete, 2018-06-21 09:58 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from First Correction Complete to Closed, 2018-06-21 08:12 Yin, Jie 1. (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-20 17:41 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been deleted., 2018-06-20 17:41 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been deleted., 2018-06-20 17:41 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted., 2018-06-20 17:37 Lanneau, Stephane (Nokia - FR/Paris-Saclay) Problem attached to PR353147., 2018-06-20 17:04 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-20 16:11 Lanneau, Stephane (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information, 2018-06-20 16:05 Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from ECE_DEV_FPS_CP_UE to ECE_DEV_FPS_UP_L2_PS. Reason for Transfer: Assigned to L2-PS for correction, 2018-06-20 16:00 Lanneau, Stephane (Nokia - FR/Paris-Saclay) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-20 16:00 Lanneau, Stephane (Nokia - FR/Paris-Saclay) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-20 16:00 Lanneau, Stephane (Nokia - FR/Paris-Saclay) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-20 16:00 Lanneau, Stephane (Nokia - FR/Paris-Saclay)  The state of the problem changed from New to Investigating., 2018-06-20 15:11 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to ECE_DEV_FPS_CP_UE. Reason for Transfer: Transfer agreed with Stephane from OAM to uplane, 2018-06-20 14:29 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information, 2018-06-20 11:09 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information, 2018-06-20 09:07 Acbard, Gregory (Nokia - FR/Paris-Saclay) Top Importance Value(s) Added :TOP_5GBTS_18A_QT_blocker, 2018-06-19 16:23 Leclercq, Thierry (Nokia - FR/Paris-Saclay) The group in charge changed from MANO_HZH_OSSEMS to ECE_DEV_FOU_OAM_MZ, 2018-06-19 16:23 Leclercq, Thierry (Nokia - FR/Paris-Saclay) edited. Changed field(s): Group in Charge, 2018-06-19 16:01 Leclercq, Thierry (Nokia - FR/Paris-Saclay) Optional Value is updated with WebUI Alarms:
+
+16 Unit synchronization failed
+
+6293 5G BTS configuration failed, 2018-06-19 16:00 Leclercq, Thierry (Nokia - FR/Paris-Saclay) Attachment Capture.PNG added., 2018-06-19 15:56 Leclercq, Thierry (Nokia - FR/Paris-Saclay) Problem Report created, 2018-06-19 15:56 Leclercq, Thierry (Nokia - FR/Paris-Saclay) Attachment Log-collections.zip added., 2018-06-19 15:56 Leclercq, Thierry (Nokia - FR/Paris-Saclay) Attachment 20180619_0639_CI_log.tar.gz added.","5G18A_4.2111.792  5G18A_4.2113.75, 5G18A_4.22111.277 5G18A4.20012.276, 5G18A_4.32111.149 5G18A_4.31012.150 5G18A_4.32113.38"
+PR353515,[5GC000718] L2PS show us fatal error in log,"*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – PLEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+update the new version , and check the cell setup procedure.
+
+[2. Expected Result:]
+WEBUI is onair
+
+[3. Actual Result:]
+
+WEBUI doesn't show Onair status.
+
+[4. Tester analysis:]
+1194/uplane/common/stats/client/l2rt/counterNrt.cpp -In L2CounterClient : fct main - PM provider mode activate
+Jun 20 06:29:52 fctl-0b ccs-rt.appstart[25176]: ed FCTL-102A-L2Count 2018-06-20T06:29:52.711726Z 2C-L2CounterClien INF/INF: PM provider in /var/fpwork/ca_5gcv/jenkins2_slave/workspace/package.master_cloudbts_asik_abil_l1r3/src/integration/build/AirScale/tmp/work/l2-rt-common-4.0.0-1529441194-r0/l2-rt-common-4.0.0-1529441194/uplane/common/stats/client/l2rt/counterNrt.cpp -In L2CounterClient : fct main - PM provider mode activate
+Jun 20 06:29:52 fctl-0b ccs-rt.appstart[25176]: Debug/CCS/EM, ccs_em_dispatcher_sigchld_handle: Ignore application processes (pid=25653) spawned from dispatchers
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: NEW -=-= CC&S Error Handler exception report =-=-
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: fatality       : 2 (EAaErrorFatality_System)
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: code           : internal (2)
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: description    : Invalid memory reference (reason: 1 'address not mapped to object') detected by kernel at address 0x2031465 from 0x7f317f2bf064
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: EU name        : Disp_6
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: extra          : not defined
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: EE id (OS)     : 25324 (0x62EC)
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: EU id          : 76 (0x4C)
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: EU id (OS)     : 692132032 (0x294118C0)
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: EE command     : /opt/CCS_RT/CCSEmDispatcherExe
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: BCN.frame      : 1092054986 (0x41176FCA)
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: BCN.tick       : 2186567 (0x215D47)
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: filename       : Services/AaError/src/AaError_Linux.c
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: line number    : 340
+Jun 20 06:29:52 fctl-0b 0x1[25324]: CCSRT ERR: calltrace:
+Jun 20 06:29:52 fctl-0b Disp_6[25324]: CCSRT ERR: #0 0x7f3227c466f0 from /usr/lib64/libc.so.6+0x9a6f0
+Jun 20 06:29:52 fctl-0b Disp_6[25324]: CCSRT ERR: #1 0x7f32287a36ca in AaGpuHelpersBacktraceDumpIpsSysLog+0x6a from /usr/lib64/libCCSRT.so+0x2196ca
+Jun 20 06:29:52 fctl-0b Disp_6[25324]: CCSRT ERR: #2 0x7f3228701e79 from /usr/lib64/libCCSRT.so+0x177e79
+Jun 20 06:29:52 fctl-0b Disp_6[25324]: CCSRT ERR: #3 0x7f32287021cb from /usr/lib64/libCCSRT.so+0x1781cb
+Jun 20 06:29:52 fctl-0b Disp_6[25324]: CCSRT ERR: #4 0x7f3228175e60 from /usr/lib64/libpthread.so.0+0x11e60
+Jun 20 06:29:52 fctl-0b Disp_6[25324]: CCSRT ERR: #5 0x7f317f2bf064 in _ZN4l2ps4sgnl6psCnfg2l119AddressConfigurator6handleERKN5multi12MsgNoDynPartIN3itf2l22ps8internal22L1AddressExchangeReq_tELt770EEE+0x34 from /usr/lib64/libl2ps.so+0x10a064
+Jun 20 06:29:52 fctl-0b Disp_6[25324]: CCSRT ERR: #6 0x7f317f41862e in _ZN4l2ps4sgnl6psCnfg17QueueStateStartup11handleEventEtPvj+0x46e from /usr/lib64/libl2ps.so+0x26362e
+Jun 20 06:29:52 fctl-0b Disp_6[25324]: CCSRT ERR: #7 0x7f317f41626e in _ZN5boost3sml6v1_1_04back11transitionsIJNS1_5front10transitionIJNS4_5stateIN4l2ps4sgnl6psCnfg18psCnfgDefaultStateEEENS6_INS9_16psCnfgStartStateEEENS4_5eventIN6common6emBase10EmFsmEventEEENS1_3aux12zero_wrapperIZNKS9_12QueueFsmImpl5TableclEvEUlRNSL_4DataERKSH_E2_vEENS4_4noneEEEEEE7executeISH_NS2_7sm_implINS2_9sm_policyISM_JEEEEENSJ_4poolIJSO_EEENS11_IJS10_EEEEEbRKT_RT0_RT1_RT2_RNS17_7state_tE+0x1e from /usr/lib64/libl2ps.so+0x26126e
+Jun 20 06:29:52 fctl-0b audit[25324]: ANOM_ABEND auid=4294967295 uid=0 gid=0 ses=4294967295 pid=25324 comm=""Disp_6"" exe=""/opt/CCS_RT/CCSEmDispatcherExe"" sig=11
+Jun 20 06:29:52 fctl-0b Disp_6[25324]: CCSRT ERR: #8 0x7f317f299460 in _ZN6common6emBase9EoHandlerIN4l2ps4sgnl2EoEXadL_ZN10L2Counters30dbgPacketsReceivedL2PsSgnlCoreEEEXadL_ZNS5_37dbgPacketProcessingCyclesL2PsSgnlCoreEEEXadL_ZNS5_40dbgPacketProcessingMaxCyclesL2PsSgnlCoreEEELj12EE15receiveCallbackEPvS7_jmS7_+0x110 from /usr/lib64/libl2ps.so+0xe4460
+Jun 20 06:29:52 fctl-0b ccs-rt.appstart[25176]: Info/CCS/EM, eeLevelAaErrorHandlerCb: Handling error reported by AaError (dispatcher)
+Jun 20 06:29:52 fctl-0b ccs-rt.appstart[25176]: Warning/CCS/EM, ccs_em_service_partial_shutdown: EM partial shutdown
+......
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+
+Logs are put:
+\\eseefsn50.emea.nsn-net.net\rotta4internal\Rotta4internal_5G\Hangzhou\Unit6\wyf\cell can't be onair with 511
+
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+not needed in documentation and specification made fault reports
+
+cloud BB3 + ASIK +ABIL
+
+[7. Used Flags: (list here used R&D flags)]
+NA
+[8. Fault Occurrence Rate:]
+How many times Test Scenario was run?2
+How many times fault was reproduced?2
+How many sites in the same live operation was run in case of customer fault?  NA
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+Was Test Scenario passing before?NA
+What was the last SW version Test Scenario was passing?
+Were there any differences between test-lines since last time Test Scenario was passing?
+Were there any changes in Test Scenario since last run it passed?
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+not needed in documentation, specification made fault reports and customer made tickets
+*** END OF DEFAULT TEMPLATE ***",20.06.2018,ECE_DEV_FPS_UP_L2_PS,5GC000718-B,Closed,A - Critical,< empty >,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]
+[# RC = seems same as : PR353147]
+2018-06-22 SG: Correction knife for PR353147 (= just a revert) tested based on 5G18A_4.2113.66 + Knife tested successfully : Cell reach OnAir. No L2 PS crash. Now  Correction knife for PR353147 (= just a revert)  version for R1L1 master branch is under test to see if also there no L2 PS crash happens.
+Next Step after R1 test:  Attach the issue to PR353147.
+2018-06-20 SG / evening: SWconfig file needed to exclude configuration issue. Retest required when PR353147 (QT regression broken)  is solved also on Master.
+2018-06-20 SG: SW.config needs to be checked. Waiting to get this file; Luca C. will check this then.
+Also L2-PS resource allocation is under clarification, who will be assigned to check the crash.","Wang, Yifeng 1. (NSB - CN/Hangzhou)",ECE_DEV_CHZ_ET,"PR353081, PR353147, PR353253","Sanfo, Halidou (Nokia - FR/Paris-Saclay)","2018-10-29 13:24 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-22 12:16 Gaelle, Siegfried (Nokia - DE/Ulm) The fault id  FA408553 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-06-22 12:16 Gaelle, Siegfried (Nokia - DE/Ulm) Problem attached to PR353147., 2018-06-22 12:16 Gaelle, Siegfried (Nokia - DE/Ulm) The group in charge changed from ECE_DEV_GUL_UP_L2_PS To ECE_DEV_FPS_UP_L2_PS, 2018-06-22 12:16 Gaelle, Siegfried (Nokia - DE/Ulm) The state of the problem changed from New to Closed, 2018-06-22 12:15 Gaelle, Siegfried (Nokia - DE/Ulm) Info Request for problem PR353515 cancelled., 2018-06-22 10:45 Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information, 2018-06-22 04:42 Zhan, Shenglong (NSB - CN/Hangzhou) edited. Changed field(s): Other Interested, 2018-06-21 10:02 Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information, 2018-06-20 18:36 Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information, 2018-06-20 18:22 Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information, 2018-06-20 18:19 Gaelle, Siegfried (Nokia - DE/Ulm) Info Request for problem PR353515 sent., 2018-06-20 18:19 Gaelle, Siegfried (Nokia - DE/Ulm) New Information Request for PR PR353515 has been created., 2018-06-20 14:38 Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information, 2018-06-20 14:37 Gaelle, Siegfried (Nokia - DE/Ulm) edited. Changed field(s): R&D Information, 2018-06-20 13:06 Feile, Hartmut (Nokia - DE/Ulm) edited. Changed field(s): Development Fault Coordinator, Other Interested, 2018-06-20 12:43 Buczkowski, Damian (Nokia - PL/Wroclaw) edited. Changed field(s): R&D Priority, Severity, 2018-06-20 12:32 Wang, Yifeng 1. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Priority, 2018-06-20 12:15 Wang, Yifeng 1. (NSB - CN/Hangzhou) Problem Report created","5G18A_4.2111.792  5G18A_4.2113.75, 5G18A_4.22111.277 5G18A4.20012.276, 5G18A_4.32111.149 5G18A_4.31012.150 5G18A_4.32113.38"
+PR355043,[5G18A][QT] CPRI configuration failed,"[1. Detail Test Steps:]
+- SW download and stack creation for 4.32111.43 package.
+- gNB commissioning with workarounds.
+[2. Expected Result:]
+Successful VM creation, succesfull commisioning and VM startup, cell setup reached.
+[3. Actual Result:]
+F1 interface setup not starting, as a result X2 setup fails and cell setup is not achieved.
+[4. Tester analysis:]
+From ASIKjournal.log:
+Jun 26 08:31:16 fctl-0a run.sh[26258]: 2018-06-26T08:31:16.930Z ERR/NODEOAM/MZ:MescomError: CPRI configure links failed. Response object: {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""msgId"": 2562,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""msgType"": ""CPRI_CONFIGURE_LINKS_RESP"",
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""receiver"": {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""boardId"": 16,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""cpuId"": 17,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""cpId"": 1
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   },
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""sender"": {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""boardId"": 18,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""cpuId"": 93,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""cpId"": 579
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   },
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""length"": 20,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""flags"": [
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     0,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     12
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ],
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""data"": {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""payload"": {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:       ""status"": 1,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:       ""status_padding"": [
+Jun 26 08:31:16 fctl-0a run.sh[26258]:         0,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:         0
+Jun 26 08:31:16 fctl-0a run.sh[26258]:       ]
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     }
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   }
+Jun 26 08:31:16 fctl-0a run.sh[26258]: }
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at /opt/nodeoam/src/mescom.js:373:19
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at tryCatcher (/opt/nodeoam/node_modules/bluebird/js/main/util.js:26:23)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Promise._settlePromiseFromHandler (/opt/nodeoam/node_modules/bluebird/js/main/promise.js:510:31)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Promise._settlePromiseAt (/opt/nodeoam/node_modules/bluebird/js/main/promise.js:584:18)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Promise._settlePromises (/opt/nodeoam/node_modules/bluebird/js/main/promise.js:700:14)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Async._drainQueue (/opt/nodeoam/node_modules/bluebird/js/main/async.js:123:16)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Async._drainQueues (/opt/nodeoam/node_modules/bluebird/js/main/async.js:133:10)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Immediate.Async.drainQueues [as _onImmediate] (/opt/nodeoam/node_modules/bluebird/js/main/async.js:15:14)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at processImmediate [as _immediateCallback] (timers.js:367:17)
+Jun 26 08:31:16 fctl-0a run.sh[26258]: 2018-06-26T08:31:16.930Z ERR/NODEOAM/MZ:MescomError: CPRI configure links failed. Response object: {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""msgId"": 2562,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""msgType"": ""CPRI_CONFIGURE_LINKS_RESP"",
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""receiver"": {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""boardId"": 16,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""cpuId"": 17,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""cpId"": 1
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   },
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""sender"": {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""boardId"": 18,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""cpuId"": 93,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""cpId"": 579
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   },
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""length"": 20,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""flags"": [
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     0,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     12
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ],
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   ""data"": {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     ""payload"": {
+Jun 26 08:31:16 fctl-0a run.sh[26258]:       ""status"": 1,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:       ""status_padding"": [
+Jun 26 08:31:16 fctl-0a run.sh[26258]:         0,
+Jun 26 08:31:16 fctl-0a run.sh[26258]:         0
+Jun 26 08:31:16 fctl-0a run.sh[26258]:       ]
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     }
+Jun 26 08:31:16 fctl-0a run.sh[26258]:   }
+Jun 26 08:31:16 fctl-0a run.sh[26258]: }
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at /opt/nodeoam/src/mescom.js:373:19
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at tryCatcher (/opt/nodeoam/node_modules/bluebird/js/main/util.js:26:23)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Promise._settlePromiseFromHandler (/opt/nodeoam/node_modules/bluebird/js/main/promise.js:510:31)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Promise._settlePromiseAt (/opt/nodeoam/node_modules/bluebird/js/main/promise.js:584:18)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Promise._settlePromises (/opt/nodeoam/node_modules/bluebird/js/main/promise.js:700:14)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Async._drainQueue (/opt/nodeoam/node_modules/bluebird/js/main/async.js:123:16)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Async._drainQueues (/opt/nodeoam/node_modules/bluebird/js/main/async.js:133:10)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at Immediate.Async.drainQueues [as _onImmediate] (/opt/nodeoam/node_modules/bluebird/js/main/async.js:15:14)
+Jun 26 08:31:16 fctl-0a run.sh[26258]:     at processImmediate [as _immediateCallback] (timers.js:367:17)
+From Lonerjournal.log:
+Jun 08 08:31:53 aspa-1c l1nrt_application[2572]: L1SW-NRT: process_cpri_req received IW_CPRI_CONFIGURE_LINKS_REQ
+Jun 08 08:31:53 aspa-1c l1nrt_application[2572]: L1SW-NRT: is_configure_req_valid invalid cpri_pointer_p value 40 for link id 1
+Jun 08 08:31:53 aspa-1c l1nrt_application[2572]: L1SW-NRT: send_cpri_resp sent IW_CPRI_CONFIGURE_LINKS_RESP to 0x10110001
+Jun 08 08:31:53 aspa-1c l1nrt_application[2572]: L1SW-NRT: process_cpri_req received IW_CPRI_CONFIGURE_LINKS_REQ
+Jun 08 08:31:53 aspa-1c l1nrt_application[2572]: L1SW-NRT: is_configure_req_valid invalid cpri_pointer_p value 40 for link id 1
+Jun 08 08:31:53 aspa-1c l1nrt_application[2572]: L1SW-NRT: send_cpri_resp sent IW_CPRI_CONFIGURE_LINKS_RESP to 0x10110001
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+ASIKjournal.log:
+Jun 26 08:31:16 – Mescom Error, CPRI configure links failed
+Lonerjournal.log: 
+Jun 08 08:31:53 – invalid cpri_pointer_p
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+TL: 7_16_QT1300T01
+SW: 4.32111.124
+Airphone: 4.930012.87
+BB3: AirFrame Broadwell 
+BB1: ASIK X23, ABIL X13
+[7. Used Flags: (list here used R&D flags)]
+See swconfig files attached, same were used on build 4.32113.42 and everything was working.
+[8. Fault Occurrence Rate:]
+   How many times Test Scenario was run? 4/4
+   How many times fault was reproduced? 4/4
+   How many sites in the same live operation was run in case of customer fault?  N/A
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+   Was Test Scenario passing before? yes
+   What was the last SW version Test Scenario was passing? 4.32113.42
+   Were there any differences between test-lines since last time Test Scenario was passing? NO
+   Were there any changes in Test Scenario since last run it passed? NO
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+QT",26.06.2018,ECE_DEV_FOU_OAM_MZ_EXT,5GC000455-B,Closed,A - Critical,< empty >,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]
+02.07.2018 (Timo Leivonen) - Problem appears to be fixed with OAM correction for PR352880. This was verified with 4.32113.49. PRs will be attached.","Wojcik, Adrian (Nokia - PL/Wroclaw)",5GRAN_Productization_QT,"PR352670, PR358789","Harkonen, Johanna 1. (EXT - FI/Oulu)","2018-10-29 13:22 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-07-13 04:36 Wang, Yifeng 1. (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-07-05 16:37 Szuba, Rafal (Nokia - PL/Wroclaw) edited. Changed field(s): Other Interested, 2018-07-03 10:17 Buczkowski, Damian (Nokia - PL/Wroclaw) Top Importance Value(s) Removed :TOP_5GBTS_18A_QT_blocker, 2018-07-02 16:14 Wojcik, Adrian (Nokia - PL/Wroclaw) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-07-02 15:43 Hautala, Mika (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.32113.49 has been created., 2018-07-02 15:39 Hautala, Mika (Nokia - FI/Oulu) The fault id  FA411927 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-07-02 15:39 Hautala, Mika (Nokia - FI/Oulu) Problem attached to PR352670., 2018-07-02 15:39 Hautala, Mika (Nokia - FI/Oulu) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-07-02 15:38 Hautala, Mika (Nokia - FI/Oulu) Problem detached. The problem report was detached from PR352880, 2018-07-02 15:32 Leivonen, Timo (EXT - FI/Oulu) The fault id  FA410585 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-07-02 15:32 Leivonen, Timo (EXT - FI/Oulu) Problem attached to PR352880., 2018-07-02 15:32 Leivonen, Timo (EXT - FI/Oulu) The group in charge changed from 5G_L1_Spec To ECE_DEV_FOU_OAM_MZ_EXT, 2018-07-02 15:32 Leivonen, Timo (EXT - FI/Oulu) The state of the problem changed from New to Investigating, 2018-07-02 15:31 Leivonen, Timo (EXT - FI/Oulu) edited. Changed field(s): R&D Information, 2018-06-27 10:42 Leivonen, Timo (EXT - FI/Oulu) Problem detached. The problem report was detached from PR352400, 2018-06-26 17:47 Buczkowski, Damian (Nokia - PL/Wroclaw) Reopened, 2018-06-26 15:48 Leivonen, Timo (EXT - FI/Oulu) The fault id  FA410211 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-06-26 15:48 Leivonen, Timo (EXT - FI/Oulu) Problem attached to PR352400., 2018-06-26 15:48 Leivonen, Timo (EXT - FI/Oulu) The group in charge changed from 5G_L1_SW To 5G_L1_Spec, 2018-06-26 15:48 Leivonen, Timo (EXT - FI/Oulu) The state of the problem changed from New to Correction Not Needed, 2018-06-26 15:46 Leivonen, Timo (EXT - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been deleted., 2018-06-26 15:46 Leivonen, Timo (EXT - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been deleted., 2018-06-26 15:46 Leivonen, Timo (EXT - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted., 2018-06-26 14:09 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-26 14:09 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-26 14:09 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-26 13:51 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU to 5G_L1_SW. Reason for Transfer: Separate email discussion sbout this. L1 SW will correct this. Transferred from OAM to L1 SW., 2018-06-26 12:04 Wojcik, Adrian (Nokia - PL/Wroclaw) Problem Report created, 2018-06-26 12:04 Wojcik, Adrian (Nokia - PL/Wroclaw) Attachment Snapshot_Nokia_Wroclaw_TL1300T01-1900_4.32113.43_20180626-1039_0000.zip added., 2018-06-26 12:04 Wojcik, Adrian (Nokia - PL/Wroclaw) Attachment swconfig_local.txt added., 2018-06-26 12:04 Wojcik, Adrian (Nokia - PL/Wroclaw) Attachment swconfig.txt added., 2018-06-26 12:04 Wojcik, Adrian (Nokia - PL/Wroclaw) Attachment Lonerjournal.log added., 2018-06-26 12:04 Wojcik, Adrian (Nokia - PL/Wroclaw) Attachment ASIKjournal.log added.","5GBTS_18A_4.2111.800 5GBTS_18A_4.2113.192, 5GBTS_18A_4.sa5gtf.xxxx, 5GBTS_18A_4.31012.162, 5GBTS_18A_4.32113.49"
+PR358789,OAM send wrong cpriLinkMapConfig to ABIK in 5G18A 4.31012.160,"*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – PLEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+not needed in documentation, specification made fault reports and customer made tickets
+
+[2. Expected Result:]
+
+[3. Actual Result:]
+
+[4. Tester analysis:]
+          Analysis of Logs
+           SWBOT information
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+NodeOAMstartup 110 packet:
+\\eseefsn50.emea.nsn-net.net\5G\Oulu\jujuppi\AEQD_mnt_after_file_loader\RF_logs_with_debug_flag\110_packet
+2018-07-05T13:54:09.639Z INF/NODEOAM/mescom:-- 0xa01 (CPRI_CONFIGURE_LINKS_REQ): {""msgId"":2561,""receiver"":{""boardId"":18,""cpuId"":58,""cpId"":579},""data"":{""payload"":{""l1_StartupTimer"":10000,""numOfItems"":4,""cpriLink"":{""length"":4,""values"":[{""cpriLink"":0,""scramblingSeed"":5,""cpriPointerP"":20,""optLinkLength"":3},{""cpriLink"":1,""scramblingSeed"":10,""cpriPointerP"":0,""optLinkLength"":3},{""cpriLink"":2,""scramblingSeed"":15,""cpriPointerP"":0,""optLinkLength"":3},{""cpriLink"":3,""scramblingSeed"":20,""cpriPointerP"":0,""optLinkLength"":3}]},""cpriLinkMapConfig"":6}}}
+
+NodeOAMstartup 160 packet:
+\\eseefsn50.emea.nsn-net.net\5G\Oulu\jujuppi\AEQD_mnt_after_file_loader\RF_logs_with_debug_flag\Pure_SW_start
+2018-07-05T05:08:47.478Z WRN/NODEOAM/mescom:Message serializing warning: warningType: Unused rule line, message: CPRI_CONFIGURE_LINKS_REQ[0A01], ruleLine: {""typeName"":""L1Cpri_ConfigureLinksReq_t"",""fieldName"":""dlCpriLinkMapConfig"",""fieldTypeName"":"""",""typeTag"":""uint8"",""vd1"":""0""}
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+not needed in documentation and specification made fault reports
+
+[7. Used Flags: (list here used R&D flags)]
+
+[8. Fault Occurrence Rate:]
+   How many times Test Scenario was run? 10/10
+   How many times fault was reproduced? 10/10
+   How many sites in the same live operation was run in case of customer fault?  5
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+   Was Test Scenario passing before? Yes, with 5G18A 4.31012.110
+   What was the last SW version Test Scenario was passing? 5G18A 4.31012.110
+   Were there any differences between test-lines since last time Test Scenario was passing? No
+   Were there any changes in Test Scenario since last run it passed? No
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+not needed in documentation, specification made fault reports and customer made tickets
+*** END OF DEFAULT TEMPLATE ***",10.07.2018,ECE_DEV_FOU_OAM_MZ_EXT,5GC000562-A,Closed,A - Critical,< empty >,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]
+100718 URK: Investigation started in OAM. New logs requested.","Juppi, Juha (Nokia - FI/Oulu)",5G_SPEC,"PR352670, PR355043","Harkonen, Johanna 1. (EXT - FI/Oulu)","2018-10-29 13:12 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-07-13 04:36 Wang, Yifeng 1. (NSB - CN/Hangzhou) The state of the problem changed from First Correction Complete to Closed, 2018-07-10 15:01 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The fault id  FA414294 associated with this PR before attach has been deleted - data is restorable by Pronto Support, 2018-07-10 15:01 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Problem attached to PR352670., 2018-07-10 15:01 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The group in charge changed from ECE_DEV_FOU To ECE_DEV_FOU_OAM_MZ_EXT, 2018-07-10 15:01 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The state of the problem changed from New to First Correction Complete, 2018-07-10 13:59 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) edited. Changed field(s): R&D Information, 2018-07-10 13:48 Juppi, Juha (Nokia - FI/Oulu) Attachment Snapshot_CS_OTA3_5GBTS-1959_4.31012.160_20180705-0846_0000.zip added., 2018-07-10 13:47 Juppi, Juha (Nokia - FI/Oulu) Attachment Snapshot_CS_OTA3_5GBTS-1959_4.31012.110_20180705-1711_0000.zip added., 2018-07-10 13:26 Juppi, Juha (Nokia - FI/Oulu) edited. Changed field(s): Title, 2018-07-10 13:26 Juppi, Juha (Nokia - FI/Oulu) edited. Changed field(s): Build, 2018-07-10 12:36 Juppi, Juha (Nokia - FI/Oulu) edited. Changed field(s): Build, Platform Release, 2018-07-10 12:35 Juppi, Juha (Nokia - FI/Oulu) Problem Report created","5GBTS_18A_4.2111.800 5GBTS_18A_4.2113.192, 5GBTS_18A_4.sa5gtf.xxxx, 5GBTS_18A_4.31012.162, 5GBTS_18A_4.32113.49"

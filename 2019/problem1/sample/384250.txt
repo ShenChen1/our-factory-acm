@@ -1,0 +1,27 @@
+	Line 14: Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from ECE_DEV_IBA_CP_IF to ECE_DEV_FPS_CP_RT. Reason for Transfer: As per Ronan Le Goff Following discussion with Tianshu, F1AP PPID in CP-RT should be changed from 50362 t ...
+	Line 16: Dsouza, Allan (Nokia - IN/Bangalore) The group in charge changed from ECE_DEV_FPS_CP_RT to ECE_DEV_FPS. Reason for Transfer: As per analysis - F1AP PPID in CP-RT should be changed from 50362 to 70262. Mail attached for reference. 580 Tea ...
+
+ECE_DEV_IBA_CP_IF
+ECE_DEV_FPS_CP_RT
+ECE_DEV_FPS
+
+2018-10-26 15:38 EEST
+Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information
+2018-10-23 13:43 EEST
+Herve, Yann AH. (Nokia - FR/Nozay) The state of the problem changed from First Correction Ready For Testing to Closed
+2018-10-19 19:27 EEST
+Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from Investigating to First Correction Ready For Testing
+2018-10-19 19:18 EEST
+Lanneau, Stephane (Nokia - FR/Paris-Saclay) edited. Changed field(s): R&D Information
+2018-10-18 16:47 EEST
+Dsouza, Allan (Nokia - IN/Bangalore) Attachment RE PR384250 New Problem Reported (5GBTS_18A C - Minor5G18AECE Wrong PPiD used inside SCTP header for V7.02).msg added.
+2018-10-18 16:46 EEST
+Lanneau, Stephane (Nokia - FR/Paris-Saclay) The state of the problem changed from New to Investigating.
+2018-10-18 16:46 EEST
+Lanneau, Stephane (Nokia - FR/Paris-Saclay) The group in charge changed from ECE_DEV_IBA_CP_IF to ECE_DEV_FPS_CP_RT. Reason for Transfer: As per Ronan Le Goff Following discussion with Tianshu, F1AP PPID in CP-RT should be changed from 50362 t ...
+2018-10-18 16:45 EEST
+Dsouza, Allan (Nokia - IN/Bangalore) The group in charge changed from ECE_DEV_FPS_CP_RT to ECE_DEV_FPS. Reason for Transfer: As per analysis - F1AP PPID in CP-RT should be changed from 50362 to 70262. Mail attached for reference. 580 Tea ...
+2018-10-17 19:39 EEST
+Pronto, Auto (Nokia - Global) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created.
+2018-10-17 16:43 EEST
+Herve, Yann AH. (Nokia - FR/Nozay) Problem Report created

@@ -1,0 +1,269 @@
+Problem ID,Title,Description,Reported Date,Group in Charge,Feature,State,Severity,Top Importance,Release,R&D Information,Author,Author Group,Attached PRs,Responsible Person,Revision History,Target Build
+PR349840,"[5G18A][QT] siteoam failed to start, no access to webUI","[1. Detail Test Steps:]
+- SW download and stack creation for 4.32111.124 package.
+- gNB commissioning.
+[2. Expected Result:]
+Successful VM creation, succesfull commisioning and VM startup.
+[3. Actual Result:]
+Successful VM creation, failed commisioning due to webUI not up.
+[4. Tester analysis:]
+From OAMjournal.log
+Jun 06 15:38:07 c1301-5gbts-1-oam-0 CCSMCUDaemonExe[20811]: Process supervision failure due to abnormal exit and detected for euThreadId = 21043. Ready for kill appPid = 21043!
+Jun 06 15:38:07 c1301-5gbts-1-oam-0 CCSMCUDaemonExe[20811]: Supervision: Sending SIGABRT to process (null).
+Jun 06 15:38:07 c1301-5gbts-1-oam-0 CCSMCUDaemonExe[20811]: Supervision: Sending SIGABRT success.
+Jun 06 15:38:07 c1301-5gbts-1-oam-0 CCSMCUDaemonExe[20811]: Process supervision failure due to abnormal exit and detected for 21043. Ready for reboot!
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: siteoam /opt/nokia/SS_MzOam/cloud-siteoam/siteoam/src/mz.js --NODE_ENV=cloud --CHDIR=/opt/nokia/SS_MzOam/cloud-siteoam/siteoam[21043]: AaError Core Dump R&D tag not set, core dump disabled for this EE or Shutdown in progress
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: NEW -=-= CC&S Error Handler exception report =-=-
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: fatality       : EAaErrorFatality_System
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: description    : Abort signal received - detected by user from process CCSMCUDaemon
+                                                     at address 0x514b from 0x7ffff6ed7d9e
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: EE id (OS)     : 21043 (0x5233)
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: EE command     : siteoam /opt/nokia/SS_MzOam/cloud-siteoam/siteoam/src/mz.js --NODE_ENV=cloud --CHDIR=/opt/nokia/SS_MzOam/cloud-siteoam/siteoam
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: calltrace:
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #0 0x7ffff6ed7da0 in recvmsg+0x60 from /lib64/libpthread.so.0+0x11da0
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #1 0x7fffd6fbdc5c from /opt/nokia/lib64/MCU/libCCS.so+0xf1c5c
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #2 0x7ffff6ed8080 from /lib64/libpthread.so.0+0x12080
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #3 0x7ffff6ed7d9e in recvmsg+0x5e from /lib64/libpthread.so.0+0x11d9e
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #4 0x7fffa6dff8df in _ZN23configurationmanagement6System7recvmsgEiP6msghdri+0x2f from /opt/nokia/lib64/libcm.so.3+0xfe8df
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #5 0x7fffa6dff30d in _ZN23configurationmanagement12StreamSocket11receiveImplEi+0x3d from /opt/nokia/lib64/libcm.so.3+0xfe30d
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #6 0x7fffa6dff3e7 in _ZN23configurationmanagement12StreamSocket17receiveAtLeastOneEv+0x17 from /opt/nokia/lib64/libcm.so.3+0xfe3e7
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #7 0x7fffa6ddb9a1 in _ZN23configurationmanagement18ClientStreamSocket25exchangeMessageWithServerERKNS_7RequestERKSt6vectorINS_4DataESaIS5_EE+0x71 from /opt/nokia/lib64/libcm.so.3+0xda9a1
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #8 0x7fffa6dfd43e in _ZN23configurationmanagement24SocketTransactionManager25exchangeMessageWithServerERKNS_7RequestERKSt6vectorINS_4DataESaIS5_EE+0xe from /opt/nokia/lib64/libcm.so.3+0xfc43e
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #9 0x7fffa6dfdbba in _ZN23configurationmanagement24SocketTransactionManager5startENS_28StartTransactionRequest_TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x12a from /opt/nokia/lib64/libcm.so.3+0xfcbba
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #10 0x7fffa6dfde41 in _ZN23configurationmanagement24SocketTransactionManager13startReadOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE+0x11 from /opt/nokia/lib64/libcm.so.3+0xfce41
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #11 0x7fffa72de8c1 in _ZN19CMTransactionHelperC1E16_TransactionTypeNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb+0x41b from /opt/nokia/lib64/libAAACMTxnHelper.so+0x118c1
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #12 0x7fffa70c9dec in cm_search_user_by_name+0x66 from /opt/nokia/lib64/libAAACMUserAcctHelper.so+0x1dec
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #13 0x7fffa77a2720 from /opt/nokia/lib64/security/pam_cm.so+0x2720
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #14 0x7fffa77a2fd4 from /opt/nokia/lib64/security/pam_cm.so+0x2fd4
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #15 0x7fffa77a3e2f in pam_sm_authenticate+0x3bf from /opt/nokia/lib64/security/pam_cm.so+0x3e2f
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #16 0x7fffcc8f04c2 from /usr/lib64/libpam.so.0+0x34c2
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #17 0x7fffcc8efde0 in pam_authenticate+0x30 from /usr/lib64/libpam.so.0+0x2de0
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #18 0x7fffccafd05e in authenticate_user_with_accmgmt_option+0x8d from /opt/nokia/lib64/libpamauthentication.so+0x105e
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #19 0x7fffccafd2f1 in authenticateUser+0x2d from /opt/nokia/lib64/libpamauthentication.so+0x12f1
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #20 0x7fffdf1c36d4 in ffi_call_unix64+0x4c from /opt/nokia/SS_MzOam/cloud-siteoam/siteoam/node_modules/@rcp/ffi/build/Release/ffi_bindings.node+0xd6d4
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #21 0x7fffdf1c223d in ffi_call+0x15d from /opt/nokia/SS_MzOam/cloud-siteoam/siteoam/node_modules/@rcp/ffi/build/Release/ffi_bindings.node+0xc23d
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #22 0x7fffdf1ba8b6 in _ZN3FFI7FFICallERKN3Nan20FunctionCallbackInfoIN2v85ValueEEE+0xb6 from /opt/nokia/SS_MzOam/cloud-siteoam/siteoam/node_modules/@rcp/ffi/build/Release/ffi_bindings.node+0x48b6
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #23 0x7fffdf1ba586 from /opt/nokia/SS_MzOam/cloud-siteoam/siteoam/node_modules/@rcp/ffi/build/Release/ffi_bindings.node+0x4586
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #24 0x007d06db in _ZN2v88internal25FunctionCallbackArguments4CallEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEE+0x9b from siteoam /opt/nokia/SS_MzOam/cloud-siteoam/siteoam/src/mz.js --NODE_ENV=cloud --CHDIR=/opt/nokia/SS_MzOam/cloud-siteoam/siteoam+0x3d06db
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #25 0x007f1f53 from siteoam /opt/nokia/SS_MzOam/cloud-siteoam/siteoam/src/mz.js --NODE_ENV=cloud --CHDIR=/opt/nokia/SS_MzOam/cloud-siteoam/siteoam+0x3f1f53
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: #26 0x34d3d60060a2
+Jun 06 15:38:08 c1301-5gbts-1-oam-0 siteoam[21043]: CCSMCU ERR: === letting OS handle the error
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+OAMjournal.log
+Jun 06 15:38:07 – process supervision failed and error reported.
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+TL: 7_16_QT1300T01
+SW: 4.32111.124
+BB3: AirFrame Broadwell 
+BB1: ASIK X23, ABIL X13
+[7. Used Flags: (list here used R&D flags)]
+n/a
+[8. Fault Occurrence Rate:]
+   How many times Test Scenario was run? 2
+   How many times fault was reproduced? 1/2
+   How many sites in the same live operation was run in case of customer fault?  n/a
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+   Was Test Scenario passing before? yes
+   What was the last SW version Test Scenario was passing? 4.32111.123
+   Were there any differences between test-lines since last time Test Scenario was passing? no
+   Were there any changes in Test Scenario since last run it passed? no
+[10. Test Case Reference: (QC, RP or UTE link)]
+QT",06.06.2018,NIESSCBTSMZOAM,5GC000455-B,Closed,B - Major,TOP_5GBTS_18A_QT_blocker,5GBTS_18A,"[#RC: known, LE: 19.6.]
+18062018, PaHe: correction merged to B3. LE = 19.6.
+14062018, PaHe: there is a MR for correction inheritance. LE as soon as HW SCT pass.
+08062018:MHa: cBTS OAM MZ comment is need. They have correct same kind of issue recently.
+070618 RR: Authentication is failed. RCP to check and comment.","Wojcik, Adrian (Nokia - PL/Wroclaw)",5GRAN_Productization_QT,< empty >,"Mohamed, Abukar (Nokia - FI/Espoo)","2018-10-29 13:32 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-21 14:56 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) The state of the problem changed from First Correction Complete to Closed, 2018-06-21 14:56 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx state changed to Needless., 2018-06-21 14:50 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted., 2018-06-21 14:50 Kemppainen, Ulla-Riitta (EXT - FI/Oulu) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been deleted., 2018-06-21 11:19 Yang, Lisa (NSB - CN/Hangzhou) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-21 11:19 Yang, Lisa (NSB - CN/Hangzhou) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-21 11:19 Yang, Lisa (NSB - CN/Hangzhou) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-21 11:19 Yang, Lisa (NSB - CN/Hangzhou) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-19 14:49 Helin, Pasi (Nokia - FI/Espoo) Correction for 5GBTS_18A 5GBTS_18A_4.1012.xxx state changed to Needless., 2018-06-19 14:49 Helin, Pasi (Nokia - FI/Espoo) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-18 11:11 Helin, Pasi (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-15 14:40 Helin, Pasi (Nokia - FI/Espoo)  The state of the problem changed from New to Investigating., 2018-06-14 12:46 Helin, Pasi (Nokia - FI/Espoo) edited. Changed field(s): R&D Information, 2018-06-12 17:10 Sawer, Tomasz (Nokia - PL/Wroclaw) The state of the problem changed from Investigating to New, 2018-06-12 17:09 Sawer, Tomasz (Nokia - PL/Wroclaw) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.1012.xxx has been created., 2018-06-12 17:07 Sawer, Tomasz (Nokia - PL/Wroclaw) The state of the problem changed from Closed to Investigating, 2018-06-12 09:27 Sawer, Tomasz (Nokia - PL/Wroclaw) The state of the problem changed from Investigating to Closed, 2018-06-12 09:22 Sawer, Tomasz (Nokia - PL/Wroclaw) The state of the problem changed from New to Investigating, 2018-06-12 09:20 Sawer, Tomasz (Nokia - PL/Wroclaw) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.needless has been deleted., 2018-06-12 09:20 Sawer, Tomasz (Nokia - PL/Wroclaw) Information request for problem PR349840 responded., 2018-06-12 09:19 Sawer, Tomasz (Nokia - PL/Wroclaw) Solution Description: Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been deleted., 2018-06-11 10:55 Romppanen, Reijo (Nokia - FI/Oulu) Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx state changed to Needless., 2018-06-11 10:54 Romppanen, Reijo (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.b3.xxxx has been created., 2018-06-11 10:54 Romppanen, Reijo (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.sa5gtf.xxxx has been created., 2018-06-11 10:54 Romppanen, Reijo (Nokia - FI/Oulu) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.master.xxxx has been created., 2018-06-11 09:58 Romppanen, Reijo (Nokia - FI/Oulu) Info Request for problem PR349840 sent., 2018-06-11 09:58 Romppanen, Reijo (Nokia - FI/Oulu) New Information Request for PR PR349840 has been created., 2018-06-11 08:02 Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU_OAM_MZ to NIESSCBTSMZOAM. Reason for Transfer: Correction is available aready by cBTS team. Just to find the right CB., 2018-06-08 09:45 Hautala, Mika (Nokia - FI/Oulu) edited. Changed field(s): R&D Information, 2018-06-08 09:30 Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from RCPSEC to ECE_DEV_FOU_OAM_MZ. Reason for Transfer: Transfer back to OAM. Awaiting comment from cBTS is there a correction available already for this issue., 2018-06-08 09:02 Romppanen, Reijo (Nokia - FI/Oulu) Attachment PR349840  (5GBTS_18A B - Major5G18AQT siteoam failed to start no acces.msg added., 2018-06-08 09:01 Romppanen, Reijo (Nokia - FI/Oulu) The group in charge changed from ECE_DEV_FOU to RCPSEC. Reason for Transfer: Based on the logs, this is a RCP’s authentication issue ( see attachment )., 2018-06-07 17:26 Romppanen, Reijo (Nokia - FI/Oulu) edited. Changed field(s): R&D Information, 2018-06-07 14:48 Romppanen, Reijo (Nokia - FI/Oulu) edited. Changed field(s): R&D Information, 2018-06-07 09:12 Sawer, Tomasz (Nokia - PL/Wroclaw) Top Importance Value(s) Added :TOP_5GBTS_18A_QT_blocker, 2018-06-06 17:21 Wojcik, Adrian (Nokia - PL/Wroclaw) Problem Report created, 2018-06-06 17:21 Wojcik, Adrian (Nokia - PL/Wroclaw) Attachment OAMjournal.log added.","5GBTS_18A_4.32111.142, 5GBTS_18A_4.1012.xxx, 5GBTS_18A_4.sa5gtf.xxxx"
+PR349975,[5G18A] [QT] ssh connection between fronthaul and DU doesn't work,"*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – P*** DEFAULT TEMPLATE for 2G-3G-4G-5G-SRAN-FDD-TDD-DCM-Micro-Controller common template v1.1.0 (09.05.2018) – PLEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+- Deploy all stacks on NCIR using heat templates provided to package.
+- Using defaulf commisioning file from O&M ( SBTS5G18A_5g_pid11_abik_1cell.xml ) do a gNB commisioning.
+- Wait untill DU sw is updated
+- Try ssh from OAM to DU
+
+[2. Expected Result:]
+is possible to get to DU via fronthaul iterface by ssh
+
+[3. Actual Result:]
+it is not possible to get to DU from CPIF, UPUE, OAM using ssh
+
+
+[4. Tester analysis:]
+$ sudo ping 192.168.2.60
+PING 192.168.2.60 (192.168.2.60) 56(84) bytes of data.
+64 bytes from 192.168.2.60: icmp_seq=1 ttl=255 time=18.2 ms
+64 bytes from 192.168.2.60: icmp_seq=2 ttl=255 time=16.8 ms
+64 bytes from 192.168.2.60: icmp_seq=3 ttl=255 time=15.9 ms
+^C
+--- 192.168.2.60 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 15.936/17.042/18.294/0.973 ms
+
+
+$ ssh -vvv toor4nsn@192.168.2.60
+OpenSSH_7.6p1, OpenSSL 1.0.2n  7 Dec 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug3: kex names ok: [diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,ecdh-sha2-nistp256,curve25519-sha256@libssh.org]
+debug2: resolving ""192.168.2.60"" port 22
+debug2: ssh_connect_direct: needpriv 0
+debug1: Connecting to 192.168.2.60 [192.168.2.60] port 22.
+debug2: fd 3 setting O_NONBLOCK
+debug1: connect to address 192.168.2.60 port 22: Connection timed out
+ssh: connect to host 192.168.2.60 port 22: Connection timed out
+
+
+$ ssh -o BatchMode=no -o PasswordAuthentication=yes -o PreferredAuthentications=password toor4nsn@192.168.2.60
+ssh: connect to host 192.168.2.60 port 22: Connection timed out
+
+[robot@c1306-5gbts-1-oam-0:/home/robot]
+$ sudo iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+[robot@c1306-5gbts-1-oam-0:/home/robot]
+$
+
+tcpdump – the packets arrived from OAM to the RAP, respond were sent, however the responses didn’t arrive to the OAM. 
+
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+snapshot here: \\eseefsn50.emea.nsn-net.net\rotta4internal\5G\QTreports\5G18A\4.31012\WRO\5GBTS_18A_4.31012.127
+
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+Test_Line_1300-6, CV WRO
+BB1:  ASIK X23 ABIK X31
+BB3: AirFrame Broadwell
+NCIR17
+Software Version: 5G18A 4.31012.127
+
+[7. Used Flags: (list here used R&D flags)]
+no flags used
+[8. Fault Occurrence Rate:]
+   How many times Test Scenario was run? 3
+   How many times fault was reproduced? 100%
+   How many sites in the same live operation was run in case of customer fault?  N/A
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+   Was Test Scenario passing before? yes
+   What was the last SW version Test Scenario was passing? The last working build is 4.31012.105, problem is introduced in 4.31012.107
+   Were there any differences between test-lines since last time Test Scenario was passing? no
+   Were there any changes in Test Scenario since last run it passed? no
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+not needed in documentation, specification made fault reports and customer made tickets
+*** END OF DEFAULT TEMPLATE ***LEASE FILL IT IN BEFORE CREATING A PR AND DO NOT CHANGE / REMOVE ANY SECTION OF THIS TEMPLATE ***
+
+[1. Detail Test Steps:]
+not needed in documentation, specification made fault reports and customer made tickets
+
+[2. Expected Result:]
+
+[3. Actual Result:]
+
+[4. Tester analysis:]
+          Analysis of Logs
+           SWBOT information
+
+[5. Log(s) file name containing a fault: (clear indication (exact file name) and timestamp where fault can be found in attached logs)]
+
+[6. Test-Line Reference/used HW/configuration/tools/SW version]
+not needed in documentation and specification made fault reports
+
+[7. Used Flags: (list here used R&D flags)]
+
+[8. Fault Occurrence Rate:]
+   How many times Test Scenario was run?
+   How many times fault was reproduced?
+   How many sites in the same live operation was run in case of customer fault?  
+
+[9. Test Scenario History of Execution: (what was changed since it was tested successfully for the last time)]
+   Was Test Scenario passing before?
+   What was the last SW version Test Scenario was passing?
+   Were there any differences between test-lines since last time Test Scenario was passing?
+   Were there any changes in Test Scenario since last run it passed?
+
+[10. Test Case Reference: (QC, RP or UTE link)]
+not needed in documentation, specification made fault reports and customer made tickets
+*** END OF DEFAULT TEMPLATE ***",07.06.2018,TRS_ACHIEVERS,5GC000455-B,Closed,B - Major,TOP_5GBTS_18A_QT_blocker,5GBTS_18A,"[#RC: unknown, LE: yyyy-mm-dd]","Spurtacz, Marcin (Nokia - PL/Wroclaw)",5GRAN_Productization_QT,< empty >,"Nachimuthu, Marasamy (Nokia - IN/Bangalore)","2018-10-29 13:31 Pronto, Auto (Nokia - Global) edited. Changed field(s): R&D Information, 2018-06-16 13:35 Paul K, Richard (Nokia - IN/Bangalore) The state of the problem changed from First Correction Complete to Closed, 2018-06-15 19:00 Spurtacz, Marcin (Nokia - PL/Wroclaw) Solution Description: Correction for 5GBTS_18A 5G18A_4.3111.730 has been deleted., 2018-06-15 18:58 Spurtacz, Marcin (Nokia - PL/Wroclaw) The state of the problem changed from First Correction Ready For Testing to First Correction Complete, 2018-06-15 18:57 Spurtacz, Marcin (Nokia - PL/Wroclaw) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.31012.141 has been created., 2018-06-15 18:55 Spurtacz, Marcin (Nokia - PL/Wroclaw) New Correction document Correction for 5GBTS_18A 5GBTS_18A_4.32111.138 has been created., 2018-06-15 18:00 Yadav, Lalmani (Nokia - IN/Bangalore) The state of the problem changed from Investigating to First Correction Ready For Testing, 2018-06-15 17:59 Yadav, Lalmani (Nokia - IN/Bangalore) New Correction document Correction for 5GBTS_18A 5G18A_4.3111.730 has been created., 2018-06-13 17:20 Yadav, Lalmani (Nokia - IN/Bangalore) The group in charge changed from TRS_MARINES to TRS_ACHIEVERS. Reason for Transfer: Marasamy Nachimuthu working on this issue .., 2018-06-12 14:39 Yadav, Lalmani (Nokia - IN/Bangalore) The group in charge changed from TRS_5G_ASIK_GENERAL to TRS_MARINES. Reason for Transfer: TRS_MARINES will check this., 2018-06-12 14:38 Yadav, Lalmani (Nokia - IN/Bangalore) The state of the problem changed from New to Investigating, 2018-06-12 08:16 trs, tools (Nokia - Global) New Correction document Correction for TRS_INTERNAL RCA_EDA has been created., 2018-06-12 08:05 Song, Zhikang (NSB - CN/Hangzhou) The group in charge changed from RCPNES to TRS_5G_ASIK_GENERAL. Reason for Transfer: Agreed with Yadav, Lalmani (Nokia - IN/Bangalore), transfer PR to TRS_5G_ASIK_GENERAL. , 2018-06-12 08:05 Song, Zhikang (NSB - CN/Hangzhou) The state of the problem changed from Investigating to New, 2018-06-08 15:43 Sawer, Tomasz (Nokia - PL/Wroclaw) Information request for problem PR349975 responded., 2018-06-08 13:09 Song, Zhikang (NSB - CN/Hangzhou) edited. Changed field(s): Status Log, 2018-06-08 13:08 Song, Zhikang (NSB - CN/Hangzhou)  The state of the problem changed from New to Investigating., 2018-06-08 13:08 Shan, Huamao (NSB - CN/Hangzhou) Info Request for problem PR349975 sent., 2018-06-08 13:08 Shan, Huamao (NSB - CN/Hangzhou) New Information Request for PR PR349975 has been created., 2018-06-08 13:04 Song, Zhikang (NSB - CN/Hangzhou) The group in charge changed from RCPDEV to RCPNES. Reason for Transfer: Move PR to RCPNES to support this issue checking. Shan Huamao is follow it., 2018-06-08 09:06 Spurtacz, Marcin (Nokia - PL/Wroclaw) Information request for problem PR349975 responded., 2018-06-08 05:23 Song, Zhikang (NSB - CN/Hangzhou) edited. Changed field(s): Status Log, 2018-06-08 05:21 Song, Zhikang (NSB - CN/Hangzhou) Info Request for problem PR349975 sent., 2018-06-08 05:21 Song, Zhikang (NSB - CN/Hangzhou) New Information Request for PR PR349975 has been created., 2018-06-07 12:53 Zhu, Jing-Constance (NSB - CN/Hangzhou) Attachment RE PR3499755G18A QT ssh connection between fronthaul and DU doesn't work .msg added., 2018-06-07 12:53 Zhu, Jing-Constance (NSB - CN/Hangzhou) The group in charge changed from ECE_DEV_CHZ_CLOUD to RCPDEV. Reason for Transfer: PLease RCP Security domain expert check it firstly.Attached discussion email., 2018-06-07 09:53 Spurtacz, Marcin (Nokia - PL/Wroclaw) edited. Changed field(s): Title, Description, 2018-06-07 09:29 Spurtacz, Marcin (Nokia - PL/Wroclaw) Problem Report created","RCA_EDA, 5GBTS_18A_4.32111.138, 5GBTS_18A_4.31012.141"
+PR350335,[CBTS18 R3] pMaxIntraF step value not according to NIDD,"*** DEFAULT TEMPLATE for CBTS v1.0 (07.06.2017) - PLEASE FILL IT IN BEFORE CREATING A PR ***
+1. Test-Line Reference/used HW/configuration/tools/SW version:
+    CBTS configuration: R3 H1 IPHY
+    Cell configuration: 3 cells
+    CBTS package version:CBTS18_FSM3_MZ_0700_000265_000000
+    RCP version:CBTS18_FSM3_MZ_0700_000265_000000
+    CBAM version: NA
+    NetAct version:NA
+    NDCS/NCIR version:NCIR 17A
+2. Test Case name: 
+3. Used Flags: 0x120006=1,0x120004=1,0x120005=1,0xf000f=1,0xf000e=1,0xf0011=1,0xf0010=1
+4. Detail Test Steps:
+   Step1.  IPHY environment and Cell4( NB-iot cell) is ready. BTS on air in CBTS18_FSM3_MZ_0700_000241_000000
+           pMaxIntraF = 1 for cell4
+   Step2.  Updated pMaxIntraF value from 1 to 2 in WEB-UI
+   Step3.  Updated pMaxIntraF value from 2 to 3 in WEB-UI
+   Step4.  Updated pMaxIntraF value from 3 to 4 in WEB-UI
+
+5. Expected Result:
+   Step1  p-Max-r13=1;
+   Step2  p-Max-r13=2;
+   Step3  p-Max-r13=3;
+   Step4  p-Max-r13=4; each steps report value should as above because define step is 1 in NIDD.
+
+6. Actual Result:
+   Step1 p-Max-r13=1;
+   Step2 p-Max-r13=3;
+   Step3 p-Max-r13=3;
+   Step4 p-Max-r13=5;
+
+7. Fault Occurrence Rate: 2/4
+8. Change since Last Success: NA
+9. Known Condition: NA
+10. Log(s) file name containing a fault: \\eseefsn50.emea.nsn-net.net\rotta4internal\HetRAN\Shan zhijiang\20180529 pMaxIntraF report value\Retest_20180606\
+11. Customer impact analysis.
+- Impact to customer: SIB3 report value incorrect
+- Workaround and recovery: None
+12. Tester analysis: 
+From egate log in ute:
+EGATE enb_cell_ib_disp cell=4 type=sib3_nb
+value BCCH-DL-SCH-Message-NB ::= 
+{
+  message c1 : systemInformation-r13 : 
+  {
+    criticalExtensions systemInformation-r13 : 
+    {
+      sib-TypeAndInfo-r13 
+      {
+        sib3-r13 : 
+        {
+          cellReselectionInfoCommon-r13 
+          {
+            q-Hyst-r13 dB5
+          },
+          cellReselectionServingFreqInfo-r13 
+          {
+            s-NonIntraSearch-r13 8
+          },
+          intraFreqCellReselectionInfo-r13 
+          {
+            q-RxLevMin-r13 -65,
+            p-Max-r13 5,
+            s-IntraSearchP-r13 8,
+            t-Reselection-r13 s6
+          }
+        }
+      }
+    }
+  }
+}
+
+*** END OF DEFAULT TEMPLATE ***",08.06.2018,MANO_HZH_MZOM,RC1166 Cloud BTS RRM and Telecom feature parity with FL18 (Set 2),Correction Not Needed,B - Major,< empty >,CBTS18,"6/29 merge request commited, wait for build test.
+6/28 knife provided, trying to collect log.
+6/25 rootcause found, trying to figure out solution.
+","Shan, Zhijiang (NSB - CN/Hangzhou)",NIHZSIV3,< empty >,"Zhu, Xiaohua (NSB - CN/Hangzhou)","2018-07-03 06:25 Zhu, Xiaohua (NSB - CN/Hangzhou) State changed from Investigating to Correction Not Needed, 2018-06-29 11:59 Zhao, Li 5. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-06-29 11:58 Zhao, Li 5. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-06-28 13:10 Zhao, Li 5. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-06-25 09:33 Zhao, Li 5. (NSB - CN/Hangzhou) edited. Changed field(s): R&D Information, 2018-06-19 13:31 Luo, Xin (NSB - CN/Hangzhou) edited. Changed field(s): R&D Priority, 2018-06-13 05:01 Xu, Lijie (NSB - CN/Hangzhou)  The state of the problem changed from New to Investigating., 2018-06-12 13:09 Lehto, Marja Liisa (Nokia - FI/Espoo) The group in charge changed from NIESSCBTSMZOAM to MANO_HZH_MZOM. Reason for Transfer: Agreed with Zhu, Xiaohua (NSB - CN/Hangzhou), 2018-06-12 12:09 Jurczyk, Krzysztof (Nokia - PL/Wroclaw) The group in charge changed from RABLTESWPWR1CP to NIESSCBTSMZOAM. Reason for Transfer: See analysis txt file and related email thread., 2018-06-12 12:08 Jurczyk, Krzysztof (Nokia - PL/Wroclaw) Attachment CPLANE_analysis_1.txt added., 2018-06-09 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 FSM4 CBTS18_FSM4_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-09 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS18 CBTS18_FSM3_MZ_0700_xxxxxx_yyyyyy has been created., 2018-06-09 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 FSM4 CBTS00_FSM4_9999_xxxxxx_yyyyyy has been created., 2018-06-09 00:04 Wbts, Pronto Ci (Nokia - Global) New Correction document Correction for CBTS00 CBTS00_FSM3_9999_xxxxxx_yyyyyy has been created., 2018-06-08 06:37 Li, Stephen (NSB - CN/Hangzhou) The group in charge changed from RABLTESWCELLC to RABLTESWPWR1CP. Reason for Transfer: FTW9 is working on it, 2018-06-08 05:37 Shan, Zhijiang (NSB - CN/Hangzhou) Problem Report created, 2018-06-08 05:37 Shan, Zhijiang (NSB - CN/Hangzhou) Attachment RE pre-checkCBTS18 FSMR3 pMaxIntraF step value not according to NIDD .msg added.",< empty >
