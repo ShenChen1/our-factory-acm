@@ -6,6 +6,7 @@
 #include <unistd.h>
 
 int main(int argc, char **argv) {
+
     const char path[] = "/var/tmp/prog";
     int fd = creat(path, S_IRWXU);
     write(fd, prog, sizeof(prog));

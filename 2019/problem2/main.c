@@ -3537,27 +3537,25 @@ typedef struct {
 } csv_entry_t;
 
 typedef struct {
-    char            *team_id;
+    int              team_id;
 
     int              case_num;
     csv_entry_t     *case_list;
 
     int              execution_passed;
     int              execution_failed;
-} test_entry_t;
+} team_entry_t;
 
 typedef struct {
-    char            *phase_id;
-
-    int              team_num;
+    int              phase_id;
     int              case_num;
 
-    int              test_num;
-    test_entry_t    *test_info;
+    int              team_num;
+    team_entry_t    *team;
 } phase_entry_t;
 
 typedef struct {
-    char            *build_id;
+    int              build_id;
 
     int              phase_num;
     phase_entry_t   *phase;
@@ -3618,7 +3616,7 @@ static int readInfoFromCsv(char *file, csv_entry_t **array, int *size) {
 
         if (firstLine == ZERO) {
 
-            if (strcmp(parsed[0], "id") == ZERO) {
+            if (strstr(parsed[0], "id")) {
                 firstLine = ONE;
             }
 
@@ -3658,7 +3656,7 @@ end:
     return err;
 }
 
-static int find_build(build_entry_t *entry, int size, char *build_id) {
+static int find_build(build_entry_t *entry, int size, int build_id) {
 
     int i;
 
@@ -3667,7 +3665,7 @@ static int find_build(build_entry_t *entry, int size, char *build_id) {
     }
 
     for (i = 0; i < size; i++) {
-        if (!strncmp(entry[i].build_id, build_id, strlen(entry[i].build_id))) {
+        if (entry[i].build_id == build_id) {
             return i;
         }
     }
@@ -3675,7 +3673,7 @@ static int find_build(build_entry_t *entry, int size, char *build_id) {
     return -ONE;
 }
 
-static int find_phase(phase_entry_t *entry, int size, char *phase_id) {
+static int find_phase(phase_entry_t *entry, int size, int phase_id) {
 
     int i;
 
@@ -3684,7 +3682,7 @@ static int find_phase(phase_entry_t *entry, int size, char *phase_id) {
     }
 
     for (i = 0; i < size; i++) {
-        if (!strncmp(entry[i].phase_id, phase_id, strlen(entry[i].phase_id))) {
+        if (entry[i].phase_id == phase_id) {
             return i;
         }
     }
@@ -3692,7 +3690,7 @@ static int find_phase(phase_entry_t *entry, int size, char *phase_id) {
     return -ONE;
 }
 
-static int add_build(build_entry_t **entry, int *size, char *build_id) {
+static int add_build(build_entry_t **entry, int *size, int build_id) {
 
     build_entry_t *tmp = *entry;
     int tmp_num = *size;
@@ -3708,7 +3706,7 @@ static int add_build(build_entry_t **entry, int *size, char *build_id) {
     return tmp_num;
 }
 
-static int add_phase(phase_entry_t **entry, int *size, char *phase_id) {
+static int add_phase(phase_entry_t **entry, int *size, int phase_id) {
 
     phase_entry_t *tmp = *entry;
     int tmp_num = *size;
@@ -3717,8 +3715,8 @@ static int add_phase(phase_entry_t **entry, int *size, char *phase_id) {
     tmp[tmp_num].phase_id = phase_id;
     tmp[tmp_num].team_num = 0;
     tmp[tmp_num].case_num = 0;
-    tmp[tmp_num].test_num = 0;
-    tmp[tmp_num].test_info = NULL;
+    tmp[tmp_num].team_num = 0;
+    tmp[tmp_num].team = NULL;
 
     *entry = tmp;
     *size = tmp_num + 1;
@@ -3734,12 +3732,9 @@ static int find_case(csv_entry_t *case_list, int size, csv_entry_t *csv_entry) {
         return -ONE;
     }
 
+    int case_id = atoi(csv_entry->parsed[csv_type_testCase_id]);
     for (i = 0; i < size; i++) {
-
-        if (!strncmp(case_list[i].parsed[csv_type_testCase_id],
-                csv_entry->parsed[csv_type_testCase_id],
-                strlen(case_list[i].parsed[csv_type_testCase_id]))) {
-
+        if (case_id == atoi(case_list[i].parsed[csv_type_testCase_id])) {
             return i;
         }
     }
@@ -3759,31 +3754,33 @@ static int add_case(csv_entry_t **case_list, int *size, csv_entry_t *csv_entry) 
 static int update_test(phase_entry_t *entry, csv_entry_t *csv_entry) {
 
     int i;
+    int tmp;
 
     if (entry == NULL) {
         return -ONE;
     }
 
-    for (i = 0; i < entry->test_num; i++) {
-        if (!strncmp(entry->test_info[i].team_id, csv_entry->parsed[csv_type_team_id], strlen(entry->test_info[i].team_id))) {
+    tmp = atoi(csv_entry->parsed[csv_type_result]);
+    for (i = 0; i < entry->team_num; i++) {
 
-            int case_index = find_case(entry->test_info[i].case_list, entry->test_info[i].case_num, csv_entry);
+        if (entry->team[i].team_id == atoi(csv_entry->parsed[csv_type_team_id])) {
+
+            int case_index = find_case(entry->team[i].case_list, entry->team[i].case_num, csv_entry);
             if (case_index < ZERO) {
 
-                add_case(&entry->test_info[i].case_list, &entry->test_info[i].case_num, csv_entry);
-
-                if (!strcmp(csv_entry->parsed[csv_type_result], "1")) {
-                    entry->test_info[i].execution_passed++;
-                }
-                if (!strcmp(csv_entry->parsed[csv_type_result], "2")) {
-                    entry->test_info[i].execution_failed++;
+                add_case(&entry->team[i].case_list, &entry->team[i].case_num, csv_entry);
+                if (tmp == 1) {
+                    entry->team[i].execution_passed++;
+                } else if (tmp == 2) {
+                    entry->team[i].execution_failed++;
                 }
             } else {
 
-                if (!strcmp(entry->test_info[i].case_list[case_index].parsed[csv_type_result], "2") &&
-                        !strcmp(csv_entry->parsed[csv_type_result], "1")) {
-                    entry->test_info[i].execution_failed--;
-                    entry->test_info[i].execution_passed++;
+                if (tmp == 1 && atoi(entry->team[i].case_list[case_index].parsed[csv_type_result]) == 2) {
+                    entry->team[i].execution_failed--;
+                    entry->team[i].execution_passed++;
+                    //更新
+                    entry->team[i].case_list[case_index] = *csv_entry;
                 }
             }
 
@@ -3791,24 +3788,24 @@ static int update_test(phase_entry_t *entry, csv_entry_t *csv_entry) {
         }
     }
 
-    entry->test_info = (test_entry_t *)realloc(entry->test_info, (entry->test_num + 1) * sizeof(test_entry_t));
-    entry->test_info[entry->test_num].team_id = csv_entry->parsed[csv_type_team_id];
-    entry->test_info[entry->test_num].execution_passed = 0;
-    entry->test_info[entry->test_num].execution_failed = 0;
-    entry->test_info[entry->test_num].case_num = 0;
-    entry->test_info[entry->test_num].case_list = NULL;
+    entry->team = (team_entry_t *)realloc(entry->team, (entry->team_num + 1) * sizeof(team_entry_t));
+    entry->team[entry->team_num].team_id = atoi(csv_entry->parsed[csv_type_team_id]);
+    entry->team[entry->team_num].execution_passed = 0;
+    entry->team[entry->team_num].execution_failed = 0;
+    entry->team[entry->team_num].case_num = 0;
+    entry->team[entry->team_num].case_list = NULL;
 
     //update
-    add_case(&entry->test_info[entry->test_num].case_list, &entry->test_info[entry->test_num].case_num, csv_entry);
-    if (!strcmp(csv_entry->parsed[csv_type_result], "1")) {
-        entry->test_info[entry->test_num].execution_passed++;
+    add_case(&entry->team[entry->team_num].case_list, &entry->team[entry->team_num].case_num, csv_entry);
+    if (tmp == 1) {
+        entry->team[entry->team_num].execution_passed++;
     }
-    if (!strcmp(csv_entry->parsed[csv_type_result], "2")) {
-        entry->test_info[entry->test_num].execution_failed++;
+    if (tmp == 2) {
+        entry->team[entry->team_num].execution_failed++;
     }
 
     //add
-    entry->test_num++;
+    entry->team_num++;
 
     return ZERO;
 }
@@ -3821,32 +3818,26 @@ static int convertCsvToStruct(csv_entry_t *array, int size, struct_entry_t **out
     struct_entry_t *entry = (struct_entry_t *)malloc(sizeof(struct_entry_t));
     entry->build_num = 0;
     entry->build = NULL;
+    csv_entry_t *array_ptr = array;
+    int array_size = size;
 
-    for (index = 0; index < size; index++) {
+    for (index = 0; index < array_size; index++) {
 
-        build_index = find_build(entry->build, entry->build_num, array[index].parsed[csv_type_build_id]);
+        int build_id_num = atoi(array_ptr[index].parsed[csv_type_build_id]);
+        build_index = find_build(entry->build, entry->build_num, build_id_num);
         if (build_index < ZERO) {
-            build_index = add_build(&entry->build, &entry->build_num, array[index].parsed[csv_type_build_id]);
+            build_index = add_build(&entry->build, &entry->build_num, build_id_num);
         }
 
+        int phase_id_num = atoi(array_ptr[index].parsed[csv_type_phase_id]);
         phase_index = find_phase(entry->build[build_index].phase,
-                entry->build[build_index].phase_num,
-                array[index].parsed[csv_type_phase_id]);
+                entry->build[build_index].phase_num, phase_id_num);
         if (phase_index < ZERO) {
             phase_index = add_phase(&entry->build[build_index].phase,
-                    &entry->build[build_index].phase_num,
-                    array[index].parsed[csv_type_phase_id]);
+                    &entry->build[build_index].phase_num, phase_id_num);
         }
 
-        update_test(&entry->build[build_index].phase[phase_index], &array[index]);
-
-        int i;
-        entry->build[build_index].phase[phase_index].case_num = 0;
-        for (i = 0; i < entry->build[build_index].phase[phase_index].test_num; i++) {
-            entry->build[build_index].phase[phase_index].case_num +=
-                    entry->build[build_index].phase[phase_index].test_info[i].case_num;
-        }
-        entry->build[build_index].phase[phase_index].team_num = entry->build[build_index].phase[phase_index].test_num;
+        update_test(&entry->build[build_index].phase[phase_index], &array_ptr[index]);
     }
 
     *output = entry;
@@ -3858,7 +3849,7 @@ static int convertStructToJson(struct_entry_t *input, cJSON **output) {
 
     int build_num;
     int phase_num;
-    int test_num;
+    int team_num;
     cJSON *json;
     cJSON *build;
     cJSON *phase;
@@ -3885,7 +3876,9 @@ static int convertStructToJson(struct_entry_t *input, cJSON **output) {
         }
         cJSON_AddItemToObject(build, "phase", phase_array);
 
-        cJSON *build_id = cJSON_CreateString(input->build[build_num].build_id);
+        char build_id_str[8];
+        snprintf(build_id_str, sizeof(build_id_str), "%d", input->build[build_num].build_id);
+        cJSON *build_id = cJSON_CreateString(build_id_str);
         if (build_id == NULL)
         {
             goto end;
@@ -3901,20 +3894,28 @@ static int convertStructToJson(struct_entry_t *input, cJSON **output) {
             }
             cJSON_AddItemToArray(phase_array, phase);
 
-            cJSON *phase_id = cJSON_CreateString(input->build[build_num].phase[phase_num].phase_id);
+            char phase_id_str[8];
+            snprintf(phase_id_str, sizeof(phase_id_str), "%d", input->build[build_num].phase[phase_num].phase_id);
+            cJSON *phase_id = cJSON_CreateString(phase_id_str);
             if (build_id == NULL)
             {
                 goto end;
             }
             cJSON_AddItemToObject(phase, "phase_id", phase_id);
 
-            cJSON *team_num = cJSON_CreateNumber(input->build[build_num].phase[phase_num].team_num);
-            if (team_num == NULL)
+            cJSON *j_team_num = cJSON_CreateNumber(input->build[build_num].phase[phase_num].team_num);
+            if (j_team_num == NULL)
             {
                 goto end;
             }
-            cJSON_AddItemToObject(phase, "team_num", team_num);
+            cJSON_AddItemToObject(phase, "team_num", j_team_num);
 
+            int i;
+            input->build[build_num].phase[phase_num].case_num = 0;
+            for (i = 0; i < input->build[build_num].phase[phase_num].team_num; i++) {
+                input->build[build_num].phase[phase_num].case_num +=
+                        input->build[build_num].phase[phase_num].team[i].case_num;
+            }
             cJSON *case_num = cJSON_CreateNumber(input->build[build_num].phase[phase_num].case_num);
             if (case_num == NULL)
             {
@@ -3929,7 +3930,7 @@ static int convertStructToJson(struct_entry_t *input, cJSON **output) {
             }
             cJSON_AddItemToObject(phase, "test_info", test_array);
 
-            for (test_num = 0; test_num < input->build[build_num].phase[phase_num].test_num; ++test_num)
+            for (team_num = 0; team_num < input->build[build_num].phase[phase_num].team_num; ++team_num)
             {
                 test = cJSON_CreateObject();
                 if (test == NULL)
@@ -3938,28 +3939,30 @@ static int convertStructToJson(struct_entry_t *input, cJSON **output) {
                 }
                 cJSON_AddItemToArray(test_array, test);
 
-                cJSON *team_id = cJSON_CreateString(input->build[build_num].phase[phase_num].test_info[test_num].team_id);
+                char team_id_str[8];
+                snprintf(team_id_str, sizeof(team_id_str), "%d", input->build[build_num].phase[phase_num].team[team_num].team_id);
+                cJSON *team_id = cJSON_CreateString(team_id_str);
                 if (team_id == NULL)
                 {
                     goto end;
                 }
                 cJSON_AddItemToObject(test, "team_id", team_id);
 
-                cJSON *case_num = cJSON_CreateNumber(input->build[build_num].phase[phase_num].test_info[test_num].case_num);
+                cJSON *case_num = cJSON_CreateNumber(input->build[build_num].phase[phase_num].team[team_num].case_num);
                 if (case_num == NULL)
                 {
                     goto end;
                 }
                 cJSON_AddItemToObject(test, "case_num", case_num);
 
-                cJSON *execution_passed = cJSON_CreateNumber(input->build[build_num].phase[phase_num].test_info[test_num].execution_passed);
+                cJSON *execution_passed = cJSON_CreateNumber(input->build[build_num].phase[phase_num].team[team_num].execution_passed);
                 if (execution_passed == NULL)
                 {
                     goto end;
                 }
                 cJSON_AddItemToObject(test, "execution_passed", execution_passed);
 
-                cJSON *execution_failed = cJSON_CreateNumber(input->build[build_num].phase[phase_num].test_info[test_num].execution_failed);
+                cJSON *execution_failed = cJSON_CreateNumber(input->build[build_num].phase[phase_num].team[team_num].execution_failed);
                 if (execution_failed == NULL)
                 {
                     goto end;
@@ -3967,10 +3970,10 @@ static int convertStructToJson(struct_entry_t *input, cJSON **output) {
                 cJSON_AddItemToObject(test, "execution_failed", execution_failed);
 
                 char pass_rate_str[8];
-                float pass_rate_num = (float)input->build[build_num].phase[phase_num].test_info[test_num].execution_passed /
-                        input->build[build_num].phase[phase_num].test_info[test_num].case_num * 100;
+                double pass_rate_num = (double)input->build[build_num].phase[phase_num].team[team_num].execution_passed /
+                        input->build[build_num].phase[phase_num].team[team_num].case_num * 100;
 
-                snprintf(pass_rate_str, sizeof(pass_rate_str), "%.0f%%", roundf(pass_rate_num));
+                snprintf(pass_rate_str, sizeof(pass_rate_str), "%.0lf%%", round(pass_rate_num));
                 cJSON *pass_rate = cJSON_CreateString(pass_rate_str);
                 if (pass_rate == NULL)
                 {

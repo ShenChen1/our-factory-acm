@@ -20,7 +20,7 @@ int main(int argc, char **argv)
     int i;
     for (i = 0; i < length; i++)
     {
-        if (i && i % 56 == 0)
+        if (i && i % 24 == 0)
             printf("\n");
 
         printf("0x%02x, ", buf[i]);
