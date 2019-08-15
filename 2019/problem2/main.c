@@ -3501,9 +3501,9 @@ static int update_test(phase_entry_t *entry, const csv_entry_t *csv_entry) {
         return -ONE;
     }
 
-    int result = (csv_entry->parsed[csv_type_result]);
-    int team_id = (csv_entry->parsed[csv_type_team_id]);
-    int case_id = (csv_entry->parsed[csv_type_testCase_id]);
+    int result = csv_entry->parsed[csv_type_result];
+    int team_id = csv_entry->parsed[csv_type_team_id];
+    int case_id = csv_entry->parsed[csv_type_testCase_id];
 
     for (i = 0; i < entry->team_num; i++) {
 
@@ -3536,7 +3536,7 @@ static int update_test(phase_entry_t *entry, const csv_entry_t *csv_entry) {
     }
 
     entry->team = (team_entry_t *)realloc(entry->team, (entry->team_num + 1) * sizeof(team_entry_t));
-    entry->team[entry->team_num].team_id = (csv_entry->parsed[csv_type_team_id]);
+    entry->team[entry->team_num].team_id = csv_entry->parsed[csv_type_team_id];
     entry->team[entry->team_num].execution_passed = 0;
     entry->team[entry->team_num].execution_failed = 0;
     entry->team[entry->team_num].case_num = 0;
@@ -3574,13 +3574,13 @@ static int convertCsvToStruct(csv_entry_t *array, int size, struct_entry_t **out
 
     for (index = 0; index < array_size; index++) {
 
-        int build_id_num = (array_ptr[index].parsed[csv_type_build_id]);
+        int build_id_num = array_ptr[index].parsed[csv_type_build_id];
         build_index = find_build(entry->build, entry->build_num, build_id_num);
         if (build_index < ZERO) {
             build_index = add_build(&entry->build, &entry->build_num, build_id_num);
         }
 
-        int phase_id_num = (array_ptr[index].parsed[csv_type_phase_id]);
+        int phase_id_num = array_ptr[index].parsed[csv_type_phase_id];
         phase_index = find_phase(entry->build[build_index].phase,
                 entry->build[build_index].phase_num, phase_id_num);
         if (phase_index < ZERO) {
