@@ -3275,235 +3275,6 @@ CJSON_PUBLIC(void) cJSON_free(void *object)
 
 ///////////////////////////////////////////////////////////////////////
 
-#define CSV_ERR_LONGLINE 0
-#define CSV_ERR_NO_MEMORY 1
-
-static void freeCsvLine(char **parsed) {
-    char **ptr;
-
-    for (ptr = parsed; *ptr; ptr++) {
-        free(*ptr);
-    }
-
-    free(parsed);
-}
-
-static int countFields(const char *line) {
-    const char *ptr;
-    int cnt;
-    int fQuote;
-
-    for (cnt = 1, fQuote = 0, ptr = line; *ptr; ptr++) {
-        if (fQuote) {
-            if (*ptr == '\"') {
-                if (ptr[1] == '\"') {
-                    ptr++;
-                    continue;
-                }
-                fQuote = 0;
-            }
-            continue;
-        }
-
-        switch (*ptr) {
-        case '\"':
-            fQuote = 1;
-            continue;
-        case ',':
-            cnt++;
-            continue;
-        default:
-            continue;
-        }
-    }
-
-    if (fQuote) {
-        return -1;
-    }
-
-    return cnt;
-}
-
-static char **parseCsv(const char *line) {
-    char **buf;
-    char **bptr;
-    char *tmp;
-    char *tptr;
-    const char *ptr;
-    int fieldcnt;
-    int fQuote;
-    int fEnd;
-
-    fieldcnt = countFields(line);
-
-    if (fieldcnt == -1) {
-        return NULL;
-    }
-
-    buf = (char **) malloc(sizeof(char*) * (fieldcnt + 1));
-
-    if (!buf) {
-        return NULL;
-    }
-
-    tmp = (char *) malloc(strlen(line) + 1);
-    if (!tmp) {
-        free(buf);
-        return NULL;
-    }
-
-    bptr = buf;
-
-    for (ptr = line, fQuote = 0, *tmp = '\0', tptr = tmp, fEnd = 0;; ptr++) {
-        if (fQuote) {
-            if (!*ptr) {
-                break;
-            }
-
-            if (*ptr == '\"') {
-                if (ptr[1] == '\"') {
-                    *tptr++ = '\"';
-                    ptr++;
-                    continue;
-                }
-                fQuote = 0;
-            } else {
-                *tptr++ = *ptr;
-            }
-
-            continue;
-        }
-
-        switch (*ptr) {
-        case '\"':
-            fQuote = 1;
-            continue;
-        case '\0':
-            fEnd = 1;
-        case ',':
-            *tptr = '\0';
-            *bptr = strdup(tmp);
-
-            if (!*bptr) {
-                for (bptr--; bptr >= buf; bptr--) {
-                    free(*bptr);
-                }
-                free(buf);
-                free(tmp);
-
-                return NULL;
-            }
-
-            bptr++;
-            tptr = tmp;
-
-            if (fEnd) {
-                break;
-            } else {
-                continue;
-            }
-
-        default:
-            *tptr++ = *ptr;
-            continue;
-        }
-
-        if (fEnd) {
-            break;
-        }
-    }
-
-    *bptr = NULL;
-    free(tmp);
-    return buf;
-}
-
-#define READ_BLOCK_SIZE 65536
-#define QUICK_GETC( ch, fp )\
-do\
-{\
-    if ( readPtr == readEnd )\
-    {\
-        freadLen = fread( readBuf, sizeof(char), READ_BLOCK_SIZE, fp );\
-        if ( freadLen < READ_BLOCK_SIZE )\
-            readBuf[freadLen] = '\0';\
-        readPtr = readBuf;\
-    }\
-    ch = *readPtr++;\
-}\
-while(0)
-
-static char *freadCsvLine(FILE *fp, int maxLineSize, int *done, int *err) {
-    static FILE *bookmark;
-    static char readBuf[READ_BLOCK_SIZE];
-    static char *readPtr;
-    static char *readEnd;
-    static int freadLen;
-    static int prevMaxLineSize = -1;
-    static char *buf;
-    char *bptr;
-    char *limit;
-    char ch;
-    int fQuote;
-
-    if (maxLineSize > prevMaxLineSize) {
-        if (prevMaxLineSize != -1) {
-            free(buf);
-        }
-        buf = (char *) malloc(maxLineSize + 1);
-        if (!buf) {
-            *err = CSV_ERR_NO_MEMORY;
-            prevMaxLineSize = -1;
-            return NULL;
-        }
-        prevMaxLineSize = maxLineSize;
-    }
-    bptr = buf;
-    limit = buf + maxLineSize;
-
-    if (bookmark != fp) {
-        readPtr = readEnd = readBuf + READ_BLOCK_SIZE;
-        bookmark = fp;
-    }
-
-    for (fQuote = 0;;) {
-        QUICK_GETC(ch, fp);
-
-        if (!ch || (ch == '\n' && !fQuote)) {
-            break;
-        }
-
-        if (bptr >= limit) {
-            free(buf);
-            *err = CSV_ERR_LONGLINE;
-            return NULL;
-        }
-        *bptr++ = ch;
-
-        if (fQuote && ch == '\"') {
-            QUICK_GETC(ch, fp);
-
-            if (ch != '\"') {
-                if (!ch || ch == '\n') {
-                    break;
-                }
-                fQuote = 0;
-            }
-            *bptr++ = ch;
-        }
-
-        if (ch == '\"') {
-            fQuote = 1;
-        }
-    }
-
-    *done = !ch;
-    *bptr = '\0';
-    return strdup(buf);
-}
-
-///////////////////////////////////////////////////////////////////////
-
 //#define DEBUG_CSV
 #define DEBUG_JSON
 
@@ -3530,17 +3301,19 @@ typedef enum {
     csv_type_execution_time,
     csv_type_result,
     csv_type_phase_id,
+    csv_type_max,
 } csv_type_t;
 
 typedef struct {
-    char **parsed;
+    int *parsed;
 } csv_entry_t;
 
 typedef struct {
     int              team_id;
 
     int              case_num;
-    csv_entry_t     *case_list;
+    int             *case_id_list;
+    int             *result_list;
 
     int              execution_passed;
     int              execution_failed;
@@ -3566,28 +3339,12 @@ typedef struct {
     build_entry_t   *build;
 } struct_entry_t;
 
-char *trim(char *str, const char *seps)
-{
-    int i;
-    if (seps == NULL) {
-        seps = "\t\n\v\f\r ";
-    }
-    i = strlen(str) - 1;
-    while (i >= 0 && strchr(seps, str[i]) != NULL) {
-        str[i] = '\0';
-        i--;
-    }
-    return str;
-}
-
 static int readInfoFromCsv(char *file, csv_entry_t **array, int *size) {
-    int err = ZERO;
-    int done = ZERO;
-    char **parsed = NULL;
-    char *strbuf = NULL;
     csv_entry_t *tmpArray = NULL;
     int tmpSize = ZERO;
-    int firstLine = ZERO;
+    char * line = NULL;
+    size_t len = 0;
+    ssize_t read;
 
     FILE *fp = fopen(file, "r");
     if (fp == NULL) {
@@ -3595,68 +3352,50 @@ static int readInfoFromCsv(char *file, csv_entry_t **array, int *size) {
         return -ONE;
     }
 
-    while (ONE) {
-        strbuf = freadCsvLine(fp, FIVE * TEN * 1024 * 1024, &done, &err);
-        if (strbuf == NULL || err != ZERO) {
-            fprintf(stderr, "freadCsvLine err\n");
-            err = -ONE;
-            goto end;
-        }
+    read = getline(&line, &len, fp);
+    while ((read = getline(&line, &len, fp)) != -1) {
+        //2456158,20606,86330,11,2016/4/2 2:18,1,2
+        int *parsed = (int *)malloc(csv_type_max * sizeof(int));
 
-        if (done == ONE) {
-            break;
-        }
+        char *p = line;
+        const char *end = ",";
+        parsed[csv_type_id] = atoi(p);
+        p = strstr(p, end) + 1;
+        parsed[csv_type_testCase_id] = atoi(p);
+        p = strstr(p, end) + 1;
+        parsed[csv_type_build_id] = atoi(p);
+        p = strstr(p, end) + 1;
+        parsed[csv_type_team_id] = atoi(p);
+        p = strstr(p, end) + 1;
+        p = strstr(p, end) + 1;
+        parsed[csv_type_result] = atoi(p);
+        p = strstr(p, end) + 1;
+        parsed[csv_type_phase_id] = atoi(p);
 
-        parsed = parseCsv(strbuf);
-        if (parsed == NULL) {
-            fprintf(stderr, "parseCsv err\n");
-            err = -ONE;
-            goto end;
-        }
-
-        if (firstLine == ZERO) {
-
-            if (strstr(parsed[0], "id")) {
-                firstLine = ONE;
-            }
-
-            free(strbuf);
-            continue;
-        }
-
-        int i = ZERO;
-        while (parsed[i]) {
-            trim(parsed[i], NULL);
 #ifdef DEBUG_CSV
-            printf("[%d]:%s\n", i, parsed[i]);
-#endif
-            i++;
+        int i;
+        for (i = 0; i < csv_type_max; i++) {
+            printf("[%d]:%d\n", i, parsed[i]);
         }
+#endif
 
         tmpArray = (csv_entry_t *) realloc(tmpArray,
                 sizeof(csv_entry_t) * (tmpSize + ONE));
-        if (tmpArray == NULL) {
-            fprintf(stderr, "realloc err\n");
-            err = -ONE;
-            goto end;
-        }
-
         tmpArray[tmpSize].parsed = parsed;
         tmpSize++;
-
-        free(strbuf);
     }
+
+    if (line)
+        free(line);
 
     *array = tmpArray;
     *size = tmpSize;
 
-end:
-    free(strbuf);
     fclose(fp);
-    return err;
+    return ZERO;
 }
 
-static int find_build(build_entry_t *entry, int size, int build_id) {
+static int find_build(const build_entry_t *entry, int size, int build_id) {
 
     int i;
 
@@ -3673,7 +3412,7 @@ static int find_build(build_entry_t *entry, int size, int build_id) {
     return -ONE;
 }
 
-static int find_phase(phase_entry_t *entry, int size, int phase_id) {
+static int find_phase(const phase_entry_t *entry, int size, int phase_id) {
 
     int i;
 
@@ -3724,17 +3463,16 @@ static int add_phase(phase_entry_t **entry, int *size, int phase_id) {
     return tmp_num;
 }
 
-static int find_case(csv_entry_t *case_list, int size, csv_entry_t *csv_entry) {
+static int find_case(const int *case_id_list, int size, int case_id) {
 
     int i;
 
-    if (case_list == NULL || size == 0) {
+    if (case_id_list == NULL || size == 0) {
         return -ONE;
     }
 
-    int case_id = atoi(csv_entry->parsed[csv_type_testCase_id]);
     for (i = 0; i < size; i++) {
-        if (case_id == atoi(case_list[i].parsed[csv_type_testCase_id])) {
+        if (case_id == case_id_list[i]) {
             return i;
         }
     }
@@ -3742,45 +3480,54 @@ static int find_case(csv_entry_t *case_list, int size, csv_entry_t *csv_entry) {
     return -ONE;
 }
 
-static int add_case(csv_entry_t **case_list, int *size, csv_entry_t *csv_entry) {
+static int add_case(int **case_id_list, int **result_list, int *size, int case_id, int result) {
 
-    *case_list = (csv_entry_t *)realloc(*case_list, (*size + 1) * sizeof(csv_entry_t));
-    (*case_list)[*size] = *csv_entry;
+    *case_id_list = (int *)realloc(*case_id_list, (*size + 1) * sizeof(int));
+    (*case_id_list)[*size] = case_id;
+
+    *result_list = (int *)realloc(*result_list, (*size + 1) * sizeof(int));
+    (*result_list)[*size] = result;
+
     *size = *size + 1;
 
     return (*size) - 1;
 }
 
-static int update_test(phase_entry_t *entry, csv_entry_t *csv_entry) {
+static int update_test(phase_entry_t *entry, const csv_entry_t *csv_entry) {
 
     int i;
-    int tmp;
 
     if (entry == NULL) {
         return -ONE;
     }
 
-    tmp = atoi(csv_entry->parsed[csv_type_result]);
+    int result = (csv_entry->parsed[csv_type_result]);
+    int team_id = (csv_entry->parsed[csv_type_team_id]);
+    int case_id = (csv_entry->parsed[csv_type_testCase_id]);
+
     for (i = 0; i < entry->team_num; i++) {
 
-        if (entry->team[i].team_id == atoi(csv_entry->parsed[csv_type_team_id])) {
+        if (entry->team[i].team_id == team_id) {
 
-            int case_index = find_case(entry->team[i].case_list, entry->team[i].case_num, csv_entry);
+            int case_index = find_case(entry->team[i].case_id_list, entry->team[i].case_num, case_id);
             if (case_index < ZERO) {
 
-                add_case(&entry->team[i].case_list, &entry->team[i].case_num, csv_entry);
-                if (tmp == 1) {
+                add_case(&entry->team[i].case_id_list,
+                        &entry->team[i].result_list,
+                        &entry->team[i].case_num,
+                        case_id, result);
+                if (result == 1) {
                     entry->team[i].execution_passed++;
-                } else if (tmp == 2) {
+                } else if (result == 2) {
                     entry->team[i].execution_failed++;
                 }
             } else {
 
-                if (tmp == 1 && atoi(entry->team[i].case_list[case_index].parsed[csv_type_result]) == 2) {
+                if (result == 1 && entry->team[i].result_list[case_index] == 2) {
                     entry->team[i].execution_failed--;
                     entry->team[i].execution_passed++;
                     //更新
-                    entry->team[i].case_list[case_index] = *csv_entry;
+                    entry->team[i].result_list[case_index] = result;
                 }
             }
 
@@ -3789,18 +3536,22 @@ static int update_test(phase_entry_t *entry, csv_entry_t *csv_entry) {
     }
 
     entry->team = (team_entry_t *)realloc(entry->team, (entry->team_num + 1) * sizeof(team_entry_t));
-    entry->team[entry->team_num].team_id = atoi(csv_entry->parsed[csv_type_team_id]);
+    entry->team[entry->team_num].team_id = (csv_entry->parsed[csv_type_team_id]);
     entry->team[entry->team_num].execution_passed = 0;
     entry->team[entry->team_num].execution_failed = 0;
     entry->team[entry->team_num].case_num = 0;
-    entry->team[entry->team_num].case_list = NULL;
+    entry->team[entry->team_num].case_id_list = NULL;
+    entry->team[entry->team_num].result_list = NULL;
 
     //update
-    add_case(&entry->team[entry->team_num].case_list, &entry->team[entry->team_num].case_num, csv_entry);
-    if (tmp == 1) {
+    add_case(&entry->team[entry->team_num].case_id_list,
+            &entry->team[entry->team_num].result_list,
+            &entry->team[entry->team_num].case_num,
+            case_id, result);
+    if (result == 1) {
         entry->team[entry->team_num].execution_passed++;
     }
-    if (tmp == 2) {
+    if (result == 2) {
         entry->team[entry->team_num].execution_failed++;
     }
 
@@ -3823,13 +3574,13 @@ static int convertCsvToStruct(csv_entry_t *array, int size, struct_entry_t **out
 
     for (index = 0; index < array_size; index++) {
 
-        int build_id_num = atoi(array_ptr[index].parsed[csv_type_build_id]);
+        int build_id_num = (array_ptr[index].parsed[csv_type_build_id]);
         build_index = find_build(entry->build, entry->build_num, build_id_num);
         if (build_index < ZERO) {
             build_index = add_build(&entry->build, &entry->build_num, build_id_num);
         }
 
-        int phase_id_num = atoi(array_ptr[index].parsed[csv_type_phase_id]);
+        int phase_id_num = (array_ptr[index].parsed[csv_type_phase_id]);
         phase_index = find_phase(entry->build[build_index].phase,
                 entry->build[build_index].phase_num, phase_id_num);
         if (phase_index < ZERO) {
@@ -3992,7 +3743,7 @@ end:
     return -ONE;
 }
 
-static int writeInfoToJson(cJSON *result) {
+static int writeInfoToJson(char *path, cJSON *result) {
 
     char *string = cJSON_Print(result);
     if (string == NULL) {
@@ -4001,6 +3752,7 @@ static int writeInfoToJson(cJSON *result) {
     }
 
     fprintf(stdout, "%s", string);
+
     cJSON_Delete(result);
 
     return ZERO;
@@ -4030,7 +3782,7 @@ int main(int argc, char **argv) {
         goto end;
     }
 
-    ret = writeInfoToJson(json);
+    ret = writeInfoToJson(argv[ONE], json);
     if (ret != ZERO) {
         goto end;
     }
@@ -4038,7 +3790,7 @@ int main(int argc, char **argv) {
 end:
     for (i = ZERO; i < csvSize; i++) {
         if (csvArray[i].parsed) {
-            freeCsvLine(csvArray[i].parsed);
+            free(csvArray[i].parsed);
         }
     }
 
