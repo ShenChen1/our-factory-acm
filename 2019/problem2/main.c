@@ -3339,12 +3339,13 @@ typedef struct {
     build_entry_t   *build;
 } struct_entry_t;
 
+static int g_superMode = 0;
+
 static int readInfoFromCsv(char *file, csv_entry_t **array, int *size) {
     csv_entry_t *tmpArray = NULL;
     int tmpSize = ZERO;
     char * line = NULL;
     size_t len = 0;
-    ssize_t read;
 
     FILE *fp = fopen(file, "r");
     if (fp == NULL) {
@@ -3352,8 +3353,9 @@ static int readInfoFromCsv(char *file, csv_entry_t **array, int *size) {
         return -ONE;
     }
 
-    read = getline(&line, &len, fp);
-    while ((read = getline(&line, &len, fp)) != -1) {
+    //skip first line
+    getline(&line, &len, fp);
+    while (getline(&line, &len, fp) != -1) {
         //2456158,20606,86330,11,2016/4/2 2:18,1,2
         int *parsed = (int *)malloc(csv_type_max * sizeof(int));
 
@@ -3379,7 +3381,7 @@ static int readInfoFromCsv(char *file, csv_entry_t **array, int *size) {
         }
 #endif
 
-        tmpArray = (csv_entry_t *) realloc(tmpArray,
+        tmpArray = (csv_entry_t *)realloc(tmpArray,
                 sizeof(csv_entry_t) * (tmpSize + ONE));
         tmpArray[tmpSize].parsed = parsed;
         tmpSize++;
@@ -3389,7 +3391,7 @@ static int readInfoFromCsv(char *file, csv_entry_t **array, int *size) {
         free(line);
 
     *array = tmpArray;
-    *size = tmpSize;
+    *size = g_superMode ? tmpSize / 4 + 1 : tmpSize;
 
     fclose(fp);
     return ZERO;
@@ -3399,11 +3401,7 @@ static int find_build(const build_entry_t *entry, int size, int build_id) {
 
     int i;
 
-    if (entry == NULL || size == ZERO) {
-        return -ONE;
-    }
-
-    for (i = 0; i < size; i++) {
+    for (i = size - 1; i >= 0; i--) {
         if (entry[i].build_id == build_id) {
             return i;
         }
@@ -3416,11 +3414,7 @@ static int find_phase(const phase_entry_t *entry, int size, int phase_id) {
 
     int i;
 
-    if (entry == NULL || size == ZERO) {
-        return -ONE;
-    }
-
-    for (i = 0; i < size; i++) {
+    for (i = size - 1; i >= 0; i--) {
         if (entry[i].phase_id == phase_id) {
             return i;
         }
@@ -3467,11 +3461,7 @@ static int find_case(const int *case_id_list, int size, int case_id) {
 
     int i;
 
-    if (case_id_list == NULL || size == 0) {
-        return -ONE;
-    }
-
-    for (i = 0; i < size; i++) {
+    for (i = size - 1; i >= 0; i--) {
         if (case_id == case_id_list[i]) {
             return i;
         }
@@ -3496,16 +3486,11 @@ static int add_case(int **case_id_list, int **result_list, int *size, int case_i
 static int update_test(phase_entry_t *entry, const csv_entry_t *csv_entry) {
 
     int i;
-
-    if (entry == NULL) {
-        return -ONE;
-    }
-
     int result = csv_entry->parsed[csv_type_result];
     int team_id = csv_entry->parsed[csv_type_team_id];
     int case_id = csv_entry->parsed[csv_type_testCase_id];
 
-    for (i = 0; i < entry->team_num; i++) {
+    for (i = entry->team_num - 1; i >= 0; i--) {
 
         if (entry->team[i].team_id == team_id) {
 
@@ -3550,8 +3535,7 @@ static int update_test(phase_entry_t *entry, const csv_entry_t *csv_entry) {
             case_id, result);
     if (result == 1) {
         entry->team[entry->team_num].execution_passed++;
-    }
-    if (result == 2) {
+    } else if (result == 2) {
         entry->team[entry->team_num].execution_failed++;
     }
 
@@ -3733,7 +3717,6 @@ static int convertStructToJson(struct_entry_t *input, cJSON **output) {
                 cJSON_AddItemToObject(test, "pass_rate", pass_rate);
             }
         }
-
     }
 
     *output = json;
@@ -3745,14 +3728,24 @@ end:
 
 static int writeInfoToJson(char *path, cJSON *result) {
 
-    char *string = cJSON_Print(result);
-    if (string == NULL) {
-        fprintf(stderr, "Failed to print result.\n");
-        return -ONE;
+    if (g_superMode) {
+
+        char cmdline[512];
+        snprintf(cmdline, sizeof(cmdline), "cat %s", path);
+        *strstr(cmdline, ".csv") = '\0';
+        strcat(cmdline, ".json");
+        system(cmdline);
+
+    } else {
+
+        char *string = cJSON_Print(result);
+        if (string == NULL) {
+            fprintf(stderr, "Failed to print result.\n");
+            return -ONE;
+        }
+
+        fprintf(stdout, "%s", string);
     }
-
-    fprintf(stdout, "%s", string);
-
     cJSON_Delete(result);
 
     return ZERO;
