@@ -1,0 +1,23 @@
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.tests.cpp:10:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.cpp:1:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+hiker.cpp: In function 'int count_right_numbers(std::__cxx11::string)':
+hiker.cpp:24:24: error: invalid conversion from 'const char*' to 'char*' [-fpermissive]
+         f(n, 0, s.c_str(), s.length(), 0);
+                 ~~~~~~~^~
+hiker.cpp:4:27: note:   initializing argument 3 of 'int f(int, int, char*, int, int)'
+ int f(int a, int i, char *o, int l, int s)
+                     ~~~~~~^
+hiker.cpp: In function 'int f(int, int, char*, int, int)':
+hiker.cpp:19:6: warning: control reaches end of non-void function [-Wreturn-type]
+     f(m, i + 1, o, l, s);
+     ~^~~~~~~~~~~~~~~~~~~
+make: *** [makefile:15: test] Error 1

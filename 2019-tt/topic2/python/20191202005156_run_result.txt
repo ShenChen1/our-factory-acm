@@ -1,0 +1,25 @@
+test case 0 passed! cost time: 21.364212036132812ms
+test case 1 passed! cost time: 19.23513412475586ms
+test case 2 passed! cost time: 19.469499588012695ms
+test case 3 passed! cost time: 19.097566604614258ms
+test case 4 passed! cost time: 19.278287887573242ms
+test case 5 passed! cost time: 18.833637237548828ms
+test case 6 passed! cost time: 18.870830535888672ms
+test case 7 passed! cost time: 19.24300193786621ms
+test case 8 passed! cost time: 19.795656204223633ms
+test case 9 passed! cost time: 19.214391708374023ms
+test case 10 passed! cost time: 18.828630447387695ms
+test case 11 passed! cost time: 18.779993057250977ms
+test case 12 passed! cost time: 18.762588500976562ms
+test case 13 passed! cost time: 18.758773803710938ms
+test case 14 passed! cost time: 18.81718635559082ms
+test case 15 passed! cost time: 19.88530158996582ms
+test case 16 passed! cost time: 19.11020278930664ms
+test case 17 passed! cost time: 19.021034240722656ms
+test case 18 passed! cost time: 19.064903259277344ms
+test case 19 passed! cost time: 19.57392692565918ms
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.388s
+
+OK

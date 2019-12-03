@@ -1,0 +1,46 @@
+test case 0 failed! cost time: 0.004ms
+test case 1 failed! cost time: 0.004ms
+test case 2 failed! cost time: 0.003ms
+test case 3 failed! cost time: 0.003ms
+test case 4 failed! cost time: 0.003ms
+test case 5 failed! cost time: 0.003ms
+test case 6 failed! cost time: 0.004ms
+test case 7 failed! cost time: 0.003ms
+test case 8 failed! cost time: 0.003ms
+test case 9 failed! cost time: 0.003ms
+test case 10 failed! cost time: 0.004ms
+test case 11 failed! cost time: 0.004ms
+test case 12 failed! cost time: 0.004ms
+test case 13 failed! cost time: 0.003ms
+test case 14 failed! cost time: 0.003ms
+test case 15 failed! cost time: 0.004ms
+test case 16 failed! cost time: 0.004ms
+test case 17 failed! cost time: 0.006ms
+test case 18 failed! cost time: 0.003ms
+test case 19 failed! cost time: 0.004ms
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.tests.cpp:10:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.cpp:1:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+hiker.cpp: In function 'int count_right_numbers(std::__cxx11::string)':
+hiker.cpp:10:32: warning: unused parameter 'input_number' [-Wunused-parameter]
+ int count_right_numbers(string input_number) {
+                         ~~~~~~~^~~~~~~~~~~~
+------------------------------------------------------------------------------
+                           GCC Code Coverage Report
+Directory: .
+------------------------------------------------------------------------------
+File                                       Lines    Exec  Cover   Missing
+------------------------------------------------------------------------------
+hiker.cpp                                      2       2   100%   
+hiker.tests.cpp                               26      23    88%   41,45,48
+------------------------------------------------------------------------------
+TOTAL                                         28      25    89%
+------------------------------------------------------------------------------

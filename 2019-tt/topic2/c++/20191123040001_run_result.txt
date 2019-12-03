@@ -1,0 +1,16 @@
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.tests.cpp:10:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.cpp:1:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+/tmp/ccLVTKi4.o: In function `main':
+hiker.cpp:(.text+0x26): multiple definition of `main'
+/tmp/ccCnkQML.o:hiker.tests.cpp:(.text+0x1604): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [makefile:15: test] Error 1

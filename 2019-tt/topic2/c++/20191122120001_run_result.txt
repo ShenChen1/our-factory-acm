@@ -1,0 +1,22 @@
+test case 0 failed! cost time: 0.004ms
+test case 1 failed! cost time: 0.004ms
+test case 2 failed! cost time: 0.006ms
+test case 3 failed! cost time: 0.007ms
+test case 4 failed! cost time: 0.012ms
+test case 5 failed! cost time: 49.201ms
+test case 6 failed! cost time: 10.796ms
+test case 7 failed! cost time: 22306.5ms
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.tests.cpp:10:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.cpp:1:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+make: *** wait: No child processes.  Stop.
+make: *** Waiting for unfinished jobs....
+make: *** wait: No child processes.  Stop.

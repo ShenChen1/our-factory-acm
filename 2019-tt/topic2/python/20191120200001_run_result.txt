@@ -1,0 +1,8 @@
+test case 0 failed! cost time: 0.00011491775512695312ms
+test case 1 failed! cost time: 8.273124694824219e-05ms
+test case 2 failed! cost time: 0.0004878044128417969ms
+test case 3 failed! cost time: 0.0010867118835449219ms
+test case 4 failed! cost time: 0.0025680065155029297ms
+test case 5 failed! cost time: 17.790656805038452ms
+test case 6 failed! cost time: 3.5909481048583984ms
+cyber-dojo.sh: line 2:     8 Killed                  coverage3 run -m unittest *test*.py

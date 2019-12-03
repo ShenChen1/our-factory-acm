@@ -1,0 +1,117 @@
+test case 0 passed! cost time: 0.1049041748046875ms
+test case 1 passed! cost time: 0.059604644775390625ms
+test case 2 passed! cost time: 0.27179718017578125ms
+test case 3 passed! cost time: 0.5538463592529297ms
+test case 4 passed! cost time: 1.3666152954101562ms
+test case 5 passed! cost time: 8874.123096466064ms
+test case 6 passed! cost time: 1863.7323379516602ms
+F
+======================================================================
+FAIL: test_mr_right_number_case_0 (test_hiker.TestHiker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/language_path/test_hiker.py", line 71, in test_mr_right_number_case_0
+    if self.run_cases(case_id)>60*1000:
+  File "/usr/local/lib/python3.6/site-packages/timeout_decorator/timeout_decorator.py", line 81, in new_function
+    return function(*args, **kwargs)
+  File "/root/language_path/test_hiker.py", line 59, in run_cases
+    output = hiker.count_right_numbers(input)
+  File "/root/language_path/hiker.py", line 25, in count_right_numbers
+    f(n, 0, 0)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  [Previous line repeated 1 more time]
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  [Previous line repeated 3 more times]
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  [Previous line repeated 2 more times]
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 22, in f
+    f(m, j, s)
+  File "/root/language_path/hiker.py", line 21, in f
+    f(m + 1, j, s)
+  File "/root/language_path/hiker.py", line 9, in f
+    if a == o[i]:
+  File "/usr/local/lib/python3.6/site-packages/timeout_decorator/timeout_decorator.py", line 72, in handler
+    _raise_exception(timeout_exception, exception_message)
+  File "/usr/local/lib/python3.6/site-packages/timeout_decorator/timeout_decorator.py", line 45, in _raise_exception
+    raise exception()
+timeout_decorator.timeout_decorator.TimeoutError: 'Timed Out'
+
+----------------------------------------------------------------------
+Ran 1 test in 70.742s
+
+FAILED (failures=1)

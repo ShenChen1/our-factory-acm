@@ -1,0 +1,12 @@
+hiker.cpp:10:5: error: ambiguating new declaration of 'int count_right_numbers(std::__cxx11::string)'
+ int count_right_numbers(string input_number) {
+     ^~~~~~~~~~~~~~~~~~~
+In file included from hiker.cpp:1:
+hiker.hpp:9:6: note: old declaration 'long int count_right_numbers(std::__cxx11::string)'
+ long count_right_numbers(string input_number);
+      ^~~~~~~~~~~~~~~~~~~
+hiker.cpp: In function 'int count_right_numbers(std::__cxx11::string)':
+hiker.cpp:10:32: warning: unused parameter 'input_number' [-Wunused-parameter]
+ int count_right_numbers(string input_number) {
+                         ~~~~~~~^~~~~~~~~~~~
+make: *** [makefile:15: test] Error 1

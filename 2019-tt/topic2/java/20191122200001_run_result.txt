@@ -1,0 +1,26 @@
+test case 0 failed! cost time: 1ms
+test case 1 failed! cost time: 0ms
+test case 2 failed! cost time: 0ms
+test case 3 failed! cost time: 0ms
+test case 4 failed! cost time: 0ms
+test case 5 failed! cost time: 0ms
+test case 6 failed! cost time: 0ms
+test case 7 failed! cost time: 0ms
+test case 8 failed! cost time: 0ms
+test case 9 failed! cost time: 0ms
+test case 10 failed! cost time: 0ms
+test case 11 failed! cost time: 0ms
+test case 12 failed! cost time: 0ms
+test case 13 failed! cost time: 0ms
+test case 14 failed! cost time: 0ms
+test case 15 failed! cost time: 0ms
+test case 16 failed! cost time: 0ms
+test case 17 failed! cost time: 0ms
+test case 18 failed! cost time: 0ms
+test case 19 failed! cost time: 0ms
+JUnit version 4.10
+.
+Time: 0.007
+
+OK (1 test)
+

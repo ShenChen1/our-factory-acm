@@ -1,0 +1,62 @@
+test case 0 failed! cost time: 0.012ms
+test case 1 failed! cost time: 0.004ms
+test case 2 failed! cost time: 0.003ms
+test case 3 failed! cost time: 0.003ms
+test case 4 failed! cost time: 0.003ms
+test case 5 failed! cost time: 0.004ms
+test case 6 failed! cost time: 0.004ms
+test case 7 failed! cost time: 0.004ms
+test case 8 failed! cost time: 0.004ms
+test case 9 failed! cost time: 0.003ms
+test case 10 failed! cost time: 0.004ms
+test case 11 failed! cost time: 0.003ms
+test case 12 failed! cost time: 0.003ms
+test case 13 failed! cost time: 0.003ms
+test case 14 failed! cost time: 0.004ms
+test case 15 failed! cost time: 0.003ms
+test case 16 failed! cost time: 0.004ms
+test case 17 failed! cost time: 0.004ms
+test case 18 failed! cost time: 0.003ms
+test case 19 failed! cost time: 0.006ms
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.tests.cpp:10:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+In file included from hiker.cpp:1:
+hiker.hpp:7: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable: 4996)
+ 
+08
+22
+2324235
+1234567890
+13899998888
+4258494462491315451490318539957193
+24315395935874608980887533134
+3413579739530153581053013105838381920123337132144
+23232323232323232323232323232323232323232323232323232323232323232323232323232323232323
+012101232101234543212345678987654321234567898765456789
+870325644158315931953195315831935310531305315032
+590193105310981503193150915938538159355034822384
+84254584532954859345824585958234455834952859234
+578096321570065578655885897644268900644689642133
+787435679908765425890875445677788889087543213509
+013869117062456787532987678864357908431367
+349568208472199649389532196632196421497656434546
+34956820847219964938953219663219642149765643454631530150391593105015939153910531935915915854919582
+3495682084721996493895321966321964214976564345463153015039159310501593915391053193591591585491958298
+8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888898767
+------------------------------------------------------------------------------
+                           GCC Code Coverage Report
+Directory: .
+------------------------------------------------------------------------------
+File                                       Lines    Exec  Cover   Missing
+------------------------------------------------------------------------------
+hiker.cpp                                      3       3   100%   
+hiker.tests.cpp                               26      23    88%   41,45,48
+------------------------------------------------------------------------------
+TOTAL                                         29      26    89%
+------------------------------------------------------------------------------
